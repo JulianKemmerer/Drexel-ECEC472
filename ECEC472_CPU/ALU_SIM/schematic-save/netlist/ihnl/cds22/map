@@ -1,0 +1,25 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+ )
+( net
+( "[@gnd:%:gnd!]" "inh_gnd" )
+( "[@vdd:%:vdd!]" "inh_vdd" )
+ )
+( inst
+ )
+( model
+( "OR3_B" "OR3_B" )
+( "SUB_1bit" "SUB_1bit" )
+( "INVERT_A" "INVERT_A" )
+( "XOR3_B" "XOR3_B" )
+( "AND2_B" "AND2_B" )
+ )
+( term
+ )
+( param
+ )
+ )

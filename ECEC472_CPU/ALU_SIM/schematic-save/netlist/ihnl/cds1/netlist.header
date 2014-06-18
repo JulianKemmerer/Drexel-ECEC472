@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: MUX21BAL_J
+// View name: schematic
+subckt MUX21BAL_J D0 D1 SD Z inh_gnd inh_vdd

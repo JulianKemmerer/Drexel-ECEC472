@@ -1,0 +1,22 @@
+;----------------------------------------------------------------------------
+; @(#)$CDS: assura version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/14 12:52 (sjfdl030) $
+; sub-version 4.1_USR4_HF6
+;----------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------
+; avParameter Section
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avParameters(
+  ?inputLayout ( "df2" "Julian_Shifts_And_Mux" )
+  ?cellName "SRA"
+  ?viewName "layout"
+  ?runName "SRA_DRC"
+  ?workingDirectory "./SRA_DRC"
+  ?technology "av7rfDRC"
+  ?techLib "./assura_tech.lib"
+  ?set ("C4_4on8")
+  ?avrpt t
+)

@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital
+// Cell name: OR3_B
+// View name: schematic
+subckt OR3_B A B C Z inh_gnd inh_vdd

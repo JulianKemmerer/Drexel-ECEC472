@@ -1,0 +1,26 @@
+    TNA (net22 A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (net22 C inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net22 B inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ (Z net22 inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (net22 A net474 inh_vdd) pfet l=180.0n w=860.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.46u ps=2.46u nrd=0.325 nrs=0.325 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPB (net474 B net2063 inh_vdd) pfet l=180.0n w=860.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.46u ps=2.46u nrd=0.325 nrs=0.325 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPC (net2063 C inh_vdd inh_vdd) pfet l=180.0n w=920.0n nf=1 m=1 par=1 \
+        ad=3.7e-13 as=3.7e-13 pd=2.58u ps=2.58u nrd=0.3023 nrs=0.3023 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (Z net22 inh_vdd inh_vdd) pfet l=180.0n w=480.0n nf=1 m=1 par=1 \
+        ad=1.8e-13 as=1.8e-13 pd=1.7u ps=1.7u nrd=0.619 nrs=0.619 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends OR3_B
+// End of subcircuit definition.

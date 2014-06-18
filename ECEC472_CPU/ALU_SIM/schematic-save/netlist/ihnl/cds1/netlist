@@ -1,0 +1,68 @@
+    TNSD (net78 SD inh_gnd inh_gnd) nfet l=180.0n w=1.32u nf=1 m=1 par=1 \
+        ad=5.4e-13 as=5.4e-13 pd=3.38u ps=3.38u nrd=0.2063 nrs=0.2063 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNDLY1 (net45 net78 inh_gnd inh_gnd) nfet l=180.0n w=1.44u nf=1 m=1 \
+        par=1 ad=5.9e-13 as=5.9e-13 pd=3.62u ps=3.62u nrd=0.1884 \
+        nrs=0.1884 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0 (net39 D0 inh_gnd inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0NOT (net36 net6 net39 inh_gnd) nfet l=180.0n w=1.76u nf=1 m=1 \
+        par=1 ad=7.3e-13 as=7.3e-13 pd=4.26u ps=4.26u nrd=0.1529 \
+        nrs=0.1529 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1 (net33 D1 inh_gnd inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ1 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ2 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1NOT (net36 net45 net33 inh_gnd) nfet l=180.0n w=1.56u nf=1 m=1 \
+        par=1 ad=6.5e-13 as=6.5e-13 pd=3.86u ps=3.86u nrd=0.1733 \
+        nrs=0.1733 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSDT (net6 SD net78 inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ3 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ4 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPSD (net78 SD inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPDLY1 (net45 net78 inh_vdd inh_vdd) pfet l=180.0n w=1.44u nf=1 m=1 \
+        par=1 ad=5.9e-13 as=5.9e-13 pd=3.62u ps=3.62u nrd=0.1884 \
+        nrs=0.1884 gcon=1 rf=0 rsx=50 dtemp=0
+    TPD0 (net39 D0 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD0NOT (net36 net45 net39 inh_vdd) pfet l=180.0n w=1.9u nf=1 m=1 \
+        par=1 ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 \
+        nrs=0.1413 gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1 (net33 D1 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ1 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1NOT (net36 net6 net33 inh_vdd) pfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPSDT (net6 SD net78 inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ2 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ3 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ4 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends MUX21BAL_J
+// End of subcircuit definition.

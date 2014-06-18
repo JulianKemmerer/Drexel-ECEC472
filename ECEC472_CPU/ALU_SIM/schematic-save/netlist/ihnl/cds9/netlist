@@ -1,0 +1,10 @@
+    I39 (Data0\<6\> Data1\<6\> OUT\<6\> inh_gnd inh_vdd) AND2_B
+    I35 (Data0\<1\> Data1\<1\> OUT\<1\> inh_gnd inh_vdd) AND2_B
+    I36 (Data0\<2\> Data1\<2\> OUT\<2\> inh_gnd inh_vdd) AND2_B
+    I41 (Data0\<4\> Data1\<4\> OUT\<4\> inh_gnd inh_vdd) AND2_B
+    I37 (Data0\<3\> Data1\<3\> OUT\<3\> inh_gnd inh_vdd) AND2_B
+    I40 (Data0\<5\> Data1\<5\> OUT\<5\> inh_gnd inh_vdd) AND2_B
+    I38 (Data0\<7\> Data1\<7\> OUT\<7\> inh_gnd inh_vdd) AND2_B
+    I34 (Data0\<0\> Data1\<0\> OUT\<0\> inh_gnd inh_vdd) AND2_B
+ends AND
+// End of subcircuit definition.

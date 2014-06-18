@@ -1,0 +1,5 @@
+    I1 (IN4 IN5 IN6 IN7 SEL\<0\> SEL\<1\> net14 inh_gnd inh_vdd) MUX41_F
+    I0 (IN0 IN1 IN2 IN3 SEL\<0\> SEL\<1\> net12 inh_gnd inh_vdd) MUX41_F
+    I2 (net12 net14 SEL\<2\> OUT inh_gnd inh_vdd) MUX21BAL_J
+ends Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+// End of subcircuit definition.

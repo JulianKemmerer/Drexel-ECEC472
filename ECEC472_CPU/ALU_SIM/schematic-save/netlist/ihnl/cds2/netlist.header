@@ -1,0 +1,6 @@
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: 8_To_1_Mux
+// View name: schematic
+subckt Julian_Shifts_And_Mux_8_To_1_Mux_schematic IN0 IN1 IN2 IN3 IN4 IN5 \
+        IN6 IN7 OUT SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd

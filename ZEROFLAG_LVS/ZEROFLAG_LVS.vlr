@@ -1,0 +1,660 @@
+
+
+;----------------------------------------------------------------------------
+; vldb RSF file
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+; Path, Component, Release: cmrf7sf/rel/Assura/LVS/deviceInfo.rul, assuraLVS, cad_cmrf7sf
+; CMVC Revision: 1.60 12/10/16 04:03:33
+;
+; 08112004 jmp cmvc 12227 add hvtfets.
+; 08112004 jmp cmvc 12731 add divpnp.
+; 24112004 jmp cmvc 12209 sblkpdres node list corrected.
+; 26112004 pr  cmvc 12851 Support for symInductor (added symind/symindx and symindp/symindpx devices).
+; 15122004 jmp cmvc 12572 update resistor term order to D S G
+; 22062005 jmp cmvc 13657 Add 3.3V ZVT Thick ox NFET device.
+; 22062005 jmp cmvc 13387 Include IBM corp Copyright in LVS files.
+; 09112005 pr  cmvc 14174 Add Vncap procedure.
+; 09112005 pr  cmvc 13657 Verification zvtnfet33/x devices statements.  
+; 09112005 pr  cmvc 14118 Add Mimhk procedure.
+; 09112005 pr  cmvc 14111 Verification singlewire and coupledwires devices statements.
+; 01122005 pr  cmvc 14174 Update for vncap device (Terminals name changed).
+; 06122005 pr  cmvc 14118 Update for mimhk devices section mapped statement.
+; post V1.4.0.0
+; 21112006 jmp cmvc 15002 Add diffmosvar devices.
+; 21112006 jmp cmvc 14992 Add mimhd devices.
+; 21112006 jmp cmvc 15046 Symind enhancement
+; 24112006 pr  cmvc 15314 Junction parasitic diodes extraction netlist updated. 
+; 29112006 pr  cmvc 15352 LVS problem:Backplate is not compared for mim/dualmim devices.
+; 04012007 cg  cmvc 15106 Added e1res, mares, mlres as lvsres.
+; 15012007 bj  cmvc 15439 Added "par" parameter for the fet devices.
+; 15022007 bj  cmvc 15460 Added devices nfet50, nfet50tw pfet50.
+; 18062007 cg  cmvc 15914 Add new esd devices (esdndpi/esdpnpi). 
+; Post V1.4.1.0
+; 08082007 jmp cmvc 16172 psp model support for fets.
+; 12092007 bj  cmvc 16156 Added PCAP devices
+; 14092007 bj  cmvc 16301 Added mosvar50
+; 14092007 bj  cmvc 15995 Added "par" parameter for res, vncap and mim devices
+; 07102007 bj  cmvc 15995 Added par for sbd device
+; V1600
+; 08092008 jmp cmvc 16082 support 6 terminal lvs.
+; 15092008 MO  cmvc 17281 Add pcdcap50.
+; 19092008 cg  cmvc 17281 Added sbdnw devices.
+; 23092008 MO  cmvc 17281 Add dindpw  diffhavar
+; V1700
+; 10112009 jmp cmvc 18729 Add jfetjc
+; 12112009 jmp cmvc 18749 Add nfet50_rf pfet50_rf nfet50tw_rf
+; 16112009 jmp cmvc 18763 Add vlnpn
+; 18112009 cg  cmvc 18777 Add rr_serpentine.
+; 19112009 jmp cmvc 18760 Add p5pfet50 p5pfet50_rf.
+; 20112009 jmp cmvc 18782 Add psbd.
+; 02122009 jmp cmvc 18736 Add esdnsh_base esdpsh_base
+; V1800
+; 22042010 jmp cmvc 18395 idg implementation
+; 27042010 pr  cmvc 17888 support devices under bondpad : devicepad ( cmvc 18981 ).
+; 21052010 jmp cmvc 19264 add altct parameter to symind.
+; V1900
+; 28072011 jmp cmvc 20495 added mzres        
+; 04082011 jmp cmvc 20495 added "gns" to esdnsh_base
+; 10082011 jmp cmvc 20495 split mim/dualmim to mim/mimhd dualmim/dualmimhd
+; 10082011 jmp cmvc 20495 Add sx_sw_local parameter to mim/dualmim/vncap bondpad opppcres/oprppres/oprrpres res_serpentine
+; 22082011 jmp cmvc 20495 removed sx_sw_local parameter to mim/dualmim/vncap bondpad opppcres/oprppres/oprrpres res_serpentine => rsx to be extracted but not compared
+; 12092011 jmp cmvc 20495 add rsx to mim/dmim pcres, vncap, rr_serp
+; V2000
+; 21092012 jmp cmvc 21339 add p5pcdcap50.
+; 26092012 jmp cmvc 21339 add wtesd to esdnfet
+;
+; /*************************************************************************/
+; /*                                                                       */
+; /* These files may only be used with a valid licence for the             */
+; /* Cadence Design Systems, Inc. products.                                */
+; /*                                                                       */
+; /*************************************************************************/
+; /*                                                                   	   */
+; /*  License Materials - Property of IBM                              	   */
+; /*                                                                   	   */
+; /*  CMOS7RF         		                                    	   */
+; /*                                                                   	   */
+; /*  (C) Copyright IBM Corp. 2002,  2012	                      	   */
+; /*                                                                   	   */
+; /*  IBM Confidential                                                 	   */
+; /*                                                                   	   */
+; /*  US Government Users Restricted Rights - Use, duplication, or   	   */
+; /*  disclosure restricted by GSA ADP Schedule Contract with          	   */
+; /*  IBM Corp.                                                        	   */
+; /*                                                                   	   */
+; /*************************************************************************/
+;
+;
+; File name = deviceInfo.rul
+; SKILL customization file for schematic to vldb netlist creation
+
+
+;=========================
+;=CUSTOMIZE FOR BATCH USE=
+;=========================
+
+
+;avLibName       = "designlib"
+;avCellName      = "topcell"
+;avVldbFile      = "LVS.sdb"
+;avViewName      = "schematic"
+;avViewList      = "auLvs schematic symbol"
+;avStopList      = "auLvs symbol"
+
+
+;=================================
+;=DO NOT CHANGE BEYOND THIS POINT=
+;=================================
+
+
+avModelNameFunc = "setModelName"
+avTermOrderFunc  = "calcTermOrder"
+avInstParametersFunc = "getParams"
+
+
+;===============
+;=calcTermOrder=
+;===============
+
+
+procedure( calcTermOrder(dbId)
+        let( (results)
+                results=nil
+                (cond
+			( equal(dbId~>cellName "esdndpi") 		results="pw nd" )
+                        ( equal(dbId~>cellName "esdpnpi") 		results="pd nw" )
+			( equal(dbId~>cellName "esdndsx") 		results="nd sx" )
+                        ( equal(dbId~>cellName "esdvpnpnw") 		results="pd nw sx" )
+                        ( equal(dbId~>cellName "esdnsh_base") 		results="de ge se be" )
+                        ( equal(dbId~>cellName "esdpsh_base") 		results="de ge se be" )
+                        ( equal(dbId~>cellName "sblkndres")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "sblkndresx") 		results="D S G" )
+                        ( equal(dbId~>cellName "sblkpdres")   		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "sblkpdresx")  		results="D S G" )
+                        ( equal(dbId~>cellName "sblkpdresxx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "amres") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "bondpad")  		results="in gp progn(sub)" )
+                        ( equal(dbId~>cellName "bondpadx") 		results="in gp sub" )
+                        ( equal(dbId~>cellName "devicepad") 		results="pad" )			
+                        ( equal(dbId~>cellName "corrPoint") 		results="cp" )
+                        ( equal(dbId~>cellName "coupledwires") 		results="va1 va2 vb1 vb2 vshield" )
+                        ( equal(dbId~>cellName "diodenwx") 		results="MINUS PLUS" )
+                        ( equal(dbId~>cellName "diodenx") 		results="MINUS PLUS" )
+                        ( equal(dbId~>cellName "diodepisx") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "diodepnw") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "diodepwpi") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "dipdnw") 		results="PLUS SUB" )
+                        ( equal(dbId~>cellName "divpnp") 		results="SUB NW PLUS" )
+			( equal(dbId~>cellName "dindpw") 		results="tw pw nd sx" )
+                        ( equal(dbId~>cellName "dualmim")  		results="S D progn(G)" )
+                        ( equal(dbId~>cellName "dualmimx") 		results="S D G" )
+                        ( equal(dbId~>cellName "dualmimhd")  		results="S D progn(G)" )
+                        ( equal(dbId~>cellName "dualmimhdx") 		results="S D G" )
+                        ( equal(dbId~>cellName "efuse") 		results="in out" )
+			( equal(dbId~>cellName "diffhavar")  		results="AA AB C BULK" )
+                        ( equal(dbId~>cellName "diffhavarx") 		results="AA AB C BULK" )
+                        ( equal(dbId~>cellName "havar")  		results="A C progn(BULK)" )
+                        ( equal(dbId~>cellName "havarx") 		results="A C BULK" )
+                        ( equal(dbId~>cellName "ind")  			results="out in progn(BULK)" )
+                        ( equal(dbId~>cellName "indx") 			results="out in BULK" )
+		        ( equal(dbId~>cellName "symind")   		results="outpr outse ct progn(BULK)" )
+                        ( equal(dbId~>cellName "symindx")  		results="outpr outse ct BULK" )
+		        ( equal(dbId~>cellName "symindp")  		results="outpr outse ct progn(BULK)" )
+                        ( equal(dbId~>cellName "symindpx") 		results="outpr outse ct BULK" )
+                        ( equal(dbId~>cellName "inds")  		results="out in progn(BULK)" )
+                        ( equal(dbId~>cellName "indsx") 		results="out in BULK" )
+                        ( equal(dbId~>cellName "indp")  		results="out in progn(BULK)" )
+                        ( equal(dbId~>cellName "indpx") 		results="out in BULK" )
+                        ( equal(dbId~>cellName "indline")  		results="in out progn(BULK)" )
+                        ( equal(dbId~>cellName "indlinex") 		results="in out BULK" )
+                        ( equal(dbId~>cellName "jfetjc") 		results="D G S NW" )
+                        ( equal(dbId~>cellName "vlnpn") 		results="C B E G Sub" )
+                        ( equal(dbId~>cellName "k1res")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "k1resx") 		results="D S G" )
+                        ( equal(dbId~>cellName "m1res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m2res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m3res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m4res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m5res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "mim")  			results="S D progn(G)" )
+                        ( equal(dbId~>cellName "mimx") 			results="S D G" )
+                        ( equal(dbId~>cellName "mimhd")  		results="S D progn(G)" )
+                        ( equal(dbId~>cellName "mimhdx") 		results="S D G" )
+		        ( equal(dbId~>cellName "mimhk")  		results="S D progn(G)" )
+                        ( equal(dbId~>cellName "mimhkx") 		results="S D G" )
+			( equal(dbId~>cellName "diffmosvar")  		results="D GA GB progn(B)" )
+                        ( equal(dbId~>cellName "diffmosvarx") 		results="D GA GB B" )
+                        ( equal(dbId~>cellName "mosvar")  		results="D G progn(B)" )
+                        ( equal(dbId~>cellName "mosvarx") 		results="D G B" )
+                        ( equal(dbId~>cellName "mosvar50")  		results="D G progn(B)" )
+                        ( equal(dbId~>cellName "mosvar50x") 		results="D G B" )
+                        ( equal(dbId~>cellName "pcap")  		results="D G TW" )
+                        ( equal(dbId~>cellName "m1res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m2res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m3res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m4res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "m5res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "mtres") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "amres") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "mlres") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "mzres") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "e1res") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "mares") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "nfet") 			results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "nfet25") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "nfet25_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet25tw_rf") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfet25twx") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfet25x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet33") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "nfet33_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet33tw_rf") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfet33twx") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfet33x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet50") 		results="D G S progn(B)" ) 
+                        ( equal(dbId~>cellName "nfet50twx") 		results="D G S B PI sx" ) 
+                        ( equal(dbId~>cellName "nfet50x") 		results="D G S B" ) 
+                        ( equal(dbId~>cellName "nfet50_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet50tw_rf") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfethv") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "nfethvx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfet_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nfettw_rf") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfettwx") 		results="D G S B PI sx" )
+                        ( equal(dbId~>cellName "nfetx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "nwppcres")   		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "nwppcresx")  		results="D S G " )
+                        ( equal(dbId~>cellName "nwppcresxx") 		results="D S G" )
+                        ( equal(dbId~>cellName "nwrppres")   		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "nwrppresx")  		results="D S G" )
+                        ( equal(dbId~>cellName "nwrppresxx") 		results="D S G" )
+                        ( equal(dbId~>cellName "nwrrpres")   		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "nwrrpresx")  		results="D S G" )
+                        ( equal(dbId~>cellName "nwrrpresxx") 		results="D S G" )
+                        ( equal(dbId~>cellName "opndres")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "opndresx") 		results="D S G" )
+                        ( equal(dbId~>cellName "oppdres")   		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "oppdresx")  		results="D S G" )
+                        ( equal(dbId~>cellName "oppdresxx") 		results="D S G" )
+                        ( equal(dbId~>cellName "opppcres")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "opppcresx") 		results="D S G" )
+                        ( equal(dbId~>cellName "oprppres")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "oprppresx") 		results="D S G" )
+                        ( equal(dbId~>cellName "oprrpres")  		results="D S progn(G)" )
+                        ( equal(dbId~>cellName "oprrpresx") 		results="D S G" )
+                        ( equal(dbId~>cellName "rr_serpentine")  	results="D S progn(G)" )
+                        ( equal(dbId~>cellName "rr_serpentinex") 	results="D S G" )
+                        ( equal(dbId~>cellName "pcapc") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "pcdcap") 		results="G D progn(B)" )
+                        ( equal(dbId~>cellName "pcdcap33") 		results="G D progn(B)" )
+                        ( equal(dbId~>cellName "pcdcap50") 		results="D G progn(B)" )
+			( equal(dbId~>cellName "pcdcap50x") 		results="D G B" )
+                        ( equal(dbId~>cellName "p5pcdcap50") 		results="D G progn(B)" )
+                        ( equal(dbId~>cellName "p5pcdcap50x") 		results="D G B" )
+                        ( equal(dbId~>cellName "pcdcap33x") 		results="G D B" )
+                        ( equal(dbId~>cellName "pcdcapx") 		results="G D  B" )
+                        ( equal(dbId~>cellName "pfet") 			results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "pfet25") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "pfet25_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet25x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet33") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "pfet33_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet33x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet50") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "pfet50x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet50_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "p5pfet50") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "p5pfet50x") 		results="D G S B" )
+                        ( equal(dbId~>cellName "p5pfet50_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfethv") 		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "pfethvx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfet_rf") 		results="D G S B" )
+                        ( equal(dbId~>cellName "pfetx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "sbd")  			results="A C progn(BULK)" )
+                        ( equal(dbId~>cellName "sbdx") 			results="A C BULK" )
+                        ( equal(dbId~>cellName "sbdnw")  		results="A C progn(BULK)" )
+                        ( equal(dbId~>cellName "sbdnwx") 		results="A C BULK" )
+                        ( equal(dbId~>cellName "psbd") 			results="C A TW" )
+                        ( equal(dbId~>cellName "singlewire") 		results="va vb vshield" )
+                        ( equal(dbId~>cellName "subc")  		results="SUBCON progn(sub)" )
+                        ( equal(dbId~>cellName "subcx") 		results="SUBCON sub" ) 
+                        ( equal(dbId~>cellName "tdndsx") 		results="MINUS PLUS" )
+                        ( equal(dbId~>cellName "tdpdnw") 		results="PLUS MINUS" )
+                        ( equal(dbId~>cellName "vncap")  		results="IN OUT SUB" )
+			( equal(dbId~>cellName "vncapx") 		results="IN OUT SUB" )
+                        ( equal(dbId~>cellName "zvtnfet")  		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "zvtnfetx") 		results="D G S B" )
+                        ( equal(dbId~>cellName "zvtnfet33")  		results="D G S progn(B)" )
+                        ( equal(dbId~>cellName "zvtnfet33x") 		results="D G S B" )
+                )
+        results
+        )
+)
+
+
+;===========
+;=getParams=
+;===========
+
+
+procedure( getParams(dbId)
+        let( (results)
+                results=nil
+                (cond
+                        ( equal(dbId~>cellName "esdndpi") 		results="area perim ncath" )
+                     	( equal(dbId~>cellName "esdpnpi") 		results="area perim nanod" )
+                        ( equal(dbId~>cellName "esdndsx") 		results="area perim ncath nw" )
+                        ( equal(dbId~>cellName "esdvpnpnw") 		results="area perim nanod" )
+                        ( equal(dbId~>cellName "esdnsh_base") 		results="wtesd wesd lesd nf ldop lsop esdoxide gns" )
+                        ( equal(dbId~>cellName "esdpsh_base") 		results="wesd lesd nf ldop lsop esdoxide gns" )
+                        ( equal(dbId~>cellName "sblkndres")  		results="r w l m pbar s" )
+                        ( equal(dbId~>cellName "sblkndresx") 		results="r w l m pbar s" )
+                        ( equal(dbId~>cellName "sblkpdres")   		results="r w l m pbar s" )
+                        ( equal(dbId~>cellName "sblkpdresx")  		results="r w l m pbar s" )
+                        ( equal(dbId~>cellName "sblkpdresxx") 		results="r w l m pbar s" )
+                        ( equal(dbId~>cellName "amres") 		results="r" )
+                        ( equal(dbId~>cellName "bondpad")  		results="nlev grnd rect area perim" )
+                        ( equal(dbId~>cellName "bondpadx") 		results="nlev grnd rect area perim" )
+                        ( equal(dbId~>cellName "coupledwires") 		results="l w s d nlev shieldsads layerads overads" )
+                        ( equal(dbId~>cellName "diodenwx") 		results="C" )
+                        ( equal(dbId~>cellName "diodenx") 		results="C" )
+                        ( equal(dbId~>cellName "diodepisx") 		results="C" )
+                        ( equal(dbId~>cellName "diodepnw") 		results="C" )
+                        ( equal(dbId~>cellName "diodepwpi") 		results="C" )
+                        ( equal(dbId~>cellName "dipdnw") 		results="w l nf m par mSwitch" )
+                        ( equal(dbId~>cellName "divpnp") 		results="w l nf m par mSwitch" )
+			( equal(dbId~>cellName "dindpw") 		results="w l nf m par mSwitch" )
+                        ( equal(dbId~>cellName "dualmim")  		results="c w l lm m par bp hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "dualmimx") 		results="c w l lm m par bp hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "dualmimhd")  		results="c w l lm m par bp hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "dualmimhdx") 		results="c w l lm m par bp hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "havar")  		results="rxl rxw m nastripes mSwitch" )
+                        ( equal(dbId~>cellName "havarx") 		results="rxl rxw m nastripes mSwitch" )
+		        ( equal(dbId~>cellName "diffhavar")  		results="w l nf m mSwitch" )
+                        ( equal(dbId~>cellName "diffhavarx") 		results="w l nf m mSwitch" )
+                        ( equal(dbId~>cellName "ind")  			results="n x s w wu nlev grnd" )
+                        ( equal(dbId~>cellName "indx") 			results="n x s w wu nlev grnd" )
+		        ( equal(dbId~>cellName "symind")  		results="x s w wu n xov nlev grnd altct" )
+                        ( equal(dbId~>cellName "symindx") 		results="x s w wu n xov nlev grnd altct" )
+		        ( equal(dbId~>cellName "symindp")  		results="x s w wu n xov nlev grnd altct" )
+                        ( equal(dbId~>cellName "symindpx") 		results="x s w wu n xov nlev grnd altct" )
+                        ( equal(dbId~>cellName "inds")  		results="n x s w wu nlev grnd" )
+                        ( equal(dbId~>cellName "indsx") 		results="n x s w wu nlev grnd" )
+                        ( equal(dbId~>cellName "indp")  		results="n x s w wu nlev grnd" )
+                        ( equal(dbId~>cellName "indpx") 		results="n x s w wu nlev grnd" )
+                        ( equal(dbId~>cellName "indline")  		results="w l grnd nlev ind" )
+                        ( equal(dbId~>cellName "indlinex") 		results="w l grnd nlev ind" )
+                        ( equal(dbId~>cellName "jfetjc") 		results="w l nf m par mSwitch" )
+                        ( equal(dbId~>cellName "vlnpn") 		results="exw exl nstripes gcon m par mSwitch" )
+                        ( equal(dbId~>cellName "k1res")  		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "k1resx") 		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "m1res") 		results="r" )
+                        ( equal(dbId~>cellName "m2res") 		results="r" )
+                        ( equal(dbId~>cellName "m3res") 		results="r" )
+                        ( equal(dbId~>cellName "m4res") 		results="r" )
+                        ( equal(dbId~>cellName "m5res") 		results="r" )
+                        ( equal(dbId~>cellName "mim")  			results="c w l m par bp lm hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "mimx") 			results="c w l m par bp lm hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "mimhd")  		results="c w l m par bp lm hd nlev setind mSwitch rsx" )
+                        ( equal(dbId~>cellName "mimhdx") 		results="c w l m par bp lm hd nlev setind mSwitch rsx" )
+			( equal(dbId~>cellName "mimhk")  		results="c w l m par lm hd nlev setind mSwitch bp" )
+                        ( equal(dbId~>cellName "mimhkx") 		results="c w l m par lm hd nlev setind mSwitch bp" )
+		        ( equal(dbId~>cellName "diffmosvar")  		results="mSwitch l w nf m" )
+                        ( equal(dbId~>cellName "diffmosvarx") 		results="mSwitch l w nf m" )
+                        ( equal(dbId~>cellName "mosvar")  		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "mosvarx") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "mosvar50")  		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "mosvar50x") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "pcap") 			results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "m1res") 		results="r" )
+                        ( equal(dbId~>cellName "m2res") 		results="r" )
+                        ( equal(dbId~>cellName "m3res") 		results="r" )
+                        ( equal(dbId~>cellName "m4res") 		results="r" )
+                        ( equal(dbId~>cellName "m5res") 		results="r" )
+                        ( equal(dbId~>cellName "mtres") 		results="r" )
+                        ( equal(dbId~>cellName "amres") 		results="r" )
+                        ( equal(dbId~>cellName "mlres") 		results="r" )
+                        ( equal(dbId~>cellName "mzres") 		results="r" )
+                        ( equal(dbId~>cellName "e1res") 		results="r" )
+                        ( equal(dbId~>cellName "mares") 		results="r" )
+                        ( equal(dbId~>cellName "nfet") 			results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet25") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet25_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet25tw_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet25twx") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet25x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet33") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet33_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet33tw_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet33twx") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet33x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet50") 		results="l wt nf m par rf gcon psp mSwitch idg" ) 
+                        ( equal(dbId~>cellName "nfet50twx") 		results="l wt nf m par rf psp gcon mSwitch idg" ) 
+                        ( equal(dbId~>cellName "nfet50x") 		results="l wt nf m par rf psp gcon mSwitch idg" ) 
+                        ( equal(dbId~>cellName "nfet50_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet50tw_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "nfethv") 		results="l wt nf m par rf psp gcon mSwitch idg" )
+                        ( equal(dbId~>cellName "nfethvx") 		results="l wt nf m par rf psp gcon mSwitch idg" )
+                        ( equal(dbId~>cellName "nfet_rf") 		results="l wt nf m par rf psp gcon mSwitch idg" )
+                        ( equal(dbId~>cellName "nfettw_rf") 		results="l wt nf m par rf psp gcon mSwitch idg" )
+                        ( equal(dbId~>cellName "nfettwx") 		results="l wt nf m par rf psp gcon mSwitch idg" )
+                        ( equal(dbId~>cellName "nfetx") 		results="nf m par l wt psp gcon rf bentgate mSwitch idg" )
+                        ( equal(dbId~>cellName "nwppcres")   		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwppcresx")  		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwppcresxx") 		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrppres")   		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrppresx")  		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrppresxx") 		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrrpres")   		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrrpresx")  		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "nwrrpresxx") 		results="r w l m par pbar bp s mSwitch rsx" )
+                        ( equal(dbId~>cellName "opndres")  		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "opndresx") 		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "oppdres")   		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "oppdresx")  		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "oppdresxx") 		results="r w l m par pbar s mSwitch" )
+                        ( equal(dbId~>cellName "opppcres")  		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "opppcresx") 		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "oprppres")  		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "oprppresx") 		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "oprrpres")  		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "oprrpresx") 		results="r w l m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "rr_serpentine")  	results="w l n r m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "rr_serpentinex") 	results="w l n r m par pbar s bp mSwitch rsx" )
+                        ( equal(dbId~>cellName "pcapc") 		results="C " )
+                        ( equal(dbId~>cellName "pcdcap")  		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "pcdcapx") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "pcdcap33")  		results="l w xrep yrep m mSwitch" )
+			( equal(dbId~>cellName "pcdcap50")  		results="l w xrep yrep m mSwitch" )
+	                ( equal(dbId~>cellName "pcdcap50x") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "p5pcdcap50") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "p5pcdcap50x") 		results="l w xrep yrep m mSwitch" )     
+			( equal(dbId~>cellName "pcdcap33x") 		results="l w xrep yrep m mSwitch" )
+                        ( equal(dbId~>cellName "pfet") 			results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet25") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet25_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet25x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet33") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet33_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet33x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet50") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet50x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet50_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "p5pfet50") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "p5pfet50x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "p5pfet50_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfethv")  		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfethvx") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfet_rf") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "pfetx") 		results="nf m par l wt gcon rf bentgate psp mSwitch idg" )
+                        ( equal(dbId~>cellName "sbd")  			results="l w m par nf mSwitch" )
+                        ( equal(dbId~>cellName "sbdx") 			results="l w m par nf mSwitch" )
+                        ( equal(dbId~>cellName "sbdnw")  		results="l w m par nf mSwitch" )
+                        ( equal(dbId~>cellName "sbdnwx") 		results="l w m par nf mSwitch" )
+                        ( equal(dbId~>cellName "psbd")  		results="l w m par nf mSwitch" )
+                        ( equal(dbId~>cellName "singlewire") 		results="l w shieldsads s nlev layerads overads" )
+                        ( equal(dbId~>cellName "tdndsx") 		results="area perim" )
+                        ( equal(dbId~>cellName "tdpdnw") 		results="area perim" )
+                        ( equal(dbId~>cellName "vncap")  		results="w l botlev toplev nlev setind m par mSwitch lm bp rsx" )
+		        ( equal(dbId~>cellName "vncapx") 		results="w l botlev toplev nlev setind m par mSwitch lm bp rsx" )
+                        ( equal(dbId~>cellName "zvtnfet")  		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "zvtnfetx") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "zvtnfet33")  		results="l wt nf m par rf gcon psp mSwitch idg" )
+                        ( equal(dbId~>cellName "zvtnfet33x") 		results="l wt nf m par rf gcon psp mSwitch idg" )
+                )
+        results
+        )
+)
+
+
+;==============
+;=setModelName=
+;==============
+
+
+procedure( setModelName(dbId)
+        let( (results)
+                results=nil
+                (cond
+                        ( equal(dbId~>cellName "bondpad") 		results="bondpad" )
+                        ( equal(dbId~>cellName "bondpadx") 		results="bondpad" )
+                        ( equal(dbId~>cellName "devicepad") 		results="devicepad" )			
+                        ( equal(dbId~>cellName "corrPoint") 		results="corrPoint" )
+                        ( equal(dbId~>cellName "coupledwires") 		results="coupledwires" )
+                        ( equal(dbId~>cellName "diodenwx") 		results="diodenwx" )
+                        ( equal(dbId~>cellName "diodenx") 		results="diodenx" )
+                        ( equal(dbId~>cellName "diodepisx") 		results="diodepisx" )
+                        ( equal(dbId~>cellName "diodepnw") 		results="diodepnw" )
+                        ( equal(dbId~>cellName "diodepwpi") 		results="diodepwpi" )
+                        ( equal(dbId~>cellName "dipdnw") 		results="dipdnw" )
+                        ( equal(dbId~>cellName "divpnp") 		results="divpnp" )
+			( equal(dbId~>cellName "dindpw") 		results="dindpw" )
+                        ( equal(dbId~>cellName "dualmim") 		results="dualmim" )
+                        ( equal(dbId~>cellName "dualmimx") 		results="dualmim" )
+                        ( equal(dbId~>cellName "dualmimhd") 		results="dualmimhd" )
+                        ( equal(dbId~>cellName "dualmimhdx") 		results="dualmimhd" )
+                        ( equal(dbId~>cellName "efuse") 		results="efuse" )
+			( equal(dbId~>cellName "diffhavar") 		results="diffhavar" )
+		       	( equal(dbId~>cellName "diffhavarx") 		results="diffhavar" )
+                        ( equal(dbId~>cellName "havar") 		results="havar" )
+                        ( equal(dbId~>cellName "havarx") 		results="havar" )
+                        ( equal(dbId~>cellName "ind") 			results="ind" )
+                        ( equal(dbId~>cellName "indx") 			results="ind" )
+		        ( equal(dbId~>cellName "symind") 		results="symind" )
+                        ( equal(dbId~>cellName "symindx") 		results="symind" )
+		       	( equal(dbId~>cellName "symindp") 		results="symindp" )
+                        ( equal(dbId~>cellName "symindpx") 		results="symindp" )
+                        ( equal(dbId~>cellName "inds") 			results="inds" )
+                        ( equal(dbId~>cellName "indsx") 		results="inds" )
+                        ( equal(dbId~>cellName "indp") 			results="indp" )
+                        ( equal(dbId~>cellName "indpx") 		results="indp" )
+                        ( equal(dbId~>cellName "indline") 		results="indline" )
+                        ( equal(dbId~>cellName "indlinex") 		results="indline" )
+                        ( equal(dbId~>cellName "jfetjc") 		results="jfetjc" )
+                        ( equal(dbId~>cellName "vlnpn") 		results="vlnpn" )
+                        ( equal(dbId~>cellName "k1res") 		results="k1res" )
+                        ( equal(dbId~>cellName "k1resx") 		results="k1res" )
+                        ( equal(dbId~>cellName "m1res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "m2res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "m3res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "m4res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "m5res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "mtres") 		results="lvsres" )
+                        ( equal(dbId~>cellName "amres") 		results="lvsres" )
+                        ( equal(dbId~>cellName "mlres") 		results="lvsres" )
+                        ( equal(dbId~>cellName "mzres") 		results="lvsres" )
+                        ( equal(dbId~>cellName "e1res") 		results="lvsres" )
+                        ( equal(dbId~>cellName "mares") 		results="lvsres" )
+                        ( equal(dbId~>cellName "mim") 			results="mim" )
+                        ( equal(dbId~>cellName "mimx") 			results="mim" )
+                        ( equal(dbId~>cellName "mimhd") 		results="mimhd" )
+                        ( equal(dbId~>cellName "mimhdx") 		results="mimhd" )
+		       	( equal(dbId~>cellName "mimhk") 		results="mimhk" )
+                        ( equal(dbId~>cellName "mimhkx") 		results="mimhk" )
+		       	( equal(dbId~>cellName "diffmosvar") 		results="diffmosvar" )
+                        ( equal(dbId~>cellName "diffmosvarx") 		results="diffmosvar" )
+                        ( equal(dbId~>cellName "mosvar") 		results="mosvar" )
+                        ( equal(dbId~>cellName "mosvarx") 		results="mosvar" )
+                        ( equal(dbId~>cellName "mosvar50") 		results="mosvar50" )
+                        ( equal(dbId~>cellName "mosvar50x") 		results="mosvar50" )
+                        ( equal(dbId~>cellName "pcap") 			results="pcap" )
+                        ( equal(dbId~>cellName "nfet") 			results="nfet" )
+                        ( equal(dbId~>cellName "nfet25") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet25_rf") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet25tw_rf") 		results="nfet33tw" )
+                        ( equal(dbId~>cellName "nfet25twx") 		results="nfet33tw" )
+                        ( equal(dbId~>cellName "nfet25x") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet33") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet33_rf") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet33tw_rf") 		results="nfet33tw" )
+                        ( equal(dbId~>cellName "nfet33twx") 		results="nfet33tw" )
+                        ( equal(dbId~>cellName "nfet33x") 		results="nfet33" )
+                        ( equal(dbId~>cellName "nfet50") 		results="nfet50" )
+                        ( equal(dbId~>cellName "nfet50x") 		results="nfet50" )
+                        ( equal(dbId~>cellName "nfet50twx") 		results="nfet50tw" )
+                        ( equal(dbId~>cellName "nfet50_rf") 		results="nfet50" )
+                        ( equal(dbId~>cellName "nfet50tw_rf") 		results="nfet50tw" )
+                        ( equal(dbId~>cellName "nfethv") 		results="nfethv" )
+                        ( equal(dbId~>cellName "nfethvx") 		results="nfethv" )
+                        ( equal(dbId~>cellName "nfet_rf") 		results="nfet" )
+                        ( equal(dbId~>cellName "nfettw_rf") 		results="nfettw" )
+                        ( equal(dbId~>cellName "nfettwx") 		results="nfettw" )
+                        ( equal(dbId~>cellName "nfetx") 		results="nfet" )
+                        ( equal(dbId~>cellName "nwppcres") 		results="opppcres" )
+                        ( equal(dbId~>cellName "nwppcresx") 		results="opppcres" )
+                        ( equal(dbId~>cellName "nwppcresxx") 		results="opppcres" )
+                        ( equal(dbId~>cellName "nwrppres") 		results="oprppres" )
+                        ( equal(dbId~>cellName "nwrppresx") 		results="oprppres" )
+                        ( equal(dbId~>cellName "nwrppresxx") 		results="oprppres" )
+                        ( equal(dbId~>cellName "nwrrpres") 		results="oprrpres" )
+                        ( equal(dbId~>cellName "nwrrpresx") 		results="oprrpres" )
+                        ( equal(dbId~>cellName "nwrrpresxx") 		results="oprrpres" )
+                        ( equal(dbId~>cellName "opndres") 		results="opndres" )
+                        ( equal(dbId~>cellName "opndresx") 		results="opndres" )
+                        ( equal(dbId~>cellName "oppdres") 		results="oppdres" )
+                        ( equal(dbId~>cellName "oppdresx") 		results="oppdres" )
+                        ( equal(dbId~>cellName "oppdresxx") 		results="oppdres" )
+                        ( equal(dbId~>cellName "opppcres") 		results="opppcres" )
+                        ( equal(dbId~>cellName "opppcresx") 		results="opppcres" )
+                        ( equal(dbId~>cellName "oprppres") 		results="oprppres" )
+                        ( equal(dbId~>cellName "oprppresx") 		results="oprppres" )
+                        ( equal(dbId~>cellName "oprrpres") 		results="oprrpres" )
+                        ( equal(dbId~>cellName "oprrpresx") 		results="oprrpres" )
+                        ( equal(dbId~>cellName "rr_serpentine")  	results="rr_serpentine" )
+                        ( equal(dbId~>cellName "rr_serpentinex") 	results="rr_serpentine" )
+                        ( equal(dbId~>cellName "pcapc") 		results="pcapacitor" )
+                        ( equal(dbId~>cellName "pcdcap") 		results="pcdcap" )
+                        ( equal(dbId~>cellName "pcdcap33") 		results="pcdcap33" )
+ 		       	( equal(dbId~>cellName "pcdcap50") 		results="pcdcap50" )
+		       	( equal(dbId~>cellName "pcdcap50x") 		results="pcdcap50" )
+                        ( equal(dbId~>cellName "p5pcdcap50") 		results="p5pcdcap50" )
+                        ( equal(dbId~>cellName "p5pcdcap50x") 		results="p5pcdcap50" )
+                        ( equal(dbId~>cellName "pcdcap33x") 		results="pcdcap33" )
+                        ( equal(dbId~>cellName "pcdcapx") 		results="pcdcap" )
+                        ( equal(dbId~>cellName "pfet") 			results="pfet" )
+                        ( equal(dbId~>cellName "pfet25") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet25_rf") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet25x") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet33") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet33_rf") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet33x") 		results="pfet33" )
+                        ( equal(dbId~>cellName "pfet50") 		results="pfet50" )
+                        ( equal(dbId~>cellName "pfet50x") 		results="pfet50" )
+                        ( equal(dbId~>cellName "pfet50_rf") 		results="pfet50" )
+                        ( equal(dbId~>cellName "p5pfet50") 		results="p5pfet50" )
+                        ( equal(dbId~>cellName "p5pfet50x") 		results="p5pfet50" )
+                        ( equal(dbId~>cellName "p5pfet50_rf") 		results="p5pfet50" )
+                        ( equal(dbId~>cellName "pfethv") 		results="pfethv" )
+                        ( equal(dbId~>cellName "pfethvx") 		results="pfethv" )
+                        ( equal(dbId~>cellName "pfet_rf") 		results="pfet" )
+                        ( equal(dbId~>cellName "pfetx") 		results="pfet" )
+                        ( equal(dbId~>cellName "sbd") 			results="sbd" )
+                        ( equal(dbId~>cellName "sbdx") 			results="sbd" )
+                        ( equal(dbId~>cellName "sbdnw") 		results="sbdnw" )
+                        ( equal(dbId~>cellName "sbdnwx") 		results="sbdnw" )
+                        ( equal(dbId~>cellName "psbd") 			results="psbd" )
+                        ( equal(dbId~>cellName "singlewire") 		results="singlewire" )
+                        ( equal(dbId~>cellName "subc") 			results="subc" )
+                        ( equal(dbId~>cellName "subcx") 		results="subc" )
+                        ( equal(dbId~>cellName "tdndsx") 		results="tdndsx" )
+                        ( equal(dbId~>cellName "tdpdnw") 		results="tdpdnw" )
+		        ( equal(dbId~>cellName "vncap") 		results="vncap" )
+		        ( equal(dbId~>cellName "vncapx") 		results="vncap" )
+                        ( equal(dbId~>cellName "zvtnfet") 		results="zvtnfet" )
+                        ( equal(dbId~>cellName "zvtnfetx") 		results="zvtnfet" )
+                        ( equal(dbId~>cellName "zvtnfet33") 		results="zvtnfet33" )
+                        ( equal(dbId~>cellName "zvtnfet33x") 		results="zvtnfet33" )
+		       	( equal(dbId~>cellName "esdndpi") 		results="esdndpi" )
+                        ( equal(dbId~>cellName "esdpnpi") 		results="esdpnpi" )
+		       	( equal(dbId~>cellName "esdndsx") 		results="esdndsx" )
+                        ( equal(dbId~>cellName "esdvpnpnw") 		results="esdvpnpnw" )
+                        ( equal(dbId~>cellName "esdnsh_base") 		results="esdnsh_base" )
+                        ( equal(dbId~>cellName "esdpsh_base") 		results="esdpsh_base" )
+                        ( equal(dbId~>cellName "sblkndres") 		results="sblkndres" )
+                        ( equal(dbId~>cellName "sblkndresx") 		results="sblkndres" )
+                        ( equal(dbId~>cellName "sblkpdres") 		results="sblkpdres" )
+                        ( equal(dbId~>cellName "sblkpdresx") 		results="sblkpdres" )
+                        ( equal(dbId~>cellName "sblkpdresxx") 		results="sblkpdres" )
+                )
+        results
+        )
+)
+
+
+;=====
+;=END=
+;=====
+
+
+; form additions
+avSimName = "auLvs"
+avDisableWildcardPG = nil
+avVerilogBusMapIEEE = t
+avLibName  = "Julian_Shifts_And_Mux"
+avCellName = "ZeroFlag"
+avViewName = "schematic"
+avViewList = "auLvs schematic symbol"
+avStopList = "auLvs"
+avVldbFile = "/home/DREXEL/jvk27/ECEC472/IBM/ZEROFLAG_LVS/ZEROFLAG_LVS.sdb"

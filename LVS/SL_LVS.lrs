@@ -1,0 +1,37 @@
+@(#)$CDS: nvn_64 version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/2014 13:17 (sjfdl030) $
+sub-version 4.1_USR4_HF6, integ signature 2014-01-29-1246
+run on xunil-01 at Sat Mar 15 13:15:28 2014
+
+Schematic                                | Layout                                     | Status
+------------------------------------------------------------------------------------------------
+BUFFER_J schematic cmrf7sf_digital_layout| BUFFER_J layout cmrf7sf_digital_layout     | matched
+BUFFER_J schematic cmrf7sf_digital_layout| BUFFER_J_VAR1 layout cmrf7sf_digital_layout| matched
+SL schematic Julian_Shifts_And_Mux       | SL layout Julian_Shifts_And_Mux            | matched
+
+Schematic and Layout Match
+
+Schematic:
+  Library:Julian_Shifts_And_Mux
+  Cell   :SL
+  View   :schematic
+
+Layout:
+  Library:Julian_Shifts_And_Mux
+  Cell   :SL
+  View   :layout
+
+
+
+Extraction  Information
+--------------------
+     0 cells have 0 mal-formed device problems
+     0 cells have 0 label short problems
+     0 cells have 0 label open problems
+
+Mismatch  Information
+--------------------
+     0 cells have 0 Net mismatches
+     0 cells have 0 Device mismatches
+     0 cells have 0 Pin mismatches
+     0 cells have 0 Parameter mismatches
+

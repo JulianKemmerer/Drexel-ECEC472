@@ -1,0 +1,7 @@
+
+// Library name: Jon_ALU
+// Cell name: NOT
+// View name: schematic
+subckt NOT Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> OUT\<0\> OUT\<1\> OUT\<2\> \
+        OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> inh_gnd inh_vdd

@@ -1,0 +1,397 @@
+Version 3
+2 RF 328 31 111 1
+2 transmission1 2208 31 104 1
+2 ind 1807 31 125 1
+3 vncap_tnw1 11636 231 -1
+3 vncap_top1 11624 231 -1
+3 vncap_top1 11630 231 -1
+3 vncap_tnwt 11654 231 -1
+3 vncap_topt 11642 231 -1
+3 vncap_topt 11648 231 -1
+3 vncap_tnw2 11672 231 -1
+3 vncap_top2 11660 231 -1
+3 vncap_top2 11666 231 -1
+3 vncap_tnw3 11690 231 -1
+3 vncap_top3 11678 231 -1
+3 vncap_top3 11684 231 -1
+3 vncap_tnw4 11708 231 -1
+3 vncap_top4 11696 231 -1
+3 vncap_top4 11702 231 -1
+3 nfeti_dev_psp_b 3063 231 -1
+3 nfeti_dev_psp 3047 231 -1
+3 nfeti_dev_psp_MV 3327 231 -1
+3 nfeti_dev_psp_HV 3451 231 -1
+3 nfeti_dev 3039 231 -1
+3 nfeti_dev_b 3055 231 -1
+3 nfeti_dev_MV 3319 231 -1
+3 nfeti_dev_HV 3443 231 -1
+3 nfeti_dev_TG 3567 231 -1
+3 nfeti_mul_psp 4640 231 -1
+3 nfeti_mul_psp_MV 4824 231 -1
+3 nfeti_mul_psp_HV 5004 231 -1
+3 nfeti_mul 4632 231 -1
+3 nfeti_mul_MV 4816 231 -1
+3 nfeti_mul_HV 4996 231 -1
+3 nfeti_mul_TG 5176 231 -1
+3 nfet6_dev_psp_b 3213 231 -1
+3 nfet6_dev_psp 3189 231 -1
+3 nfet6_dev_psp_MV 3394 231 -1
+3 nfet6_dev_psp_HV 3518 231 -1
+3 nfet6_dev 3177 231 -1
+3 nfet6_dev_b 3201 231 -1
+3 nfet6_dev_MV 3382 231 -1
+3 nfet6_dev_HV 3506 231 -1
+3 nfet6_dev_TG 3600 231 -1
+3 nfet6_mul_psp 4737 231 -1
+3 nfet6_mul_psp_MV 4919 231 -1
+3 nfet6_mul_psp_HV 5099 231 -1
+3 nfet6_mul 4725 231 -1
+3 nfet6_mul_MV 4907 231 -1
+3 nfet6_mul_HV 5087 231 -1
+3 nfet6_mul_TG 5223 231 -1
+3 nfet_dpw_psp 3644 231 -1
+3 nfet_dpw_psp_MV 3826 231 -1
+3 nfet_dpw_psp_HV 3940 231 -1
+3 nfet_dpw_psp_b 4168 231 -1
+3 nfet_dpw 3628 231 -1
+3 nfet_dpw_MV 3810 231 -1
+3 nfet_dpw_HV 3924 231 -1
+3 nfet_dpw_b 4152 231 -1
+3 nfet_dpw_TG 4038 231 -1
+3 nfet_dev_psp 3652 231 -1
+3 nfet_dev_psp_MV 3834 231 -1
+3 nfet_dev_psp_HV 3948 231 -1
+3 nfet_dev_psp_b 4176 231 -1
+3 nfet_dev 3636 231 -1
+3 nfet_dev_MV 3818 231 -1
+3 nfet_dev_HV 3932 231 -1
+3 nfet_dev_b 4160 231 -1
+3 nfet_dev_TG 4046 231 -1
+3 nfet_dev_HVT 4094 231 -1
+3 nfet_dev_HVT_b 4102 231 -1
+3 nfet_mul_psp 5281 231 -1
+3 nfet_mul_psp 5289 231 -1
+3 nfet_mul_psp_MV 5468 231 -1
+3 nfet_mul_psp_MV 5476 231 -1
+3 nfet_mul_psp_HV 5569 231 -1
+3 nfet_mul_psp_HV 5577 231 -1
+3 nfet_mul 5265 231 -1
+3 nfet_mul 5273 231 -1
+3 nfet_mul_MV 5452 231 -1
+3 nfet_mul_MV 5460 231 -1
+3 nfet_mul_HV 5553 231 -1
+3 nfet_mul_HV 5561 231 -1
+3 nfet_mul_TG 5654 231 -1
+3 nfet_mul_TG 5662 231 -1
+3 nfet_mul_HVT 5704 231 -1
+3 nfzv_dev 3660 231 -1
+3 nfzv_dev_HV 3668 231 -1
+3 nfzv_mul 5297 231 -1
+3 nfzv_mul_HV 5305 231 -1
+3 nfRF_dev_psp 6810 231 -1
+3 nfRF_dev_psp 6820 231 -1
+3 nfRF_dev_psp_MV 6921 231 -1
+3 nfRF_dev_psp_MV 6931 231 -1
+3 nfRF_dev_psp_HV 7030 231 -1
+3 nfRF_dev_psp_HV 7040 231 -1
+3 nfRF_dev 6790 231 -1
+3 nfRF_dev 6800 231 -1
+3 nfRF_dev_MV 6901 231 -1
+3 nfRF_dev_MV 6911 231 -1
+3 nfRF_dev_HV 7010 231 -1
+3 nfRF_dev_HV 7020 231 -1
+3 nfRF_mul_psp 8237 231 -1
+3 nfRF_mul_psp 8247 231 -1
+3 nfRF_mul_psp_MV 8352 231 -1
+3 nfRF_mul_psp_MV 8362 231 -1
+3 nfRF_mul_psp_HV 8465 231 -1
+3 nfRF_mul_psp_HV 8475 231 -1
+3 nfRF_mul 8217 231 -1
+3 nfRF_mul 8227 231 -1
+3 nfRF_mul_MV 8332 231 -1
+3 nfRF_mul_MV 8342 231 -1
+3 nfRF_mul_HV 8445 231 -1
+3 nfRF_mul_HV 8455 231 -1
+3 nfRFi_dev_psp 6139 231 -1
+3 nfRFi_dev_psp_MV 6331 231 -1
+3 nfRFi_dev_psp_HV 6519 231 -1
+3 nfRFi_dev 6129 231 -1
+3 nfRFi_dev_MV 6321 231 -1
+3 nfRFi_dev_HV 6509 231 -1
+3 nfRFi_mul_psp 7538 231 -1
+3 nfRFi_mul_psp_MV 7738 231 -1
+3 nfRFi_mul_psp_HV 7934 231 -1
+3 nfRFi_mul 7528 231 -1
+3 nfRFi_mul_MV 7728 231 -1
+3 nfRFi_mul_HV 7924 231 -1
+3 nfRF6_dev_psp 6240 231 -1
+3 nfRF6_dev_psp_MV 6430 231 -1
+3 nfRF6_dev_psp_HV 6618 231 -1
+3 nfRF6_dev 6226 231 -1
+3 nfRF6_dev_MV 6416 231 -1
+3 nfRF6_dev_HV 6604 231 -1
+3 nfRF6_mul_psp 7643 231 -1
+3 nfRF6_mul_psp_MV 7841 231 -1
+3 nfRF6_mul_psp_HV 8037 231 -1
+3 nfRF6_mul 7629 231 -1
+3 nfRF6_mul_MV 7827 231 -1
+3 nfRF6_mul_HV 8023 231 -1
+3 nfRF_dev_TG 7119 231 -1
+3 nfRF_dev_TG 7129 231 -1
+3 nfRF_mul_TG 8558 231 -1
+3 nfRF_mul_TG 8568 231 -1
+3 nfRFi_dev_TG 6697 231 -1
+3 nfRF6_dev_TG 6746 231 -1
+3 nfRFi_mul_TG 8120 231 -1
+3 nfRF6_mul_TG 8171 231 -1
+3 pfet_dev_psp 4294 231 -1
+3 pfet_dev_psp_MV 4351 231 -1
+3 pfet_dev_psp_HV 4408 231 -1
+3 pfet_dev_psp_b 4579 231 -1
+3 pfet_dev 4286 231 -1
+3 pfet_dev_MV 4343 231 -1
+3 pfet_dev_TG 4457 231 -1
+3 pfet_dev_SCG 4485 231 -1
+3 pfet_dev_HV 4400 231 -1
+3 pfet_dev_b 4571 231 -1
+3 pfet_dev_HVT 4513 231 -1
+3 pfet_dev_HVT_b 4521 231 -1
+3 pfet_mul_psp 5754 231 -1
+3 pfet_mul_psp_MV 5839 231 -1
+3 pfet_mul_psp_HV 5924 231 -1
+3 pfet_mul 5746 231 -1
+3 pfet_mul_MV 5831 231 -1
+3 pfet_mul_HV 5916 231 -1
+3 pfet_mul_HVT 6085 231 -1
+3 pfet_mul_TG 6001 231 -1
+3 pfet_mul_SCG 6043 231 -1
+3 pfRF_dev_psp 7183 231 -1
+3 pfRF_dev_psp_MV 7272 231 -1
+3 pfRF_dev_psp_HV 7361 231 -1
+3 pfRF_dev 7173 231 -1
+3 pfRF_dev_MV 7262 231 -1
+3 pfRF_dev_HV 7351 231 -1
+3 pfRF_mul_psp 8624 231 -1
+3 pfRF_mul_psp_MV 8717 231 -1
+3 pfRF_mul_psp_HV 8810 231 -1
+3 pfRF_mul 8614 231 -1
+3 pfRF_mul_MV 8707 231 -1
+3 pfRF_mul_HV 8800 231 -1
+3 pfRF_dev_TG 7440 231 -1
+3 pfRF_mul_TG 8893 231 -1
+3 pfRF_dev_SCG 7484 231 -1
+3 pfRF_mul_SCG 8939 231 -1
+3 efuse 12464 231 -1
+3 DI_diode 9904 231 -1
+3 DIPI_diode 9914 231 -1
+3 DI_VPNP 9922 231 -1
+3 hvr_dev 9797 231 -1
+3 diffhavar_dev 9805 231 -1
+3 ntie_device 10673 231 -1
+3 ntie_device 10679 231 -1
+3 ptie_device 10685 231 -1
+3 mosvar_dev 10030 231 -1
+3 mosvar50_dev 10038 231 -1
+3 p5pcdcap50_dev 10046 231 -1
+3 diffmosvar_dev 10022 231 -1
+3 pcap_dev 10054 231 -1
+3 ncap_dev 9965 231 -1
+3 vlnpn_dev 10131 231 -1
+3 ncap33_dev 9973 231 -1
+3 ncap50_dev 9981 231 -1
+3 jfet_dev 10157 231 -1
+3 ESD_pdnw_diode 10723 231 -1
+3 ESD_pdnw_diode_GR_sized 10731 231 -1
+3 ESD_pdnw_diode_GR 10739 231 -1
+3 ESD_ndsx 10745 231 -1
+3 ESD_ndsx_GR_sized 10751 231 -1
+3 ESD_ndsx_GR 10757 231 -1
+3 ESD_ndsx_pi 10769 231 -1
+3 ESD_pdnw_pi 10763 231 -1
+3 esdnsh_dev 10580 231 -1
+3 esdnsh_dev 10590 231 -1
+3 esdpsh_dev 10600 231 -1
+3 SBD 9841 231 -1
+3 SBDNW 9849 231 -1
+3 PSBD 9857 231 -1
+3 rnw6pc_dev 10270 231 -1
+3 res6pc_dev 10276 231 -1
+3 res6pc_dev 10282 231 -1
+3 rnw6rr_dev 10288 231 -1
+3 res6rr_dev 10294 231 -1
+3 res6rr_dev 10300 231 -1
+3 rnw6rp_dev 10306 231 -1
+3 res6rp_dev 10312 231 -1
+3 res6rp_dev 10318 231 -1
+3 res6n_dev 10447 231 -1
+3 res6n_dev 10453 231 -1
+3 res6p_dev 10459 231 -1
+3 res6n_sblk 10465 231 -1
+3 res6n_sblk 10471 231 -1
+3 res6p_sblk 10477 231 -1
+3 k1_dev_bb 10534 231 -1
+3 k1_dev_sx 10540 231 -1
+3 k1_dev_sx 10546 231 -1
+3 res_serpentine 10179 231 -1
+3 resnw_serpentine 10185 231 -1
+3 am_transmission 12067 231 -1
+3 ind2_mtam_m1 12087 231 -1
+3 ind2_mtam_bb 12095 231 -1
+3 symind3_amam_m1 12115 231 -1
+3 symind3_amam_m1 12135 231 -1
+3 symind3_amam_bb 12105 231 -1
+3 symind3_amam_bb 12125 231 -1
+3 symind2_amam_m1 12155 231 -1
+3 symind2_amam_bb 12145 231 -1
+3 coupledA 12476 231 -1
+3 coupledA 12488 231 -1
+3 coupledA 12500 231 -1
+3 coupledA 12512 231 -1
+3 coupledA 12524 231 -1
+3 singleEndA 12554 231 -1
+3 singleEndA 12562 231 -1
+3 singleEndA 12570 231 -1
+3 singleEndA 12578 231 -1
+3 singleEndA 12586 231 -1
+3 coupledT 12618 231 -1
+3 coupledT 12630 231 -1
+3 coupledT 12642 231 -1
+3 coupledT 12654 231 -1
+3 singleEndT 12685 231 -1
+3 singleEndT 12693 231 -1
+3 singleEndT 12701 231 -1
+3 singleEndT 12709 231 -1
+3 coupled4 12740 231 -1
+3 coupled4 12752 231 -1
+3 coupled4 12764 231 -1
+3 singleEnd4 12792 231 -1
+3 singleEnd4 12800 231 -1
+3 singleEnd4 12808 231 -1
+3 coupled3 12838 231 -1
+3 coupled3 12850 231 -1
+3 singleEnd3 12877 231 -1
+3 singleEnd3 12885 231 -1
+3 coupled2 12914 231 -1
+3 singleEnd2 12939 231 -1
+3 MIMpi 10843 231 -1
+3 MIMnw 10851 231 -1
+3 MIMsx 10859 231 -1
+3 MIMhdpi 10867 231 -1
+3 MIMhdnw 10875 231 -1
+3 MIMhdsx 10883 231 -1
+3 MIMHKpi 11141 231 -1
+3 MIMHKnw 11149 231 -1
+3 MIMHKpc 11157 231 -1
+3 MIMHKsx 11165 231 -1
+3 DUALMIMpi 11302 231 -1
+3 DUALMIMnw 11310 231 -1
+3 DUALMIMsx 11318 231 -1
+3 DUALMIMhdpi 11326 231 -1
+3 DUALMIMhdnw 11334 231 -1
+3 DUALMIMhdsx 11342 231 -1
+3 bondPad_PC 12420 231 -1
+3 bondPad_BB 12428 231 -1
+3 padOverDev 12411 231 -1
+3 sub_dev 10667 231 -1
+3 corrPoint_dev_PD 10703 231 -1
+3 corrPoint_dev_ND 10707 231 -1
+3 corrPoint_dev_PC 10711 231 -1
+3 corrPoint_dev_M1 10715 231 -1
+3 corrPoint_dev_M2 10699 231 -1
+3 m1_RES_min 12968 231 -1
+3 m1_RES_min 12958 231 -1
+3 m2_RES_min 12996 231 -1
+3 m2_RES_min 12986 231 -1
+3 m3_RES_min 13010 231 -1
+3 m3_RES_min 13000 231 -1
+3 m4_RES_min 13024 231 -1
+3 m4_RES_min 13014 231 -1
+3 mt_RES_min 12982 231 -1
+3 mt_RES_min 12972 231 -1
+3 am_RES_min 13028 231 -1
+3 pdiode_dev 13050 231 -1
+3 pwell_dev 13154 231 -1
+3 piwell_dev 13168 231 -1
+3 ndiode_dev 13097 231 -1
+3 nwdiode_dev 13131 231 -1
+3 nwdiode_dev1 13114 231 -1
+4 ESD_nw 0 419 3 0
+4 pdRF_comp_sc 1 2650 0 0
+4 pdRF_comp_dr 1 2658 0 0
+4 ndRF_comp_sc 1 2626 0 0
+4 ndRF_comp_dr 1 2634 0 0
+4 ESD_ndsx_minus 1 382 0 0
+4 ESD_ndsx_plus 1 383 0 0
+4 ESD_pdnw_minus 1 364 0 0
+4 ESD_pdnw_plus 1 362 0 0
+4 all_signal 0 2355 34 0
+4 k1 0 2489 1 0
+4 pwell_diff 1 1118 0 0
+4 pwell 1 2962 120 0
+4 efuse 0 429 5 0
+4 bondPad_top 1 281 123 0
+4 symind_out 1 1826 123 0
+4 symind_in 1 1825 123 0
+4 symind_ct2 1 1837 21 0
+4 symind_ct1 1 1836 15 0
+4 m4_intern 0 1958 21 0
+4 mt_intern 0 1884 25 0
+4 am_intern 0 1880 123 0
+4 substrate 1 1682 120 0
+4 ntie_top 1 1307 0 0
+4 ptie_top 1 1630 0 0
+4 am_transmission 0 1814 123 0
+4 ft_input 0 262 74 0
+4 ht 0 2399 101 0
+4 qt 0 2396 47 0
+4 bp_not_bb 0 308 7 0
+4 dg 0 441 65 0
+4 sblk 0 343 42 0
+4 op 0 344 55 0
+4 bp 0 652 7 0
+4 am 1 2251 123 0
+4 mt_resistive 1 2892 25 0
+4 mt_columbus 0 2895 25 0
+4 v4_input 0 249 22 0
+4 m4_resistive 1 2874 21 0
+4 m4_columbus 0 2898 21 0
+4 v3_input 0 236 19 0
+4 m3_resistive 1 2871 18 0
+4 m3_columbus 0 2897 18 0
+4 v2_input 0 223 16 0
+4 m2_resistive 1 2868 15 0
+4 m2_columbus 0 2896 15 0
+4 v1_input 0 210 13 0
+4 VNCAP_new 0 2133 31 0
+4 m1_resistive 1 2861 12 0
+4 m1_columbus 0 2894 12 0
+4 ca_input 0 197 10 0
+4 ncap_nw 1 2938 3 0
+4 mosvar_nw 1 806 3 0
+4 nw 1 2930 3 0
+4 nwell_diff 1 1309 0 0
+4 sub_diff_grlogic 0 1668 0 0
+4 sub_diff 1 1666 0 0
+4 ndiff_tie 1 1308 0 0
+4 pdiff_tie 1 1631 0 0
+4 nfet_sd 1 1296 0 0
+4 pfet_sd 1 1509 0 0
+4 res6p_bar 0 1481 0 0
+4 res6n_bar 0 1280 0 0
+4 res6pc_bar 0 1571 5 0
+4 pcap_rx 1 707 0 0
+4 mosvar_rx 1 814 0 0
+4 pcap_pc 1 699 5 0
+4 mosvar_pc 1 801 5 0
+4 jfet_rx 0 917 0 0
+4 ncap_rx 1 861 0 0
+4 ncap_pc 1 847 5 0
+4 pc_resistive 1 2845 5 0
+4 pc_columbus 0 2893 5 0
+4 PSBD_C 1 584 0 0
+4 PSBD_A 1 582 0 0
+4 SBD_C 1 511 0 0
+4 SBD_A 1 509 0 0
+4 SBDNW_C 1 548 0 0
+4 SBDNW_A 1 546 0 0
+4 padOverDev_top 1 284 123 0

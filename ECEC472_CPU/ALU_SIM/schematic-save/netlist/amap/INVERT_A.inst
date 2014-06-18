@@ -1,0 +1,8 @@
+HEADER
+"PSFversion" "1.00"
+"TNAn" "cmrf7sf_nfetx_spectre"
+"TPAn" "cmrf7sf_pfet_spectre"
+"Av" ":1v"
+"Zv" ":2v"
+"gnd!v" ":3v"
+"vdd!v" ":4v"

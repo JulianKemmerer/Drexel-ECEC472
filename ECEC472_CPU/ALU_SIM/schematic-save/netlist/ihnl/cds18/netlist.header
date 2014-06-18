@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital
+// Cell name: INVERT_A
+// View name: schematic
+subckt INVERT_A A Z inh_gnd inh_vdd

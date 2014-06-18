@@ -1,0 +1,38 @@
+CADENCE IHNL01070
+$model
+Katie_ALU/ADD_8bit/schematic ADD_8bit
+Julian_Shifts_And_Mux/SL/schematic SL
+cmrf7sf_digital/INVERT_A/schematic INVERT_A
+cmrf7sf_digital/AND2_B/schematic AND2_B
+Julian_Shifts_And_Mux/ZeroFlag/schematic ZeroFlag
+Katie_ALU/SUB_8bit/schematic SUB_8bit
+cmrf7sf_digital/XOR3_B/schematic XOR3_B
+cmrf7sf_digital_layout/INVERT_J/schematic INVERT_J
+Julian_Shifts_And_Mux/SRA/schematic SRA
+cmrf7sf_digital_layout/OR4_F/schematic OR4_F
+cmrf7sf_digital_layout/MUX41_F/schematic MUX41_F
+Julian_Shifts_And_Mux/8_8Bit_To_1_8Bit_Mux/schematic Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic
+Katie_ALU/SUB_1bit/schematic SUB_1bit
+cmrf7sf_digital/OR2_B/schematic OR2_B
+Julian_Shifts_And_Mux/SRL/schematic SRL
+ECEC472_CPU/ALU_TOP/schematic ALU_TOP
+Julian_Shifts_And_Mux/8_To_1_Mux/schematic Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+cmrf7sf_digital_layout/BUFFER_J/schematic BUFFER_J
+ECEC472_CPU/ALU_SIM/schematic ALU_SIM
+Jon_ALU/NOT/schematic NOT
+Jon_ALU/OR/schematic OR
+cmrf7sf_digital_layout/ADDF_B/schematic ADDF_B
+Jon_ALU/AND/schematic AND
+cmrf7sf_digital_layout/MUX21BAL_J/schematic MUX21BAL_J
+cmrf7sf_digital/OR3_B/schematic OR3_B
+cmrf7sf_digital_layout/OR2_F/schematic OR2_F
+$endmodel
+$net
+gnd! 0
+vdd! vdd!
+$endnet
+$param
+phires phires
+s s
+p5vonly p5vonly
+$endparam

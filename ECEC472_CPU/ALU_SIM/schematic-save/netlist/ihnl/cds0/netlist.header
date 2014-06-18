@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: MUX41_F
+// View name: schematic
+subckt MUX41_F D0 D1 D2 D3 SD1 SD2 Z inh_gnd inh_vdd

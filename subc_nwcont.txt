@@ -1,0 +1,2 @@
+subc to gnd
+nwCont to VDD needs to touch pfet nwell

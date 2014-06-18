@@ -1,0 +1,86 @@
+    TND3 (net130 D3 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND2 (net133 D2 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1 (net136 D1 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSD2 (SD2_bar SD2 inh_gnd inh_gnd) nfet l=180.0n w=560.0n nf=1 m=1 \
+        par=1 ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0 (net139 D0 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX5 (net149 SD1 net131 inh_gnd) nfet l=180.0n w=780.0n nf=1 m=1 par=1 \
+        ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSD1 (net113 SD1 inh_gnd inh_gnd) nfet l=180.0n w=700.0n nf=1 m=1 \
+        par=1 ad=2.8e-13 as=2.8e-13 pd=2.14u ps=2.14u nrd=0.4063 \
+        nrs=0.4063 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX4 (net149 net113 net142 inh_gnd) nfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX0 (net142 SD2_bar net139 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX1 (net142 SD2 net136 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX2 (net131 SD2_bar net133 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX3 (net131 SD2 net130 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM2 (Z net149 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM1 (Z net149 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPD0 (net139 D0 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPSD2 (SD2_bar SD2 inh_vdd inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1 (net136 D1 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD3 (net130 D3 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD2 (net133 D2 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX5 (net149 net113 net131 inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX4 (net149 SD1 net142 inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 par=1 \
+        ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPSD1 (net113 SD1 inh_vdd inh_vdd) pfet l=180.0n w=920.0n nf=1 m=1 \
+        par=1 ad=3.7e-13 as=3.7e-13 pd=2.58u ps=2.58u nrd=0.3023 \
+        nrs=0.3023 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX1 (net142 SD2_bar net136 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX0 (net142 SD2 net139 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX2 (net131 SD2 net133 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX3 (net131 SD2_bar net130 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM2 (Z net149 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM1 (Z net149 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends MUX41_F
+// End of subcircuit definition.

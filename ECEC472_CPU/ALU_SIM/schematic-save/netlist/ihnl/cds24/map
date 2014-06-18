@@ -1,0 +1,31 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+ )
+( net
+( "[@gnd:%:gnd!]" "inh_gnd" )
+( "[@vdd:%:vdd!]" "inh_vdd" )
+ )
+( inst
+ )
+( model
+( "SRA" "SRA" )
+( "AND" "AND" )
+( "OR" "OR" )
+( "SUB_8bit" "SUB_8bit" )
+( "SL" "SL" )
+( "ADD_8bit" "ADD_8bit" )
+( "8_8Bit_To_1_8Bit_Mux" "Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic" )
+( "ALU_TOP" "ALU_TOP" )
+( "SRL" "SRL" )
+( "NOT" "NOT" )
+( "ZeroFlag" "ZeroFlag" )
+ )
+( term
+ )
+( param
+ )
+ )

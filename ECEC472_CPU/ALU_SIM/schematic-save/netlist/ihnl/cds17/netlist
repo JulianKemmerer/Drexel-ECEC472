@@ -1,0 +1,10 @@
+    I7 (Data0\<7\> Data1\<7\> net14 Cout Out\<7\> inh_gnd inh_vdd) ADDF_B
+    I6 (Data0\<6\> Data1\<6\> net13 net14 Out\<6\> inh_gnd inh_vdd) ADDF_B
+    I5 (Data0\<5\> Data1\<5\> net11 net13 Out\<5\> inh_gnd inh_vdd) ADDF_B
+    I4 (Data0\<4\> Data1\<4\> net9 net11 Out\<4\> inh_gnd inh_vdd) ADDF_B
+    I3 (Data0\<3\> Data1\<3\> net7 net9 Out\<3\> inh_gnd inh_vdd) ADDF_B
+    I2 (Data0\<2\> Data1\<2\> net5 net7 Out\<2\> inh_gnd inh_vdd) ADDF_B
+    I1 (Data0\<1\> Data1\<1\> net3 net5 Out\<1\> inh_gnd inh_vdd) ADDF_B
+    I0 (Data0\<0\> Data1\<0\> 0 net3 Out\<0\> inh_gnd inh_vdd) ADDF_B
+ends ADD_8bit
+// End of subcircuit definition.

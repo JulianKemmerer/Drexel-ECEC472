@@ -1,0 +1,23 @@
+    TNAM2 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNAM3 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNAM1 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPAM4 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM2 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM1 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM3 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends INVERT_J
+// End of subcircuit definition.

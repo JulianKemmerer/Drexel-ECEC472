@@ -1,0 +1,4 @@
+!<alc> v1 43
+0    2    0 BUFFER_J layout cmrf7sf_digital_layout
+0    6    2 BUFFER_J_VAR1 layout cmrf7sf_digital_layout
+0    5    0 SRA layout Julian_Shifts_And_Mux

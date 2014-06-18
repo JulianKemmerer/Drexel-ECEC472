@@ -1,0 +1,44 @@
+================================================================================
+Rule No. 2 : # INFO: I/O PADS = C4(4 on 8) #
+
+Real Error Count : 1; Flat Error Count : 1
+================================================================================
+
+--------------------------------------------------------------------------------
+Cell Name : SRL layout Julian_Shifts_And_Mux
+
+                   Cell Errors    Real Errors   Cell Placements     Environments
+                             1              1                 1                1
+--------------------------------------------------------------------------------
+Env.  Env. Placements            X1           Y1          X2           Y2
+
+  1        1                 -1.320      -29.480      10.820       10.000
+
+Shape               Environments Status & Error Marker 
+
+          1           X1         Y1         X2         Y2
+
+   1      X       -1.320    -29.480     10.820     10.000
+
+================================================================================
+Rule No. 2709 : # INFO: CMRF-7sf ASSURA DRC DECK (REV DATE 12/18/2013) #
+
+Real Error Count : 1; Flat Error Count : 1
+================================================================================
+
+--------------------------------------------------------------------------------
+Cell Name : SRL layout Julian_Shifts_And_Mux
+
+                   Cell Errors    Real Errors   Cell Placements     Environments
+                             1              1                 1                1
+--------------------------------------------------------------------------------
+Env.  Env. Placements            X1           Y1          X2           Y2
+
+  1        1                 -1.320      -29.480      10.820       10.000
+
+Shape               Environments Status & Error Marker 
+
+          1           X1         Y1         X2         Y2
+
+   1      X       -1.320    -29.480     10.820     10.000
+

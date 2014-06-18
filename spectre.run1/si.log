@@ -1,0 +1,14 @@
+Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.10s.
+
+Running simulation in directory: "/home/DREXEL/jvk27/ECEC472/IBM/spectre.run1".
+
+Begin Incremental Netlisting Mar  9 15:49:43 2014
+ERROR (OSSHNL-109): The cell view, 'ECEC472_CPU/ALU_SIM/schematic', has been modified since the last extraction.
+Re-extract the design (File->Check and Save menu option) for schematic cell
+views to correct this error.
+
+End netlisting Mar  9 15:49:43 2014
+ERROR (OSSHNL-514): Netlisting failed due to errors reported before. Netlist may be corrupt or may not be produced at all. Fix reported errors and netlist again.
+
+
+Simulation did not complete.

@@ -1,0 +1,13 @@
+HEADER
+"PSFversion" "1.00"
+"I2n I1n I0n" "AND2_B"
+"I3n" "OR3_B"
+"I4n" "XOR3_B"
+"I5n" "INVERT_A"
+"Binv" ":1v"
+"Boutv" ":2v"
+"Outv" ":3v"
+"Xv" ":4v"
+"Yv" ":5v"
+"[@gnd:%:gnd!]v" ":6v"
+"[@vdd:%:vdd!]v" ":7v"

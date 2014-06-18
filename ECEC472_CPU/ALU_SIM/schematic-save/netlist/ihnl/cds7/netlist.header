@@ -1,0 +1,6 @@
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: ZeroFlag
+// View name: schematic
+subckt ZeroFlag IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> \
+        IN\<7\> ZERO inh_gnd inh_vdd

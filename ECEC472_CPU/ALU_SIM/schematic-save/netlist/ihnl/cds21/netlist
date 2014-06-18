@@ -1,0 +1,62 @@
+    TNX1 (BBUFF ANOT XORAB inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX2 (XORAB A BNOT inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX4 (XORAB C predrive inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX3 (predrive CNOT XNORAB inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ (Z predrive inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (CNOT C inh_gnd inh_gnd) nfet l=180.0n w=900.0n nf=1 m=1 par=1 \
+        ad=3.6e-13 as=3.6e-13 pd=2.54u ps=2.54u nrd=0.3095 nrs=0.3095 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (BNOT B inh_gnd inh_gnd) nfet l=180.0n w=1.26u nf=1 m=1 par=1 \
+        ad=5.2e-13 as=5.2e-13 pd=3.26u ps=3.26u nrd=0.2167 nrs=0.2167 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN1 (BBUFF BNOT inh_gnd inh_gnd) nfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (ANOT A inh_gnd inh_gnd) nfet l=180.0n w=1.26u nf=1 m=1 par=1 \
+        ad=5.2e-13 as=5.2e-13 pd=3.26u ps=3.26u nrd=0.2167 nrs=0.2167 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN2 (XNORAB XORAB inh_gnd inh_gnd) nfet l=180.0n w=1.12u nf=1 m=1 \
+        par=1 ad=4.6e-13 as=4.6e-13 pd=2.98u ps=2.98u nrd=0.2453 \
+        nrs=0.2453 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPX1 (XORAB A BBUFF inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX2 (BNOT ANOT XORAB inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX4 (predrive CNOT XORAB inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX3 (XNORAB C predrive inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (Z predrive inh_vdd inh_vdd) pfet l=180.0n w=540.0n nf=1 m=1 par=1 \
+        ad=2.1e-13 as=2.1e-13 pd=1.82u ps=1.82u nrd=0.5417 nrs=0.5417 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPB (BNOT B inh_vdd inh_vdd) pfet l=180.0n w=2.52u nf=1 m=1 par=1 \
+        ad=1.06e-12 as=1.06e-12 pd=5.78u ps=5.78u nrd=0.1057 nrs=0.1057 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP1 (BBUFF BNOT inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPA (ANOT A inh_vdd inh_vdd) pfet l=180.0n w=2.52u nf=1 m=1 par=1 \
+        ad=1.06e-12 as=1.06e-12 pd=5.78u ps=5.78u nrd=0.1057 nrs=0.1057 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPC (CNOT C inh_vdd inh_vdd) pfet l=180.0n w=1.76u nf=1 m=1 par=1 \
+        ad=7.3e-13 as=7.3e-13 pd=4.26u ps=4.26u nrd=0.1529 nrs=0.1529 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP2 (XNORAB XORAB inh_vdd inh_vdd) pfet l=180.0n w=1.4u nf=1 m=1 par=1 \
+        ad=5.8e-13 as=5.8e-13 pd=3.54u ps=3.54u nrd=0.194 nrs=0.194 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends XOR3_B
+// End of subcircuit definition.

@@ -1,0 +1,119 @@
+;----------------------------------------------------------------------------
+; @(#)$CDS: assura version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/14 12:52 (sjfdl030) $
+; sub-version 4.1_USR4_HF6
+;----------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------
+; RSF include(/home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/Assura/LVS/LVSinclude.rsf) Section
+; Specified in the Assura UI
+;----------------------------------------------------------------------------
+
+;   Path, Component, Release: cmrf7sf/rel/Assura/LVS/LVSinclude.rsf, assuraLVS, cad_cmrf7sf
+;   CMVC Revision: 1.20 12/10/16 04:05:43
+; 08112004 jmp cmvc 12731 add divpnp.
+; 26112004 pr  cmvc 12851 Support for symInductor (added symind/symindx devices).
+; 22062005 jmp cmvc 13657 Add 3.3V ZVT Thick ox NFET device.
+; 22062005 jmp cmvc 13387 Include IBM corp Copyright in LVS files.
+; 09112005 pr  cmvc xxxxx Add Vncap.
+; 09112005 pr  cmvc xxxxx Verification zvtnfet33/x devices.  
+; 09112005 pr  cmvc xxxxx Add Mimhk.
+; 09112005 pr  cmvc xxxxx Add singlewire and coupledwires devices.
+; 18062007 cg  cmvc 15914 Add esdpnpi and esdndpi devices.
+; 20032008 jmp cmvc 16497 Add corrPoint device.
+; 19092008 cg  cmvc 17281 Add sbd devices.
+; V1700
+; 10112009 jmp cmvc 18729/18763 Add jfetjc vlnpn
+; 18112009 cg  cmvc 18777 Add rr_serpentine.
+; 19112009 jmp cmvc 18760 Add p5pfet50.
+; 20112009 jmp cmvc 18782 Add psbd.
+; 02122009 jmp cmvc 18736 Add esdnsh_base esdpsh_base
+; V1800
+; 27042010 pr  cmvc 17888 support devices under bondpad : devicepad ( cmvc 18981 ).
+; V2000
+; 21092012 jmp cmvc 21339 add p5pcdcap50.
+;
+; /*************************************************************************/
+; /*                                                                       */
+; /* These files may only be used with a valid licence for the             */
+; /* Cadence Design Systems, Inc. products.                                */
+; /*                                                                       */
+; /*************************************************************************/
+; /*                                                                   	   */
+; /*  License Materials - Property of IBM                              	   */
+; /*                                                                   	   */
+; /*  CMOS7RF         		                                    	   */
+; /*                                                                   	   */
+; /*  (C) Copyright IBM Corp. 2002,  2012	                      	   */
+; /*                                                                   	   */
+; /*  IBM Confidential                                                 	   */
+; /*                                                                   	   */
+; /*  US Government Users Restricted Rights - Use, duplication, or   	   */
+; /*  disclosure restricted by GSA ADP Schedule Contract with          	   */
+; /*  IBM Corp.                                                        	   */
+; /*                                                                   	   */
+; /*************************************************************************/
+;
+;===============================================================================
+;=START=START=START=START=START=START=START=START=START=START=START=START=START
+;===============================================================================
+; File name = LVSinclude.rsf
+; included by default when placed in the technology directory defined by assura_tech.lib
+;
+;===============================================================================
+;=STANDARD=DO NOT CHANGE=STANDARD=DO NOT CHANGE=STANDARD=DO NOT CHANGE=STANDARD=
+;===============================================================================
+;
+
+avParameters(
+ ?expandCellToParent ("p5pcdcap*" "devicepad*" "esdpsh_base*" "esdnsh_base*" "p5pfet50" "rr_serpentine*" "vlnpn*" "jfetjc*" "esdpnpi*" "esdndpi*" "efuse*" "nfet*" "pfet*" "zvtnfet*" "subc*" "dipdnw" "divpnp" "nwpc*" "oprr*" "oppp*" "opn*" "diffmosvar*" "mosvar*" "havar*" "dualmim*" "mim*" "mimhk*" "ind*" "symind*" "bondpad*" "mosvar*" "k1res*" "esdnfet*" "esdvpnpnw*" "esdndsx*" "vncap*" "singlewire*" "coupledwire*" "corrPoint" "sbd*" "psbd*" )
+ ?avrpt t
+ ?autoGrid nil
+)
+;
+;===== Give the end user the choice of customizing the run control file ========
+;
+; This is included in the GUI generated rsf file. Any parameters explicitly set from the 
+; GUI will override value in local.rsf if the parameters exist in both files.
+;
+if(isFile("local.rsf") then
+    load("local.rsf")
+)
+;
+;===============================================================================
+;=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=
+;===============================================================================
+
+
+;----------------------------------------------------------------------------
+; avParameter Section
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avParameters(
+  ?inputLayout ( "df2" "Julian_Shifts_And_Mux" )
+  ?cellName "SL"
+  ?viewName "layout"
+  ?runName "SL_LVS"
+  ?technology "av7rfLVS"
+  ?techLib "./assura_tech.lib"
+  ?avrpt t
+)
+
+
+
+
+;----------------------------------------------------------------------------
+; avCompareRules Section from Run Submit Form
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avCompareRules(
+schematic(
+netlist( dfII "/home/DREXEL/jvk27/ECEC472/IBM/SL_LVS.vlr" )
+)
+)
+
+
+avLVS()
+

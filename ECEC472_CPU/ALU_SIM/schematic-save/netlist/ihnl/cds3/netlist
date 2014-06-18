@@ -1,0 +1,26 @@
+    I7 (IN0\<7\> IN1\<7\> IN2\<7\> IN3\<7\> IN4\<7\> IN5\<7\> IN6\<7\> \
+        IN7\<7\> OUT\<7\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I6 (IN0\<6\> IN1\<6\> IN2\<6\> IN3\<6\> IN4\<6\> IN5\<6\> IN6\<6\> \
+        IN7\<6\> OUT\<6\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I5 (IN0\<5\> IN1\<5\> IN2\<5\> IN3\<5\> IN4\<5\> IN5\<5\> IN6\<5\> \
+        IN7\<5\> OUT\<5\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I4 (IN0\<4\> IN1\<4\> IN2\<4\> IN3\<4\> IN4\<4\> IN5\<4\> IN6\<4\> \
+        IN7\<4\> OUT\<4\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I3 (IN0\<3\> IN1\<3\> IN2\<3\> IN3\<3\> IN4\<3\> IN5\<3\> IN6\<3\> \
+        IN7\<3\> OUT\<3\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I2 (IN0\<2\> IN1\<2\> IN2\<2\> IN3\<2\> IN4\<2\> IN5\<2\> IN6\<2\> \
+        IN7\<2\> OUT\<2\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I1 (IN0\<1\> IN1\<1\> IN2\<1\> IN3\<1\> IN4\<1\> IN5\<1\> IN6\<1\> \
+        IN7\<1\> OUT\<1\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I0 (IN0\<0\> IN1\<0\> IN2\<0\> IN3\<0\> IN4\<0\> IN5\<0\> IN6\<0\> \
+        IN7\<0\> OUT\<0\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+ends Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic
+// End of subcircuit definition.

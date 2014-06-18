@@ -1,0 +1,32 @@
+    TNZM2 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM4 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM3 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (prebuff A inh_gnd inh_gnd) nfet l=180.0n w=1.78u nf=1 m=1 par=1 \
+        ad=7.4e-13 as=7.4e-13 pd=4.3u ps=4.3u nrd=0.1512 nrs=0.1512 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM1 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZM4 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPZM3 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPZM2 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPA (prebuff A inh_vdd inh_vdd) pfet l=180.0n w=2.1u nf=1 m=1 par=1 \
+        ad=8.8e-13 as=8.8e-13 pd=4.94u ps=4.94u nrd=0.1275 nrs=0.1275 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM1 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends BUFFER_J
+// End of subcircuit definition.

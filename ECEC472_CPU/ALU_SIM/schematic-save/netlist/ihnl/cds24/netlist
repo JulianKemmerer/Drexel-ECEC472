@@ -1,0 +1,50 @@
+    I0 (net36\<0\> net36\<1\> net36\<2\> net36\<3\> net36\<4\> net36\<5\> \
+        net36\<6\> net36\<7\> net38\<0\> net38\<1\> net38\<2\> net38\<3\> \
+        net38\<4\> net38\<5\> net38\<6\> net38\<7\> net33\<0\> net33\<1\> \
+        net33\<2\> net33\<3\> net33\<4\> net33\<5\> net33\<6\> net33\<7\> \
+        net29\<0\> net29\<1\> net29\<2\> net29\<3\> net29\<4\> net29\<5\> \
+        net29\<6\> net29\<7\> net34\<0\> net34\<1\> net34\<2\> net34\<3\> \
+        net34\<4\> net34\<5\> net34\<6\> net34\<7\> net32\<0\> net32\<1\> \
+        net32\<2\> net32\<3\> net32\<4\> net32\<5\> net32\<6\> net32\<7\> \
+        net31\<0\> net31\<1\> net31\<2\> net31\<3\> net31\<4\> net31\<5\> \
+        net31\<6\> net31\<7\> net30\<0\> net30\<1\> net30\<2\> net30\<3\> \
+        net30\<4\> net30\<5\> net30\<6\> net30\<7\> OUT\<0\> OUT\<1\> \
+        OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> Op\<0\> \
+        Op\<1\> Op\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic
+    I1 (OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> ZERO inh_gnd inh_vdd) ZeroFlag
+    AND (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net36\<0\> net36\<1\> \
+        net36\<2\> net36\<3\> net36\<4\> net36\<5\> net36\<6\> net36\<7\> \
+        inh_gnd inh_vdd) AND
+    SRA (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net32\<0\> net32\<1\> net32\<2\> net32\<3\> \
+        net32\<4\> net32\<5\> net32\<6\> net32\<7\> inh_gnd inh_vdd) SRA
+    SRL (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net31\<0\> net31\<1\> net31\<2\> net31\<3\> \
+        net31\<4\> net31\<5\> net31\<6\> net31\<7\> inh_gnd inh_vdd) SRL
+    SL (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net30\<0\> net30\<1\> net30\<2\> net30\<3\> \
+        net30\<4\> net30\<5\> net30\<6\> net30\<7\> inh_gnd inh_vdd) SL
+    OR (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net38\<0\> net38\<1\> \
+        net38\<2\> net38\<3\> net38\<4\> net38\<5\> net38\<6\> net38\<7\> \
+        inh_gnd inh_vdd) OR
+    ADD (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net33\<0\> net33\<1\> \
+        net33\<2\> net33\<3\> net33\<4\> net33\<5\> net33\<6\> net33\<7\> \
+        inh_gnd inh_vdd) ADD_8bit
+    NOT (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net34\<0\> net34\<1\> net34\<2\> net34\<3\> \
+        net34\<4\> net34\<5\> net34\<6\> net34\<7\> inh_gnd inh_vdd) NOT
+    SUB (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net29\<0\> net29\<1\> \
+        net29\<2\> net29\<3\> net29\<4\> net29\<5\> net29\<6\> net29\<7\> \
+        inh_gnd inh_vdd) SUB_8bit
+ends ALU_TOP
+// End of subcircuit definition.

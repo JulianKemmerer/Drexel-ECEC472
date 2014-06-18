@@ -1,0 +1,32 @@
+
+            Assura (R) Physical Verification Version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17
+            Release 4.1_USR4_HF6
+
+Copyright (c) Cadence Design Systems. All rights reserved.
+@(#)$CDS: assura_64 version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/2014 13:15 (sjfdl030) $
+sub-version 4.1_USR4_HF6, integ signature 2014-01-29-1246
+
+run on xunil-01 from /opt/cadence/ASSURA41/tools.lnx86/assura/bin/64bit/assura on Fri Mar 14 13:10:03 2014
+
+
+Starting /opt/cadence/ASSURA41//tools/assura/bin/aveng /home/DREXEL/jvk27/ECEC472/IBM/SL_LVS.rsf -exec1 -LVS -cdslib /home/DREXEL/jvk27/ECEC472/IBM/cds.lib -libdefs /home/DREXEL/jvk27/ECEC472/IBM/lib.defs
+@(#)$CDS: aveng_64 version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/2014 13:16 (sjfdl030) $
+sub-version 4.1_USR4_HF6, integ signature 2014-01-29-1246
+
+run on xunil-01 from /opt/cadence/ASSURA41/tools.lnx86/assura/bin/64bit/aveng on Fri Mar 14 13:10:03 2014
+
+*WARNING* File extract.rul not found in technology av7rfLVS
+ERROR  (AVRC-10384): Please check file '<Not found>' for existence of techRuleSet 'default', file group 'LvsExtractRules' and existence of files specified for this file group. Using technology 'av7rfLVS' and techLib '/home/DREXEL/jvk27/ECEC472/IBM/assura_tech.lib'.
+Errors exist in the run specific file '/home/DREXEL/jvk27/ECEC472/IBM/SL_LVS.rsf'.
+
+
+*****  aveng terminated abnormally  *****
+
+
+*WARNING* aveng exit with bad status
+*WARNING* Status 256
+*WARNING* Assura execution terminated
+
+
+*****  aveng fork terminated abnormally  *****
+

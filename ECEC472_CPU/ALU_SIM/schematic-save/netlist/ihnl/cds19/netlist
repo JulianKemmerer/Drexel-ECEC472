@@ -1,0 +1,10 @@
+    I22 (Data0\<6\> OUT\<6\> inh_gnd inh_vdd) INVERT_A
+    I19 (Data0\<3\> OUT\<3\> inh_gnd inh_vdd) INVERT_A
+    I18 (Data0\<1\> OUT\<1\> inh_gnd inh_vdd) INVERT_A
+    I17 (Data0\<0\> OUT\<0\> inh_gnd inh_vdd) INVERT_A
+    I21 (Data0\<7\> OUT\<7\> inh_gnd inh_vdd) INVERT_A
+    I20 (Data0\<2\> OUT\<2\> inh_gnd inh_vdd) INVERT_A
+    I23 (Data0\<5\> OUT\<5\> inh_gnd inh_vdd) INVERT_A
+    I24 (Data0\<4\> OUT\<4\> inh_gnd inh_vdd) INVERT_A
+ends NOT
+// End of subcircuit definition.

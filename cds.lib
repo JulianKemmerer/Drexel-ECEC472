@@ -1,0 +1,26 @@
+# File Created by jvk27 at Wed Mar  5 10:39:53 2014
+# assisted by CdsLibEditor
+DEFINE analogLib $CDS/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE sbaLib $CDS/tools/dfII/etc/cdslib/artist/sbaLib
+DEFINE basic $CDS/tools/dfII/etc/cdslib/basic
+DEFINE sample $CDS/tools/dfII/samples/cdslib/sample
+DEFINE US_8ths $CDS/tools/dfII/etc/cdslib/sheets/US_8ths
+DEFINE cmrf7sf /home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/cdslib/cmrf7sf
+DEFINE esd7rf /home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/cdslib/esd7rf
+DEFINE cmrf7sf_digital /home/ECEx72/IBM_CMOS7RF/Digital_KIT/ibm_cmos7rf_std_cell_20111130/std_cell/v.20111130/cdslib_oa
+
+#Removed by ddDeleteObj: DEFINE CPU /home/DREXEL/jvk27/ECEC472/IBM_PDK/ECEC472_CPU
+DEFINE Katie_ALU /home/DREXEL/cml92/IBM/Katie_ALU
+#Removed by ddDeleteObj: DEFINE Test /home/DREXEL/jvk27/ECEC472/IBM/Test
+#Removed by ddDeleteObj: DEFINE ECEC472_CPU /home/DREXEL/jvk27/ECEC472/IBM/ECEC472_CPU
+DEFINE ECEC472_CPU /home/DREXEL/jvk27/ECEC472/IBM/ECEC472_CPU
+DEFINE Steve_Reg_File /home/DREXEL/sdd42/ECEC572/Steve_Reg_File/
+DEFINE Kyle /home/DREXEL/kjj39/ECEC472/
+
+DEFINE cmrf7sf_digital_layout /home/ECEx72/IBM_CMOS7RF/Digital_KIT/ibm_cmos7rf_std_cell_20111130/std_cell/v.20111130/cdslib_oa_layout
+#Removed by ddDeleteObj: DEFINE Julian_Shifts /home/DREXEL/jvk27/ECEC472/IBM/Julian_Shifts
+DEFINE Julian_Shifts_And_Mux /home/DREXEL/jvk27/ECEC472/IBM/Julian_Shifts_And_Mux
+DEFINE Cesar /home/DREXEL/cag328/IBM/cag328lib/
+DEFINE Jon_ALU /home/DREXEL/jms528/ECEC472/Jon
+DEFINE David_MEM /home/DREXEL/drg56/IBM/mylib/
+DEFINE avTech /opt/cadence/ASSURA41/tools/assura/etc/avtech/avTech

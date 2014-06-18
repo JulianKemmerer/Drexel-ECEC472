@@ -1,0 +1,10 @@
+    I43 (Data0\<1\> Data1\<1\> OUT\<1\> inh_gnd inh_vdd) OR2_B
+    I48 (Data0\<6\> Data1\<6\> OUT\<6\> inh_gnd inh_vdd) OR2_B
+    I47 (Data0\<5\> Data1\<5\> OUT\<5\> inh_gnd inh_vdd) OR2_B
+    I45 (Data0\<3\> Data1\<3\> OUT\<3\> inh_gnd inh_vdd) OR2_B
+    I46 (Data0\<4\> Data1\<4\> OUT\<4\> inh_gnd inh_vdd) OR2_B
+    I44 (Data0\<2\> Data1\<2\> OUT\<2\> inh_gnd inh_vdd) OR2_B
+    I42 (Data0\<0\> Data1\<0\> OUT\<0\> inh_gnd inh_vdd) OR2_B
+    I49 (Data0\<7\> Data1\<7\> OUT\<7\> inh_gnd inh_vdd) OR2_B
+ends OR
+// End of subcircuit definition.

@@ -1,0 +1,8 @@
+    TNA (Z A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (Z A inh_vdd inh_vdd) pfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends INVERT_A
+// End of subcircuit definition.

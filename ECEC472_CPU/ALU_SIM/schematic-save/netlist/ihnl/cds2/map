@@ -1,0 +1,23 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+ )
+( net
+( "[@gnd:%:gnd!]" "inh_gnd" )
+( "[@vdd:%:vdd!]" "inh_vdd" )
+ )
+( inst
+ )
+( model
+( "8_To_1_Mux" "Julian_Shifts_And_Mux_8_To_1_Mux_schematic" )
+( "MUX21BAL_J" "MUX21BAL_J" )
+( "MUX41_F" "MUX41_F" )
+ )
+( term
+ )
+( param
+ )
+ )

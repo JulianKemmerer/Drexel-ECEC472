@@ -1,0 +1,5 @@
+--Path, Component, Release: cmrf7sf/V2.0.1.0AM/cdslib/examples/assura_tech.lib, examples, cad_cmrf7sf
+--CMVC Revision: 1.1 10/05/04 04:56:48
+------------------------  cmrf7sf  -------------------------------------------
+DEFINE av7rfDRC /home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/Assura/DRC
+DEFINE av7rfLVS /home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/Assura/LVS

@@ -1,0 +1,35 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'BUFFER_J layout cmrf7sf_digital_layout':
+  info: Assign pin label "GND!" at (-0.300, 0.400) to layer `m1_resistive'.
+  info: Assign pin label "A" at (0.300, 2.740) to layer `m1_resistive'.
+  info: Assign pin label "VDD!" at (-0.210, 4.330) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.520, 1.680) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (3.360, 2.500) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.520, 3.360) to layer `m1_resistive'.
+  info: Assign pin label "A" at (0.000, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "A" at (0.000, 5.600) to layer `pc_resistive'.
+
+ Label in cell 'SL layout Julian_Shifts_And_Mux':
+  info: Assign pin label "IN<7>" at (-1.160, -26.320) to layer `m3_resistive'.
+  info: Assign pin label "IN<6>" at (-1.160, -24.640) to layer `m3_resistive'.
+  info: Assign pin label "IN<5>" at (-1.160, -20.720) to layer `m3_resistive'.
+  info: Assign pin label "IN<4>" at (-1.160, -19.040) to layer `m3_resistive'.
+  info: Assign pin label "OUT<7>" at (9.340, -26.320) to layer `m3_resistive'.
+  info: Assign pin label "OUT<6>" at (9.340, -24.640) to layer `m3_resistive'.
+  info: Assign pin label "IN<3>" at (-1.160, -12.880) to layer `m3_resistive'.
+  info: Assign pin label "IN<2>" at (-1.160, -11.200) to layer `m3_resistive'.
+  info: Assign pin label "OUT<5>" at (9.340, -20.720) to layer `m3_resistive'.
+  info: Assign pin label "OUT<4>" at (9.340, -19.040) to layer `m3_resistive'.
+  info: Assign pin label "IN<1>" at (-1.160, -7.280) to layer `m3_resistive'.
+  info: Assign pin label "IN<0>" at (-1.160, -5.600) to layer `m3_resistive'.
+  info: Assign pin label "OUT<3>" at (9.340, -12.880) to layer `m3_resistive'.
+  info: Assign pin label "OUT<2>" at (9.340, -11.200) to layer `m3_resistive'.
+  info: Assign pin label "OUT<1>" at (9.340, -7.280) to layer `m3_resistive'.
+  info: Assign pin label "OUT<0>" at (9.340, -5.600) to layer `m3_resistive'.
+  info: Assign pin label "vdd!" at (0.260, -4.480) to layer `m1_resistive'.
+  info: Assign pin label "gnd!" at (9.780, -8.400) to layer `m1_resistive'.
+
+***** End of Label Report *****
+

@@ -1,0 +1,13 @@
+HEADER
+"PSFversion" "1.00"
+"TND3n TND2n TND1n TNSD2n TND0n TNX5n TNSD1n TNX4n TNX0n TNX1n TNX2n TNX3n TNZM2n TNZM1n" "cmrf7sf_nfetx_spectre"
+"TPD0n TPSD2n TPD1n TPD3n TPD2n TPX5n TPX4n TPSD1n TPX1n TPX0n TPX2n TPX3n TPZM2n TPZM1n" "cmrf7sf_pfet_spectre"
+"D0v" ":1v"
+"D1v" ":2v"
+"D2v" ":3v"
+"D3v" ":4v"
+"SD1v" ":5v"
+"SD2v" ":6v"
+"Zv" ":7v"
+"gnd!v" ":8v"
+"vdd!v" ":9v"

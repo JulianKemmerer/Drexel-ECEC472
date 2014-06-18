@@ -1,0 +1,8 @@
+    I2 (Bin net15 net21 inh_gnd inh_vdd) AND2_B
+    I1 (Y net15 net24 inh_gnd inh_vdd) AND2_B
+    I0 (Bin Y net23 inh_gnd inh_vdd) AND2_B
+    I3 (net23 net24 net21 Bout inh_gnd inh_vdd) OR3_B
+    I4 (X Y Bin Out inh_gnd inh_vdd) XOR3_B
+    I5 (X net15 inh_gnd inh_vdd) INVERT_A
+ends SUB_1bit
+// End of subcircuit definition.

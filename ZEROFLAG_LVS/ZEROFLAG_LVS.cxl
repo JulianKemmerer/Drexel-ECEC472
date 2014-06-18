@@ -1,0 +1,93 @@
+C pfet(Generic) pfet(Generic)
+N D D
+N G G
+N S S
+N B B
+
+C nfet(Generic) nfet(Generic)
+N D D
+N G G
+N S S
+N B B
+
+C "INVERT_J schematic cmrf7sf_digital_layout" "INVERT_J layout cmrf7sf_digital_layout"
+N Z Z
+N A A
+N gnd! GND!
+N power VDD!
+I TNAM2 avD20_1
+I TPAM4 avD41_1
+
+C "OR2_F schematic cmrf7sf_digital_layout" "OR2_F layout cmrf7sf_digital_layout"
+N net28 avC6
+N net34 avC7
+N B B
+N A A
+N Z Z
+N gnd! GND!
+N power VDD!
+I TNZ avD20_3
+I TNB avD20_2
+I TNA avD20_1
+I TPZ avD41_3
+I TPA avD41_2
+I TPB avD41_1
+
+C "ZeroFlag schematic Julian_Shifts_And_Mux" "ZeroFlag layout Julian_Shifts_And_Mux"
+N net7 avC14
+N net3 avC12
+N net5 avC13
+N IN<0> IN<0>
+N IN<1> IN<1>
+N IN<2> IN<2>
+N IN<3> IN<3>
+N IN<4> IN<4>
+N IN<5> IN<5>
+N IN<6> IN<6>
+N IN<7> IN<7>
+N ZERO ZERO
+N vdd! vdd!
+N gnd! gnd!
+N I1/INT1 |I1/avC8
+N I1/net74 |I1/avC12
+N I1/INT2 |I1/avC11
+N I1/net58 |I1/avC13
+N I1/net49 |I1/avC9
+N I1/net43 |I1/avC10
+N I0/INT1 |I0/avC8
+N I0/net74 |I0/avC12
+N I0/INT2 |I0/avC11
+N I0/net58 |I0/avC13
+N I0/net49 |I0/avC9
+N I0/net43 |I0/avC10
+I I1/TNA |I1/avD20_2
+I I1/TNB |I1/avD20_1
+I I1/TNZAM1 |I1/avD38_2
+I I1/TNZBM1 |I1/avD38_1
+I I1/TNZAM2 |I1/avD38_3
+I I1/TNZBM2 |I1/avD38_4
+I I1/TNC |I1/avD20_3
+I I1/TND |I1/avD20_4
+I I1/TPA |I1/avD51_1
+I I1/TPB |I1/avD51_8
+I I1/TPZAM1 |I1/avD51_2
+I I1/TPZBM2 |I1/avD51_4
+I I1/TPC |I1/avD51_6
+I I1/TPD |I1/avD51_7
+I I0/TNA |I0/avD20_2
+I I0/TNB |I0/avD20_1
+I I0/TNZAM1 |I0/avD38_2
+I I0/TNZBM1 |I0/avD38_1
+I I0/TNZAM2 |I0/avD38_3
+I I0/TNZBM2 |I0/avD38_4
+I I0/TNC |I0/avD20_3
+I I0/TND |I0/avD20_4
+I I0/TPA |I0/avD51_1
+I I0/TPB |I0/avD51_8
+I I0/TPZAM1 |I0/avD51_2
+I I0/TPZBM2 |I0/avD51_4
+I I0/TPC |I0/avD51_6
+I I0/TPD |I0/avD51_7
+I I2 |I2
+I I3 |I3
+

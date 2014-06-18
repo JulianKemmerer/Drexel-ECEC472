@@ -1,0 +1,50 @@
+    TNA (INT1 A inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (INT1 B inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZAM1 (Z INT1 net49 inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZBM1 (net49 INT2 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 \
+        par=1 ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 \
+        nrs=0.1635 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZAM2 (Z INT1 net43 inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZBM2 (net43 INT2 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 \
+        par=1 ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 \
+        nrs=0.1635 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (INT2 C inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND (INT2 D inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (INT1 A net74 inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPB (net74 B inh_vdd inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZAM1 (Z INT1 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZAM2 (Z INT1 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZBM2 (Z INT2 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZBM1 (Z INT2 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPC (INT2 C net58 inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD (net58 D inh_vdd inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends OR4_F
+// End of subcircuit definition.

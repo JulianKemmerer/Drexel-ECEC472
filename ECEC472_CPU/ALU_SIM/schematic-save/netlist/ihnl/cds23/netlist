@@ -1,0 +1,15 @@
+    I7 (net17 net19 Out\<7\> Data0\<7\> Data1\<7\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I6 (net15 net17 Out\<6\> Data0\<6\> Data1\<6\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I5 (net13 net15 Out\<5\> Data0\<5\> Data1\<5\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I4 (net11 net13 Out\<4\> Data0\<4\> Data1\<4\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I3 (net9 net11 Out\<3\> Data0\<3\> Data1\<3\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I2 (net7 net9 Out\<2\> Data0\<2\> Data1\<2\> inh_gnd inh_vdd) SUB_1bit
+    I1 (net5 net7 Out\<1\> Data0\<1\> Data1\<1\> inh_gnd inh_vdd) SUB_1bit
+    I0 (0 net5 Out\<0\> Data0\<0\> Data1\<0\> inh_gnd inh_vdd) SUB_1bit
+ends SUB_8bit
+// End of subcircuit definition.

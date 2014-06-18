@@ -1,0 +1,5 @@
+
+// Library name: Katie_ALU
+// Cell name: SUB_1bit
+// View name: schematic
+subckt SUB_1bit Bin Bout Out X Y inh_gnd inh_vdd

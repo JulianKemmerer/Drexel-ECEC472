@@ -1,0 +1,7 @@
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: SRA
+// View name: schematic
+subckt SRA IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> IN\<7\> \
+        OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> inh_gnd inh_vdd

@@ -1,0 +1,6 @@
+    I1 (IN\<4\> IN\<5\> IN\<6\> IN\<7\> net3 inh_gnd inh_vdd) OR4_F
+    I0 (IN\<0\> IN\<1\> IN\<2\> IN\<3\> net5 inh_gnd inh_vdd) OR4_F
+    I2 (net5 net3 net7 inh_gnd inh_vdd) OR2_F
+    I3 (net7 ZERO inh_gnd inh_vdd) INVERT_J
+ends ZeroFlag
+// End of subcircuit definition.

@@ -1,0 +1,23 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 32.10 12/13/2010 12:21 (cat91amd) $
+\o Sub version:		sub-version  p011 
+\o Arguments:		-display localhost:13.0 -mpssession virtuoso6951 -mpshost xunil-02 -namespace CDBA -cdslib /home/DREXEL/jvk27/ECEC472/IBM/cds.lib 
+\o Working Directory:	xunil-02:/home/DREXEL/jvk27/ECEC472/IBM
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.5.3
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "analogLib"
+\a nrResizeWindow(cdsLibEditor list(75 75 500 400))
+\a nrResizeWindow(cdsLibEditor list(-8 -8 1440 838))
+\a nrListItemAction(cdsLibEditor->mainTable 15 1)
+\o Active cell: 15 1 "/home/DREXEL/jms528/ECEC472/Jon"
+\a nrListItemAction(cdsLibEditor->mainTable 16 0)
+\o Active cell: 16 0 "David_MEM"
+\a nrListItemAction(cdsLibEditor->mainTable 15 1)
+\o Active cell: 15 1 "/home/DREXEL/jms528/ECEC472/Jon"
+\a nrListItemAction(cdsLibEditor->mainTable 16 0)
+\o Active cell: 16 0 "David_MEM"
+\a cdsLibEditor->fileSaveButton->value = t
+\a cdsLibEditor->fileExitButton->value = t
+\a nrSetWindowVisibility(cdsLibEditor "hide")
+\a exit(0)

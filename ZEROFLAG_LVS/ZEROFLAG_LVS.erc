@@ -1,0 +1,59 @@
+
+***** Begin Label Report *****
+
+ Label in cell 'OR4_F layout cmrf7sf_digital_layout':
+  info: Assign pin label "GND!" at (-0.300, 0.400) to layer `m1_resistive'.
+  info: Assign pin label "B" at (0.280, 2.240) to layer `m1_resistive'.
+  info: Assign pin label "A" at (0.280, 2.800) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.240, 1.680) to layer `m1_resistive'.
+  info: Assign pin label "VDD!" at (-0.210, 4.330) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (1.680, 3.360) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (3.360, 2.240) to layer `m1_resistive'.
+  info: Assign pin label "D" at (4.760, 2.240) to layer `m1_resistive'.
+  info: Assign pin label "C" at (4.740, 2.800) to layer `m1_resistive'.
+  info: Assign pin label "B" at (0.000, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "A" at (1.120, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "C" at (3.920, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "D" at (5.040, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "B" at (0.000, 6.160) to layer `pc_resistive'.
+  info: Assign pin label "A" at (0.560, 6.160) to layer `pc_resistive'.
+  info: Assign pin label "C" at (4.480, 6.160) to layer `pc_resistive'.
+  info: Assign pin label "D" at (5.040, 6.160) to layer `pc_resistive'.
+
+ Label in cell 'OR2_F layout cmrf7sf_digital_layout':
+  info: Assign pin label "GND!" at (-0.300, 0.400) to layer `m1_resistive'.
+  info: Assign pin label "B" at (0.280, 2.800) to layer `m1_resistive'.
+  info: Assign pin label "A" at (0.840, 2.240) to layer `m1_resistive'.
+  info: Assign pin label "VDD!" at (-0.210, 4.330) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.500, 1.680) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.800, 2.500) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.520, 3.360) to layer `m1_resistive'.
+  info: Assign pin label "B" at (0.000, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "A" at (1.120, 0.000) to layer `pc_resistive'.
+  info: Assign pin label "B" at (0.000, 5.040) to layer `pc_resistive'.
+  info: Assign pin label "A" at (1.120, 5.040) to layer `pc_resistive'.
+
+ Label in cell 'INVERT_J layout cmrf7sf_digital_layout':
+  info: Assign pin label "GND!" at (-0.300, 0.400) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (1.200, 1.620) to layer `m1_resistive'.
+  info: Assign pin label "A" at (0.520, 2.740) to layer `m1_resistive'.
+  info: Assign pin label "VDD!" at (-0.210, 4.330) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (1.120, 3.280) to layer `m1_resistive'.
+  info: Assign pin label "Z" at (2.180, 2.440) to layer `m1_resistive'.
+  info: Assign pin label "A" at (1.120, 0.000) to layer `pc_resistive'.
+
+ Label in cell 'ZeroFlag layout Julian_Shifts_And_Mux':
+  info: Assign pin label "IN<7>" at (-0.060, -13.140) to layer `m3_resistive'.
+  info: Assign pin label "IN<6>" at (-0.060, -12.540) to layer `m3_resistive'.
+  info: Assign pin label "IN<5>" at (-0.060, -11.260) to layer `m3_resistive'.
+  info: Assign pin label "IN<4>" at (-0.060, -10.660) to layer `m3_resistive'.
+  info: Assign pin label "IN<3>" at (-0.060, -8.060) to layer `m3_resistive'.
+  info: Assign pin label "IN<2>" at (-0.060, -7.460) to layer `m3_resistive'.
+  info: Assign pin label "IN<1>" at (-0.060, -6.180) to layer `m3_resistive'.
+  info: Assign pin label "IN<0>" at (-0.060, -5.580) to layer `m3_resistive'.
+  info: Assign pin label "ZERO" at (10.680, -5.720) to layer `m3_resistive'.
+  info: Assign pin label "vdd!" at (0.220, -4.600) to layer `m1_resistive'.
+  info: Assign pin label "gnd!" at (10.980, -8.520) to layer `m1_resistive'.
+
+***** End of Label Report *****
+

@@ -1,0 +1,13 @@
+EVcdFile ""
+EVcdInfoFile ""
+allStimulusFiles nil
+stimulusFile nil
+allDefinitionFiles nil
+definitionFiles nil
+includePath "/home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/Spectre/models"
+VectorFile nil
+hlcheck "off"
+VcdFile ""
+allVectorFiles nil
+VcdInfoFile ""
+allIncludedPaths ((t "/home/ECEx72/IBM_CMOS7RF/IBM_PDK/cmrf7sf/V2.0.1.0AM/Spectre/models"))

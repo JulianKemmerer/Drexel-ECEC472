@@ -1,0 +1,7 @@
+cmrf7sf ca_min layout 23
+cmrf7sf_digital_layout INVERT_J layout 118
+cmrf7sf_digital_layout OR2_F layout 139
+cmrf7sf_digital_layout OR4_F layout 292
+cmrf7sf nwCont layout 48
+cmrf7sf subc layout 185
+Julian_Shifts_And_Mux ZeroFlag layout 529

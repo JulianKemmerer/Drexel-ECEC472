@@ -1,0 +1,61 @@
+C pfet(Generic) pfet(Generic)
+N D D
+N G G
+N S S
+N B B
+
+C nfet(Generic) nfet(Generic)
+N D D
+N G G
+N S S
+N B B
+
+C "BUFFER_J schematic cmrf7sf_digital_layout" "BUFFER_J layout cmrf7sf_digital_layout"
+N prebuff avC5
+N A A
+N Z Z
+N gnd! GND!
+N power VDD!
+I TNZM2 avD38_1
+I TNA avD20_1
+I TPZM4 avD51_1
+I TPA avD41_1
+
+C "BUFFER_J schematic cmrf7sf_digital_layout" "BUFFER_J_VAR1 layout cmrf7sf_digital_layout"
+N prebuff avC5
+N A A
+N Z Z
+N gnd! GND!
+N power VDD!
+I TNZM2 avD38_1
+I TNA avD20_1
+I TPZM4 avD51_1
+I TPA avD41_1
+
+C "SRL schematic Julian_Shifts_And_Mux" "SRL layout Julian_Shifts_And_Mux"
+N IN<1> IN<1>
+N IN<2> IN<2>
+N IN<3> IN<3>
+N IN<4> IN<4>
+N IN<5> IN<5>
+N IN<6> IN<6>
+N IN<7> IN<7>
+N OUT<0> OUT<0>
+N OUT<1> OUT<1>
+N OUT<2> OUT<2>
+N OUT<3> OUT<3>
+N OUT<4> OUT<4>
+N OUT<5> OUT<5>
+N OUT<6> OUT<6>
+N OUT<7> OUT<7>
+N vdd! vdd!
+N gnd! gnd!
+I I3 |I3
+I I4 |I4
+I I6 |I6
+I I5 |I5
+I I10 |I10
+I I9 |I9
+I I7 |I7
+I I8 |I8
+

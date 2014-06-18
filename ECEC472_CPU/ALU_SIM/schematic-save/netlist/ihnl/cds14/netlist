@@ -1,0 +1,20 @@
+    TNZ (Z net28 inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net28 B inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (net28 A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZ (Z net28 inh_vdd inh_vdd) pfet l=180.0n w=440.0n nf=1 m=1 par=1 \
+        ad=1.6e-13 as=1.6e-13 pd=1.62u ps=1.62u nrd=0.6842 nrs=0.6842 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPA (net28 A net34 inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPB (net34 B inh_vdd inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends OR2_B
+// End of subcircuit definition.

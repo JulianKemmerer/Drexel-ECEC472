@@ -1,0 +1,76 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "ALU_SIM"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gnd! vdd!"
+  hierDelim "."
+  netlistDir "/home/DREXEL/jvk27/simulation/ALU_SIM/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "cmrf7sf_digital/OR3_B/schematic" "OR3_B" )
+( "cmrf7sf_digital/INVERT_A/schematic" "INVERT_A" )
+( "cmrf7sf_digital_layout/ADDF_B/schematic" "ADDF_B" )
+( "Jon_ALU/OR/schematic" "OR" )
+( "Julian_Shifts_And_Mux/SRL/schematic" "SRL" )
+( "Julian_Shifts_And_Mux/ZeroFlag/schematic" "ZeroFlag" )
+( "Katie_ALU/SUB_8bit/schematic" "SUB_8bit" )
+( "Julian_Shifts_And_Mux/8_To_1_Mux/schematic" "Julian_Shifts_And_Mux_8_To_1_Mux_schematic" )
+( "ECEC472_CPU/ALU_TOP/schematic" "ALU_TOP" )
+( "cmrf7sf_digital_layout/BUFFER_J/schematic" "BUFFER_J" )
+( "cmrf7sf_digital/XOR3_B/schematic" "XOR3_B" )
+( "Katie_ALU/ADD_8bit/schematic" "ADD_8bit" )
+( "cmrf7sf_digital_layout/MUX21BAL_J/schematic" "MUX21BAL_J" )
+( "Julian_Shifts_And_Mux/SL/schematic" "SL" )
+( "cmrf7sf_digital_layout/INVERT_J/schematic" "INVERT_J" )
+( "Julian_Shifts_And_Mux/SRA/schematic" "SRA" )
+( "cmrf7sf_digital_layout/OR2_F/schematic" "OR2_F" )
+( "Julian_Shifts_And_Mux/8_8Bit_To_1_8Bit_Mux/schematic" "Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic" )
+( "cmrf7sf_digital_layout/OR4_F/schematic" "OR4_F" )
+( "Jon_ALU/AND/schematic" "AND" )
+( "Katie_ALU/SUB_1bit/schematic" "SUB_1bit" )
+( "Jon_ALU/NOT/schematic" "NOT" )
+( "cmrf7sf_digital/OR2_B/schematic" "OR2_B" )
+( "ECEC472_CPU/ALU_SIM/schematic" "ALU_SIM" )
+( "cmrf7sf_digital_layout/MUX41_F/schematic" "MUX41_F" )
+( "cmrf7sf_digital/AND2_B/schematic" "AND2_B" )
+ )
+( term
+ )
+( param
+ )
+( "SRA" "ihnl/cds11/map" )
+( "AND" "ihnl/cds9/map" )
+( "OR" "ihnl/cds15/map" )
+( "Julian_Shifts_And_Mux_8_To_1_Mux_schematic" "ihnl/cds2/map" )
+( "OR2_B" "ihnl/cds14/map" )
+( "MUX21BAL_J" "ihnl/cds1/map" )
+( "SUB_8bit" "ihnl/cds23/map" )
+( "SL" "ihnl/cds13/map" )
+( "OR3_B" "ihnl/cds20/map" )
+( "ADD_8bit" "ihnl/cds17/map" )
+( "SUB_1bit" "ihnl/cds22/map" )
+( "ADDF_B" "ihnl/cds16/map" )
+( "INVERT_A" "ihnl/cds18/map" )
+( "OR4_F" "ihnl/cds4/map" )
+( "XOR3_B" "ihnl/cds21/map" )
+( "AND2_B" "ihnl/cds8/map" )
+( "ALU_TOP" "ihnl/cds24/map" )
+( "INVERT_J" "ihnl/cds6/map" )
+( "OR2_F" "ihnl/cds5/map" )
+( "ALU_SIM" "ihnl/cds25/map" )
+( "SRL" "ihnl/cds12/map" )
+( "Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic" "ihnl/cds3/map" )
+( "MUX41_F" "ihnl/cds0/map" )
+( "NOT" "ihnl/cds19/map" )
+( "BUFFER_J" "ihnl/cds10/map" )
+( "ZeroFlag" "ihnl/cds7/map" )
+ )

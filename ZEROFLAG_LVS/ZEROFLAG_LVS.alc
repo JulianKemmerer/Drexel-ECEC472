@@ -1,0 +1,5 @@
+!<alc> v1 38
+0    4    0 OR4_F layout cmrf7sf_digital_layout
+0    3    0 OR2_F layout cmrf7sf_digital_layout
+0    2    0 INVERT_J layout cmrf7sf_digital_layout
+0    7    0 ZeroFlag layout Julian_Shifts_And_Mux

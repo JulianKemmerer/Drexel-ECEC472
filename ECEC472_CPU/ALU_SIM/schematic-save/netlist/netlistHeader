@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Mar  9 20:37:20 2014
+// Design library name: ECEC472_CPU
+// Design cell name: ALU_SIM
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

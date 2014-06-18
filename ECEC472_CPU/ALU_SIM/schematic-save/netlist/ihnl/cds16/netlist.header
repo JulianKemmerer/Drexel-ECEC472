@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: ADDF_B
+// View name: schematic
+subckt ADDF_B A B CIN COUT SUM inh_gnd inh_vdd

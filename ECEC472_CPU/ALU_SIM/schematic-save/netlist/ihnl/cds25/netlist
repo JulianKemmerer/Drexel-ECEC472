@@ -1,0 +1,48 @@
+
+// Library name: ECEC472_CPU
+// Cell name: ALU_SIM
+// View name: schematic
+I18 (net4 net3 Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> Out\<0\> \
+        Out\<1\> Out\<2\> Out\<3\> Out\<4\> Out\<5\> Out\<6\> Out\<7\> \
+        ALU_OP\<0\> ALU_OP\<1\> ALU_OP\<2\> Zero 0 vdd!) ALU_TOP
+V19 (ALU_OP\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=20n rise=1p fall=1p width=100n
+V18 (ALU_OP\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=10n rise=1p fall=1p width=100n
+V17 (ALU_OP\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200ns \
+        rise=1p fall=1p width=100n
+V15 (Data1\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=50n rise=1p fall=1p width=100n
+V14 (Data1\<3\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=40n rise=1p fall=1p width=100n
+V13 (Data1\<4\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=30n rise=1p fall=1p width=100n
+V12 (Data1\<5\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=20n rise=1p fall=1p width=100n
+V11 (Data1\<6\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=10n rise=1p fall=1p width=100n
+V10 (Data1\<7\> 0) vsource type=pulse val0=0 val1=1.8 period=200n rise=1p \
+        fall=1p width=100n
+V9 (Data1\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=60n \
+        rise=1p fall=1p width=100n
+V8 (Data1\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=70n \
+        rise=1p fall=1p width=100n
+V7 (Data0\<7\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=70n \
+        rise=1p fall=1p width=100n
+V6 (Data0\<6\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=60n \
+        rise=1p fall=1p width=100n
+V5 (Data0\<5\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=50n \
+        rise=1p fall=1p width=100n
+V4 (Data0\<4\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=40n \
+        rise=1p fall=1p width=100n
+V3 (Data0\<3\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=30n \
+        rise=1p fall=1p width=100n
+V2 (Data0\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=20n \
+        rise=1p fall=1p width=100n
+V1 (Data0\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=10n \
+        rise=1p fall=1p width=100n
+V0 (Data0\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200ns rise=1p \
+        fall=1p width=100n
+V16 (vdd! 0) vsource dc=1.8 type=dc

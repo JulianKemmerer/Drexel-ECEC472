@@ -1,0 +1,1663 @@
+layer m1_RES_min
+layer m2_RES_min
+layer m3_RES_min
+layer m4_RES_min
+layer mt_RES_min
+layer am_RES_min
+layer bondpad_pc_model
+layer fet_pc_model
+layer vncap_m1_model
+layer vncap_m2_model
+layer vncap_m2m1_model
+layer vncap_m3_model
+layer vncap_m3m2_model
+layer vncap_m3m1_model
+layer vncap_m4_model
+layer vncap_m4m3_model
+layer vncap_m4m2_model
+layer vncap_m4m1_model
+layer vncap_mt_model
+layer vncap_mtm4_model
+layer vncap_mtm3_model
+layer vncap_mtm2_model
+layer vncap_mtm1_model
+layer RfDevice_pc_model
+layer RfDevice_m1_model
+layer RfDevice_m2_model
+layer vlnpn_pc_model
+layer vlnpn_m1_model
+layer vlnpn_m2_model
+layer jfet_m1_model
+layer jfet_m2_model
+connect pc_resistive pc_model
+connect m1_resistive m1_model
+connect mt_resistive mt_model
+connect esdnsh_drain nfet_sd
+connect esdnsh_source nfet_sd
+connect esdpsh_drain pfet_sd
+connect esdpsh_source pfet_sd
+connect substrate_text SXCUT_bb
+connect m2_resistive m2_model
+connect m3_resistive m3_model
+connect m4_resistive m4_model
+text SXCUT_TEXT attach substrate_text SXCUT_bb
+text NW_pin_text attach nwell_diff
+text RX_pin_text attach pdiff_tie nfet_sd pfet_sd hvr_anod hvr_cath SBD_A SBD_C PSBD_A PSBD_C SBDNW_A SBDNW_C nwell_diff res6p_term ndiff_tie sub_diff_top res6n_term sub_diff
+text PC_pin_text attach Gate pc_model pc_resistive res6pc_term
+text pctext attach pc_model pc_resistive
+text M1_pin_text attach m1_model m1_resistive
+text M1TEXT attach m1_model m1_resistive
+text MT_pin_text attach mt_model mt_resistive
+text MTTEXT attach mt_model mt_resistive
+text c4_net attach wb_pad_dv wb_pad_lv
+text M2_pin_text attach m2_model m2_resistive
+text M2TEXT attach m2_model m2_resistive
+text M3_pin_text attach m3_model m3_resistive
+text M3TEXT attach m3_model m3_resistive
+text M4_pin_text attach m4_model m4_resistive
+text M4TEXT attach m4_model m4_resistive
+text AM_pin_text attach am bondPad_top am padOverDev_top
+text AMTEXT attach am bondPad_top am padOverDev_top
+connect m1_model m1_resistive by vncap_via1
+connect m1_model vncap_term1 by vncap_via1
+connect m1_resistive vncap_term1 by vncap_via1
+connect mt_model mt_resistive by vncap_viat
+connect mt_model vncap_termt by vncap_viat
+connect mt_resistive vncap_termt by vncap_viat
+connect m2_model m2_resistive by vncap_via2
+connect m2_model vncap_term2 by vncap_via2
+connect m2_resistive vncap_term2 by vncap_via2
+connect m3_model m3_resistive by vncap_via3
+connect m3_model vncap_term3 by vncap_via3
+connect m3_resistive vncap_term3 by vncap_via3
+connect m4_model m4_resistive by vncap_via4
+connect m4_model vncap_term4 by vncap_via4
+connect m4_resistive vncap_term4 by vncap_via4
+connect trans_in_am am by amTRan
+connect trans_in_am trans_out_am by amTRan
+connect trans_in_am symind_in by amTRan
+connect trans_in_am symind_out by amTRan
+connect am trans_out_am by amTRan
+connect am symind_in by amTRan
+connect am symind_out by amTRan
+connect trans_out_am symind_in by amTRan
+connect trans_out_am symind_out by amTRan
+connect symind_in symind_out by amTRan
+connect symind_ct1 m2_model by m2TRan
+connect symind_ct1 m2_resistive by m2TRan
+connect m2_model m2_resistive by m2TRan
+connect symind_ct2 m4_model by m4TRan
+connect symind_ct2 m4_resistive by m4TRan
+connect m4_model m4_resistive by m4TRan
+connect dummy_ct float_ct by via_ct
+connect trans_va_am am by amTran
+connect trans_va_am trans_vb_am by amTran
+connect trans_va_am trans_va1_am by amTran
+connect trans_va_am trans_va2_am by amTran
+connect trans_va_am trans_vb1_am by amTran
+connect trans_va_am trans_vb2_am by amTran
+connect am trans_vb_am by amTran
+connect am trans_va1_am by amTran
+connect am trans_va2_am by amTran
+connect am trans_vb1_am by amTran
+connect am trans_vb2_am by amTran
+connect trans_vb_am trans_va1_am by amTran
+connect trans_vb_am trans_va2_am by amTran
+connect trans_vb_am trans_vb1_am by amTran
+connect trans_vb_am trans_vb2_am by amTran
+connect trans_va1_am trans_va2_am by amTran
+connect trans_va1_am trans_vb1_am by amTran
+connect trans_va1_am trans_vb2_am by amTran
+connect trans_va2_am trans_vb1_am by amTran
+connect trans_va2_am trans_vb2_am by amTran
+connect trans_vb1_am trans_vb2_am by amTran
+connect trans_in_mt mt_model by mtTRan
+connect trans_in_mt mt_resistive by mtTRan
+connect trans_in_mt trans_out_mt by mtTRan
+connect mt_model mt_resistive by mtTRan
+connect mt_model trans_out_mt by mtTRan
+connect mt_resistive trans_out_mt by mtTRan
+connect trans_va_mt mt_model by mtTran
+connect trans_va_mt mt_resistive by mtTran
+connect trans_va_mt trans_vb_mt by mtTran
+connect trans_va_mt trans_va1_mt by mtTran
+connect trans_va_mt trans_va2_mt by mtTran
+connect trans_va_mt trans_vb1_mt by mtTran
+connect trans_va_mt trans_vb2_mt by mtTran
+connect mt_model mt_resistive by mtTran
+connect mt_model trans_vb_mt by mtTran
+connect mt_model trans_va1_mt by mtTran
+connect mt_model trans_va2_mt by mtTran
+connect mt_model trans_vb1_mt by mtTran
+connect mt_model trans_vb2_mt by mtTran
+connect mt_resistive trans_vb_mt by mtTran
+connect mt_resistive trans_va1_mt by mtTran
+connect mt_resistive trans_va2_mt by mtTran
+connect mt_resistive trans_vb1_mt by mtTran
+connect mt_resistive trans_vb2_mt by mtTran
+connect trans_vb_mt trans_va1_mt by mtTran
+connect trans_vb_mt trans_va2_mt by mtTran
+connect trans_vb_mt trans_vb1_mt by mtTran
+connect trans_vb_mt trans_vb2_mt by mtTran
+connect trans_va1_mt trans_va2_mt by mtTran
+connect trans_va1_mt trans_vb1_mt by mtTran
+connect trans_va1_mt trans_vb2_mt by mtTran
+connect trans_va2_mt trans_vb1_mt by mtTran
+connect trans_va2_mt trans_vb2_mt by mtTran
+connect trans_vb1_mt trans_vb2_mt by mtTran
+connect trans_va_m4 m4_model by m4Tran
+connect trans_va_m4 m4_resistive by m4Tran
+connect trans_va_m4 trans_vb_m4 by m4Tran
+connect trans_va_m4 trans_va1_m4 by m4Tran
+connect trans_va_m4 trans_va2_m4 by m4Tran
+connect trans_va_m4 trans_vb1_m4 by m4Tran
+connect trans_va_m4 trans_vb2_m4 by m4Tran
+connect m4_model m4_resistive by m4Tran
+connect m4_model trans_vb_m4 by m4Tran
+connect m4_model trans_va1_m4 by m4Tran
+connect m4_model trans_va2_m4 by m4Tran
+connect m4_model trans_vb1_m4 by m4Tran
+connect m4_model trans_vb2_m4 by m4Tran
+connect m4_resistive trans_vb_m4 by m4Tran
+connect m4_resistive trans_va1_m4 by m4Tran
+connect m4_resistive trans_va2_m4 by m4Tran
+connect m4_resistive trans_vb1_m4 by m4Tran
+connect m4_resistive trans_vb2_m4 by m4Tran
+connect trans_vb_m4 trans_va1_m4 by m4Tran
+connect trans_vb_m4 trans_va2_m4 by m4Tran
+connect trans_vb_m4 trans_vb1_m4 by m4Tran
+connect trans_vb_m4 trans_vb2_m4 by m4Tran
+connect trans_va1_m4 trans_va2_m4 by m4Tran
+connect trans_va1_m4 trans_vb1_m4 by m4Tran
+connect trans_va1_m4 trans_vb2_m4 by m4Tran
+connect trans_va2_m4 trans_vb1_m4 by m4Tran
+connect trans_va2_m4 trans_vb2_m4 by m4Tran
+connect trans_vb1_m4 trans_vb2_m4 by m4Tran
+connect trans_va_m3 m3_model by m3Tran
+connect trans_va_m3 m3_resistive by m3Tran
+connect trans_va_m3 trans_vb_m3 by m3Tran
+connect trans_va_m3 trans_va1_m3 by m3Tran
+connect trans_va_m3 trans_va2_m3 by m3Tran
+connect trans_va_m3 trans_vb1_m3 by m3Tran
+connect trans_va_m3 trans_vb2_m3 by m3Tran
+connect m3_model m3_resistive by m3Tran
+connect m3_model trans_vb_m3 by m3Tran
+connect m3_model trans_va1_m3 by m3Tran
+connect m3_model trans_va2_m3 by m3Tran
+connect m3_model trans_vb1_m3 by m3Tran
+connect m3_model trans_vb2_m3 by m3Tran
+connect m3_resistive trans_vb_m3 by m3Tran
+connect m3_resistive trans_va1_m3 by m3Tran
+connect m3_resistive trans_va2_m3 by m3Tran
+connect m3_resistive trans_vb1_m3 by m3Tran
+connect m3_resistive trans_vb2_m3 by m3Tran
+connect trans_vb_m3 trans_va1_m3 by m3Tran
+connect trans_vb_m3 trans_va2_m3 by m3Tran
+connect trans_vb_m3 trans_vb1_m3 by m3Tran
+connect trans_vb_m3 trans_vb2_m3 by m3Tran
+connect trans_va1_m3 trans_va2_m3 by m3Tran
+connect trans_va1_m3 trans_vb1_m3 by m3Tran
+connect trans_va1_m3 trans_vb2_m3 by m3Tran
+connect trans_va2_m3 trans_vb1_m3 by m3Tran
+connect trans_va2_m3 trans_vb2_m3 by m3Tran
+connect trans_vb1_m3 trans_vb2_m3 by m3Tran
+connect trans_va_m2 m2_model by m2Tran
+connect trans_va_m2 m2_resistive by m2Tran
+connect trans_va_m2 trans_vb_m2 by m2Tran
+connect trans_va_m2 trans_va1_m2 by m2Tran
+connect trans_va_m2 trans_va2_m2 by m2Tran
+connect trans_va_m2 trans_vb1_m2 by m2Tran
+connect trans_va_m2 trans_vb2_m2 by m2Tran
+connect m2_model m2_resistive by m2Tran
+connect m2_model trans_vb_m2 by m2Tran
+connect m2_model trans_va1_m2 by m2Tran
+connect m2_model trans_va2_m2 by m2Tran
+connect m2_model trans_vb1_m2 by m2Tran
+connect m2_model trans_vb2_m2 by m2Tran
+connect m2_resistive trans_vb_m2 by m2Tran
+connect m2_resistive trans_va1_m2 by m2Tran
+connect m2_resistive trans_va2_m2 by m2Tran
+connect m2_resistive trans_vb1_m2 by m2Tran
+connect m2_resistive trans_vb2_m2 by m2Tran
+connect trans_vb_m2 trans_va1_m2 by m2Tran
+connect trans_vb_m2 trans_va2_m2 by m2Tran
+connect trans_vb_m2 trans_vb1_m2 by m2Tran
+connect trans_vb_m2 trans_vb2_m2 by m2Tran
+connect trans_va1_m2 trans_va2_m2 by m2Tran
+connect trans_va1_m2 trans_vb1_m2 by m2Tran
+connect trans_va1_m2 trans_vb2_m2 by m2Tran
+connect trans_va2_m2 trans_vb1_m2 by m2Tran
+connect trans_va2_m2 trans_vb2_m2 by m2Tran
+connect trans_vb1_m2 trans_vb2_m2 by m2Tran
+connect shield1 m1_model by trans_s1
+connect shield1 m1_resistive by trans_s1
+connect m1_model m1_resistive by trans_s1
+connect shield2 m2_model by trans_s2
+connect shield2 m2_resistive by trans_s2
+connect m2_model m2_resistive by trans_s2
+connect shield3 m3_model by trans_s3
+connect shield3 m3_resistive by trans_s3
+connect m3_model m3_resistive by trans_s3
+connect shield4 m4_model by trans_s4
+connect shield4 m4_resistive by trans_s4
+connect m4_model m4_resistive by trans_s4
+connect shieldT mt_model by trans_sT
+connect shieldT mt_resistive by trans_sT
+connect mt_model mt_resistive by trans_sT
+connect nd_tie ndiff_tie by nd_tie_via
+connect pd_tie pdiff_tie by pd_tie_via
+connect nd_comp nfet_sd by nd_via
+connect pd_comp pfet_sd by pd_via
+connect ndRF_comp_sc nfRF_source by ndRF_via_sc
+connect ndRF_comp_dr nfRF_drain by ndRF_via_dr
+connect pdRF_comp_sc pfRF_source by pdRF_via_sc
+connect pdRF_comp_dr pfRF_drain by pdRF_via_dr
+connect HVdiff ndRF_comp_sc by HVdiffCon
+connect HVdiff ndRF_comp_dr by HVdiffCon
+connect HVdiff pdRF_comp_sc by HVdiffCon
+connect HVdiff pdRF_comp_dr by HVdiffCon
+connect HVdiff nfet_sd by HVdiffCon
+connect HVdiff pfet_sd by HVdiffCon
+connect ndRF_comp_sc ndRF_comp_dr by HVdiffCon
+connect ndRF_comp_sc pdRF_comp_sc by HVdiffCon
+connect ndRF_comp_sc pdRF_comp_dr by HVdiffCon
+connect ndRF_comp_sc nfet_sd by HVdiffCon
+connect ndRF_comp_sc pfet_sd by HVdiffCon
+connect ndRF_comp_dr pdRF_comp_sc by HVdiffCon
+connect ndRF_comp_dr pdRF_comp_dr by HVdiffCon
+connect ndRF_comp_dr nfet_sd by HVdiffCon
+connect ndRF_comp_dr pfet_sd by HVdiffCon
+connect pdRF_comp_sc pdRF_comp_dr by HVdiffCon
+connect pdRF_comp_sc nfet_sd by HVdiffCon
+connect pdRF_comp_sc pfet_sd by HVdiffCon
+connect pdRF_comp_dr nfet_sd by HVdiffCon
+connect pdRF_comp_dr pfet_sd by HVdiffCon
+connect nfet_sd pfet_sd by HVdiffCon
+connect m1LV m1_model by m1LVCon
+connect m1LV m1_resistive by m1LVCon
+connect m1_model m1_resistive by m1LVCon
+connect pcLV pc_model by pcLVCon
+connect pcLV pc_resistive by pcLVCon
+connect pc_model pc_resistive by pcLVCon
+connect mosvar_rx mosvar_nw by mosvar_ndiff
+connect IND_AC_WIRE ind_bb_term by ind_ac_via
+connect IND_AC_WIRE bond_bb_term by ind_ac_via
+connect IND_AC_WIRE bond_hr_term by ind_ac_via
+connect IND_AC_WIRE ind_hr_term by ind_ac_via
+connect ind_bb_term bond_bb_term by ind_ac_via
+connect ind_bb_term bond_hr_term by ind_ac_via
+connect ind_bb_term ind_hr_term by ind_ac_via
+connect bond_bb_term bond_hr_term by ind_ac_via
+connect bond_bb_term ind_hr_term by ind_ac_via
+connect bond_hr_term ind_hr_term by ind_ac_via
+connect m1_model m1_resistive by dummy_via
+connect m1_model IND_AC_WIRE by dummy_via
+connect m1_resistive IND_AC_WIRE by dummy_via
+connect bond_dummy_gp bond_dummy_float by bond_dummy_via
+connect corrPoint_term_M2 m2_model by corrPoint_via_M2
+connect corrPoint_term_M2 m2_resistive by corrPoint_via_M2
+connect m2_model m2_resistive by corrPoint_via_M2
+connect corrPoint_term_ND nfet_sd by corrPoint_via_ND
+connect corrPoint_term_ND nfRF_source by corrPoint_via_ND
+connect corrPoint_term_ND nfRF_drain by corrPoint_via_ND
+connect nfet_sd nfRF_source by corrPoint_via_ND
+connect nfet_sd nfRF_drain by corrPoint_via_ND
+connect nfRF_source nfRF_drain by corrPoint_via_ND
+connect corrPoint_term_PD pfet_sd by corrPoint_via_PD
+connect corrPoint_term_PD pfRF_source by corrPoint_via_PD
+connect corrPoint_term_PD pfRF_drain by corrPoint_via_PD
+connect pfet_sd pfRF_source by corrPoint_via_PD
+connect pfet_sd pfRF_drain by corrPoint_via_PD
+connect pfRF_source pfRF_drain by corrPoint_via_PD
+connect qtblk qttop by qtvia
+connect ncap_nd ncap_rx by ncap_ndi
+connect ncap_nd mosvar_rx by ncap_ndi
+connect ncap_rx mosvar_rx by ncap_ndi
+connect ncap_nd nfet_sd by ncap_ndo
+connect ncap_nd ndiff_tie by ncap_ndo
+connect nfet_sd ndiff_tie by ncap_ndo
+connect butt_top nwell_diff by butt_rxn
+connect butt_top nfet_sd by butt_rxn
+connect butt_top ndiff_tie by butt_rxn
+connect nwell_diff nfet_sd by butt_rxn
+connect nwell_diff ndiff_tie by butt_rxn
+connect nfet_sd ndiff_tie by butt_rxn
+connect RF_BULK sub_diff_RF by RF_via
+connect subterm substrate_text by subvia
+connect butt_top pfet_sd by butt_rxp
+connect butt_top pdiff_tie by butt_rxp
+connect butt_top sub_diff_top by butt_rxp
+connect butt_top sub_diff_RF by butt_rxp
+connect butt_top sub_diff by butt_rxp
+connect pfet_sd pdiff_tie by butt_rxp
+connect pfet_sd sub_diff_top by butt_rxp
+connect pfet_sd sub_diff_RF by butt_rxp
+connect pfet_sd sub_diff by butt_rxp
+connect pdiff_tie sub_diff_top by butt_rxp
+connect pdiff_tie sub_diff_RF by butt_rxp
+connect pdiff_tie sub_diff by butt_rxp
+connect sub_diff_top sub_diff_RF by butt_rxp
+connect sub_diff_top sub_diff by butt_rxp
+connect sub_diff_RF sub_diff by butt_rxp
+connect ESD_ndsx_plus_term ESD_ndsx_plus by ESD_ndsx_plus_via
+connect ESD_pdnw_minus_term ESD_pdnw_minus by ESD_pdnw_minus_via
+connect corrPoint_term_PC pc_model by corrPoint_via_PC
+connect corrPoint_term_PC pc_resistive by corrPoint_via_PC
+connect pc_model pc_resistive by corrPoint_via_PC
+connect Gate pc_model by GateCon
+connect Gate pc_resistive by GateCon
+connect pc_model pc_resistive by GateCon
+connect LVgate Gate by LVgateCon
+connect vlnpn_g pc_model by vlnpn_g_via
+connect vlnpn_g pc_resistive by vlnpn_g_via
+connect pc_model pc_resistive by vlnpn_g_via
+connect corrPoint_term_M1 m1_model by corrPoint_via_M1
+connect corrPoint_term_M1 m1_resistive by corrPoint_via_M1
+connect m1_model m1_resistive by corrPoint_via_M1
+connect m1_model m1_resistive by ca2
+connect m1_model DI_anode by ca2
+connect m1_model DI_cathode by ca2
+connect m1_model DI_coll by ca2
+connect m1_model DIPI_anode by ca2
+connect m1_model DIPI_cathode by ca2
+connect m1_model DIPI_iso_node by ca2
+connect m1_model DIPI_subc by ca2
+connect m1_model nfRF_source by ca2
+connect m1_model nfRF_drain by ca2
+connect m1_resistive DI_anode by ca2
+connect m1_resistive DI_cathode by ca2
+connect m1_resistive DI_coll by ca2
+connect m1_resistive DIPI_anode by ca2
+connect m1_resistive DIPI_cathode by ca2
+connect m1_resistive DIPI_iso_node by ca2
+connect m1_resistive DIPI_subc by ca2
+connect m1_resistive nfRF_source by ca2
+connect m1_resistive nfRF_drain by ca2
+connect DI_anode DI_cathode by ca2
+connect DI_anode DI_coll by ca2
+connect DI_anode DIPI_anode by ca2
+connect DI_anode DIPI_cathode by ca2
+connect DI_anode DIPI_iso_node by ca2
+connect DI_anode DIPI_subc by ca2
+connect DI_anode nfRF_source by ca2
+connect DI_anode nfRF_drain by ca2
+connect DI_cathode DI_coll by ca2
+connect DI_cathode DIPI_anode by ca2
+connect DI_cathode DIPI_cathode by ca2
+connect DI_cathode DIPI_iso_node by ca2
+connect DI_cathode DIPI_subc by ca2
+connect DI_cathode nfRF_source by ca2
+connect DI_cathode nfRF_drain by ca2
+connect DI_coll DIPI_anode by ca2
+connect DI_coll DIPI_cathode by ca2
+connect DI_coll DIPI_iso_node by ca2
+connect DI_coll DIPI_subc by ca2
+connect DI_coll nfRF_source by ca2
+connect DI_coll nfRF_drain by ca2
+connect DIPI_anode DIPI_cathode by ca2
+connect DIPI_anode DIPI_iso_node by ca2
+connect DIPI_anode DIPI_subc by ca2
+connect DIPI_anode nfRF_source by ca2
+connect DIPI_anode nfRF_drain by ca2
+connect DIPI_cathode DIPI_iso_node by ca2
+connect DIPI_cathode DIPI_subc by ca2
+connect DIPI_cathode nfRF_source by ca2
+connect DIPI_cathode nfRF_drain by ca2
+connect DIPI_iso_node DIPI_subc by ca2
+connect DIPI_iso_node nfRF_source by ca2
+connect DIPI_iso_node nfRF_drain by ca2
+connect DIPI_subc nfRF_source by ca2
+connect DIPI_subc nfRF_drain by ca2
+connect nfRF_source nfRF_drain by ca2
+connect m1_model m1_resistive by ca3
+connect m1_model ESD_pdnw_plus by ca3
+connect m1_model ESD_ndsx_plus by ca3
+connect m1_model efuse_anod by ca3
+connect m1_model efuse_cath by ca3
+connect m1_resistive ESD_pdnw_plus by ca3
+connect m1_resistive ESD_ndsx_plus by ca3
+connect m1_resistive efuse_anod by ca3
+connect m1_resistive efuse_cath by ca3
+connect ESD_pdnw_plus ESD_ndsx_plus by ca3
+connect ESD_pdnw_plus efuse_anod by ca3
+connect ESD_pdnw_plus efuse_cath by ca3
+connect ESD_ndsx_plus efuse_anod by ca3
+connect ESD_ndsx_plus efuse_cath by ca3
+connect efuse_anod efuse_cath by ca3
+connect m1_model m1_resistive by ca9
+connect m1_model ESD_pdnw_minus by ca9
+connect m1_model ESD_ndsx_minus by ca9
+connect m1_model ncap_pc by ca9
+connect m1_model ncap_rx by ca9
+connect m1_model ncap_ndiff by ca9
+connect m1_resistive ESD_pdnw_minus by ca9
+connect m1_resistive ESD_ndsx_minus by ca9
+connect m1_resistive ncap_pc by ca9
+connect m1_resistive ncap_rx by ca9
+connect m1_resistive ncap_ndiff by ca9
+connect ESD_pdnw_minus ESD_ndsx_minus by ca9
+connect ESD_pdnw_minus ncap_pc by ca9
+connect ESD_pdnw_minus ncap_rx by ca9
+connect ESD_pdnw_minus ncap_ndiff by ca9
+connect ESD_ndsx_minus ncap_pc by ca9
+connect ESD_ndsx_minus ncap_rx by ca9
+connect ESD_ndsx_minus ncap_ndiff by ca9
+connect ncap_pc ncap_rx by ca9
+connect ncap_pc ncap_ndiff by ca9
+connect ncap_rx ncap_ndiff by ca9
+connect m1_model m1_resistive by ca1
+connect m1_model ESD_pdnw_subc by ca1
+connect m1_model ntie_top by ca1
+connect m1_model ptie_top by ca1
+connect m1_resistive ESD_pdnw_subc by ca1
+connect m1_resistive ntie_top by ca1
+connect m1_resistive ptie_top by ca1
+connect ESD_pdnw_subc ntie_top by ca1
+connect ESD_pdnw_subc ptie_top by ca1
+connect ntie_top ptie_top by ca1
+connect m1_model m1_resistive by ca7
+connect m1_model SBD_A by ca7
+connect m1_model SBD_C by ca7
+connect m1_model SBDNW_A by ca7
+connect m1_model SBDNW_C by ca7
+connect m1_model pfRF_source by ca7
+connect m1_model pfRF_drain by ca7
+connect m1_resistive SBD_A by ca7
+connect m1_resistive SBD_C by ca7
+connect m1_resistive SBDNW_A by ca7
+connect m1_resistive SBDNW_C by ca7
+connect m1_resistive pfRF_source by ca7
+connect m1_resistive pfRF_drain by ca7
+connect SBD_A SBD_C by ca7
+connect SBD_A SBDNW_A by ca7
+connect SBD_A SBDNW_C by ca7
+connect SBD_A pfRF_source by ca7
+connect SBD_A pfRF_drain by ca7
+connect SBD_C SBDNW_A by ca7
+connect SBD_C SBDNW_C by ca7
+connect SBD_C pfRF_source by ca7
+connect SBD_C pfRF_drain by ca7
+connect SBDNW_A SBDNW_C by ca7
+connect SBDNW_A pfRF_source by ca7
+connect SBDNW_A pfRF_drain by ca7
+connect SBDNW_C pfRF_source by ca7
+connect SBDNW_C pfRF_drain by ca7
+connect pfRF_source pfRF_drain by ca7
+connect m1_model m1_resistive by ca8
+connect m1_model hvr_cath by ca8
+connect m1_model hvr_anod by ca8
+connect m1_model mosvar_pc by ca8
+connect m1_model mosvar_rx by ca8
+connect m1_resistive hvr_cath by ca8
+connect m1_resistive hvr_anod by ca8
+connect m1_resistive mosvar_pc by ca8
+connect m1_resistive mosvar_rx by ca8
+connect hvr_cath hvr_anod by ca8
+connect hvr_cath mosvar_pc by ca8
+connect hvr_cath mosvar_rx by ca8
+connect hvr_anod mosvar_pc by ca8
+connect hvr_anod mosvar_rx by ca8
+connect mosvar_pc mosvar_rx by ca8
+connect m1_model m1_resistive by ca6
+connect m1_model nstap by ca6
+connect m1_model pwell_diff by ca6
+connect m1_model nwell_diff by ca6
+connect m1_model sub_diff_top by ca6
+connect m1_model sub_diff_RF by ca6
+connect m1_model sub_diff by ca6
+connect m1_resistive nstap by ca6
+connect m1_resistive pwell_diff by ca6
+connect m1_resistive nwell_diff by ca6
+connect m1_resistive sub_diff_top by ca6
+connect m1_resistive sub_diff_RF by ca6
+connect m1_resistive sub_diff by ca6
+connect nstap pwell_diff by ca6
+connect nstap nwell_diff by ca6
+connect nstap sub_diff_top by ca6
+connect nstap sub_diff_RF by ca6
+connect nstap sub_diff by ca6
+connect pwell_diff nwell_diff by ca6
+connect pwell_diff sub_diff_top by ca6
+connect pwell_diff sub_diff_RF by ca6
+connect pwell_diff sub_diff by ca6
+connect nwell_diff sub_diff_top by ca6
+connect nwell_diff sub_diff_RF by ca6
+connect nwell_diff sub_diff by ca6
+connect sub_diff_top sub_diff_RF by ca6
+connect sub_diff_top sub_diff by ca6
+connect sub_diff_RF sub_diff by ca6
+connect m1_model m1_resistive by ca10
+connect m1_model pcap_pc by ca10
+connect m1_model pcap_rx by ca10
+connect m1_model jfet_gate by ca10
+connect m1_model jfet_source by ca10
+connect m1_model jfet_drain by ca10
+connect m1_resistive pcap_pc by ca10
+connect m1_resistive pcap_rx by ca10
+connect m1_resistive jfet_gate by ca10
+connect m1_resistive jfet_source by ca10
+connect m1_resistive jfet_drain by ca10
+connect pcap_pc pcap_rx by ca10
+connect pcap_pc jfet_gate by ca10
+connect pcap_pc jfet_source by ca10
+connect pcap_pc jfet_drain by ca10
+connect pcap_rx jfet_gate by ca10
+connect pcap_rx jfet_source by ca10
+connect pcap_rx jfet_drain by ca10
+connect jfet_gate jfet_source by ca10
+connect jfet_gate jfet_drain by ca10
+connect jfet_source jfet_drain by ca10
+connect m1_model m1_resistive by ca11
+connect m1_model vlnpn_c by ca11
+connect m1_model vlnpn_e by ca11
+connect m1_model vlnpn_g by ca11
+connect m1_model vlnpn_sub by ca11
+connect m1_model PSBD_A by ca11
+connect m1_model PSBD_C by ca11
+connect m1_resistive vlnpn_c by ca11
+connect m1_resistive vlnpn_e by ca11
+connect m1_resistive vlnpn_g by ca11
+connect m1_resistive vlnpn_sub by ca11
+connect m1_resistive PSBD_A by ca11
+connect m1_resistive PSBD_C by ca11
+connect vlnpn_c vlnpn_e by ca11
+connect vlnpn_c vlnpn_g by ca11
+connect vlnpn_c vlnpn_sub by ca11
+connect vlnpn_c PSBD_A by ca11
+connect vlnpn_c PSBD_C by ca11
+connect vlnpn_e vlnpn_g by ca11
+connect vlnpn_e vlnpn_sub by ca11
+connect vlnpn_e PSBD_A by ca11
+connect vlnpn_e PSBD_C by ca11
+connect vlnpn_g vlnpn_sub by ca11
+connect vlnpn_g PSBD_A by ca11
+connect vlnpn_g PSBD_C by ca11
+connect vlnpn_sub PSBD_A by ca11
+connect vlnpn_sub PSBD_C by ca11
+connect PSBD_A PSBD_C by ca11
+connect m1_model m1_resistive by ca4
+connect m1_model pc_model by ca4
+connect m1_model pc_resistive by ca4
+connect m1_model pfet_sd by ca4
+connect m1_model nfet_sd by ca4
+connect m1_model esdnsh_drain by ca4
+connect m1_model esdnsh_source by ca4
+connect m1_model esdpsh_drain by ca4
+connect m1_model esdpsh_source by ca4
+connect m1_resistive pc_model by ca4
+connect m1_resistive pc_resistive by ca4
+connect m1_resistive pfet_sd by ca4
+connect m1_resistive nfet_sd by ca4
+connect m1_resistive esdnsh_drain by ca4
+connect m1_resistive esdnsh_source by ca4
+connect m1_resistive esdpsh_drain by ca4
+connect m1_resistive esdpsh_source by ca4
+connect pc_model pc_resistive by ca4
+connect pc_model pfet_sd by ca4
+connect pc_model nfet_sd by ca4
+connect pc_model esdnsh_drain by ca4
+connect pc_model esdnsh_source by ca4
+connect pc_model esdpsh_drain by ca4
+connect pc_model esdpsh_source by ca4
+connect pc_resistive pfet_sd by ca4
+connect pc_resistive nfet_sd by ca4
+connect pc_resistive esdnsh_drain by ca4
+connect pc_resistive esdnsh_source by ca4
+connect pc_resistive esdpsh_drain by ca4
+connect pc_resistive esdpsh_source by ca4
+connect pfet_sd nfet_sd by ca4
+connect pfet_sd esdnsh_drain by ca4
+connect pfet_sd esdnsh_source by ca4
+connect pfet_sd esdpsh_drain by ca4
+connect pfet_sd esdpsh_source by ca4
+connect nfet_sd esdnsh_drain by ca4
+connect nfet_sd esdnsh_source by ca4
+connect nfet_sd esdpsh_drain by ca4
+connect nfet_sd esdpsh_source by ca4
+connect esdnsh_drain esdnsh_source by ca4
+connect esdnsh_drain esdpsh_drain by ca4
+connect esdnsh_drain esdpsh_source by ca4
+connect esdnsh_source esdpsh_drain by ca4
+connect esdnsh_source esdpsh_source by ca4
+connect esdpsh_drain esdpsh_source by ca4
+connect m1_model m1_resistive by ca5
+connect m1_model res6n_term by ca5
+connect m1_model res6p_term by ca5
+connect m1_model res6pc_term by ca5
+connect m1_model pdiff_tie by ca5
+connect m1_model ndiff_tie by ca5
+connect m1_resistive res6n_term by ca5
+connect m1_resistive res6p_term by ca5
+connect m1_resistive res6pc_term by ca5
+connect m1_resistive pdiff_tie by ca5
+connect m1_resistive ndiff_tie by ca5
+connect res6n_term res6p_term by ca5
+connect res6n_term res6pc_term by ca5
+connect res6n_term pdiff_tie by ca5
+connect res6n_term ndiff_tie by ca5
+connect res6p_term res6pc_term by ca5
+connect res6p_term pdiff_tie by ca5
+connect res6p_term ndiff_tie by ca5
+connect res6pc_term pdiff_tie by ca5
+connect res6pc_term ndiff_tie by ca5
+connect pdiff_tie ndiff_tie by ca5
+connect dualbot mt_model by duaVbot
+connect dualbot mt_resistive by duaVbot
+connect mt_model mt_resistive by duaVbot
+connect mim_bot mt_model by mimVbot
+connect mim_bot mt_resistive by mimVbot
+connect mt_model mt_resistive by mimVbot
+connect mim_top am by mimVtop
+connect dualtop am by duaVtop
+connect dualmid am by duaVmid
+connect m1_model m1_resistive by v1
+connect m1_model m2_model by v1
+connect m1_model m2_resistive by v1
+connect m1_resistive m2_model by v1
+connect m1_resistive m2_resistive by v1
+connect m2_model m2_resistive by v1
+connect k1_term m2_model by k1_via
+connect k1_term m2_resistive by k1_via
+connect m2_model m2_resistive by k1_via
+connect m2_model m2_resistive by v2
+connect m2_model m3_model by v2
+connect m2_model m3_resistive by v2
+connect m2_resistive m3_model by v2
+connect m2_resistive m3_resistive by v2
+connect m3_model m3_resistive by v2
+connect m3_model m3_resistive by v3
+connect m3_model m4_model by v3
+connect m3_model m4_resistive by v3
+connect m3_resistive m4_model by v3
+connect m3_resistive m4_resistive by v3
+connect m4_model m4_resistive by v3
+connect m4_model m4_resistive by v4
+connect m4_model mt_model by v4
+connect m4_model mt_resistive by v4
+connect m4_resistive mt_model by v4
+connect m4_resistive mt_resistive by v4
+connect mt_model mt_resistive by v4
+connect am bondPad_top by bondPad_via
+connect am padOverDev_top by padOverDev_via
+connect mt_model mt_resistive by ft
+connect mt_model am by ft
+connect mt_resistive am by ft
+connect wb_pad_dv bondPad_top by wb_pad_dv_via
+connect wb_pad_dv padOverDev_top by wb_pad_dv_via
+connect bondPad_top padOverDev_top by wb_pad_dv_via
+connect wb_pad_lv bondPad_top by wb_pad_lv_via
+connect wb_pad_lv padOverDev_top by wb_pad_lv_via
+connect bondPad_top padOverDev_top by wb_pad_lv_via
+stamp nw_ring by nwell_diff
+stamp nw by nwell_diff
+stamp ncap_nw by ncap_ndiff
+stamp well by nwell_diff
+stamp nfeti_bottom_iso by nw
+stamp pwell by pwell_diff
+stamp ns by nstap
+stamp substrate_ptap by sub_diff
+stamp substrate by substrate_ptap
+stamp substrate by substrate_text
+stamp subs_sti by substrate
+stamp sub1K by substrate
+stamp sub50 by substrate
+model=mos[nfettw4],nfet
+dfiimodel=mos[nfettw4],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4] nfeti_dev_Device_1  pc_model nfet_sd pwell
+model=mos[nfettw4_av2],nfet
+dfiimodel=mos[nfettw4_av2],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4_av2] nfeti_dev_psp_Device_2  pc_model nfet_sd pwell
+model=mos[nfettw4_av3],nfet
+dfiimodel=mos[nfettw4_av3],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4_av3] nfeti_dev_b_Device_3  pc_model nfet_sd pwell
+model=mos[nfettw4_av4],nfet
+dfiimodel=mos[nfettw4_av4],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4_av4] nfeti_dev_psp_b_Device_4  pc_model nfet_sd pwell
+model=generic[nfettw],nfettw
+dfiimodel=generic[nfettw],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw] nfet6_dev_Device_5 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av2],nfettw
+dfiimodel=generic[nfettw_av2],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw_av2] nfet6_dev_psp_Device_6 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av3],nfettw
+dfiimodel=generic[nfettw_av3],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw_av3] nfet6_dev_b_Device_7 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av4],nfettw
+dfiimodel=generic[nfettw_av4],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw_av4] nfet6_dev_psp_b_Device_8 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet33tw4],nfet25
+dfiimodel=mos[nfet33tw4],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33tw4] nfeti_dev_MV_Device_9  pc_model nfet_sd pwell
+model=mos[nfet33tw4_av2],nfet25
+dfiimodel=mos[nfet33tw4_av2],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av2] nfeti_dev_psp_MV_Device_10  pc_model nfet_sd pwell
+model=generic[nfet33tw],nfet25tw
+dfiimodel=generic[nfet33tw],nfet25twx#20auLvs#20cmrf7sf
+element generic[nfet33tw] nfet6_dev_MV_Device_11 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av2],nfet25tw
+dfiimodel=generic[nfet33tw_av2],nfet25twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av2] nfet6_dev_psp_MV_Device_12 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet33tw4_av3],nfet33
+dfiimodel=mos[nfet33tw4_av3],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av3] nfeti_dev_HV_Device_13  pc_model nfet_sd pwell
+model=mos[nfet33tw4_av4],nfet33
+dfiimodel=mos[nfet33tw4_av4],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av4] nfeti_dev_psp_HV_Device_14  pc_model nfet_sd pwell
+model=generic[nfet33tw_av3],nfet33tw
+dfiimodel=generic[nfet33tw_av3],nfet33twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av3] nfet6_dev_HV_Device_15 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av4],nfet33tw
+dfiimodel=generic[nfet33tw_av4],nfet33twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av4] nfet6_dev_psp_HV_Device_16 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet50tw4],nfet50
+dfiimodel=mos[nfet50tw4],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50tw4] nfeti_dev_TG_Device_17  pc_model nfet_sd pwell
+model=generic[nfet50tw],nfet50tw
+dfiimodel=generic[nfet50tw],nfet50twx#20auLvs#20cmrf7sf
+element generic[nfet50tw] nfet6_dev_TG_Device_18 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet],nfet
+dfiimodel=mos[nfet],nfetx#20auLvs#20cmrf7sf
+element mos[nfet] nfet_dpw_Device_19  pc_model nfet_sd pwell
+model=mos[nfet_av2],nfet
+dfiimodel=mos[nfet_av2],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av2] nfet_dev_Device_20  pc_model nfet_sd substrate
+model=mos[nfet_av3],nfet
+dfiimodel=mos[nfet_av3],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av3] nfet_dpw_psp_Device_21  pc_model nfet_sd pwell
+model=mos[nfet_av4],nfet
+dfiimodel=mos[nfet_av4],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av4] nfet_dev_psp_Device_22  pc_model nfet_sd substrate
+model=mos[zvtnfet],zvtnfet
+dfiimodel=mos[zvtnfet],zvtnfetx#20auLvs#20cmrf7sf
+element mos[zvtnfet] nfzv_dev_Device_23  pc_model nfet_sd substrate
+model=mos[zvtnfet33],zvtnfet33
+dfiimodel=mos[zvtnfet33],zvtnfet33x#20auLvs#20cmrf7sf
+element mos[zvtnfet33] nfzv_dev_HV_Device_24  pc_model nfet_sd substrate
+model=mos[nfet33],nfet25
+dfiimodel=mos[nfet33],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33] nfet_dpw_MV_Device_25  pc_model nfet_sd pwell
+model=mos[nfet33_av2],nfet25
+dfiimodel=mos[nfet33_av2],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av2] nfet_dev_MV_Device_26  pc_model nfet_sd substrate
+model=mos[nfet33_av3],nfet25
+dfiimodel=mos[nfet33_av3],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av3] nfet_dpw_psp_MV_Device_27  pc_model nfet_sd pwell
+model=mos[nfet33_av4],nfet25
+dfiimodel=mos[nfet33_av4],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av4] nfet_dev_psp_MV_Device_28  pc_model nfet_sd substrate
+model=mos[nfet33_av5],nfet33
+dfiimodel=mos[nfet33_av5],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av5] nfet_dpw_HV_Device_29  pc_model nfet_sd pwell
+model=mos[nfet33_av6],nfet33
+dfiimodel=mos[nfet33_av6],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av6] nfet_dev_HV_Device_30  pc_model nfet_sd substrate
+model=mos[nfet33_av7],nfet33
+dfiimodel=mos[nfet33_av7],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av7] nfet_dpw_psp_HV_Device_31  pc_model nfet_sd pwell
+model=mos[nfet33_av8],nfet33
+dfiimodel=mos[nfet33_av8],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av8] nfet_dev_psp_HV_Device_32  pc_model nfet_sd substrate
+model=mos[nfet50],nfet50
+dfiimodel=mos[nfet50],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50] nfet_dpw_TG_Device_33  pc_model nfet_sd pwell
+model=mos[nfet50_av2],nfet50
+dfiimodel=mos[nfet50_av2],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50_av2] nfet_dev_TG_Device_34  pc_model nfet_sd substrate
+model=mos[nfethv],nfethv
+dfiimodel=mos[nfethv],nfethvx#20auLvs#20cmrf7sf
+element mos[nfethv] nfet_dev_HVT_Device_35  pc_model nfet_sd substrate
+model=mos[nfethv_av2],nfethv
+dfiimodel=mos[nfethv_av2],nfethvx#20auLvs#20cmrf7sf
+element mos[nfethv_av2] nfet_dev_HVT_b_Device_36  pc_model nfet_sd substrate
+model=mos[nfet_av5],nfet
+dfiimodel=mos[nfet_av5],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av5] nfet_dpw_b_Device_37  pc_model nfet_sd pwell
+model=mos[nfet_av6],nfet
+dfiimodel=mos[nfet_av6],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av6] nfet_dev_b_Device_38  pc_model nfet_sd substrate
+model=mos[nfet_av7],nfet
+dfiimodel=mos[nfet_av7],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av7] nfet_dpw_psp_b_Device_39  pc_model nfet_sd pwell
+model=mos[nfet_av8],nfet
+dfiimodel=mos[nfet_av8],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av8] nfet_dev_psp_b_Device_40  pc_model nfet_sd substrate
+model=mos[pfet],pfet
+dfiimodel=mos[pfet],pfetx#20auLvs#20cmrf7sf
+element mos[pfet] pfet_dev_Device_41  pc_model pfet_sd nw
+model=mos[pfet_av2],pfet
+dfiimodel=mos[pfet_av2],pfetx#20auLvs#20cmrf7sf
+element mos[pfet_av2] pfet_dev_psp_Device_42  pc_model pfet_sd nw
+model=mos[pfet33],pfet25
+dfiimodel=mos[pfet33],pfet25x#20auLvs#20cmrf7sf
+element mos[pfet33] pfet_dev_MV_Device_43  pc_model pfet_sd nw
+model=mos[pfet33_av2],pfet25
+dfiimodel=mos[pfet33_av2],pfet25x#20auLvs#20cmrf7sf
+element mos[pfet33_av2] pfet_dev_psp_MV_Device_44  pc_model pfet_sd nw
+model=mos[pfet33_av3],pfet33
+dfiimodel=mos[pfet33_av3],pfet33x#20auLvs#20cmrf7sf
+element mos[pfet33_av3] pfet_dev_HV_Device_45  pc_model pfet_sd nw
+model=mos[pfet33_av4],pfet33
+dfiimodel=mos[pfet33_av4],pfet33x#20auLvs#20cmrf7sf
+element mos[pfet33_av4] pfet_dev_psp_HV_Device_46  pc_model pfet_sd nw
+model=mos[pfet50],pfet50
+dfiimodel=mos[pfet50],pfet50x#20auLvs#20cmrf7sf
+element mos[pfet50] pfet_dev_TG_Device_47  pc_model pfet_sd nw
+model=mos[p5pfet50],p5pfet50
+dfiimodel=mos[p5pfet50],p5pfet50x#20auLvs#20cmrf7sf
+element mos[p5pfet50] pfet_dev_SCG_Device_48  pc_model pfet_sd nw
+model=mos[pfethv],pfethv
+dfiimodel=mos[pfethv],pfethvx#20auLvs#20cmrf7sf
+element mos[pfethv] pfet_dev_HVT_Device_49  pc_model pfet_sd nw
+model=mos[pfethv_av2],pfethv
+dfiimodel=mos[pfethv_av2],pfethvx#20auLvs#20cmrf7sf
+element mos[pfethv_av2] pfet_dev_HVT_b_Device_50  pc_model pfet_sd nw
+model=mos[pfet_av3],pfet
+dfiimodel=mos[pfet_av3],pfetx#20auLvs#20cmrf7sf
+element mos[pfet_av3] pfet_dev_b_Device_51  pc_model pfet_sd nw
+model=mos[pfet_av4],pfet
+dfiimodel=mos[pfet_av4],pfetx#20auLvs#20cmrf7sf
+element mos[pfet_av4] pfet_dev_psp_b_Device_52  pc_model pfet_sd nw
+model=mos[nfettw4_av5],nfet
+dfiimodel=mos[nfettw4_av5],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4_av5] nfeti_mul_Device_53  pc_model nfet_sd pwell
+model=mos[nfettw4_av6],nfet
+dfiimodel=mos[nfettw4_av6],nfetx#20auLvs#20cmrf7sf
+element mos[nfettw4_av6] nfeti_mul_psp_Device_54  pc_model nfet_sd pwell
+model=generic[nfettw_av5],nfettw
+dfiimodel=generic[nfettw_av5],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw_av5] nfet6_mul_Device_55 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av6],nfettw
+dfiimodel=generic[nfettw_av6],nfettwx#20auLvs#20cmrf7sf
+element generic[nfettw_av6] nfet6_mul_psp_Device_56 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet33tw4_av5],nfet25
+dfiimodel=mos[nfet33tw4_av5],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av5] nfeti_mul_MV_Device_57  pc_model nfet_sd pwell
+model=mos[nfet33tw4_av6],nfet25
+dfiimodel=mos[nfet33tw4_av6],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av6] nfeti_mul_psp_MV_Device_58  pc_model nfet_sd pwell
+model=generic[nfet33tw_av5],nfet25tw
+dfiimodel=generic[nfet33tw_av5],nfet25twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av5] nfet6_mul_MV_Device_59 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av6],nfet25tw
+dfiimodel=generic[nfet33tw_av6],nfet25twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av6] nfet6_mul_psp_MV_Device_60 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet33tw4_av7],nfet33
+dfiimodel=mos[nfet33tw4_av7],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av7] nfeti_mul_HV_Device_61  pc_model nfet_sd pwell
+model=mos[nfet33tw4_av8],nfet33
+dfiimodel=mos[nfet33tw4_av8],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33tw4_av8] nfeti_mul_psp_HV_Device_62  pc_model nfet_sd pwell
+model=generic[nfet33tw_av7],nfet33tw
+dfiimodel=generic[nfet33tw_av7],nfet33twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av7] nfet6_mul_HV_Device_63 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av8],nfet33tw
+dfiimodel=generic[nfet33tw_av8],nfet33twx#20auLvs#20cmrf7sf
+element generic[nfet33tw_av8] nfet6_mul_psp_HV_Device_64 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet50tw4_av2],nfet50
+dfiimodel=mos[nfet50tw4_av2],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50tw4_av2] nfeti_mul_TG_Device_65  pc_model nfet_sd pwell
+model=generic[nfet50tw_av2],nfet50tw
+dfiimodel=generic[nfet50tw_av2],nfet50twx#20auLvs#20cmrf7sf
+element generic[nfet50tw_av2] nfet6_mul_TG_Device_66 nfet_sd[D] pc_model[G] nfet_sd[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=mos[nfet_av9],nfet
+dfiimodel=mos[nfet_av9],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av9] nfet_mul_Device_67  pc_model nfet_sd pwell
+model=mos[nfet_av10],nfet
+dfiimodel=mos[nfet_av10],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av10] nfet_mul_Device_68  pc_model nfet_sd substrate
+model=mos[nfet_av11],nfet
+dfiimodel=mos[nfet_av11],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av11] nfet_mul_psp_Device_69  pc_model nfet_sd pwell
+model=mos[nfet_av12],nfet
+dfiimodel=mos[nfet_av12],nfetx#20auLvs#20cmrf7sf
+element mos[nfet_av12] nfet_mul_psp_Device_70  pc_model nfet_sd substrate
+model=mos[zvtnfet_av2],nfet
+dfiimodel=mos[zvtnfet_av2],zvtnfetx#20auLvs#20cmrf7sf
+element mos[zvtnfet_av2] nfzv_mul_Device_71  pc_model nfet_sd substrate
+model=mos[zvtnfet33_av2],nfet33
+dfiimodel=mos[zvtnfet33_av2],zvtnfet33x#20auLvs#20cmrf7sf
+element mos[zvtnfet33_av2] nfzv_mul_HV_Device_72  pc_model nfet_sd substrate
+model=mos[nfet33_av9],nfet25
+dfiimodel=mos[nfet33_av9],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av9] nfet_mul_MV_Device_73  pc_model nfet_sd pwell
+model=mos[nfet33_av10],nfet25
+dfiimodel=mos[nfet33_av10],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av10] nfet_mul_MV_Device_74  pc_model nfet_sd substrate
+model=mos[nfet33_av11],nfet25
+dfiimodel=mos[nfet33_av11],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av11] nfet_mul_psp_MV_Device_75  pc_model nfet_sd pwell
+model=mos[nfet33_av12],nfet25
+dfiimodel=mos[nfet33_av12],nfet25x#20auLvs#20cmrf7sf
+element mos[nfet33_av12] nfet_mul_psp_MV_Device_76  pc_model nfet_sd substrate
+model=mos[nfet33_av13],nfet33
+dfiimodel=mos[nfet33_av13],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av13] nfet_mul_HV_Device_77  pc_model nfet_sd pwell
+model=mos[nfet33_av14],nfet33
+dfiimodel=mos[nfet33_av14],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av14] nfet_mul_HV_Device_78  pc_model nfet_sd substrate
+model=mos[nfet33_av15],nfet33
+dfiimodel=mos[nfet33_av15],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av15] nfet_mul_psp_HV_Device_79  pc_model nfet_sd pwell
+model=mos[nfet33_av16],nfet33
+dfiimodel=mos[nfet33_av16],nfet33x#20auLvs#20cmrf7sf
+element mos[nfet33_av16] nfet_mul_psp_HV_Device_80  pc_model nfet_sd substrate
+model=mos[nfet50_av3],nfet50
+dfiimodel=mos[nfet50_av3],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50_av3] nfet_mul_TG_Device_81  pc_model nfet_sd pwell
+model=mos[nfet50_av4],nfet50
+dfiimodel=mos[nfet50_av4],nfet50x#20auLvs#20cmrf7sf
+element mos[nfet50_av4] nfet_mul_TG_Device_82  pc_model nfet_sd substrate
+model=mos[nfethv_av3],nfethv
+dfiimodel=mos[nfethv_av3],nfethvx#20auLvs#20cmrf7sf
+element mos[nfethv_av3] nfet_mul_HVT_Device_83  pc_model nfet_sd substrate
+model=mos[pfet_av5],pfet
+dfiimodel=mos[pfet_av5],pfetx#20auLvs#20cmrf7sf
+element mos[pfet_av5] pfet_mul_Device_84  pc_model pfet_sd nw
+model=mos[pfet_av6],pfet
+dfiimodel=mos[pfet_av6],pfetx#20auLvs#20cmrf7sf
+element mos[pfet_av6] pfet_mul_psp_Device_85  pc_model pfet_sd nw
+model=mos[pfet33_av5],pfet25
+dfiimodel=mos[pfet33_av5],pfet25x#20auLvs#20cmrf7sf
+element mos[pfet33_av5] pfet_mul_MV_Device_86  pc_model pfet_sd nw
+model=mos[pfet33_av6],pfet25
+dfiimodel=mos[pfet33_av6],pfet25x#20auLvs#20cmrf7sf
+element mos[pfet33_av6] pfet_mul_psp_MV_Device_87  pc_model pfet_sd nw
+model=mos[pfet33_av7],pfet33
+dfiimodel=mos[pfet33_av7],pfet33x#20auLvs#20cmrf7sf
+element mos[pfet33_av7] pfet_mul_HV_Device_88  pc_model pfet_sd nw
+model=mos[pfet33_av8],pfet33
+dfiimodel=mos[pfet33_av8],pfet33x#20auLvs#20cmrf7sf
+element mos[pfet33_av8] pfet_mul_psp_HV_Device_89  pc_model pfet_sd nw
+model=mos[pfet50_av2],pfet50
+dfiimodel=mos[pfet50_av2],pfet50x#20auLvs#20cmrf7sf
+element mos[pfet50_av2] pfet_mul_TG_Device_90  pc_model pfet_sd nw
+model=mos[p5pfet50_av2],p5pfet50
+dfiimodel=mos[p5pfet50_av2],p5pfet50x#20auLvs#20cmrf7sf
+element mos[p5pfet50_av2] pfet_mul_SCG_Device_91  pc_model pfet_sd nw
+model=mos[pfethv_av3],pfethv
+dfiimodel=mos[pfethv_av3],pfethvx#20auLvs#20cmrf7sf
+element mos[pfethv_av3] pfet_mul_HVT_Device_92  pc_model pfet_sd nw
+model=ldd[nfettw4_av7],nfet_rf
+dfiimodel=ldd[nfettw4_av7],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfettw4_av7] nfRFi_dev_Device_93  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfettw4_av8],nfet_rf
+dfiimodel=ldd[nfettw4_av8],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfettw4_av8] nfRFi_dev_psp_Device_94  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfettw_av7],nfettw_rf
+dfiimodel=generic[nfettw_av7],nfettw_rf#20auLvs#20cmrf7sf
+element generic[nfettw_av7] nfRF6_dev_Device_95 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av8],nfettw_rf
+dfiimodel=generic[nfettw_av8],nfettw_rf#20auLvs#20cmrf7sf
+element generic[nfettw_av8] nfRF6_dev_psp_Device_96 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet33tw4_av9],nfet25_rf
+dfiimodel=ldd[nfet33tw4_av9],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av9] nfRFi_dev_MV_Device_97  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33tw4_av10],nfet25_rf
+dfiimodel=ldd[nfet33tw4_av10],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av10] nfRFi_dev_psp_MV_Device_98  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet33tw_av9],nfet25tw_rf
+dfiimodel=generic[nfet33tw_av9],nfet25tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av9] nfRF6_dev_MV_Device_99 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av10],nfet25tw_rf
+dfiimodel=generic[nfet33tw_av10],nfet25tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av10] nfRF6_dev_psp_MV_Device_100 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet33tw4_av11],nfet33_rf
+dfiimodel=ldd[nfet33tw4_av11],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av11] nfRFi_dev_HV_Device_101  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33tw4_av12],nfet33_rf
+dfiimodel=ldd[nfet33tw4_av12],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av12] nfRFi_dev_psp_HV_Device_102  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet33tw_av11],nfet33tw_rf
+dfiimodel=generic[nfet33tw_av11],nfet33tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av11] nfRF6_dev_HV_Device_103 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av12],nfet33tw_rf
+dfiimodel=generic[nfet33tw_av12],nfet33tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av12] nfRF6_dev_psp_HV_Device_104 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet50tw4_av3],nfet50_rf
+dfiimodel=ldd[nfet50tw4_av3],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50tw4_av3] nfRFi_dev_TG_Device_105  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet50tw_av3],nfet50tw_rf
+dfiimodel=generic[nfet50tw_av3],nfet50tw_rf#20auLvs#20cmrf7sf
+element generic[nfet50tw_av3] nfRF6_dev_TG_Device_106 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet_av13],nfet_rf
+dfiimodel=ldd[nfet_av13],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av13] nfRF_dev_Device_107  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet_av14],nfet_rf
+dfiimodel=ldd[nfet_av14],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av14] nfRF_dev_Device_108  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet_av15],nfet_rf
+dfiimodel=ldd[nfet_av15],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av15] nfRF_dev_psp_Device_109  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet_av16],nfet_rf
+dfiimodel=ldd[nfet_av16],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av16] nfRF_dev_psp_Device_110  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av17],nfet25_rf
+dfiimodel=ldd[nfet33_av17],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av17] nfRF_dev_MV_Device_111  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av18],nfet25_rf
+dfiimodel=ldd[nfet33_av18],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av18] nfRF_dev_MV_Device_112  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av19],nfet25_rf
+dfiimodel=ldd[nfet33_av19],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av19] nfRF_dev_psp_MV_Device_113  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av20],nfet25_rf
+dfiimodel=ldd[nfet33_av20],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av20] nfRF_dev_psp_MV_Device_114  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av21],nfet33_rf
+dfiimodel=ldd[nfet33_av21],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av21] nfRF_dev_HV_Device_115  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av22],nfet33_rf
+dfiimodel=ldd[nfet33_av22],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av22] nfRF_dev_HV_Device_116  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av23],nfet33_rf
+dfiimodel=ldd[nfet33_av23],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av23] nfRF_dev_psp_HV_Device_117  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av24],nfet33_rf
+dfiimodel=ldd[nfet33_av24],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av24] nfRF_dev_psp_HV_Device_118  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet50_av5],nfet50_rf
+dfiimodel=ldd[nfet50_av5],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50_av5] nfRF_dev_TG_Device_119  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet50_av6],nfet50_rf
+dfiimodel=ldd[nfet50_av6],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50_av6] nfRF_dev_TG_Device_120  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[pfet_av7],pfet_rf
+dfiimodel=ldd[pfet_av7],pfet_rf#20auLvs#20cmrf7sf
+element ldd[pfet_av7] pfRF_dev_Device_121  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet_av8],pfet_rf
+dfiimodel=ldd[pfet_av8],pfet_rf#20auLvs#20cmrf7sf
+element ldd[pfet_av8] pfRF_dev_psp_Device_122  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av9],pfet25_rf
+dfiimodel=ldd[pfet33_av9],pfet25_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av9] pfRF_dev_MV_Device_123  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av10],pfet25_rf
+dfiimodel=ldd[pfet33_av10],pfet25_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av10] pfRF_dev_psp_MV_Device_124  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av11],pfet33_rf
+dfiimodel=ldd[pfet33_av11],pfet33_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av11] pfRF_dev_HV_Device_125  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av12],pfet33_rf
+dfiimodel=ldd[pfet33_av12],pfet33_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av12] pfRF_dev_psp_HV_Device_126  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet50_av3],pfet50_rf
+dfiimodel=ldd[pfet50_av3],pfet50_rf#20auLvs#20cmrf7sf
+element ldd[pfet50_av3] pfRF_dev_TG_Device_127  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[p5pfet50_av3],p5pfet50_rf
+dfiimodel=ldd[p5pfet50_av3],p5pfet50_rf#20auLvs#20cmrf7sf
+element ldd[p5pfet50_av3] pfRF_dev_SCG_Device_128  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[nfettw4_av9],nfet_rf
+dfiimodel=ldd[nfettw4_av9],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfettw4_av9] nfRFi_mul_Device_129  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfettw4_av10],nfet_rf
+dfiimodel=ldd[nfettw4_av10],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfettw4_av10] nfRFi_mul_psp_Device_130  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfettw_av9],nfettw_rf
+dfiimodel=generic[nfettw_av9],nfettw_rf#20auLvs#20cmrf7sf
+element generic[nfettw_av9] nfRF6_mul_Device_131 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfettw_av10],nfettw_rf
+dfiimodel=generic[nfettw_av10],nfettw_rf#20auLvs#20cmrf7sf
+element generic[nfettw_av10] nfRF6_mul_psp_Device_132 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet33tw4_av13],nfet25_rf
+dfiimodel=ldd[nfet33tw4_av13],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av13] nfRFi_mul_MV_Device_133  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33tw4_av14],nfet25_rf
+dfiimodel=ldd[nfet33tw4_av14],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av14] nfRFi_mul_psp_MV_Device_134  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet33tw_av13],nfet25tw_rf
+dfiimodel=generic[nfet33tw_av13],nfet25tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av13] nfRF6_mul_MV_Device_135 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av14],nfet25tw_rf
+dfiimodel=generic[nfet33tw_av14],nfet25tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av14] nfRF6_mul_psp_MV_Device_136 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet33tw4_av15],nfet33_rf
+dfiimodel=ldd[nfet33tw4_av15],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av15] nfRFi_mul_HV_Device_137  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33tw4_av16],nfet33_rf
+dfiimodel=ldd[nfet33tw4_av16],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33tw4_av16] nfRFi_mul_psp_HV_Device_138  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet33tw_av15],nfet33tw_rf
+dfiimodel=generic[nfet33tw_av15],nfet33tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av15] nfRF6_mul_HV_Device_139 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=generic[nfet33tw_av16],nfet33tw_rf
+dfiimodel=generic[nfet33tw_av16],nfet33tw_rf#20auLvs#20cmrf7sf
+element generic[nfet33tw_av16] nfRF6_mul_psp_HV_Device_140 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet50tw4_av4],nfet50_rf
+dfiimodel=ldd[nfet50tw4_av4],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50tw4_av4] nfRFi_mul_TG_Device_141  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=generic[nfet50tw_av4],nfet50tw_rf
+dfiimodel=generic[nfet50tw_av4],nfet50tw_rf#20auLvs#20cmrf7sf
+element generic[nfet50tw_av4] nfRF6_mul_TG_Device_142 ndRF_comp_dr[D] pc_model[G] ndRF_comp_sc[S] pwell[B] nfeti_bottom_iso[PI] substrate[sx] 
+model=ldd[nfet_av17],nfet_rf
+dfiimodel=ldd[nfet_av17],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av17] nfRF_mul_Device_143  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet_av18],nfet_rf
+dfiimodel=ldd[nfet_av18],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av18] nfRF_mul_Device_144  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet_av19],nfet_rf
+dfiimodel=ldd[nfet_av19],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av19] nfRF_mul_psp_Device_145  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet_av20],nfet_rf
+dfiimodel=ldd[nfet_av20],nfet_rf#20auLvs#20cmrf7sf
+element ldd[nfet_av20] nfRF_mul_psp_Device_146  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av25],nfet25_rf
+dfiimodel=ldd[nfet33_av25],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av25] nfRF_mul_MV_Device_147  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av26],nfet25_rf
+dfiimodel=ldd[nfet33_av26],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av26] nfRF_mul_MV_Device_148  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av27],nfet25_rf
+dfiimodel=ldd[nfet33_av27],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av27] nfRF_mul_psp_MV_Device_149  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av28],nfet25_rf
+dfiimodel=ldd[nfet33_av28],nfet25_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av28] nfRF_mul_psp_MV_Device_150  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av29],nfet33_rf
+dfiimodel=ldd[nfet33_av29],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av29] nfRF_mul_HV_Device_151  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av30],nfet33_rf
+dfiimodel=ldd[nfet33_av30],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av30] nfRF_mul_HV_Device_152  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet33_av31],nfet33_rf
+dfiimodel=ldd[nfet33_av31],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av31] nfRF_mul_psp_HV_Device_153  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet33_av32],nfet33_rf
+dfiimodel=ldd[nfet33_av32],nfet33_rf#20auLvs#20cmrf7sf
+element ldd[nfet33_av32] nfRF_mul_psp_HV_Device_154  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[nfet50_av7],nfet50_rf
+dfiimodel=ldd[nfet50_av7],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50_av7] nfRF_mul_TG_Device_155  pc_model ndRF_comp_dr ndRF_comp_sc pwell
+model=ldd[nfet50_av8],nfet50_rf
+dfiimodel=ldd[nfet50_av8],nfet50_rf#20auLvs#20cmrf7sf
+element ldd[nfet50_av8] nfRF_mul_TG_Device_156  pc_model ndRF_comp_dr ndRF_comp_sc RF_BULK
+model=ldd[pfet_av9],pfet_rf
+dfiimodel=ldd[pfet_av9],pfet_rf#20auLvs#20cmrf7sf
+element ldd[pfet_av9] pfRF_mul_Device_157  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet_av10],pfet_rf
+dfiimodel=ldd[pfet_av10],pfet_rf#20auLvs#20cmrf7sf
+element ldd[pfet_av10] pfRF_mul_psp_Device_158  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av13],pfet25_rf
+dfiimodel=ldd[pfet33_av13],pfet25_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av13] pfRF_mul_MV_Device_159  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av14],pfet25_rf
+dfiimodel=ldd[pfet33_av14],pfet25_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av14] pfRF_mul_psp_MV_Device_160  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av15],pfet33_rf
+dfiimodel=ldd[pfet33_av15],pfet33_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av15] pfRF_mul_HV_Device_161  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet33_av16],pfet33_rf
+dfiimodel=ldd[pfet33_av16],pfet33_rf#20auLvs#20cmrf7sf
+element ldd[pfet33_av16] pfRF_mul_psp_HV_Device_162  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[pfet50_av4],pfet50_rf
+dfiimodel=ldd[pfet50_av4],pfet50_rf#20auLvs#20cmrf7sf
+element ldd[pfet50_av4] pfRF_mul_TG_Device_163  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=ldd[p5pfet50_av4],p5pfet50_rf
+dfiimodel=ldd[p5pfet50_av4],p5pfet50_rf#20auLvs#20cmrf7sf
+element ldd[p5pfet50_av4] pfRF_mul_SCG_Device_164  pc_model pdRF_comp_dr pdRF_comp_sc nw
+model=diode[havar],havar
+dfiimodel=diode[havar],havarx#20auLvs#20cmrf7sf
+element diode[havar] hvr_dev_Device_165 hvr_anod hvr_cath substrate 
+model=generic[diffhavar],diffhavar
+dfiimodel=generic[diffhavar],diffhavarx#20auLvs#20cmrf7sf
+element generic[diffhavar] diffhavar_dev_Device_166 hvr_anod[AA] hvr_anod[AB] hvr_cath[C] substrate[BULK] 
+model=diode[sbd],sbd
+dfiimodel=diode[sbd],sbdx#20auLvs#20cmrf7sf
+element diode[sbd] SBD_Device_167 SBD_A SBD_C substrate 
+model=diode[sbdnw],sbdnw
+dfiimodel=diode[sbdnw],sbdnwx#20auLvs#20cmrf7sf
+element diode[sbdnw] SBDNW_Device_168 SBDNW_A SBDNW_C substrate 
+model=generic[psbd],psbd
+dfiimodel=generic[psbd],psbd#20auLvs#20cmrf7sf
+element generic[psbd] PSBD_Device_169 PSBD_C[C] PSBD_A[A] nfeti_bottom_iso[TW] 
+model=diode[dipdnw],dipdnw
+dfiimodel=diode[dipdnw],dipdnw#20auLvs#20cmrf7sf
+element diode[dipdnw] DI_diode_Device_170 DI_anode DI_cathode 
+model=generic[dindpw],dindpw
+dfiimodel=generic[dindpw],dindpw#20auLvs#20cmrf7sf
+element generic[dindpw] DIPI_diode_Device_171 DIPI_iso_node[tw] DIPI_anode[pw] DIPI_cathode[nd] DIPI_subc[sx] 
+model=bjt[divpnp],divpnp
+dfiimodel=bjt[divpnp],divpnp#20auLvs#20cmrf7sf
+element bjt[divpnp] DI_VPNP_Device_172 DI_coll DI_cathode DI_anode 
+model=generic[pcdcap],pcdcap
+dfiimodel=generic[pcdcap],pcdcapx#20auLvs#20cmrf7sf
+element generic[pcdcap] ncap_dev_Device_173 ncap_rx[D] ncap_pc[G] substrate[B] 
+model=generic[pcdcap33],pcdcap33
+dfiimodel=generic[pcdcap33],pcdcap33x#20auLvs#20cmrf7sf
+element generic[pcdcap33] ncap33_dev_Device_174 ncap_rx[D] ncap_pc[G] substrate[B] 
+model=generic[pcdcap50],mosvar50
+dfiimodel=generic[pcdcap50],pcdcap50x#20auLvs#20cmrf7sf
+element generic[pcdcap50] ncap50_dev_Device_175 ncap_pc[G] ncap_rx[D] substrate[B] 
+model=generic[diffmosvar],diffmosvar
+dfiimodel=generic[diffmosvar],diffmosvarx#20auLvs#20cmrf7sf
+element generic[diffmosvar] diffmosvar_dev_Device_176 mosvar_pc[GA] mosvar_pc[GB] mosvar_rx[D] substrate[B] 
+model=generic[mosvar],mosvar18
+dfiimodel=generic[mosvar],mosvarx#20auLvs#20cmrf7sf
+element generic[mosvar] mosvar_dev_Device_177 mosvar_rx[D] mosvar_pc[G] substrate[B] 
+model=generic[mosvar50],mosvar50
+dfiimodel=generic[mosvar50],mosvar50x#20auLvs#20cmrf7sf
+element generic[mosvar50] mosvar50_dev_Device_178 mosvar_rx[D] mosvar_pc[G] substrate[B] 
+model=generic[p5pcdcap50],mosvar50
+dfiimodel=generic[p5pcdcap50],p5pcdcap50x#20auLvs#20cmrf7sf
+element generic[p5pcdcap50] p5pcdcap50_dev_Device_179 mosvar_pc[G] mosvar_rx[D] substrate[B] 
+model=generic[pcap],pcap
+dfiimodel=generic[pcap],pcap#20auLvs#20cmrf7sf
+element generic[pcap] pcap_dev_Device_180 pcap_pc[G] pcap_rx[D] nfeti_bottom_iso[TW] 
+model=generic[vlnpn],vlnpn
+dfiimodel=generic[vlnpn],vlnpn#20auLvs#20cmrf7sf
+element generic[vlnpn] vlnpn_dev_Device_181 vlnpn_c[C] pwell[B] vlnpn_e[E] vlnpn_g[G] vlnpn_sub[Sub] 
+model=generic[jfetjc],jfetjc
+dfiimodel=generic[jfetjc],jfetjc#20auLvs#20cmrf7sf
+element generic[jfetjc] jfet_dev_Device_182 jfet_drain[D] jfet_gate[G] jfet_source[S] nfeti_bottom_iso[NW] 
+model=res[rr_serpentine],rr_serpentine
+dfiimodel=res[rr_serpentine],rr_serpentinex#20auLvs#20cmrf7sf
+element res[rr_serpentine] res_serpentine_Device_183 res6pc_term substrate 
+model=res[rr_serpentine_av2],rr_serpentine
+dfiimodel=res[rr_serpentine_av2],rr_serpentinex#20auLvs#20cmrf7sf
+element res[rr_serpentine_av2] resnw_serpentine_Device_184 res6pc_term nw 
+model=res[opppcres],opppcres
+dfiimodel=res[opppcres],opppcresx#20auLvs#20cmrf7sf
+element res[opppcres] rnw6pc_dev_Device_185 res6pc_term nw 
+model=res[opppcres_av2],opppcres
+dfiimodel=res[opppcres_av2],opppcresx#20auLvs#20cmrf7sf
+element res[opppcres_av2] res6pc_dev_pwell res6pc_term pwell 
+model=res[opppcres_av3],opppcres
+dfiimodel=res[opppcres_av3],opppcresx#20auLvs#20cmrf7sf
+element res[opppcres_av3] res6pc_dev_subs res6pc_term substrate 
+model=res[oprrpres],oprrpres
+dfiimodel=res[oprrpres],oprrpresx#20auLvs#20cmrf7sf
+element res[oprrpres] rnw6rr_dev_Device_188 res6pc_term nw 
+model=res[oprrpres_av2],oprrpres
+dfiimodel=res[oprrpres_av2],oprrpresx#20auLvs#20cmrf7sf
+element res[oprrpres_av2] res6rr_dev_pwell res6pc_term pwell 
+model=res[oprrpres_av3],oprrpres
+dfiimodel=res[oprrpres_av3],oprrpresx#20auLvs#20cmrf7sf
+element res[oprrpres_av3] res6rr_dev_subs res6pc_term substrate 
+model=res[oprppres],oprppres
+dfiimodel=res[oprppres],oprppresx#20auLvs#20cmrf7sf
+element res[oprppres] rnw6rp_dev_Device_191 res6pc_term nw 
+model=res[oprppres_av2],oprppres
+dfiimodel=res[oprppres_av2],oprppresx#20auLvs#20cmrf7sf
+element res[oprppres_av2] res6rp_dev_pwell res6pc_term pwell 
+model=res[oprppres_av3],oprppres
+dfiimodel=res[oprppres_av3],oprppresx#20auLvs#20cmrf7sf
+element res[oprppres_av3] res6rp_dev_subs res6pc_term substrate 
+model=res[opndres],opndres
+dfiimodel=res[opndres],opndresx#20auLvs#20cmrf7sf
+element res[opndres] res6n_dev_pwell res6n_term pwell 
+model=res[opndres_av2],opndres
+dfiimodel=res[opndres_av2],opndresx#20auLvs#20cmrf7sf
+element res[opndres_av2] res6n_dev_subs res6n_term substrate 
+model=res[oppdres],oppdres
+dfiimodel=res[oppdres],oppdresx#20auLvs#20cmrf7sf
+element res[oppdres] res6p_dev_Device_196 res6p_term nw 
+model=res[sblkndres],sblkndres
+dfiimodel=res[sblkndres],sblkndresx#20auLvs#20esd7rf
+element res[sblkndres] res6n_sblk_pwell nfet_sd pwell 
+model=res[sblkndres_av2],sblkndres
+dfiimodel=res[sblkndres_av2],sblkndresx#20auLvs#20esd7rf
+element res[sblkndres_av2] res6n_sblk_subs nfet_sd substrate 
+model=res[sblkpdres],sblkpdres
+dfiimodel=res[sblkpdres],sblkpdresx#20auLvs#20esd7rf
+element res[sblkpdres] res6p_sblk_Device_199 pfet_sd nw 
+model=res[k1res],k1res
+dfiimodel=res[k1res],k1resx#20auLvs#20cmrf7sf
+element res[k1res] k1_dev_bb_Device_200 k1_term substrate 
+model=res[k1res_av2],k1res
+dfiimodel=res[k1res_av2],k1resx#20auLvs#20cmrf7sf
+element res[k1res_av2] k1_dev_sx_pwell k1_term pwell 
+model=res[k1res_av3],k1res
+dfiimodel=res[k1res_av3],k1resx#20auLvs#20cmrf7sf
+element res[k1res_av3] k1_dev_sx_subs k1_term substrate 
+model=generic[esdnsh_base],esdnsh_base
+dfiimodel=generic[esdnsh_base],esdnsh_base#20auLvs#20esd7rf
+element generic[esdnsh_base] esdnsh_dev_Device_203 esdnsh_drain[de] pc_model[ge] esdnsh_source[se] pwell[be] 
+model=generic[esdnsh_base_av2],esdnsh_base
+dfiimodel=generic[esdnsh_base_av2],esdnsh_base#20auLvs#20esd7rf
+element generic[esdnsh_base_av2] esdnsh_dev_Device_204 esdnsh_drain[de] pc_model[ge] esdnsh_source[se] substrate[be] 
+model=generic[esdpsh_base],esdpsh_base
+dfiimodel=generic[esdpsh_base],esdpsh_base#20auLvs#20esd7rf
+element generic[esdpsh_base] esdpsh_dev_Device_205 esdpsh_drain[de] pc_model[ge] esdpsh_source[se] nw[be] 
+model=generic[subc],subc
+dfiimodel=generic[subc],subcx#20auLvs#20cmrf7sf
+element generic[subc] sub_dev_Device_206 sub_diff_top[SUBCON] substrate[sub] 
+model=generic[tdndsx],n_tie
+dfiimodel=generic[tdndsx],tdndsx#20auLvs#20cmrf7sf
+element generic[tdndsx] ntie_device_Device_207 ntie_top[MINUS] pwell[PLUS] 
+model=generic[tdndsx_av2],n_tie
+dfiimodel=generic[tdndsx_av2],tdndsx#20auLvs#20cmrf7sf
+element generic[tdndsx_av2] ntie_device_Device_208 ntie_top[MINUS] substrate[PLUS] 
+model=diode[tdpdnw],p_tie
+dfiimodel=diode[tdpdnw],tdpdnw#20auLvs#20cmrf7sf
+element diode[tdpdnw] ptie_device_Device_209 ptie_top nw 
+model=generic[corrPoint],corrPoint
+dfiimodel=generic[corrPoint],corrPoint#20auLvs#20cmrf7sf
+element generic[corrPoint] corrPoint_dev_M2_Device_210 corrPoint_term_M2[cp] 
+model=generic[corrPoint_av2],corrPoint
+dfiimodel=generic[corrPoint_av2],corrPoint#20auLvs#20cmrf7sf
+element generic[corrPoint_av2] corrPoint_dev_PD_Device_211 corrPoint_term_PD[cp] 
+model=generic[corrPoint_av3],corrPoint
+dfiimodel=generic[corrPoint_av3],corrPoint#20auLvs#20cmrf7sf
+element generic[corrPoint_av3] corrPoint_dev_ND_Device_212 corrPoint_term_ND[cp] 
+model=generic[corrPoint_av4],corrPoint
+dfiimodel=generic[corrPoint_av4],corrPoint#20auLvs#20cmrf7sf
+element generic[corrPoint_av4] corrPoint_dev_PC_Device_213 corrPoint_term_PC[cp] 
+model=generic[corrPoint_av5],corrPoint
+dfiimodel=generic[corrPoint_av5],corrPoint#20auLvs#20cmrf7sf
+element generic[corrPoint_av5] corrPoint_dev_M1_Device_214 corrPoint_term_M1[cp] 
+model=generic[esdvpnpnw],diodenwsx
+dfiimodel=generic[esdvpnpnw],esdvpnpnw#20auLvs#20esd7rf
+element generic[esdvpnpnw] ESD_pdnw_diode_Device_215 ESD_pdnw_plus[pd] ESD_pdnw_minus_term[nw] substrate[sx] 
+model=generic[esdvpnpnw_av2],diodenwsx
+dfiimodel=generic[esdvpnpnw_av2],esdvpnpnw#20auLvs#20esd7rf
+element generic[esdvpnpnw_av2] ESD_pdnw_diode_GR_sized_Device_216 ESD_pdnw_plus[pd] ESD_pdnw_minus_term[nw] substrate[sx] 
+model=generic[esdvpnpnw_av3],diodenwsx
+dfiimodel=generic[esdvpnpnw_av3],esdvpnpnw#20auLvs#20esd7rf
+element generic[esdvpnpnw_av3] ESD_pdnw_diode_GR_Device_217 ESD_pdnw_plus[pd] ESD_pdnw_minus_term[nw] substrate[sx] 
+model=generic[esdndsx],esdndsx
+dfiimodel=generic[esdndsx],esdndsx#20auLvs#20esd7rf
+element generic[esdndsx] ESD_ndsx_Device_218 ESD_ndsx_minus[nd] ESD_ndsx_plus_term[sx] 
+model=generic[esdndsx_av2],esdndsx
+dfiimodel=generic[esdndsx_av2],esdndsx#20auLvs#20esd7rf
+element generic[esdndsx_av2] ESD_ndsx_GR_sized_Device_219 ESD_ndsx_minus[nd] ESD_ndsx_plus_term[sx] 
+model=generic[esdndsx_av3],esdndsx
+dfiimodel=generic[esdndsx_av3],esdndsx#20auLvs#20esd7rf
+element generic[esdndsx_av3] ESD_ndsx_GR_Device_220 ESD_ndsx_minus[nd] ESD_ndsx_plus_term[sx] 
+model=diode[esdpnpi],esdpnpi
+dfiimodel=diode[esdpnpi],esdpnpi#20auLvs#20esd7rf
+element diode[esdpnpi] ESD_pdnw_pi_Device_221 ESD_pdnw_plus ESD_pdnw_minus_term 
+model=diode[esdndpi],esdndpi
+dfiimodel=diode[esdndpi],esdndpi#20auLvs#20esd7rf
+element diode[esdndpi] ESD_ndsx_pi_Device_222 ESD_ndsx_plus_term ESD_ndsx_minus 
+model=cap[mim],mim
+dfiimodel=cap[mim],mimx#20#20#20auLvs#20cmrf7sf
+element cap[mim] MIMpi_Device_223 mim_bot mim_top pwell 
+model=cap[mim_av2],mim
+dfiimodel=cap[mim_av2],mimx#20#20#20auLvs#20cmrf7sf
+element cap[mim_av2] MIMnw_Device_224 mim_bot mim_top nw 
+model=cap[mim_av3],mim
+dfiimodel=cap[mim_av3],mimx#20#20#20auLvs#20cmrf7sf
+element cap[mim_av3] MIMsx_Device_225 mim_bot mim_top substrate 
+model=cap[mimhd],mim
+dfiimodel=cap[mimhd],mimhdx#20auLvs#20cmrf7sf
+element cap[mimhd] MIMhdpi_Device_226 mim_bot mim_top pwell 
+model=cap[mimhd_av2],mim
+dfiimodel=cap[mimhd_av2],mimhdx#20auLvs#20cmrf7sf
+element cap[mimhd_av2] MIMhdnw_Device_227 mim_bot mim_top nw 
+model=cap[mimhd_av3],mim
+dfiimodel=cap[mimhd_av3],mimhdx#20auLvs#20cmrf7sf
+element cap[mimhd_av3] MIMhdsx_Device_228 mim_bot mim_top substrate 
+model=cap[mimhk],mimhk
+dfiimodel=cap[mimhk],mimhkx#20auLvs#20cmrf7sf
+element cap[mimhk] MIMHKpi_Device_229 mim_bot mim_top pwell 
+model=cap[mimhk_av2],mimhk
+dfiimodel=cap[mimhk_av2],mimhkx#20auLvs#20cmrf7sf
+element cap[mimhk_av2] MIMHKnw_Device_230 mim_bot mim_top nw 
+model=cap[mimhk_av3],mimhk
+dfiimodel=cap[mimhk_av3],mimhkx#20auLvs#20cmrf7sf
+element cap[mimhk_av3] MIMHKpc_Device_231 mim_bot mim_top pc_resistive 
+model=cap[mimhk_av4],mimhk
+dfiimodel=cap[mimhk_av4],mimhkx#20auLvs#20cmrf7sf
+element cap[mimhk_av4] MIMHKsx_Device_232 mim_bot mim_top substrate 
+model=cap[dualmim],dualmim
+dfiimodel=cap[dualmim],dualmimx#20#20#20auLvs#20cmrf7sf
+element cap[dualmim] DUALMIMpi_Device_233 dualbot dualmid pwell 
+model=cap[dualmim_av2],dualmim
+dfiimodel=cap[dualmim_av2],dualmimx#20#20#20auLvs#20cmrf7sf
+element cap[dualmim_av2] DUALMIMnw_Device_234 dualbot dualmid nw 
+model=cap[dualmim_av3],dualmim
+dfiimodel=cap[dualmim_av3],dualmimx#20#20#20auLvs#20cmrf7sf
+element cap[dualmim_av3] DUALMIMsx_Device_235 dualbot dualmid substrate 
+model=cap[dualmimhd],dualmim
+dfiimodel=cap[dualmimhd],dualmimhdx#20auLvs#20cmrf7sf
+element cap[dualmimhd] DUALMIMhdpi_Device_236 dualbot dualmid pwell 
+model=cap[dualmimhd_av2],dualmim
+dfiimodel=cap[dualmimhd_av2],dualmimhdx#20auLvs#20cmrf7sf
+element cap[dualmimhd_av2] DUALMIMhdnw_Device_237 dualbot dualmid nw 
+model=cap[dualmimhd_av3],dualmim
+dfiimodel=cap[dualmimhd_av3],dualmimhdx#20auLvs#20cmrf7sf
+element cap[dualmimhd_av3] DUALMIMhdsx_Device_238 dualbot dualmid substrate 
+model=cap[vncap],vncap
+dfiimodel=cap[vncap],vncap#20auLvs#20cmrf7sf
+element cap[vncap] vncap_top1_pwell vncap_term1 vncap_term1 pwell 
+model=cap[vncap_av2],vncap
+dfiimodel=cap[vncap_av2],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av2] vncap_top1_subs vncap_term1 vncap_term1 substrate 
+model=cap[vncap_av3],vncap
+dfiimodel=cap[vncap_av3],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av3] vncap_tnw1_Device_241 vncap_term1 vncap_term1 nw 
+model=cap[vncap_av4],vncap
+dfiimodel=cap[vncap_av4],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av4] vncap_topt_pwell vncap_termt vncap_termt pwell 
+model=cap[vncap_av5],vncap
+dfiimodel=cap[vncap_av5],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av5] vncap_topt_subs vncap_termt vncap_termt substrate 
+model=cap[vncap_av6],vncap
+dfiimodel=cap[vncap_av6],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av6] vncap_tnwt_Device_244 vncap_termt vncap_termt nw 
+model=cap[vncap_av7],vncap
+dfiimodel=cap[vncap_av7],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av7] vncap_top2_pwell vncap_term2 vncap_term2 pwell 
+model=cap[vncap_av8],vncap
+dfiimodel=cap[vncap_av8],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av8] vncap_top2_subs vncap_term2 vncap_term2 substrate 
+model=cap[vncap_av9],vncap
+dfiimodel=cap[vncap_av9],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av9] vncap_tnw2_Device_247 vncap_term2 vncap_term2 nw 
+model=cap[vncap_av10],vncap
+dfiimodel=cap[vncap_av10],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av10] vncap_top3_pwell vncap_term3 vncap_term3 pwell 
+model=cap[vncap_av11],vncap
+dfiimodel=cap[vncap_av11],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av11] vncap_top3_subs vncap_term3 vncap_term3 substrate 
+model=cap[vncap_av12],vncap
+dfiimodel=cap[vncap_av12],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av12] vncap_tnw3_Device_250 vncap_term3 vncap_term3 nw 
+model=cap[vncap_av13],vncap
+dfiimodel=cap[vncap_av13],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av13] vncap_top4_pwell vncap_term4 vncap_term4 pwell 
+model=cap[vncap_av14],vncap
+dfiimodel=cap[vncap_av14],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av14] vncap_top4_subs vncap_term4 vncap_term4 substrate 
+model=cap[vncap_av15],vncap
+dfiimodel=cap[vncap_av15],vncap#20auLvs#20cmrf7sf
+element cap[vncap_av15] vncap_tnw4_Device_253 vncap_term4 vncap_term4 nw 
+model=generic[indline],indline
+dfiimodel=generic[indline],indlinex#20auLvs#20cmrf7sf
+element generic[indline] am_transmission_Device_254 am[out] am[in] ind_bb_term[BULK] 
+model=generic[ind],ind
+dfiimodel=generic[ind],indx#20auLvs#20cmrf7sf
+element generic[ind] ind2_mtam_m1_Device_255 trans_in_mt[in] trans_out_am[out] m1_model[BULK] 
+model=generic[ind_av2],ind
+dfiimodel=generic[ind_av2],indx#20auLvs#20cmrf7sf
+element generic[ind_av2] ind2_mtam_bb_Device_256 trans_in_mt[in] trans_out_am[out] ind_bb_term[BULK] 
+model=generic[symind],symind
+dfiimodel=generic[symind],symindx#20auLvs#20cmrf7sf
+element generic[symind] symind3_amam_bb_Device_257 symind_in[outpr] symind_out[outse] symind_ct1[ct] ind_bb_term[BULK] 
+model=generic[symind_av3],symind
+dfiimodel=generic[symind_av3],symindx#20auLvs#20cmrf7sf
+element generic[symind_av3] symind3_amam_bb_Device_259 symind_in[outpr] symind_out[outse] symind_ct2[ct] ind_bb_term[BULK] 
+model=generic[symind_av2],symind
+dfiimodel=generic[symind_av2],symindx#20auLvs#20cmrf7sf
+element generic[symind_av2] symind3_amam_m1_Device_258 symind_in[outpr] symind_out[outse] symind_ct1[ct] m1_model[BULK] 
+model=generic[symind_av4],symind
+dfiimodel=generic[symind_av4],symindx#20auLvs#20cmrf7sf
+element generic[symind_av4] symind3_amam_m1_Device_260 symind_in[outpr] symind_out[outse] symind_ct2[ct] m1_model[BULK] 
+model=generic[symind_av5],symind
+dfiimodel=generic[symind_av5],symindx#20auLvs#20cmrf7sf
+element generic[symind_av5] symind2_amam_bb_Device_261 symind_in[outpr] symind_out[outse] dummy_ct[ct] ind_bb_term[BULK] 
+model=generic[symind_av6],symind
+dfiimodel=generic[symind_av6],symindx#20auLvs#20cmrf7sf
+element generic[symind_av6] symind2_amam_m1_Device_262 symind_in[outpr] symind_out[outse] dummy_ct[ct] m1_model[BULK] 
+model=generic[devicepad],devicepad1p
+dfiimodel=generic[devicepad],devicepad1p#20auLvs#20cmrf7sf
+element generic[devicepad] padOverDev_Device_263 padOverDev_top[pad] 
+model=generic[bondpad],bondpad
+dfiimodel=generic[bondpad],bondpadx#20auLvs#20cmrf7sf
+element generic[bondpad] bondPad_PC_Device_264 bondPad_top[in] pc_model[gp] substrate[sub] 
+model=generic[bondpad_av2],bondpad
+dfiimodel=generic[bondpad_av2],bondpadx#20auLvs#20cmrf7sf
+element generic[bondpad_av2] bondPad_BB_Device_265 bondPad_top[in] bond_bb_term[gp] substrate[sub] 
+model=generic[efuse],efuse
+dfiimodel=generic[efuse],efuse#20auLvs#20cmrf7sf
+element generic[efuse] efuse_Device_266 efuse_anod[in] efuse_cath[out] 
+model=generic[coupledwires],coupledwires
+dfiimodel=generic[coupledwires],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires] coupledA_shieldT trans_va1_am[va1] trans_va2_am[va2] trans_vb1_am[vb1] trans_vb2_am[vb2] shieldT[vshield] 
+model=generic[coupledwires_av2],coupledwires
+dfiimodel=generic[coupledwires_av2],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av2] coupledA_shield4 trans_va1_am[va1] trans_va2_am[va2] trans_vb1_am[vb1] trans_vb2_am[vb2] shield4[vshield] 
+model=generic[coupledwires_av3],coupledwires
+dfiimodel=generic[coupledwires_av3],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av3] coupledA_shield3 trans_va1_am[va1] trans_va2_am[va2] trans_vb1_am[vb1] trans_vb2_am[vb2] shield3[vshield] 
+model=generic[coupledwires_av4],coupledwires
+dfiimodel=generic[coupledwires_av4],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av4] coupledA_shield2 trans_va1_am[va1] trans_va2_am[va2] trans_vb1_am[vb1] trans_vb2_am[vb2] shield2[vshield] 
+model=generic[coupledwires_av5],coupledwires
+dfiimodel=generic[coupledwires_av5],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av5] coupledA_shield1 trans_va1_am[va1] trans_va2_am[va2] trans_vb1_am[vb1] trans_vb2_am[vb2] shield1[vshield] 
+model=generic[singlewire],singlewire
+dfiimodel=generic[singlewire],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire] singleEndA_shieldT trans_va_am[va] trans_vb_am[vb] shieldT[vshield] 
+model=generic[singlewire_av2],singlewire
+dfiimodel=generic[singlewire_av2],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av2] singleEndA_shield4 trans_va_am[va] trans_vb_am[vb] shield4[vshield] 
+model=generic[singlewire_av3],singlewire
+dfiimodel=generic[singlewire_av3],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av3] singleEndA_shield3 trans_va_am[va] trans_vb_am[vb] shield3[vshield] 
+model=generic[singlewire_av4],singlewire
+dfiimodel=generic[singlewire_av4],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av4] singleEndA_shield2 trans_va_am[va] trans_vb_am[vb] shield2[vshield] 
+model=generic[singlewire_av5],singlewire
+dfiimodel=generic[singlewire_av5],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av5] singleEndA_shield1 trans_va_am[va] trans_vb_am[vb] shield1[vshield] 
+model=generic[coupledwires_av6],coupledwires
+dfiimodel=generic[coupledwires_av6],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av6] coupledT_shield4 trans_va1_mt[va1] trans_va2_mt[va2] trans_vb1_mt[vb1] trans_vb2_mt[vb2] shield4[vshield] 
+model=generic[coupledwires_av7],coupledwires
+dfiimodel=generic[coupledwires_av7],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av7] coupledT_shield3 trans_va1_mt[va1] trans_va2_mt[va2] trans_vb1_mt[vb1] trans_vb2_mt[vb2] shield3[vshield] 
+model=generic[coupledwires_av8],coupledwires
+dfiimodel=generic[coupledwires_av8],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av8] coupledT_shield2 trans_va1_mt[va1] trans_va2_mt[va2] trans_vb1_mt[vb1] trans_vb2_mt[vb2] shield2[vshield] 
+model=generic[coupledwires_av9],coupledwires
+dfiimodel=generic[coupledwires_av9],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av9] coupledT_shield1 trans_va1_mt[va1] trans_va2_mt[va2] trans_vb1_mt[vb1] trans_vb2_mt[vb2] shield1[vshield] 
+model=generic[singlewire_av6],singlewire
+dfiimodel=generic[singlewire_av6],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av6] singleEndT_shield4 trans_va_mt[va] trans_vb_mt[vb] shield4[vshield] 
+model=generic[singlewire_av7],singlewire
+dfiimodel=generic[singlewire_av7],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av7] singleEndT_shield3 trans_va_mt[va] trans_vb_mt[vb] shield3[vshield] 
+model=generic[singlewire_av8],singlewire
+dfiimodel=generic[singlewire_av8],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av8] singleEndT_shield2 trans_va_mt[va] trans_vb_mt[vb] shield2[vshield] 
+model=generic[singlewire_av9],singlewire
+dfiimodel=generic[singlewire_av9],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av9] singleEndT_shield1 trans_va_mt[va] trans_vb_mt[vb] shield1[vshield] 
+model=generic[coupledwires_av10],coupledwires
+dfiimodel=generic[coupledwires_av10],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av10] coupled4_shield3 trans_va1_m4[va1] trans_va2_m4[va2] trans_vb1_m4[vb1] trans_vb2_m4[vb2] shield3[vshield] 
+model=generic[coupledwires_av11],coupledwires
+dfiimodel=generic[coupledwires_av11],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av11] coupled4_shield2 trans_va1_m4[va1] trans_va2_m4[va2] trans_vb1_m4[vb1] trans_vb2_m4[vb2] shield2[vshield] 
+model=generic[coupledwires_av12],coupledwires
+dfiimodel=generic[coupledwires_av12],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av12] coupled4_shield1 trans_va1_m4[va1] trans_va2_m4[va2] trans_vb1_m4[vb1] trans_vb2_m4[vb2] shield1[vshield] 
+model=generic[singlewire_av10],singlewire
+dfiimodel=generic[singlewire_av10],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av10] singleEnd4_shield3 trans_va_m4[va] trans_vb_m4[vb] shield3[vshield] 
+model=generic[singlewire_av11],singlewire
+dfiimodel=generic[singlewire_av11],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av11] singleEnd4_shield2 trans_va_m4[va] trans_vb_m4[vb] shield2[vshield] 
+model=generic[singlewire_av12],singlewire
+dfiimodel=generic[singlewire_av12],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av12] singleEnd4_shield1 trans_va_m4[va] trans_vb_m4[vb] shield1[vshield] 
+model=generic[coupledwires_av13],coupledwires
+dfiimodel=generic[coupledwires_av13],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av13] coupled3_shield2 trans_va1_m3[va1] trans_va2_m3[va2] trans_vb1_m3[vb1] trans_vb2_m3[vb2] shield2[vshield] 
+model=generic[coupledwires_av14],coupledwires
+dfiimodel=generic[coupledwires_av14],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av14] coupled3_shield1 trans_va1_m3[va1] trans_va2_m3[va2] trans_vb1_m3[vb1] trans_vb2_m3[vb2] shield1[vshield] 
+model=generic[singlewire_av13],singlewire
+dfiimodel=generic[singlewire_av13],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av13] singleEnd3_shield2 trans_va_m3[va] trans_vb_m3[vb] shield2[vshield] 
+model=generic[singlewire_av14],singlewire
+dfiimodel=generic[singlewire_av14],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av14] singleEnd3_shield1 trans_va_m3[va] trans_vb_m3[vb] shield1[vshield] 
+model=generic[coupledwires_av15],coupledwires
+dfiimodel=generic[coupledwires_av15],coupledwires#20auLvs#20cmrf7sf
+element generic[coupledwires_av15] coupled2_shield1 trans_va1_m2[va1] trans_va2_m2[va2] trans_vb1_m2[vb1] trans_vb2_m2[vb2] shield1[vshield] 
+model=generic[singlewire_av15],singlewire
+dfiimodel=generic[singlewire_av15],singlewire#20auLvs#20cmrf7sf
+element generic[singlewire_av15] singleEnd2_shield1 trans_va_m2[va] trans_vb_m2[vb] shield1[vshield] 
+model=generic[lvsres_av3],m1res
+dfiimodel=generic[lvsres_av3],m1res#20auLvs#20cmrf7sf
+element generic[lvsres_av3] m1_RES_min_Device_299 m1_model[PLUS] m1_resistive[MINUS] 
+model=res[lvsres],m1res
+dfiimodel=res[lvsres],m1res#20auLvs#20cmrf7sf
+element res[lvsres] m1_RES_min_Device_297 m1_model 
+model=res[lvsres_av2],m1res
+dfiimodel=res[lvsres_av2],m1res#20auLvs#20cmrf7sf
+element res[lvsres_av2] m1_RES_min_Device_298 m1_resistive 
+model=generic[lvsres_av6],mtres
+dfiimodel=generic[lvsres_av6],mtres#20auLvs#20cmrf7sf
+element generic[lvsres_av6] mt_RES_min_Device_302 mt_model[PLUS] mt_resistive[MINUS] 
+model=res[lvsres_av4],mtres
+dfiimodel=res[lvsres_av4],mtres#20auLvs#20cmrf7sf
+element res[lvsres_av4] mt_RES_min_Device_300 mt_model 
+model=res[lvsres_av5],mtres
+dfiimodel=res[lvsres_av5],mtres#20auLvs#20cmrf7sf
+element res[lvsres_av5] mt_RES_min_Device_301 mt_resistive 
+model=generic[lvsres_av9],m2res
+dfiimodel=generic[lvsres_av9],m2res#20auLvs#20cmrf7sf
+element generic[lvsres_av9] m2_RES_min_Device_305 m2_model[PLUS] m2_resistive[MINUS] 
+model=res[lvsres_av7],m2res
+dfiimodel=res[lvsres_av7],m2res#20auLvs#20cmrf7sf
+element res[lvsres_av7] m2_RES_min_Device_303 m2_model 
+model=res[lvsres_av8],m2res
+dfiimodel=res[lvsres_av8],m2res#20auLvs#20cmrf7sf
+element res[lvsres_av8] m2_RES_min_Device_304 m2_resistive 
+model=generic[lvsres_av12],m3res
+dfiimodel=generic[lvsres_av12],m3res#20auLvs#20cmrf7sf
+element generic[lvsres_av12] m3_RES_min_Device_308 m3_model[PLUS] m3_resistive[MINUS] 
+model=res[lvsres_av10],m3res
+dfiimodel=res[lvsres_av10],m3res#20auLvs#20cmrf7sf
+element res[lvsres_av10] m3_RES_min_Device_306 m3_model 
+model=res[lvsres_av11],m3res
+dfiimodel=res[lvsres_av11],m3res#20auLvs#20cmrf7sf
+element res[lvsres_av11] m3_RES_min_Device_307 m3_resistive 
+model=generic[lvsres_av15],m4res
+dfiimodel=generic[lvsres_av15],m4res#20auLvs#20cmrf7sf
+element generic[lvsres_av15] m4_RES_min_Device_311 m4_model[PLUS] m4_resistive[MINUS] 
+model=res[lvsres_av13],m4res
+dfiimodel=res[lvsres_av13],m4res#20auLvs#20cmrf7sf
+element res[lvsres_av13] m4_RES_min_Device_309 m4_model 
+model=res[lvsres_av14],m4res
+dfiimodel=res[lvsres_av14],m4res#20auLvs#20cmrf7sf
+element res[lvsres_av14] m4_RES_min_Device_310 m4_resistive 
+model=res[lvsres_av16],amres
+dfiimodel=res[lvsres_av16],amres#20auLvs#20cmrf7sf
+element res[lvsres_av16] am_RES_min_Device_312 am 
+model=diode[diodepnw],diodepnw
+dfiimodel=diode[diodepnw],diodepnw#20auLvs#20cmrf7sf
+element diode[diodepnw] pdiode_dev_Device_313 pd_tie nw 
+model=diode[diodenx],diodenx
+dfiimodel=diode[diodenx],diodenx#20auLvs#20cmrf7sf
+element diode[diodenx] ndiode_dev_Device_314 nd_tie pwell 
+model=diode[diodenx_av2],diodenx
+dfiimodel=diode[diodenx_av2],diodenx#20auLvs#20cmrf7sf
+element diode[diodenx_av2] ndiode_dev_Device_315 nd_tie substrate 
+model=diode[diodenwx],diodenwx
+dfiimodel=diode[diodenwx],diodenwx#20auLvs#20cmrf7sf
+element diode[diodenwx] nwdiode_dev1_Device_316 nw substrate 
+model=diode[diodenwx_av2],diodenwx
+dfiimodel=diode[diodenwx_av2],diodenwx#20auLvs#20cmrf7sf
+element diode[diodenwx_av2] nwdiode_dev_Device_317 nw substrate 
+model=diode[diodepwpi],diodepwpi
+dfiimodel=diode[diodepwpi],diodepwpi#20auLvs#20cmrf7sf
+element diode[diodepwpi] pwell_dev_Device_318 pwell nfeti_bottom_iso 
+model=diode[diodepisx],diodepisx
+dfiimodel=diode[diodepisx],diodepisx#20auLvs#20cmrf7sf
+element diode[diodepisx] piwell_dev_Device_319 substrate nfeti_bottom_iso 
+layer RF
+layer transmission1
+layer ind

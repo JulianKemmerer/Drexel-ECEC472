@@ -1,0 +1,3712 @@
+;----------------------------------------------------------------------------
+; @(#)$CDS: assura version av4.1:Production:dfII6.1.5-64b:IC6.1.5-64b.500.17 01/29/14 12:52 (sjfdl030) $
+; sub-version 4.1_USR4_HF6
+;----------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------
+; RSF include(/home/DREXEL/yt74/ic615_work/IBM/assura/LVS/LVSinclude.rsf) Section
+; Specified in the Assura UI
+;----------------------------------------------------------------------------
+
+;   Path, Component, Release: cmrf7sf/rel/Assura/LVS/LVSinclude.rsf, assuraLVS, cad_cmrf7sf
+;   CMVC Revision: 1.20 12/10/16 04:05:43
+; 08112004 jmp cmvc 12731 add divpnp.
+; 26112004 pr  cmvc 12851 Support for symInductor (added symind/symindx devices).
+; 22062005 jmp cmvc 13657 Add 3.3V ZVT Thick ox NFET device.
+; 22062005 jmp cmvc 13387 Include IBM corp Copyright in LVS files.
+; 09112005 pr  cmvc xxxxx Add Vncap.
+; 09112005 pr  cmvc xxxxx Verification zvtnfet33/x devices.  
+; 09112005 pr  cmvc xxxxx Add Mimhk.
+; 09112005 pr  cmvc xxxxx Add singlewire and coupledwires devices.
+; 18062007 cg  cmvc 15914 Add esdpnpi and esdndpi devices.
+; 20032008 jmp cmvc 16497 Add corrPoint device.
+; 19092008 cg  cmvc 17281 Add sbd devices.
+; V1700
+; 10112009 jmp cmvc 18729/18763 Add jfetjc vlnpn
+; 18112009 cg  cmvc 18777 Add rr_serpentine.
+; 19112009 jmp cmvc 18760 Add p5pfet50.
+; 20112009 jmp cmvc 18782 Add psbd.
+; 02122009 jmp cmvc 18736 Add esdnsh_base esdpsh_base
+; V1800
+; 27042010 pr  cmvc 17888 support devices under bondpad : devicepad ( cmvc 18981 ).
+; V2000
+; 21092012 jmp cmvc 21339 add p5pcdcap50.
+;
+; /*************************************************************************/
+; /*                                                                       */
+; /* These files may only be used with a valid licence for the             */
+; /* Cadence Design Systems, Inc. products.                                */
+; /*                                                                       */
+; /*************************************************************************/
+; /*                                                                   	   */
+; /*  License Materials - Property of IBM                              	   */
+; /*                                                                   	   */
+; /*  CMOS7RF         		                                    	   */
+; /*                                                                   	   */
+; /*  (C) Copyright IBM Corp. 2002,  2012	                      	   */
+; /*                                                                   	   */
+; /*  IBM Confidential                                                 	   */
+; /*                                                                   	   */
+; /*  US Government Users Restricted Rights - Use, duplication, or   	   */
+; /*  disclosure restricted by GSA ADP Schedule Contract with          	   */
+; /*  IBM Corp.                                                        	   */
+; /*                                                                   	   */
+; /*************************************************************************/
+;
+;===============================================================================
+;=START=START=START=START=START=START=START=START=START=START=START=START=START
+;===============================================================================
+; File name = LVSinclude.rsf
+; included by default when placed in the technology directory defined by assura_tech.lib
+;
+;===============================================================================
+;=STANDARD=DO NOT CHANGE=STANDARD=DO NOT CHANGE=STANDARD=DO NOT CHANGE=STANDARD=
+;===============================================================================
+;
+
+avParameters(
+ ?expandCellToParent ("p5pcdcap*" "devicepad*" "esdpsh_base*" "esdnsh_base*" "p5pfet50" "rr_serpentine*" "vlnpn*" "jfetjc*" "esdpnpi*" "esdndpi*" "efuse*" "nfet*" "pfet*" "zvtnfet*" "subc*" "dipdnw" "divpnp" "nwpc*" "oprr*" "oppp*" "opn*" "diffmosvar*" "mosvar*" "havar*" "dualmim*" "mim*" "mimhk*" "ind*" "symind*" "bondpad*" "mosvar*" "k1res*" "esdnfet*" "esdvpnpnw*" "esdndsx*" "vncap*" "singlewire*" "coupledwire*" "corrPoint" "sbd*" "psbd*" )
+ ?avrpt t
+ ?autoGrid nil
+)
+;
+;===== Give the end user the choice of customizing the run control file ========
+;
+; This is included in the GUI generated rsf file. Any parameters explicitly set from the 
+; GUI will override value in local.rsf if the parameters exist in both files.
+;
+if(isFile("local.rsf") then
+    load("local.rsf")
+)
+;
+;===============================================================================
+;=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=END=
+;===============================================================================
+
+
+;----------------------------------------------------------------------------
+; avParameter Section
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avParameters(
+  ?inputLayout ( "df2" "Julian_Shifts_And_Mux" )
+  ?cellName "SRL"
+  ?viewName "layout"
+  ?runName "SRL_LVS"
+  ?workingDirectory "./SRL_LVS"
+  ?technology "av7rfLVS"
+  ?techLib "./assura_tech.lib"
+  ?rulesFile "/home/DREXEL/yt74/ic615_work/IBM/assura/LVS/extract6.rul"
+  ?set ("NO_SUBC_IN_GRLOGIC" "resimulate_extracted")
+  ?avrpt t
+)
+
+
+
+
+;----------------------------------------------------------------------------
+; avCompareRules Section from Rules Files
+; Specified in the Assura UI
+;----------------------------------------------------------------------------
+
+;   Path, Component, Release: cmrf7sf/rel/Assura/LVS/compare.vldb, assuraLVS, cad_cmrf7sf
+;   CMVC Revision: 1.66 12/10/22 02:57:43
+;
+; /*************************************************************************/
+; /*                                                                       */
+; /* These files may only be used with a valid licence for the             */
+; /* Cadence Design Systems, Inc. products.                                */
+; /*                                                                       */
+; /*************************************************************************/
+; /*                                                                       */
+; /*  License Materials - Property of IBM                                  */
+; /*                                                                       */
+; /*  CMOS7RF                                                              */
+; /*                                                                       */
+; /*  (C) Copyright IBM Corp. 2004,  2012                                  */
+; /*                                                                       */
+; /*  IBM Confidential                                                     */
+; /*                                                                       */
+; /*  US Government Users Restricted Rights - Use, duplication, or         */
+; /*  disclosure restricted by GSA ADP Schedule Contract with              */
+; /*  IBM Corp.                                                            */
+; /*                                                                       */
+; /*************************************************************************/
+;
+; 08112004 jmp cmvc 12817 Add mim setind support
+; 08112004 jmp cmvc 12731 Add divpnp device
+; 08112004 jmp cmvc 12831 Add dipdnw compare
+; 08112004 jmp cmvc 12227 Add HVTfet devices
+; 08112004 jmp cmvc 12585 efuse pin changes
+; 12112004 pr  cmvc 12410 7RF/7WL ESD area perimeter check too relaxed.
+; 17112004 jmp cmvc 12842 FET procedures corrected for "wt" parm.
+; 18112004 jmp cmvc 12848 set hgp to 5e-9 (design are required to be laid out on a 0.01 or 0.02um grid)
+; 23112004 jmp cmvc 12688 filter in parasitics caps in assura corrected
+; 24112004 jmp cmvc 12209 swapPins statements corrected for sblk devices
+; 26112004 pr  cmvc 12851 Support for symInductor (added symind/symindx and symindp/symindpx devices).
+; 06122004 jmp cmvc 12714 bentgate tolerance : reduce tolerance for length as well as "w"
+; 10012005 jmp cmvc 12962 getValCase statement added to handle uppercase char for multiplicity
+; 14012005 jmp cmvc 12986 permute rule for lvsres corrected
+; 19012005 jmp cmvc 13000 series resistor combination corrected
+; 20012005 dj  cmvc 12209 sblk*dres processed as resDevice and terminal swapping for CDL
+; 22062005 jmp cmvc 13657 Add 3.3V ZVT Thick ox NFET device.
+; 22062005 jmp cmvc 13387 Include IBM corp Copyright in LVS files.
+; 10082005 jmp cmvc 13871 Relax Tolerance and Add new pruning options for Fets due to Artisan designs.
+; 09112005 pr  cmvc 14174 Add Vncap procedure compare.
+; 09112005 pr  cmvc 13657 Verification zvtnfet33/x devices statements and correction pruneDevice statement for (zvtnfet/33/x ).
+; 09112005 pr  cmvc 14118 Add Mimhk procedure compare.
+; 09112005 pr  cmvc 12111 Verification singlewire and coupledwires devices statements.
+; 10112005 pr  cmvc 13144 tiedown diodes pins must not be swapable.
+; 17112005 jmp cmvc 12351 minor updates.
+; 19112005 pr  cmvc 12111 Update for singlewire and coupledwires devices (filter statement).
+; 01122005 pr  cmvc 14174 Update for vncap device (Terminals name changed).
+; 03122005 pr  cmvc 14118 New Mimhk procedure.
+; 06122005 pr  cmvc 14254 Esd devices typo.
+; Post V1.4.0.0
+; 21112006 jmp cmvc 15002 Add diffmosvar device.
+; 21112006 jmp cmvc 14992 Add mimhd device.
+; 21112006 jmp cmvc 15046 Symind enhancement
+; 24112006 pr  cmvc 12080 Verification done.
+; 24112006 pr  cmvc 15314 Junction parasitic diodes extraction netlist updated.
+; 28112006 pr  cmvc 15352 LVS problem:Backplate is not compared for mim/dualmim devices.
+; 04122006 cg  cmvc 15106 Update obsolete statement.
+; 10012007 cg  cmvc 15347 "parFETcomb" procedure : "nf" are added.
+; 12012007 cg  cmvc 15492 Remove "swapParams" statement from "multiMIMcomb" procedure and "multiMIMHKcomb" procedure.
+; 15022007 bj  cmvc 15460 Added devices nfet50, nfet50tw pfet50.
+;Post V1.5.0.5
+; 04052007 pr  cmvc 15872 RFFET cdl netlisting W as total Width.
+; 18062007 cg  cmvc 15914 Add new esd devices (esdndpi/esdpdpi).
+;Post V1.4.1.0
+; 08082007 jmp cmvc 16172 psp model support for fets.
+; 12092007 bj  cmvc 16156 Added PCAP device
+; 14092007 bj  cmvc 16301 Added mosvar50 device
+; 14092007 bj  cmvc 15995 Added "par" parameter for res, vncap and mim devices
+; 14092007 bj  cmvc 15995 on FET procedure "par" return "m" value when it doesn't exist
+; 17092007 bj  cmvc 15933 Updated "rel_comp" procedure to support negative "setind" parameter in schematic.
+; 18092007 cg  cmvc xxxxx Allow esdvpnpnw and esdndsx combination in GRLOGIC to support IP (Artisan IOs FCR15946).
+; 07102007 bj  cmvc 15995 Added par for sbd device
+; V1506
+; 27052008 cg  cmvc 16806 Removed pcap swap pin from schematic section.
+; V1600
+; 03092008 MO  cmvc 20741 Recover two misses lines: no merge mosvar_m0
+; 08092008 jmp cmvc 16082 support 6 terminal lvs.
+; 15092008 MO  cmvc 17281 Add pcdcap50.
+; 19092008 cg  cmvc 17281 Add sbdnw.
+; 23092008 MO  cmvc 17281 Add dindpw  diffhavar
+; V1700
+; 10112009 jmp cmvc 18729 Add jfetjc
+; 16112009 jmp cmvc 18763 Add vlnpn
+; 18112009 cg  cmvc 18777 Add rr_serpentine.
+; 19112009 jmp cmvc 18760 Add p5pfet50 & p5pfet50_rf
+; 20112009 jmp cmvc 18782 Add psbd
+; 02122009 jmp cmvc 18736 Add esdnsh_base esdpsh_base
+; V1800
+; 22042010 jmp cmvc 18395 idg implementation
+; 22042010 jmp cmvc 18305 bondpad tolerance change (area and perimeter) 
+; 22042010 jmp cmvc 19095 remove MIM backplate checking when using specific switch "ignore_mim_3rd_terminal"
+; 27042010 pr  cmvc 17888 support devices under bondpad : devicepad ( cmvc 18981 ).
+; 20052010 jmp cmvc 19361 remove r and c parameter for mim and resistor devices.
+; V1900
+; 24062011 jmp cmvc 19766 mergeSeries statement added for MIM and VNCAP
+; 24062011 jmp cmvc 19767 Resistors combination correction.
+; 24062011 jmp cmvc 20495 Addition of a switch to compare the parasitic diodes "compare_parasitic_diodes"
+; 03082011 jmp cmvc 20495 gns parameter for esdnpsh_base
+; 10082011 jmp cmvc 20495 split mim/dualmim to mim/mimhd dualmim/dualmimhd
+; 10082011 jmp cmvc 20495 Add sx_sw_local parameter to mim/dualmim/vncap bondpad opppcres/oprppres/oprrpres res_serpentine
+; 22082011 jmp cmvc 20495 removed sx_sw_local parameter to mim/dualmim/vncap bondpad opppcres/oprppres/oprrpres res_serpentine => rsx to be extracted but not compared
+; 12092011 jmp cmvc 20495 filter sxmodel (rshort)
+; V2000
+; 21092012 jmp cmvc 21339 add p5pcdcap50
+; 26092012 jmp cmvc 21339 Add wtesd parameter to esdnfet (split ESDNSH & ESDPSH compare procedures)
+; 19102012 cg  cmvc 21339 update "x" tolerance to 1% for SYMIND to be consistent with IND and Calibre tool.
+; 22102012 jmp cmvc 21339 update "area" and "perim" tolerance to 1% for esdndsx & esdvpnpnw to be consistent with Calibre tool.
+;
+avCompareRules(
+  ; Global Variables
+
+  hgp=5e-9
+  ;LVSdebug=1
+
+;; **** swap pins information ****
+
+   schematic(
+                        filterDevice("pcapacitor")
+                        filterDevice("pdiode")
+                        filterDevice("presistor" short( "PLUS" "MINUS" ) )
+                        filterDevice("pinductor" short( "PLUS" "MINUS" ) )
+			filterDevice("rshort" short( "PLUS" "MINUS" ) )
+
+                	if( !avSwitch( "compare_parasitic_diodes" ) then 
+                		filterDevice("diodepnw")
+                		filterDevice("diodenx")
+                		filterDevice("diodenwx")
+		  	   ) ; end if NOT switch compare_parasitic_diodes
+ 
+                	if( avSwitch( "compare_parasitic_diodes" ) && avSwitch( "resimulate_extracted") then
+                		filterDevice("diodepnw")
+                		filterDevice("diodenx")
+                		filterDevice("diodenwx")
+		  	) ; end switch compare_parasitic_diodes && resimulate_extracted (mutually exclusif)
+			
+                        if( !avSwitch( "LVS_TW_DIODES" )  then
+                                filterDevice("diodepisx")
+                                filterDevice("diodepwpi")
+                           ) ; end if NOT switch LVS_TW_DIODES
+			
+			if( avSwitch( "ignore_mim_3rd_terminal" ) then
+                        	deleteCellPin("mim" 	"G")
+                        	deleteCellPin("mimhd" 	"G")
+                        	deleteCellPin("mimhk" 	"G")
+                        	deleteCellPin("dualmim" "G")
+                        	deleteCellPin("dualmimhd" "G")
+			   ) ; end switch ignore_mim_3rd_terminal
+                        
+			if( avSwitch( "resimulate_extracted" ) then
+                                deleteCellPin("nfettw"   "PI")
+                                deleteCellPin("nfettw"   "sx")
+                                deleteCellPin("nfet33tw" "PI")
+                                deleteCellPin("nfet33tw" "sx")
+                                deleteCellPin("nfet50tw" "PI")
+                                deleteCellPin("nfet50tw" "sx")
+                          ) ; end if switch resimulate_extracted
+
+                        setGround( all "gnd!" "gnd" "gnd:" "GND:" "GND" "GND!")
+                        setPower( all "vdd!" "vdd" "vdd:" "VDD:" "VDD" "VDD!")
+
+                      ;; Filter Devices
+
+                        ; res list
+                        filterOptions("k1res_m0"           "XZ"  ignore("G") )
+                        filterOptions("k1res_m1"           "XZ"  ignore("G") )
+                        filterOptions("k1resx_m0"          "XZ"  ignore("G") )
+                        filterOptions("k1resx_m1"          "XZ"  ignore("G") )
+                        filterOptions("opndres_m0"         "XZ"  ignore("G") )
+                        filterOptions("opndres_m1"         "XZ"  ignore("G") )
+                        filterOptions("opndresx_m0"        "XZ"  ignore("G") )
+                        filterOptions("opndresx_m1"        "XZ"  ignore("G") )
+                        filterOptions("oppdres_m0"         "XZ"  ignore("G") )
+                        filterOptions("oppdres_m1"         "XZ"  ignore("G") )
+                        filterOptions("oppdresx_m0"        "XZ"  ignore("G") )
+                        filterOptions("oppdresx_m1"        "XZ"  ignore("G") )
+                        filterOptions("opppcres_m0"        "XZ"  ignore("G") )
+                        filterOptions("opppcres_m1"        "XZ"  ignore("G") )
+                        filterOptions("opppcresx_m0"       "XZ"  ignore("G") )
+                        filterOptions("opppcresx_m1"       "XZ"  ignore("G") )
+                        filterOptions("oprppres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprppres_m1"        "XZ"  ignore("G") )
+                        filterOptions("oprppresx_m0"       "XZ"  ignore("G") )
+                        filterOptions("oprppresx_m1"       "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m1"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m1"        "XZ"  ignore("G") )
+                        filterOptions("rr_serpentine_m0"   "XZ"  ignore("G") )
+                        filterOptions("rr_serpentine_m1"   "XZ"  ignore("G") )
+                        filterOptions("rr_serpentinex_m0"  "XZ"  ignore("G") )
+                        filterOptions("rr_serpentinex_m1"  "XZ"  ignore("G") )
+
+                        ; cap list
+                        filterOptions("mim_m0"             "XZ"  ignore("G") )
+                        filterOptions("mim_m1"             "XZ"  ignore("G") )
+                        filterOptions("mimx_m0"            "XZ"  ignore("G") )
+                        filterOptions("mimx_m1"            "XZ"  ignore("G") )
+                        filterOptions("mimhd_m0"           "XZ"  ignore("G") )
+                        filterOptions("mimhd_m1"           "XZ"  ignore("G") )
+                        filterOptions("mimhdx_m0"          "XZ"  ignore("G") )
+                        filterOptions("mimhdx_m1"          "XZ"  ignore("G") )
+                        filterOptions("mimhk_m0"           "XZ"  ignore("G") )
+                        filterOptions("mimhk_m1"           "XZ"  ignore("G") )
+                        filterOptions("mimhkx_m0"          "XZ"  ignore("G") )
+                        filterOptions("mimhkx_m1"          "XZ"  ignore("G") )
+                        filterOptions("dualmim_m0"         "XZ"  ignore("G") )
+                        filterOptions("dualmim_m1"         "XZ"  ignore("G") )
+                        filterOptions("dualmimx_m0"        "XZ"  ignore("G") )
+                        filterOptions("dualmimx_m1"        "XZ"  ignore("G") )
+                        filterOptions("dualmimhd_m0"       "XZ"  ignore("G") )
+                        filterOptions("dualmimhd_m1"       "XZ"  ignore("G") )
+                        filterOptions("dualmimhdx_m0"      "XZ"  ignore("G") )
+                        filterOptions("dualmimhdx_m1"      "XZ"  ignore("G") )
+                        filterOptions("vncap_m0"           "XZ"  ignore("SUB") )
+                        filterOptions("vncap_m1"           "XZ"  ignore("SUB") )
+                        filterOptions("vncapx_m0"          "XZ"  ignore("SUB") )
+                        filterOptions("vncapx_m1"          "XZ"  ignore("SUB") )
+
+                        ; diode list
+			filterOptions("sbd_m0"             "XZ"  ignore("BULK") )
+                        filterOptions("sbd_m1"             "XZ"  ignore("BULK") )
+                        filterOptions("sbdx_m0"            "XZ"  ignore("BULK") )
+                        filterOptions("sbdx_m1"            "XZ"  ignore("BULK") )
+                        filterOptions("sbdnw_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("sbdnw_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("sbdnwx_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("sbdnwx_m1"          "XZ"  ignore("BULK") )
+                        filterOptions("psbd_m0"            "XZ"  ignore("TW") )
+                        filterOptions("psbd_m1"            "XZ"  ignore("TW") )
+                        filterOptions("havar_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("havar_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("havarx_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("havarx_m1"          "XZ"  ignore("BULK") )
+                       	filterOptions("esdndpi_m0"         "XZ")
+                        filterOptions("esdndpi_m1"         "XZ")
+                        filterOptions("esdpnpi_m0"         "XZ")
+                        filterOptions("esdpnpi_m1"         "XZ")
+
+                        ; fet list
+                        filterOptions("nfet_m0"            "XZC" ignore("B") )
+                        filterOptions("nfet_m1"            "XZC" ignore("B") )
+                        filterOptions("nfetx_m0"           "XZC" ignore("B") )
+                        filterOptions("nfetx_m1"           "XZC" ignore("B") )
+                        filterOptions("pfet_m0"            "XZC" ignore("B") )
+                        filterOptions("pfet_m1"            "XZC" ignore("B") )
+                        filterOptions("pfetx_m0"           "XZC" ignore("B") )
+                        filterOptions("pfetx_m1"           "XZC" ignore("B") )
+                        filterOptions("nfet33_m0"          "XZC" ignore("B") )
+                        filterOptions("nfet33_m1"          "XZC" ignore("B") )
+                        filterOptions("nfet33x_m0"         "XZC" ignore("B") )
+                        filterOptions("nfet33x_m1"         "XZC" ignore("B") )
+                        filterOptions("nfet50_m0"          "XZC" ignore("B") )
+                        filterOptions("nfet50_m1"          "XZC" ignore("B") )
+                        filterOptions("nfet50x_m0"         "XZC" ignore("B") )
+                        filterOptions("nfet50x_m1"         "XZC" ignore("B") )
+                        filterOptions("pfet33_m0"          "XZC" ignore("B") )
+                        filterOptions("pfet33_m1"          "XZC" ignore("B") )
+                        filterOptions("pfet33x_m0"         "XZC" ignore("B") )
+                        filterOptions("pfet33x_m1"         "XZC" ignore("B") )
+                        filterOptions("pfet50_m0"          "XZC" ignore("B") )
+                        filterOptions("pfet50_m1"          "XZC" ignore("B") )
+                        filterOptions("pfet50x_m0"         "XZC" ignore("B") )
+                        filterOptions("pfet50x_m1"         "XZC" ignore("B") )
+                        filterOptions("p5pfet50_m0"        "XZC" ignore("B") )
+                        filterOptions("p5pfet50_m1"        "XZC" ignore("B") )
+                        filterOptions("p5pfet50x_m0"       "XZC" ignore("B") )
+                        filterOptions("p5pfet50x_m1"       "XZC" ignore("B") )
+                        filterOptions("nfethv_m0"          "XZC" ignore("B") )
+                        filterOptions("nfethv_m1"          "XZC" ignore("B") )
+                        filterOptions("nfethvx_m0"         "XZC" ignore("B") )
+                        filterOptions("nfethvx_m1"         "XZC" ignore("B") )
+                        filterOptions("pfethv_m0"          "XZC" ignore("B") )
+                        filterOptions("pfethv_m1"          "XZC" ignore("B") )
+                        filterOptions("pfethvx_m0"         "XZC" ignore("B") )
+                        filterOptions("pfethvx_m1"         "XZC" ignore("B") )
+                        filterOptions("zvtfet_m0"          "XZC" ignore("B") )
+                        filterOptions("zvtfet_m1"          "XZC" ignore("B") )
+                        filterOptions("zvtfetx_m0"         "XZC" ignore("B") )
+                        filterOptions("zvtfetx_m1"         "XZC" ignore("B") )
+                        filterOptions("zvtfet33_m0"        "XZC" ignore("B") )
+                        filterOptions("zvtfet33_m1"        "XZC" ignore("B") )
+                        filterOptions("zvtfet33x_m0"       "XZC" ignore("B") )
+                        filterOptions("zvtfet33x_m1"       "XZC" ignore("B") )
+
+                        ; generic devices
+                        filterOptions("coupledwires_m0"    "XZ"  ignore("vshield") )
+                        filterOptions("singlewire_m0"      "XZ"  ignore("vshield") )
+                        filterOptions("ind_m0"             "XZ"  ignore("BULK") )
+                        filterOptions("ind_m1"             "XZ"  ignore("BULK") )
+                        filterOptions("indx_m0"            "XZ"  ignore("BULK") )
+                        filterOptions("indx_m1"            "XZ"  ignore("BULK") )
+                        filterOptions("symind_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("symind_m1"          "XZ"  ignore("BULK") )
+                        filterOptions("symindx_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("symindx_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("symindp_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("symindp_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("symindpx_m0"        "XZ"  ignore("BULK") )
+                        filterOptions("symindpx_m1"        "XZ"  ignore("BULK") )
+                        filterOptions("indline_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("indline_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("indlinex_m0"        "XZ"  ignore("BULK") )
+                        filterOptions("indlinex_m1"        "XZ"  ignore("BULK") )
+                        filterOptions("inds_m0"            "XZ"  ignore("BULK") )
+                        filterOptions("inds_m1"            "XZ"  ignore("BULK") )
+                        filterOptions("indsx_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("indsx_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("indp_m0"            "XZ"  ignore("BULK") )
+                        filterOptions("indp_m1"            "XZ"  ignore("BULK") )
+                        filterOptions("indpx_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("indpx_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("diffhavar_m0"       "XZ"  ignore("BULK") )
+                        filterOptions("diffhavar_m1"       "XZ"  ignore("BULK") )
+                        filterOptions("diffhavarx_m0"      "XZ"  ignore("BULK") )
+                        filterOptions("diffhavarx_m1"      "XZ"  ignore("BULK") )
+                        filterOptions("mosvar_m0"          "XZ"  ignore("B") )
+                        filterOptions("mosvar_m1"          "XZ"  ignore("B") )
+                        filterOptions("mosvarx_m0"         "XZ"  ignore("B") )
+                        filterOptions("mosvarx_m1"         "XZ"  ignore("B") )
+                        filterOptions("mosvar50_m0"        "XZ"  ignore("B") )
+                        filterOptions("mosvar50_m1"        "XZ"  ignore("B") )
+                        filterOptions("mosvar50x_m0"       "XZ"  ignore("B") )
+                        filterOptions("mosvar50x_m1"       "XZ"  ignore("B") )
+			filterOptions("p5pcdcap50_m0" 	   "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50_m1"      "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50x_m0"     "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50x_m1"     "XZ"  ignore("B") )
+                        filterOptions("diffmosvar_m0"      "XZ"  ignore("B") )
+                        filterOptions("diffmosvar_m1"      "XZ"  ignore("B") )
+                        filterOptions("diffmosvarx_m0"     "XZ"  ignore("B") )
+                        filterOptions("diffmosvarx_m1"     "XZ"  ignore("B") )
+                        filterOptions("nfettwx_m0"         "XZ"  ignore("B") )
+                        filterOptions("nfettwx_m1"         "XZ"  ignore("B") )
+                        filterOptions("nfet33twx_m0"       "XZ"  ignore("B") )
+                        filterOptions("nfet33twx_m1"       "XZ"  ignore("B") )
+                        filterOptions("nfet50twx_m0"       "XZ"  ignore("B") )
+                        filterOptions("nfet50twx_m1"       "XZ"  ignore("B") )
+                        filterOptions("jfetjc_m0"          "XZ"  ignore("NW") )
+                        filterOptions("jfetjc_m1"          "XZ"  ignore("NW") )
+                        filterOptions("pcap_m0"            "XZ"  ignore("TW") )
+                        filterOptions("pcap_m1"            "XZ"  ignore("TW") )
+                        filterOptions("dindpw_m0"          "XZ")
+                        filterOptions("dindpw_m1"          "XZ")
+                        filterOptions("vlnpn_m0"           "XZ")
+                        filterOptions("vlnpn_m1"           "XZ")
+            )
+
+   layout(
+                        swapPins( "bondpad"  "(f in gp sub)" )
+                        swapPins( "bondpadx" "(f in gp sub)" )
+			swapPins( "devicepad" "(f pad)" )	
+                        swapPins( "corrPoint" nil )
+                        swapPins( "coupledwires" "(f (p va1 vb1) (p va2 vb2) vshield)" )
+                        swapPins( "diodenx" "(p MINUS PLUS)" )
+                        swapPins( "diodepisx" "(f PLUS MINUS)" )
+                        swapPins( "diodepnw" "(p PLUS MINUS)" )
+                        swapPins( "diodepwpi" "(f PLUS MINUS)" )
+                        swapPins( "dipdnw" "(f SUB PLUS)" )
+                        swapPins( "divpnp" "(f SUB NW PLUS)" )
+                        swapPins( "dualmim"  "(f S D G)" )
+                        swapPins( "dualmimx" "(f S D G)" )
+                        swapPins( "dualmimhd"  "(f S D G)" )
+                        swapPins( "dualmimhdx" "(f S D G)" )
+                        swapPins( "efuse" "(f in out)" )
+                        swapPins( "esdndsx" "(f nd sx)" )
+                        swapPins( "esdvpnpnw" "(f pd nw sx)" )
+                        swapPins( "esdndpi" "(f pw nd)")
+                        swapPins( "esdpnpi" "(f pd nw)")
+			swapPins( "esdnsh_base"    "(f de ge se be)" )
+			swapPins( "esdpsh_base"    "(f de ge se be)" )
+                        swapPins( "dindpw" "(f tw pw nd sx)" )
+                        swapPins( "havar"  "(f A C BULK)" )
+                        swapPins( "havarx" "(f A C BULK)" )
+                        swapPins( "diffhavar"  "(f (p AA AB) C BULK)" )
+                        swapPins( "diffhavarx" "(f (p AA AB) C BULK)" )
+                        swapPins( "ind"  "(f out in BULK)" )
+                        swapPins( "indx" "(f out in BULK)" )
+                        swapPins( "symind"  "(f (p outpr outse) ct BULK)" )
+                        swapPins( "symindx" "(f (p outpr outse) ct BULK)" )
+                        swapPins( "symindp"  "(f (p outpr outse) ct BULK)" )
+                        swapPins( "symindpx" "(f (p outpr outse) ct BULK)" )
+                        swapPins( "inds"  "(f out in BULK)" )
+                        swapPins( "indsx" "(f out in BULK)" )
+                        swapPins( "indp"  "(f out in BULK)" )
+                        swapPins( "indpx" "(f out in BULK)" )
+                        swapPins( "indline"  "(f (p in out) BULK)" )
+                        swapPins( "indlinex" "(f (p in out) BULK)" )
+                        swapPins( "k1res"  "(f (p D S) G)" )
+                        swapPins( "k1resx" "(f (p D S) G)" )
+                        swapPins( "lpnp"  "(f C B E BULK)" )
+                        swapPins( "lpnpx" "(f C B E BULK)" )
+                        swapPins( "mim"  "(f S D G)" )
+                        swapPins( "mimx" "(f S D G)" )
+                        swapPins( "mimhd"  "(f S D G)" )
+                        swapPins( "mimhdx" "(f S D G)" )
+                        swapPins( "mimhk"  "(f S D G)")
+                        swapPins( "mimhkx" "(f S D G)")
+                        swapPins( "mosvar"  "(f  D G B)" )
+                        swapPins( "mosvarx" "(f  D G B)" )
+                        swapPins( "mosvar50"  "(f  D G B)" )
+                        swapPins( "mosvar50x" "(f  D G B)" )
+                        swapPins( "diffmosvar"  "(f (p GA GB) D B)" )
+                        swapPins( "diffmosvarx" "(f (p GA GB) D B)" )
+                        swapPins( "pcap" "(f G D TW )" )
+                        swapPins( "lvsres" "(p PLUS MINUS)" )
+                        swapPins( "jfetjc" "(f (p D S) G NW)")
+                        swapPins( "nfettw4" "(f (p D S) G B)")
+                        swapPins( "nfet33tw4" "(f (p D S) G B)")
+                        swapPins( "nfet50tw4" "(f (p D S) G B)")
+                        swapPins( "nfet25" "(f (p D S) G B )" )
+                        swapPins( "nfet25_rf" "(f D S G B)" )
+                        swapPins( "nfet25tw_rf" "(f D S G B PI sx)" )
+                        swapPins( "nfet25tw" "(f (p D S) G B PI sx)" )
+                        swapPins( "nfet25x" "(f (p D S) G B)" )
+                        swapPins( "nfet33" "(f (p D S) G B )" )
+                        swapPins( "nfet33_rf" "(f D S G B)" )
+                        swapPins( "nfet33tw_rf" "(f D S G B PI sx)" )
+                        swapPins( "nfet33tw" "(f (p D S) G B PI sx)" )
+                        swapPins( "nfet33x" "(f (p D S) G B)" )
+                        swapPins( "nfet50" "(f (p D S) G B )" )
+                        swapPins( "nfet50tw" "(f (p D S) G B PI sx)" )
+                        swapPins( "nfet50x" "(f (p D S) G B)" )
+                        swapPins( "nfet_rf" "(f D S G B)" )
+                        swapPins( "nfettw_rf" "(f D S G B PI sx)" )
+                        swapPins( "nfettw" "(f (p D S) G B PI sx)" )
+                        swapPins( "nfetx" "(f (p D S) G B)" )
+                        swapPins( "nfethvx" "(f (p D S) G B)" )
+                        swapPins( "nfethv"  "(f (p D S) G B)" )
+                        swapPins( "pfethvx" "(f (p D S) G B)" )
+                        swapPins( "pfethv"  "(f (p D S) G B)" )
+                        swapPins( "nfet" "(f (p D S) G B)" )
+                        swapPins( "zvtnfetx" "(f (p D S) G B)" )
+                        swapPins( "zvtnfet"  "(f (p D S) G B)" )
+                        swapPins( "zvtnfet33"  "(f (p D S) G B)" )
+                        swapPins( "zvtnfet33x" "(f (p D S) G B)" )
+                        swapPins( "npn1"  "(f C B E BULK)" )
+                        swapPins( "npn1x" "(f C B E BULK)" )
+                        swapPins( "npn2"  "(f C B E BULK)" )
+                        swapPins( "npn2x" "(f C B E BULK)" )
+                        swapPins( "nwppcres"   "(f (p D S) G )" )
+                        swapPins( "nwppcresx"  "(f (p D S) G )" )
+                        swapPins( "nwppcresxx" "(f (p D S) G )" )
+                        swapPins( "nwrppres"   "(f (p D S) G )" )
+                        swapPins( "nwrppresx"  "(f (p D S) G)" )
+                        swapPins( "nwrppresxx" "(f (p D S) G )" )
+                        swapPins( "nwrrpres"   "(f (p D S) G )" )
+                        swapPins( "nwrrpresx"  "(f (p D S) G )" )
+                        swapPins( "nwrrpresxx" "(f (p D S) G )" )
+                        swapPins( "opndres"  "(f (p D S) G)" )
+                        swapPins( "opndresx" "(f (p D S) G)" )
+                        swapPins( "oppdres"  "(f (p D S) G )" )
+                        swapPins( "oppdresx" "(f (p D S) G )" )
+                        swapPins( "opppcres"  "(f (p D S) G)" )
+                        swapPins( "opppcresx" "(f (p D S) G)" )
+                        swapPins( "oprppres"  "(f (p D S) G)" )
+                        swapPins( "oprppresx" "(f (p D S) G)" )
+                        swapPins( "oprrpres"  "(f (p D S) G)" )
+                        swapPins( "oprrpresx" "(f (p D S) G)" )
+                        swapPins( "rr_serpentine"  "(f (p D S) G)" )
+                        swapPins( "rr_serpentinex" "(f (p D S) G)" )
+                        swapPins( "pcapc" "(p PLUS MINUS)" )
+                        swapPins( "pcdcap"  "(f D G B)" )
+                        swapPins( "pcdcapx" "(f D G B)" )
+                        swapPins( "pcdcap33"  "(f D G B)" )
+                        swapPins( "pcdcap33x" "(f D G B)" )
+			swapPins( "p5pcdcap50"	"(f G D B)")
+			swapPins( "p5pcdcap50x"	"(f G D B)")
+                        swapPins( "pcdcap50"  "(f G D B)" )
+                        swapPins( "pcdcap50x" "(f G D B)" )
+                        swapPins( "pfet" "(f (p D S) G B )" )
+                        swapPins( "pfet25" "(f (p D S) G B)" )
+                        swapPins( "pfet25_rf" "(f D S G B)" )
+                        swapPins( "pfet25x" "(f (p D S) G B)" )
+                        swapPins( "pfet33" "(f (p D S) G B)" )
+                        swapPins( "pfet33_rf" "(f D S G B)" )
+                        swapPins( "pfet33x" "(f (p D S) G B)" )
+                        swapPins( "pfet50" "(f (p D S) G B)" )
+                        swapPins( "pfet50_rf" "(f D S G B)" )
+                        swapPins( "pfet50x" "(f (p D S) G B)" )
+                        swapPins( "p5pfet50" "(f (p D S) G B)" )
+                        swapPins( "p5pfet50_rf" "(f D S G B)" )
+                        swapPins( "p5pfet50x" "(f (p D S) G B)" )
+                        swapPins( "pfet_rf" "(f D S G B)" )
+                        swapPins( "pfetx" "(f (p D S) G B)" )
+                        swapPins( "sbd"  "(f A C BULK)" )
+                        swapPins( "sbdx" "(f A C)" )
+                        swapPins( "sbdnw"  "(f A C BULK)" )
+                        swapPins( "sbdnwx" "(f A C)" )
+                        swapPins( "psbd"  "(f C A TW)" )
+                        swapPins( "sblkndres"  "(f (p D S) G)" )
+                        swapPins( "sblkndresx" "(f (p D S) G)" )
+                        swapPins( "sblkpdres"   "(f (p D S) G)" )
+                        swapPins( "sblkpdresx"  "(f (p D S) G)" )
+                        swapPins( "sblkpdresxx" "(f (p D S) G B)" )
+                        swapPins( "singlewire" "(f (p va vb) vshield)" )
+                        swapPins( "subc"  "(f SUBCON sub)" )
+                        swapPins( "subcx" "(f SUBCON sub)" )
+                        swapPins( "tdndsx" "(f MINUS PLUS)" )
+                        swapPins( "tdpdnw" "(f PLUS MINUS)" )
+                        swapPins( "var"  "(f A C BULK)" )
+                        swapPins( "varx" "(f A C BULK)" )
+                        swapPins( "vncap"  "(f (p IN OUT) SUB)" )
+                        swapPins( "vncapx" "(f (p IN OUT) SUB)" )
+
+                        filterDevice("pcapacitor")
+                        filterDevice("presistor" short( "PLUS" "MINUS"  ) )
+                        filterDevice("pinductor" short( "PLUS" "MINUS" ) )
+                        filterDevice("pdiode")
+
+	                if( !avSwitch( "compare_parasitic_diodes" ) then
+        	        	filterDevice("diodepnw")
+                		filterDevice("diodenx")
+                		filterDevice("diodenwx")
+			  ) ; end if NOT switch	compare_parasitic_diodes
+ 
+                	if( avSwitch( "compare_parasitic_diodes" ) && avSwitch( "resimulate_extracted") then
+                		filterDevice("diodepnw")
+                		filterDevice("diodenx")
+                		filterDevice("diodenwx")
+		  	) ; end switch compare_parasitic_diodes && resimulate_extracted (mutually exclusif)
+
+                        if( !avSwitch( "LVS_TW_DIODES" )  then
+                                filterDevice("diodepisx")
+                                filterDevice("diodepwpi")
+                           ) ; end if NOT switch LVS_TW_DIODES
+
+			if( avSwitch( "ignore_mim_3rd_terminal" ) then
+                        	deleteCellPin("mim" 	"G")
+                        	deleteCellPin("mimhd" 	"G")
+                        	deleteCellPin("mimhk" 	"G")
+                        	deleteCellPin("dualmim" "G")
+                        	deleteCellPin("dualmimhd" "G")
+			) ; end switch ignore_mim_3rd_terminal
+
+                        setGround( all "gnd!" "gnd" "gnd:" "GND:" "GND" "GND!")
+                        setPower( all "vdd!" "vdd" "vdd:" "VDD:" "VDD" "VDD!")
+
+                      ;; Filter Devices
+
+                        ; res list
+                        filterOptions("k1res_m0"           "XZ"  ignore("G") )
+                        filterOptions("k1res_m1"           "XZ"  ignore("G") )
+                        filterOptions("k1resx_m0"          "XZ"  ignore("G") )
+                        filterOptions("k1resx_m1"          "XZ"  ignore("G") )
+                        filterOptions("opndres_m0"         "XZ"  ignore("G") )
+                        filterOptions("opndres_m1"         "XZ"  ignore("G") )
+                        filterOptions("opndresx_m0"        "XZ"  ignore("G") )
+                        filterOptions("opndresx_m1"        "XZ"  ignore("G") )
+                        filterOptions("oppdres_m0"         "XZ"  ignore("G") )
+                        filterOptions("oppdres_m1"         "XZ"  ignore("G") )
+                        filterOptions("oppdresx_m0"        "XZ"  ignore("G") )
+                        filterOptions("oppdresx_m1"        "XZ"  ignore("G") )
+                        filterOptions("opppcres_m0"        "XZ"  ignore("G") )
+                        filterOptions("opppcres_m1"        "XZ"  ignore("G") )
+                        filterOptions("opppcresx_m0"       "XZ"  ignore("G") )
+                        filterOptions("opppcresx_m1"       "XZ"  ignore("G") )
+                        filterOptions("oprppres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprppres_m1"        "XZ"  ignore("G") )
+                        filterOptions("oprppresx_m0"       "XZ"  ignore("G") )
+                        filterOptions("oprppresx_m1"       "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m0"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m1"        "XZ"  ignore("G") )
+                        filterOptions("oprrpres_m1"        "XZ"  ignore("G") )
+                        filterOptions("rr_serpentine_m0"   "XZ"  ignore("G") )
+                        filterOptions("rr_serpentine_m1"   "XZ"  ignore("G") )
+                        filterOptions("rr_serpentinex_m0"  "XZ"  ignore("G") )
+                        filterOptions("rr_serpentinex_m1"  "XZ"  ignore("G") )
+
+                        ; cap list
+                        filterOptions("mim_m0"             "XZ"  ignore("G") )
+                        filterOptions("mim_m1"             "XZ"  ignore("G") )
+                        filterOptions("mimx_m0"            "XZ"  ignore("G") )
+                        filterOptions("mimx_m1"            "XZ"  ignore("G") )
+                        filterOptions("mimhd_m0"           "XZ"  ignore("G") )
+                        filterOptions("mimhd_m1"           "XZ"  ignore("G") )
+                        filterOptions("mimhdx_m0"          "XZ"  ignore("G") )
+                        filterOptions("mimhdx_m1"          "XZ"  ignore("G") )
+                        filterOptions("mimhk_m0"           "XZ"  ignore("G") )
+                        filterOptions("mimhk_m1"           "XZ"  ignore("G") )
+                        filterOptions("mimhkx_m0"          "XZ"  ignore("G") )
+                        filterOptions("mimhkx_m1"          "XZ"  ignore("G") )
+                        filterOptions("dualmim_m0"         "XZ"  ignore("G") )
+                        filterOptions("dualmim_m1"         "XZ"  ignore("G") )
+                        filterOptions("dualmimx_m0"        "XZ"  ignore("G") )
+                        filterOptions("dualmimx_m1"        "XZ"  ignore("G") )
+                        filterOptions("dualmimhd_m0"       "XZ"  ignore("G") )
+                        filterOptions("dualmimhd_m1"       "XZ"  ignore("G") )
+                        filterOptions("dualmimhdx_m0"      "XZ"  ignore("G") )
+                        filterOptions("dualmimhdx_m1"      "XZ"  ignore("G") )
+                        filterOptions("vncap_m0"           "XZ"  ignore("SUB") )
+                        filterOptions("vncap_m1"           "XZ"  ignore("SUB") )
+                        filterOptions("vncapx_m0"          "XZ"  ignore("SUB") )
+                        filterOptions("vncapx_m1"          "XZ"  ignore("SUB") )
+
+                        ; diode list
+                        filterOptions("sbd_m0"             "XZ"  ignore("BULK") )
+                        filterOptions("sbd_m1"             "XZ"  ignore("BULK") )
+                        filterOptions("sbdx_m0"            "XZ"  ignore("BULK") )
+                        filterOptions("sbdx_m1"            "XZ"  ignore("BULK") )
+                        filterOptions("sbdnw_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("sbdnw_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("sbdnwx_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("sbdnwx_m1"          "XZ"  ignore("BULK") )
+                        filterOptions("psbd_m0"            "XZ"  ignore("TW") )
+                        filterOptions("psbd_m1"            "XZ"  ignore("TW") )
+                        filterOptions("havar_m0"           "XZ"  ignore("BULK") )
+                        filterOptions("havar_m1"           "XZ"  ignore("BULK") )
+                        filterOptions("havarx_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("havarx_m1"          "XZ"  ignore("BULK") )
+                       	filterOptions("esdndpi_m0"         "XZ")
+                        filterOptions("esdndpi_m1"         "XZ")
+                        filterOptions("esdpnpi_m0"         "XZ")
+                        filterOptions("esdpnpi_m1"         "XZ")
+
+                        ; fet list
+                        filterOptions("nfet_m0"            "XZC" ignore("B") )
+                        filterOptions("nfet_m1"            "XZC" ignore("B") )
+                        filterOptions("nfetx_m0"           "XZC" ignore("B") )
+                        filterOptions("nfetx_m1"           "XZC" ignore("B") )
+                        filterOptions("pfet_m0"            "XZC" ignore("B") )
+                        filterOptions("pfet_m1"            "XZC" ignore("B") )
+                        filterOptions("pfetx_m0"           "XZC" ignore("B") )
+                        filterOptions("pfetx_m1"           "XZC" ignore("B") )
+                        filterOptions("nfet33_m0"          "XZC" ignore("B") )
+                        filterOptions("nfet33_m1"          "XZC" ignore("B") )
+                        filterOptions("nfet33x_m0"         "XZC" ignore("B") )
+                        filterOptions("nfet33x_m1"         "XZC" ignore("B") )
+                        filterOptions("nfet50_m0"          "XZC" ignore("B") )
+                        filterOptions("nfet50_m1"          "XZC" ignore("B") )
+                        filterOptions("nfet50x_m0"         "XZC" ignore("B") )
+                        filterOptions("nfet50x_m1"         "XZC" ignore("B") )
+                        filterOptions("pfet33_m0"          "XZC" ignore("B") )
+                        filterOptions("pfet33_m1"          "XZC" ignore("B") )
+                        filterOptions("pfet33x_m0"         "XZC" ignore("B") )
+                        filterOptions("pfet33x_m1"         "XZC" ignore("B") )
+                        filterOptions("pfet50_m0"          "XZC" ignore("B") )
+                        filterOptions("pfet50_m1"          "XZC" ignore("B") )
+                        filterOptions("pfet50x_m0"         "XZC" ignore("B") )
+                        filterOptions("pfet50x_m1"         "XZC" ignore("B") )
+                        filterOptions("p5pfet50_m0"        "XZC" ignore("B") )
+                        filterOptions("p5pfet50_m1"        "XZC" ignore("B") )
+                        filterOptions("p5pfet50x_m0"       "XZC" ignore("B") )
+                        filterOptions("p5pfet50x_m1"       "XZC" ignore("B") )
+                        filterOptions("nfethv_m0"          "XZC" ignore("B") )
+                        filterOptions("nfethv_m1"          "XZC" ignore("B") )
+                        filterOptions("nfethvx_m0"         "XZC" ignore("B") )
+                        filterOptions("nfethvx_m1"         "XZC" ignore("B") )
+                        filterOptions("pfethv_m0"          "XZC" ignore("B") )
+                        filterOptions("pfethv_m1"          "XZC" ignore("B") )
+                        filterOptions("pfethvx_m0"         "XZC" ignore("B") )
+                        filterOptions("pfethvx_m1"         "XZC" ignore("B") )
+                        filterOptions("zvtfet_m0"          "XZC" ignore("B") )
+                        filterOptions("zvtfet_m1"          "XZC" ignore("B") )
+                        filterOptions("zvtfetx_m0"         "XZC" ignore("B") )
+                        filterOptions("zvtfetx_m1"         "XZC" ignore("B") )
+                        filterOptions("zvtfet33_m0"        "XZC" ignore("B") )
+                        filterOptions("zvtfet33_m1"        "XZC" ignore("B") )
+                        filterOptions("zvtfet33x_m0"       "XZC" ignore("B") )
+                        filterOptions("zvtfet33x_m1"       "XZC" ignore("B") )
+
+                        ; generic devices
+                        filterOptions("coupledwires_m0" "XZ"  ignore("vshield") )
+                        filterOptions("singlewire_m0"   "XZ"  ignore("vshield") )
+                        filterOptions("ind_m0"          "XZ"  ignore("BULK") )
+                        filterOptions("ind_m1"          "XZ"  ignore("BULK") )
+                        filterOptions("indx_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("indx_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("symind_m0"       "XZ"  ignore("BULK") )
+                        filterOptions("symind_m1"       "XZ"  ignore("BULK") )
+                        filterOptions("symindx_m0"      "XZ"  ignore("BULK") )
+                        filterOptions("symindx_m1"      "XZ"  ignore("BULK") )
+                        filterOptions("symindp_m0"      "XZ"  ignore("BULK") )
+                        filterOptions("symindp_m1"      "XZ"  ignore("BULK") )
+                        filterOptions("symindpx_m0"     "XZ"  ignore("BULK") )
+                        filterOptions("symindpx_m1"     "XZ"  ignore("BULK") )
+                        filterOptions("indline_m0"      "XZ"  ignore("BULK") )
+                        filterOptions("indline_m1"      "XZ"  ignore("BULK") )
+                        filterOptions("indlinex_m0"     "XZ"  ignore("BULK") )
+                        filterOptions("indlinex_m1"     "XZ"  ignore("BULK") )
+                        filterOptions("inds_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("inds_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("indsx_m0"        "XZ"  ignore("BULK") )
+                        filterOptions("indsx_m1"        "XZ"  ignore("BULK") )
+                        filterOptions("indp_m0"         "XZ"  ignore("BULK") )
+                        filterOptions("indp_m1"         "XZ"  ignore("BULK") )
+                        filterOptions("indpx_m0"        "XZ"  ignore("BULK") )
+                        filterOptions("indpx_m1"        "XZ"  ignore("BULK") )
+                        filterOptions("diffhavar_m0"    "XZ"  ignore("BULK") )
+                        filterOptions("diffhavar_m1"    "XZ"  ignore("BULK") )
+                        filterOptions("diffhavarx_m0"   "XZ"  ignore("BULK") )
+                        filterOptions("diffhavarx_m1"   "XZ"  ignore("BULK") )
+                        filterOptions("mosvar_m0"       "XZ"  ignore("B") )
+                        filterOptions("mosvar_m1"       "XZ"  ignore("B") )
+                        filterOptions("mosvarx_m0"      "XZ"  ignore("B") )
+                        filterOptions("mosvarx_m1"      "XZ"  ignore("B") )
+                        filterOptions("mosvar50_m0"     "XZ"  ignore("B") )
+                        filterOptions("mosvar50_m1"     "XZ"  ignore("B") )
+                        filterOptions("mosvar50x_m0"    "XZ"  ignore("B") )
+                        filterOptions("mosvar50x_m1"    "XZ"  ignore("B") )
+			filterOptions("p5pcdcap50_m0"   "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50_m1"   "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50x_m0"  "XZ"  ignore("B") )
+        		filterOptions("p5pcdcap50x_m1"  "XZ"  ignore("B") )
+                        filterOptions("diffmosvar_m0"   "XZ"  ignore("B") )
+                        filterOptions("diffmosvar_m0"   "XZ"  ignore("B") )
+                        filterOptions("diffmosvar_m1"   "XZ"  ignore("B") )
+                        filterOptions("diffmosvarx_m0"  "XZ"  ignore("B") )
+                        filterOptions("diffmosvarx_m1"  "XZ"  ignore("B") )
+                        filterOptions("jfetjc_m0"       "XZ"  ignore("NW") )
+                        filterOptions("jfetjc_m1"       "XZ"  ignore("NW") )
+                        filterOptions("pcap_m0"         "XZ"  ignore("TW") )
+                        filterOptions("pcap_m1"         "XZ"  ignore("TW") )
+                        filterOptions("nfettw_m0"       "XZ"  ignore("B") )
+                        filterOptions("nfettw_m1"       "XZ"  ignore("B") )
+                        filterOptions("nfet33tw_m0"     "XZ"  ignore("B") )
+                        filterOptions("nfet33tw_m1"     "XZ"  ignore("B") )
+                        filterOptions("nfet50tw_m0"     "XZ"  ignore("B") )
+                        filterOptions("nfet50tw_m1"     "XZ"  ignore("B") )
+                        filterOptions("nfet33tw4_m0"    "XZ"  ignore("B") )
+                        filterOptions("nfet50tw4_m0"    "XZ"  ignore("B") )
+                        filterOptions("nfettw4_m0"      "XZ"  ignore("B") )
+                        filterOptions("nfet33tw4_m1"    "XZ"  ignore("B") )
+                        filterOptions("nfet50tw4_m1"    "XZ"  ignore("B") )
+                        filterOptions("nfettw4_m1"      "XZ"  ignore("B") )
+                        filterOptions("dindpw_m0"       "XZ")
+                        filterOptions("dindpw_m1"       "XZ")
+                        filterOptions("vlnpn_m0"        "XZ")
+                        filterOptions("vlnpn_m1"        "XZ")
+            )
+
+;-----------------------------------------------------------
+  nameBinding( (cell t) (pin t) )
+  verifyTopSchPins( t )
+  autoPinSwap( t )
+  formGate(none)
+  listXRef()
+  filterReduceStatistics()
+  listFilteredDevices()
+  expandOnError( (reduce t) )
+
+  ;----------------------------
+  ; generic compare procedure |
+  ;----------------------------
+
+  procedure( genericcomp(procName layObj schObj paramInfoList)
+    let( (paramInfo paramName compProc tolVal layParamVal schParamVal
+          layMissingParams schMissingParams compMismatch errReport m1 m2)
+
+      m1 = layObj
+      m2 = schObj
+                                                                                         ; #####LVSDEBUG
+      ;if( LVSdebug then                                                                  ; #####LVSDEBUG
+      ;   printf("in procedure %s:\n" procName)                                           ; #####LVSDEBUG
+      ;   printf("layout    : ")                                                          ; #####LVSDEBUG
+      ;   foreach( paramInfo paramInfoList                                                ; #####LVSDEBUG
+      ;      paramName = car(paramInfo)                                                   ; #####LVSDEBUG
+      ;      unless( evalstring(sprintf(nil "layObj->%s" paramName))                      ; #####LVSDEBUG
+      ;         paramName=upperCase(paramName)                                            ; #####LVSDEBUG
+      ;      )                                                                            ; #####LVSDEBUG
+      ;      printf("%s: %L " paramName evalstring(sprintf(nil "layObj->%s" paramName)))  ; #####LVSDEBUG
+      ;   )                                                                               ; #####LVSDEBUG
+      ;   printf("\n")                                                                    ; #####LVSDEBUG
+      ;   printf("schematic : ")                                                          ; #####LVSDEBUG
+      ;   foreach( paramInfo paramInfoList                                                ; #####LVSDEBUG
+      ;      paramName = car(paramInfo)                                                   ; #####LVSDEBUG
+      ;      unless( evalstring(sprintf(nil "schObj->%s" paramName))                      ; #####LVSDEBUG
+      ;         paramName=upperCase(paramName)                                            ; #####LVSDEBUG
+      ;      )                                                                            ; #####LVSDEBUG
+      ;      printf("%s: %L " paramName evalstring(sprintf(nil "schObj->%s" paramName)))  ; #####LVSDEBUG
+      ;   )                                                                               ; #####LVSDEBUG
+      ;   printf("\n\n")                                                                  ; #####LVSDEBUG
+      ;)                                                                                  ; #####LVSDEBUG
+
+      ;; loop through the parameters passed
+
+      foreach(  paramInfo paramInfoList
+
+         paramName = car(paramInfo)     ; parameter name
+         compProc  = cadr(paramInfo)    ; name of the compare procedure to use (rel_comp or abs_comp)
+         tolVal    = caddr(paramInfo)   ; tolerance
+         defVal    = cadddr(paramInfo)  ; optional - default value for this parameter if it doesn't exist
+
+         ;; get the value from the layout and schematic, assign value from lowercase first, if it doesn't exist assign uppercase
+
+         layParamVal = getValCase(layObj paramName)
+         schParamVal = getValCase(schObj paramName)
+
+         ;; if a default value was passed, set the parameter equal to it if the value doesn't exist
+
+         if( defVal then
+            unless( layParamVal layParamVal = getVal(evalstring(sprintf(nil "layObj->%s=%s" paramName defVal))))
+            unless( schParamVal schParamVal = getVal(evalstring(sprintf(nil "schObj->%s=%s" paramName defVal))))
+         )
+
+         ;; if it still doesn't exist, add it to the list of missing parameters
+
+         unless(layParamVal layMissingParams = cons(paramName layMissingParams) )
+         unless(schParamVal schMissingParams = cons(paramName schMissingParams) )
+
+         ;; if the parameter has a value in both layout and shematic, compare them
+         ;; using the passed procedure name.  If they don't match to the specified
+         ;; tolerance, add the parameter to the mismatched parameter list
+
+         if( layParamVal && schParamVal then
+            if( evalstring(sprintf(nil "%s(layParamVal schParamVal %L)" compProc evalstring(tolVal)))
+               compMismatch = cons(list(paramName layParamVal schParamVal) compMismatch)
+            )
+         )
+      )
+
+      ;; report any errors found
+
+      errReport = compCheckForErrors(layMissingParams schMissingParams compMismatch procName)
+
+    ) ; ** let **
+  ) ; ** procedure genericcomp **
+
+  ;----------------------------
+  ; generic combine procedure |
+  ;----------------------------
+
+  procedure( genericcomb(procName obj1 obj2 paramInfoList)
+    let( (paramInfo paramName compProc tolVal newValueProc obj1ParamVal obj2ParamVal
+          combMissingParams combMismatch errReport haveErrors new_value m1 m2)
+
+      m1 = obj1
+      m2 = obj2
+      new_value = ncons(nil)
+                                                                                       ; #####LVSDEBUG
+     ; if( LVSdebug then                                                                ; #####LVSDEBUG
+     ;    printf("\nin procedure %s:\n" procName)                                       ; #####LVSDEBUG
+     ;    printf("Device 1: ")                                                          ; #####LVSDEBUG
+     ;    foreach( paramInfo paramInfoList                                              ; #####LVSDEBUG
+     ;       paramName = car(paramInfo)                                                 ; #####LVSDEBUG
+     ;       unless( evalstring(sprintf(nil "obj1->%s" paramName))                      ; #####LVSDEBUG
+     ;          paramName=upperCase(paramName)                                          ; #####LVSDEBUG
+     ;       )                                                                          ; #####LVSDEBUG
+     ;       printf("%s: %L " paramName evalstring(sprintf(nil "obj1->%s" paramName)))  ; #####LVSDEBUG
+     ;    )                                                                             ; #####LVSDEBUG
+     ;    printf("\n")                                                                  ; #####LVSDEBUG
+     ;    printf("Device 2: ")                                                          ; #####LVSDEBUG
+     ;    foreach( paramInfo paramInfoList                                              ; #####LVSDEBUG
+     ;       paramName = car(paramInfo)                                                 ; #####LVSDEBUG
+     ;       unless( evalstring(sprintf(nil "obj2->%s" paramName))                      ; #####LVSDEBUG
+     ;          paramName=upperCase(paramName)                                          ; #####LVSDEBUG
+     ;       )                                                                          ; #####LVSDEBUG
+     ;       printf("%s: %L " paramName evalstring(sprintf(nil "obj2->%s" paramName)))  ; #####LVSDEBUG
+     ;    )                                                                             ; #####LVSDEBUG
+     ;    printf("\n")                                                                  ; #####LVSDEBUG
+     ; )                                                                                ; #####LVSDEBUG
+
+      foreach(  paramInfo paramInfoList
+
+         paramName  = car(paramInfo)
+         compProc   = cadr(paramInfo)
+         tolVal     = caddr(paramInfo)
+         newValProc = cadddr(paramInfo)
+
+         ;get parameter values for obj1 and obj2, look for lowercase first
+         ;if lowercase doesn't exist, look for uppercase
+
+         obj1ParamVal = getValCase(obj1 paramName)
+         obj2ParamVal = getValCase(obj2 paramName)
+
+         if( obj1ParamVal &&  obj2ParamVal then
+            if( compProc != "X" then
+               if( evalstring(sprintf(nil "%s(obj1ParamVal obj2ParamVal %L)" compProc evalstring(tolVal))) then
+                  combMismatch = cons(list(paramName obj1ParamVal obj2ParamVal) combMismatch)
+                  haveErrors = 1
+               else
+                  unless(haveErrors evalstring(sprintf(nil "new_value->%s = NV%s(obj1 obj2 obj1ParamVal obj2ParamVal)" paramName newValProc)))
+               )
+            else
+               unless(haveErrors evalstring(sprintf(nil "new_value->%s = NV%s(obj1 obj2 obj1ParamVal obj2ParamVal)" paramName newValProc)))
+            )
+         else
+            combMissingParams = cons(list(paramName obj1ParamVal obj2ParamVal) combMissingParams)
+            haveErrors = 1
+         )
+
+      )
+      errReport = combCheckForErrors(combMissingParams combMismatch procName)
+      if( errReport then
+         printf("instances not combined in %s due to the following problems:\n" procName)
+         printf("%s" errReport)
+         "doNotCombine"
+      else
+         printf("%s Resultant: %L\n" procName new_value)
+         new_value
+      )
+    ) ; ** let **
+  ) ; ** procedure genericcomb **
+
+
+  ;-------------------------------------------------------
+  ; procedures for formatting compare and combine errors |
+  ;-------------------------------------------------------
+
+  procedure(compCheckForErrors(layMissingParams schMissingParams compMismatch procName)
+    let((errReport paramErr)
+      errReport = ""
+      if(layMissingParams then
+         errReport = strcat(errReport sprintf(nil "%s is missing layout parameter(s): " procName))
+         foreach(  paramErr layMissingParams
+            errReport =  strcat(errReport paramErr " ")
+         )
+         errReport = strcat(errReport "\n")
+      )
+      if(schMissingParams then
+         errReport = strcat(errReport sprintf(nil "%s is missing schematic parameter(s): " procName))
+         foreach(  paramErr schMissingParams
+            errReport =  strcat(errReport paramErr " ")
+         )
+         errReport = strcat(errReport "\n")
+      )
+      if( compMismatch then
+         errReport = strcat(errReport sprintf(nil "%s has mismatched parameter(s): \n" procName))
+         foreach( paramErr compMismatch
+            errReport = strcat(errReport sprintf(nil "%L layout: %L schematic: %L \n" car(paramErr) cadr(paramErr) caddr(paramErr)))
+         )
+      )
+      if( errReport == "" errReport = nil )
+      errReport
+    )
+
+  ) ; ** procedure compCheckForErrors **
+
+  procedure(combCheckForErrors(combMissingParams combMismatch procName)
+    let((errReport paramErr)
+      errReport = ""
+      if( combMissingParams then
+         errReport = strcat(errReport sprintf(nil "%s is missing parameter(s): " procName))
+         foreach( paramErr combMissingParams
+            errReport = strcat(errReport sprintf(nil "%L: %L %L\n" car(paramErr) cadr(paramErr) caddr(paramErr)))
+         )
+         errReport = strcat(errReport "\n")
+      )
+      if( combMismatch then
+         errReport = strcat(errReport sprintf(nil "%s has mismatched parameter(s): " procName))
+         foreach( paramErr combMismatch
+            errReport = strcat(errReport sprintf(nil "%L: %L != %L\n" car(paramErr) cadr(paramErr) caddr(paramErr)))
+         )
+         errReport = strcat(errReport "\n")
+      )
+      if( errReport == "" errReport = nil )
+      errReport
+    )
+
+  ) ; ** procedure combCheckForErrors **
+
+  ; procedure to get the value of a parameter checking lowercase first and uppercase second
+  ; used for CDL netlisting which may have lowercase or uppercase
+  ; parameter names
+
+  procedure(lvsCase(device paramName)
+    let((upperParamName lowerParamName)
+      upperParamName = upperCase(paramName)
+      lowerParamName = lowerCase(paramName)
+
+      ;set intial value to regular paramName value
+      return=evalstring( sprintf( nil "device->%s" paramName) )
+
+      ;printf("initial return value is %L\n\n" return)
+
+      unless( evalstring( sprintf( nil "device->%s" paramName) )
+         ;printf("in unless for device\n\n")
+         if( evalstring( sprintf( nil "device->%s" lowerParamName) )  then
+            ;printf("in lowerparam for device\n\n")
+            return = evalstring( sprintf( nil "device->%s" lowerParamName) )
+         else
+            if( evalstring( sprintf( nil "device->%s" upperParamName) ) then
+               ;printf("in upperparam for device\n\n")
+               return = evalstring( sprintf( nil "device->%s" upperParamName) )
+            )
+         ) ; ** if evalstring **
+      ) ; ** unless evalstring **
+
+      ;printf("end return value is %L\n\n" return )
+      return
+    ) ; ** let **
+  ) ; ** procedure lvsCase **
+
+  ;----------------------------
+  ; special proc for combining |
+  ;   substrate contacts       |
+  ;----------------------------
+
+  procedure( parSubcont( prop1, prop2 )
+    let( (new_value)
+      new_value = ncons( nil )
+      printf( "Parallel substrate contacts\n" )
+      new_value
+    )
+  ) ; ** procedure parSubcont **
+
+  ;-----------------------------------------------------------
+  ; procedures for calculating new values of combined devices |
+  ;                                                           |
+  ; five procedures, each with the following arguments:       |
+  ;   obj1Val               object1 parameter value           |
+  ;   ovj2Val               object2 parameter value           |
+  ;                                                           |
+  ; each returns a result of a different calculation          |
+  ;-----------------------------------------------------------
+
+  procedure( NVsame( obj1 obj2 obj1Val obj2Val )
+    obj1Val
+  ) ; ** procedure NVsame **
+
+  procedure( NVadd( obj1 obj2 obj1Val obj2Val )
+    obj1Val+obj2Val
+  ) ; ** procedure NVadd **
+
+  procedure( NVavg( obj1 obj2 obj1Val obj2Val )
+    (obj1Val+obj2Val)/2.0
+  ) ; ** procedure NVavg **
+
+  procedure( NVpres( obj1 obj2 obj1Val obj2Val )
+    (obj1Val*obj2Val*1.0)/(obj1Val+obj2Val)
+  ) ; ** procedure NVpres **
+
+  procedure( NVone( obj1 obj2 obj1Val obj2Val )
+    1
+  ) ; ** procedure NVone **
+
+  procedure( NVzero( obj1 obj2 obj1Val obj2Val )
+    0
+  ) ; ** procedure NVzero **
+
+  procedure( NVignore( obj1 obj2 obj1Val obj2Val )
+    -99
+  ) ; ** procedure NVignore **
+
+  procedure( NVidg( obj1 obj2 obj1Val obj2Val )
+    if( obj1->idg if( abs_comp(obj1->idg 0 0.5) obj1Val = obj1->m*obj1Val ))  ; reset obj1Val to m*obj1Val if idg is 1
+    if( obj2->idg if( abs_comp(obj2->idg 0 0.5) obj2Val = obj2->m*obj2Val ))
+    obj1Val+obj1Val
+  ) ; ** procedure NVidg **
+
+  ;------------------------------------------
+  ; procedures to recognize ambiguous spares |
+  ;------------------------------------------
+
+  ;;
+  ;; *** original metric functions ***
+  ;;
+
+  procedure( fetWoverL( devName dpl )
+    let( ( w l )
+      w = getValCase(dpl "w")
+      l = getValCase(dpl "l")
+      if( l && w then
+         fix(w*5e6) + fix(l*5e6)*10 + 100*fix(w/l) + 1000*fix(l/w)
+      else
+         0
+      ) ; ** if l && w ***
+    ) ; ** let **
+  ) ; ** procedure fetWoverL **
+
+  procedure( resRplusW( devName dpl)
+    let((r w)
+      w = getValCase(dpl "w")
+      r = getValCase(dpl "r")
+
+      if( r && w then
+         fix( r*1e4 + w*1e8 )
+      else
+         0
+      ) ; ** if r && w**
+    ) ; ** let **
+  ) ; ** procedure resRplusW **
+
+
+  procedure( capIntVal( devName dpl )
+    let( ( c )
+      c = getValCase(dpl "c")
+      if( c then
+         fix( c*1e15 )
+      else
+         0
+      ) ; ** if c **
+    ) ; ** let **
+  ) ; ** procedure capIntVal **
+
+  ;;
+  ;; ** updated metric functions **
+  ;;
+
+  ;; parFetSig is for nfet, pfet
+  procedure(parFetSig(devName dpl)
+    let((l mw sch gcon)
+      l=getValCase(dpl "l")
+      mw=getValCase(dpl "m")*getValCase(dpl "w")
+      sch=getValCase(dpl "sch")
+      gcon=getValCase(dpl "gcon")
+
+      fix(mod(round(1e+08*mw-1) round(1e4) - 1) * 1e0 +
+          mod(round(1.0*gcon) round(1e2) - 2) * 1e4 +
+          mod(round(1e+08*l-1) round(1e2) - 3) * 1e6 +
+          mod(round(1.0*sch) round(1e1) - 4) * 1e8
+      )
+    )
+  )
+
+  ;; mulFetSig is for nfetm, pfetm
+  procedure(mulFetSig(devName dpl)
+    let((l mw sch gcon m nf)
+      l=getValCase(dpl "l")
+      mw=getValCase(dpl "m")*getValCase(dpl "w")
+      sch=getValCase(dpl "sch")
+      gcon=getValCase(dpl "gcon")
+      m=getValCase(dpl "m")
+      nf=getValCase(dpl "nf")
+      fix(mod(round(1e+08*mw-20) round(1e3) - 1) * 1e0 +
+          mod(round(1e+08*l-23) round(1e2) - 2) * 1e3 +
+          mod(round(1.0*nf-1) round(1e1) - 3) * 1e5 +
+          mod(round(1.0*m-1) round(1e1) - 4) * 1e6 +
+          mod(round(1.0*sch) round(1e1) - 5) * 1e7 +
+          mod(round(1.0*gcon) round(1e1) - 6) * 1e8
+      )
+    )
+  )
+
+  ;; fetTwSig is for triple well fets
+  procedure(fetTwSig(devName dpl)
+    let((nf m l w gcon)
+      l=getValCase(dpl "l")
+      w=getValCase(dpl "w")
+      gcon=getValCase(dpl "gcon")
+      m=getValCase(dpl "m")
+      nf=getValCase(dpl "nf")
+      fix(mod(round(1e+08*w-20) round(1e3) - 1) * 1e0 +
+          mod(round(1e+08*l-23) round(1e2) - 2) * 1e3 +
+          mod(round(1.0*nf-1) round(1e1) - 3) * 1e5 +
+          mod(round(1.0*m-1) round(1e1) - 4) * 1e6 +
+          mod(round(1.0*gcon) round(1e1) - 5) * 1e7
+      )
+    )
+  )
+
+  ;; parFet2Sig is for non multiplicity 3.3V, 6.5V and zvt fets
+  procedure(parFet2Sig(devName dpl)
+    let((l mw gcon)
+      l=getValCase(dpl "l")
+      mw=getValCase(dpl "m")*getValCase(dpl "w")
+      gcon=getValCase(dpl "gcon")
+      fix(mod(round(1e+08*mw-20) round(1e4) - 1) * 1e0 +
+          mod(round(1e+08*l-20) round(1e3) - 2) * 1e4 +
+          mod(round(1.0*gcon) round(1e2) - 3) * 1e7
+      )
+    )
+  )
+
+  ;; mulFet2Sig is for multiplicity 3.3V, 6.5V and zvt fets
+  procedure(mulFet2Sig(devName dpl)
+    let((nf l mw m gcon)
+      l=getValCase(dpl "l")
+      mw=getValCase(dpl "m")*getValCase(dpl "w")
+      gcon=getValCase(dpl "gcon")
+      m=getValCase(dpl "m")
+      nf=getValCase(dpl "nf")
+      fix(mod(round(1e+08*mw-20) round(1e2) - 1) * 1e0 +
+          mod(round(1.0*m-1) round(1e2) - 2) * 1e2 +
+          mod(round(1.0*nf) round(1e2) - 3) * 1e4 +
+          mod(round(1e+08*l-20) round(1e2) - 4) * 1e6 +
+          mod(round(1.0*gcon) round(1e1) - 5) * 1e8
+      )
+    )
+  )
+
+  ;; parFetRfSig is for non multiplicity RF fets
+  procedure(parFetRfSig(devName dpl)
+    let((l w gcon nf)
+      l=getValCase(dpl "l")
+      w=getValCase(dpl "w")
+      gcon=getValCase(dpl "gcon")
+      nf=getValCase(dpl "nf")
+      fix(mod(round(1e+08*w-20) round(1e3) - 1) * 1e0 +
+          mod(round(1.0*nf) round(1e2) - 2) * 1e3 +
+          mod(round(1.0*gcon) round(1e2) - 3) * 1e5 +
+          mod(round(1e+08*l-20) round(1e2) - 4) * 1e7
+      )
+    )
+  )
+
+  ;; mulFetRfSig is for multiplicity RF fets
+  procedure(mulFetRfSig(devName dpl)
+    let((nf m l w gcon)
+      l=getValCase(dpl "l")
+      w=getValCase(dpl "w")
+      gcon=getValCase(dpl "gcon")
+      m=getValCase(dpl "m")
+      nf=getValCase(dpl "nf")
+      fix(mod(round(1e+08*w-20) round(1e3) - 1) * 1e0 +
+          mod(round(1e+08*l-23) round(1e2) - 2) * 1e3 +
+          mod(round(1.0*nf-1) round(1e1) - 3) * 1e5 +
+          mod(round(1.0*m-1) round(1e1) - 4) * 1e6 +
+          mod(round(1.0*gcon) round(1e1) - 5) * 1e7
+      )
+    )
+  )
+
+  ;; esdFetSig is for esdnfet
+  procedure(esdFetSig(devName dpl)
+    let((w num)
+      w=getValCase(dpl "w")
+      num=getValCase(dpl "num")
+      fix(mod(round(1e+08*w-20) round(1e5) - 1) * 1e0 +
+          mod(round(1.0*num) round(1e3) - 2) * 1e5
+      )
+    )
+  )
+
+  ;------------------------------------------------------------
+  ; swapParams has the following arguments                     |
+  ; layObj           a layout object                           |
+  ; schObj           a schematic object                        |
+  ; param1, param2   two parameters (e.g. l and w)             |
+  ;                                                            |
+  ; for each of the objects, the values of param1 and param2   |
+  ;  are swapped (using doSwap) if param1 < param2             |
+  ;------------------------------------------------------------
+
+  procedure( swapParams(layObj schObj param1 param2)
+    let((layVal1 layVal2 schVal1 schVal2 tmpVal)
+
+      layVal1 = getValCase(layObj param1)
+      layVal2 = getValCase(layObj param2)
+      schVal1 = getValCase(schObj param1)
+      schVal2 = getValCase(schObj param2)
+
+      if( layVal1 < layVal2 doSwap(layObj param1 param2 layVal1 layVal2) )
+      if( schVal1 < schVal2 doSwap(schObj param1 param2 schVal1 schVal2) )
+
+    ) ; ** let **
+  ) ; ** procedure swapParams **
+
+  procedure(doSwap(thisobj param1 param2 val1 val2)
+
+    evalstring(sprintf(nil "thisobj->%s = %L" param1 val2))
+    evalstring(sprintf(nil "thisobj->%s = %L" param2 val1))
+
+  ) ; ** procedure doSwap **
+
+  ;---------------------------------------------------------
+  ; set_res recalculates resistance using series bars value |
+  ;---------------------------------------------------------
+
+  procedure( set_res(m1 m2)
+     if( getValCase(m1 "sbar") && (getValCase(m1 "sbar") > 0.5) m1->r = getValCase(m1 "r") * getValCase(m1 "sbar"))
+     if( getValCase(m2 "sbar") && (getValCase(m2 "sbar") > 0.5) m2->r = getValCase(m2 "r") * getValCase(m2 "sbar"))
+     m1->sbar=1
+     m2->sbar=1
+  )
+
+  procedure( set_res2(m1 m2)
+     if( getValCase(m1 "s") && (getValCase(m1 "s") > 0.5) m1->r = getValCase(m1 "r") * getValCase(m1 "s"))
+     if( getValCase(m2 "s") && (getValCase(m2 "s") > 0.5) m2->r = getValCase(m2 "r") * getValCase(m2 "s"))
+     m1->s=1
+     m2->s=1
+  )
+
+
+  ;--------------------------------------------------------
+  ; getVal evaluates its argument as a string if necessary |
+  ;--------------------------------------------------------
+
+  procedure( getVal(p)
+    if( stringp(p) then evalstring(p) else p )
+  ) ; ** procedure getVal **
+
+  procedure( getValCase(device param)
+    getVal( lvsCase(device param) )
+  )
+
+  ;----------------------------------------------------------------------------
+  ; two types of compare procedures                                            |
+  ; both receive two values and a tolerance                                    |
+  ;   rel_comp   compares the (%error)/100 to the tolerance value              |
+  ;   abs_comp   compares the difference to the tolerance value                |
+  ;----------------------------------------------------------------------------
+
+
+  procedure( rel_comp( p1 p2 rel_tol )
+    let( (P2)
+      P2 = getVal( p2 ) ; define intermediate value to avoid redundant evalstring
+      if( ( abs((getVal(p1) - P2 ) / ( P2 * 1.0 )) >=  getVal(rel_tol) ) t)
+    ) ; ** let **
+  ) ; ** procedure rel_comp **
+
+  procedure( abs_comp( p1 p2 abs_tol )
+    if( ( abs( getVal(p1) - getVal(p2) ) >= getVal(abs_tol)) t)
+  ) ; ** procedure abs_comp **
+
+  ;---------------------------------------------------------
+  ; sets the bentgate tolerance
+  ;---------------------------------------------------------
+
+  procedure( getBentTol(m1 m2)
+    unless(getValCase(m1 "bentgate") m1->bentgate=0)
+    unless(getValCase(m2 "bentgate") m2->bentgate=0)
+    if( greaterp( getValCase(m1 "bentgate") getValCase(m2 "bentgate") )
+       then getValCase(m1 "bentgate")*5*hgp
+    else getValCase(m2 "bentgate")*5*hgp
+    )
+  ) ; ** procedure getBentTol **
+
+
+;---------------------------------------
+;    compare and combine procedures    |
+;---------------------------------------
+
+
+  procedure( ESDNSHcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("lesd" "abs_comp"  "hgp")
+        ("wesd" "abs_comp"  "hgp")
+        ("wtesd" "abs_comp" "hgp")
+        ("nf" "abs_comp" "0.5")
+        ("esdoxide" "abs_comp" "0.5")
+        ("ldop" "abs_comp"  "hgp")
+        ("lsop" "abs_comp" "hgp")
+	("gns" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "gns") m1->gns = 0 )
+      unless( getValCase(m2 "gns") m2->gns = 0 )
+      unless( getValCase(m1 "nf") m1->nf = 1 )
+      unless( getValCase(m2 "nf") m2->nf = 1 )
+      genericcomp("ESDNSHcomp" m1 m2 paraminfolist)
+    )
+  )
+
+procedure( ESDPSHcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("lesd" "abs_comp"  "hgp")
+        ("wesd" "abs_comp"  "hgp")
+        ("nf" "abs_comp" "0.5")
+        ("esdoxide" "abs_comp" "0.5")
+        ("ldop" "abs_comp"  "hgp")
+        ("lsop" "abs_comp" "hgp")
+	("gns" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "gns") m1->gns = 0 )
+      unless( getValCase(m2 "gns") m2->gns = 0 )
+      unless( getValCase(m1 "nf") m1->nf = 1 )
+      unless( getValCase(m2 "nf") m2->nf = 1 )
+      genericcomp("ESDPSHcomp" m1 m2 paraminfolist)
+    )
+  )
+
+  procedure( BONDPADcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area" "abs_comp" "1e-12")
+        ("grnd" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("perim" "abs_comp" "1e-7")
+        ("rect" "abs_comp" "0.5")
+      )
+      genericcomp("BONDPADcomp" m1 m2 paraminfolist)
+    )
+  )
+procedure( parVPPcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("nlev" "abs_comp" "0.5")
+        ("botlev" "abs_comp" "0.5")
+        ("toplev" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+       if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      genericcomp("parVPPcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiVPPcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+        ("nlev" "abs_comp" "0.5")
+        ("botlev" "abs_comp" "0.5")
+        ("toplev" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      genericcomp("multiVPPcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiVPPcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("w" "abs_comp" "hgp" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("botlev" "abs_comp" "0.5" "same")
+        ("toplev" "abs_comp" "0.5" "same")
+        ("bp" "abs_comp" "0.5" "same")
+        ("lm" "abs_comp" "0.5" "same")
+        ("setind" "rel_comp" "5%" "same")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("multiVPPcomb" m1 m2 paraminfolist)
+    )
+  )
+ procedure( multiOPREScomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("bp" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+	("pbar" "abs_comp" "0.5")
+	("s" "abs_comp" "0.5")
+        ;("r" "rel_comp" "1%")
+        ("w" "abs_comp" "hgp")
+        ("l" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomp("multiOPREScomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiOPREScomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("pbar" "abs_comp" "0.5" "same")
+        ;("r" "rel_comp" "1%" "same")
+        ("s" "abs_comp" "0.5" "same")
+        ("bp" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomb("multiOPREScomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parOPREScomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("w" "abs_comp" "hgp" "same")
+	("l" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ;("r" "X" "X" "pres")
+        ("s" "abs_comp" "0.5" "same")
+	("pbar" "X" "X" "add")
+        ("bp" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomb("parOPREScomb" m1 m2 paraminfolist)
+    )
+  )
+   procedure( serOPREScomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ; ("r" "X" "X" "add")
+        ("s" "X" "X" "add")
+        ("w" "abs_comp" "hgp" "same")
+	("l" "abs_comp" "hgp" "same")
+        ("bp" "abs_comp" "0.5" "same")
+        ("pbar" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomb("serOPREScomb" m1 m2 paraminfolist)
+    )
+   )
+if( avSwitch( "ignore_mim_3rd_terminal" ) then
+   procedure( MIMcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "rel_comp" "1%")
+        ("lm" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("hd" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomp("MIMcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%")
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("hd" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomp("multiMIMcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("lm" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("hd" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("setind" "rel_comp" "5%" "same")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomb("multiMIMcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( parMIMcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "X" "X" "add")
+        ("lm" "abs_comp" "0.5" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("hd" "abs_comp" "0.5" "same")
+        ("setind" "X" "X" "ignore")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomb("parMIMcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( MIMHKcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "rel_comp" "1%")
+        ("lm" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("MIMHKcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMHKcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%")
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("multiMIMHKcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMHKcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("lm" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("setind" "rel_comp" "5%" "same")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("multiMIMHKcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( parMIMHKcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "X" "X" "add")
+        ("lm" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ("setind" "X" "X" "ignore")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      genericcomb("parMIMHKcomb" m1 m2 paraminfolist)
+    )
+   )
+) ; end switch
+if( !avSwitch( "ignore_mim_3rd_terminal" ) then
+   procedure( MIMcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "rel_comp" "1%")
+        ("lm" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("hd" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomp("MIMcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%")
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("hd" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomp("multiMIMcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("lm" "abs_comp" "0.5" "same")
+        ("bp" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("hd" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("setind" "rel_comp" "5%" "same")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomb("multiMIMcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( parMIMcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "X" "X" "add")
+        ("lm" "abs_comp" "0.5" "same")
+        ("bp" "abs_comp" "0.5" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("hd" "abs_comp" "0.5" "same")
+        ("setind" "X" "X" "ignore")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "hd") m1->hd = 0 )
+      unless( getValCase(m2 "hd") m2->hd = 0 )
+      genericcomb("parMIMcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( MIMHKcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "rel_comp" "1%")
+        ("lm" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("MIMHKcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMHKcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%")
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+        ("lm" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("setind" "rel_comp" "5%")
+      )
+      if( equal( getVal(m1->setind) -99) || equal( getVal(m2->setind) -99) then
+        m1->setind = -99
+        m2->setind = -99
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("multiMIMHKcomp" m1 m2 paraminfolist)
+    )
+   )
+   procedure( multiMIMHKcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("c" "rel_comp" "1%" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("lm" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("setind" "rel_comp" "5%" "same")
+        ("bp" "abs_comp" "0.5" "same")
+      )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("multiMIMHKcomb" m1 m2 paraminfolist)
+    )
+   )
+   procedure( parMIMHKcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("c" "X" "X" "add")
+        ("lm" "abs_comp" "0.5" "same")
+        ("nlev" "abs_comp" "0.5" "same")
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ("setind" "X" "X" "ignore")
+        ("bp" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( m1->setind m1->setind = -2 )
+      unless( m2->setind m2->setind = -2 )
+      genericcomb("parMIMHKcomb" m1 m2 paraminfolist)
+    )
+   )
+) ; end switch
+
+  procedure( CWIREcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("d" "abs_comp" "hgp")
+        ("l" "abs_comp" "hgp")
+        ("layerads" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("overads" "abs_comp" "0.5")
+        ("s" "abs_comp" "hgp")
+        ("shieldsads" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      if( equal( getValCase(m1 "shieldsads") 0 )   m1->s = 0 )
+      if( equal( getValCase(m2 "shieldsads") 0 )   m2->s = 0 )
+      genericcomp("CWIREcomp" m1 m2 paraminfolist)
+    )
+  )
+
+  procedure( JFETcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5")
+        ("l" "rel_comp" "5%")
+        ("w" "rel_comp" "1%")
+      )
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      genericcomp("JFETcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiJFETcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5")
+        ("l" "rel_comp" "5%")
+        ("w" "rel_comp" "1%")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "nf") m1->nf = 1 )
+      unless( getValCase(m2 "nf") m2->nf = 1 )
+      genericcomp("multiJFETcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiJFETcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5" "same")
+        ("l" "rel_comp" "5%" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "nf") m1->nf = 1 )
+      unless( getValCase(m2 "nf") m2->nf = 1 )
+      genericcomb("multiJFETcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parJFETcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "X" "X" "add")
+        ("l" "rel_comp" "5%" "same")
+        ("w" "X" "X" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "nf") m1->nf = 1 )
+      unless( getValCase(m2 "nf") m2->nf = 1 )
+      genericcomb("parJFETcomb" m1 m2 paraminfolist)
+    )
+  )
+
+  procedure( VLNPNcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("exl" "abs_comp" "hgp")
+        ("nstripes" "abs_comp" "0.5")
+        ("exw" "abs_comp" "hgp")
+        ("gcon" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "gcon") m1->gcon = 1 )
+      unless( getValCase(m2 "gcon") m2->gcon = 1 )
+      genericcomp("VLNPNcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiVLNPNcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("exl" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("nstripes" "abs_comp" "0.5")
+        ("exw" "abs_comp" "hgp")
+        ("gcon" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "gcon") m1->gcon = 1 )
+      unless( getValCase(m2 "gcon") m2->gcon = 1 )
+      genericcomp("multiVLNPNcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiVLNPNcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("exl" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("nstripes" "abs_comp" "0.5" "same")
+        ("exw" "abs_comp" "hgp" "same")
+        ("gcon" "abs_comp" "hgp" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "gcon") m1->gcon = 1 )
+      unless( getValCase(m2 "gcon") m2->gcon = 1 )
+      genericcomb("multiVLNPNcomb" m1 m2 paraminfolist)
+    )
+  )
+
+  procedure( FETcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ;("nf" "abs_comp" "0.5") ; for digital circuits nf parameter is not compared
+        ("rf" "abs_comp" "0.5")
+        ("psp" "abs_comp" "0.5")
+        ("l" "rel_comp" "5%")
+        ("gcon" "abs_comp" "0.5")
+        ("wt" "rel_comp" "if( (m1->bentgate && (getVal(m1->bentgate) > 0.5)) || (m2->bentgate && (getVal(m2->bentgate) > 0.5)) then 5% else 1%)")
+      )
+      (if !m1->wt then if( m1->w && m1->nf then m1->wt = getValCase(m1 "w") * getValCase(m1 "nf") else m1->wt = getValCase(m1 "w") ))
+      (if !m2->wt then if( m2->w && m2->nf then m2->wt = getValCase(m2 "w") * getValCase(m2 "nf") else m2->wt = getValCase(m2 "w") ))
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      if( !getValCase(m1 "rf") || !getValCase(m2 "rf")  then
+        m1->rf = 0
+        m2->rf = 0
+      )
+      if( !getValCase(m1 "gcon") || !getValCase(m2 "gcon")  then
+        m1->gcon = 1
+        m2->gcon = 1
+      )
+      unless( getValCase(m1 "psp") m1->psp = 0 )
+      unless( getValCase(m2 "psp") m2->psp = 0 )
+       if( (m1->idg && abs_comp(m1->idg 0 0.5)) then
+         m1->wt =   getValCase(m1 "wt") * getValCase(m1 "m") )
+      if( (m2->idg && abs_comp(m2->idg 0 0.5)) then
+         m2->wt =   getValCase(m2 "wt") * getValCase(m2 "m") )
+      genericcomp("FETcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( FETNFcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5")
+        ("rf" "abs_comp" "0.5")
+        ("psp" "abs_comp" "0.5")
+        ("l" "rel_comp" "5%")
+        ("gcon" "abs_comp" "0.5")
+        ("wt" "rel_comp" "if( (m1->bentgate && (getVal(m1->bentgate) > 0.5)) || (m2->bentgate && (getVal(m2->bentgate) > 0.5)) then 5% else 1%)")
+      )
+      (if !m1->wt then if( m1->w && m1->nf then m1->wt = getValCase(m1 "w") * getValCase(m1 "nf") else m1->wt = getValCase(m1 "w") ))
+      (if !m2->wt then if( m2->w && m2->nf then m2->wt = getValCase(m2 "w") * getValCase(m2 "nf") else m2->wt = getValCase(m2 "w") ))
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      if( !getValCase(m1 "rf") || !getValCase(m2 "rf")  then
+        m1->rf = 0
+        m2->rf = 0
+      )
+      if( !getValCase(m1 "gcon") || !getValCase(m2 "gcon")  then
+        m1->gcon = 1
+        m2->gcon = 1
+      )
+      unless( getValCase(m1 "psp") m1->psp = 0 )
+      unless( getValCase(m2 "psp") m2->psp = 0 )
+       if( (m1->idg && abs_comp(m1->idg 0 0.5)) then
+         m1->wt =   getValCase(m1 "wt") * getValCase(m1 "m") )
+      if( (m2->idg && abs_comp(m2->idg 0 0.5)) then
+         m2->wt =   getValCase(m2 "wt") * getValCase(m2 "m") )
+      genericcomp("FETNFcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiFETcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5")
+        ("l" "rel_comp" "5%")
+        ("wt" "rel_comp" "if( (m1->bentgate && (getVal(m1->bentgate) > 0.5)) || (m2->bentgate && (getVal(m2->bentgate) > 0.5)) then 5% else 1%)")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("gcon" "abs_comp" "0.5")
+        ("rf" "abs_comp" "0.5")
+        ("psp" "abs_comp" "0.5")
+      )
+      (if !m1->wt then if( m1->w && m1->nf then m1->wt = getValCase(m1 "w") * getValCase(m1 "nf") else m1->wt = getValCase(m1 "w") ))
+      (if !m2->wt then if( m2->w && m2->nf then m2->wt = getValCase(m2 "w") * getValCase(m2 "nf") else m2->wt = getValCase(m2 "w") ))
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      if( !getValCase(m1 "rf") || !getValCase(m2 "rf")  then
+        m1->rf = 0
+        m2->rf = 0
+      )
+      if( !getValCase(m1 "gcon") || !getValCase(m2 "gcon")  then
+        m1->gcon = 1
+        m2->gcon = 1
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "psp") m1->psp = 0 )
+      unless( getValCase(m2 "psp") m2->psp = 0 )
+      genericcomp("multiFETcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiFETcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "abs_comp" "0.5" "same")
+        ("l" "rel_comp" "5%" "same")
+        ("wt" "abs_comp" "hgp" "same")
+        ("gcon" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("bentgate" "X" "X" "add")
+        ("rf" "abs_comp" "0.5" "same")
+        ("psp" "abs_comp" "0.5" "same")
+      )
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      if( !getValCase(m1 "rf") || !getValCase(m2 "rf")  then
+        m1->rf = 0
+        m2->rf = 0
+      )
+      if( !getValCase(m1 "gcon") || !getValCase(m2 "gcon")  then
+        m1->gcon = 1
+        m2->gcon = 1
+      )
+      (if !m1->wt then if( m1->w && m1->nf then m1->wt = getValCase(m1 "w") * getValCase(m1 "nf") else m1->wt = getValCase(m1 "w") ))
+      (if !m2->wt then if( m2->w && m2->nf then m2->wt = getValCase(m2 "w") * getValCase(m2 "nf") else m2->wt = getValCase(m2 "w") ))
+      if( !m1->bentgate m1->bentgate = 0 )
+      if( !m2->bentgate m2->bentgate = 0 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "psp") m1->psp = 0 )
+      unless( getValCase(m2 "psp") m2->psp = 0 )
+      genericcomb("multiFETcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parFETcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nf" "X" "X" "add")
+        ("l" "rel_comp" "5%" "same")
+        ("wt" "X" "X" "add")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ("gcon" "abs_comp" "0.5" "same")
+        ("bentgate" "X" "X" "add")
+        ("rf" "abs_comp" "0.5" "same")
+        ("psp" "abs_comp" "0.5" "same")
+      )
+      if( !getValCase(m1 "nf") || !getValCase(m2 "nf")  then
+        m1->nf = 1
+        m2->nf = 1
+      )
+      if( !getValCase(m1 "rf") || !getValCase(m2 "rf")  then
+        m1->rf = 0
+        m2->rf = 0
+      )
+      if( !getValCase(m1 "gcon") || !getValCase(m2 "gcon")  then
+        m1->gcon = 1
+        m2->gcon = 1
+      )
+      (if !m1->wt then if( m1->w && m1->nf then m1->wt = getValCase(m1 "w") * getValCase(m1 "nf") else m1->wt = getValCase(m1 "w") ))
+      (if !m2->wt then if( m2->w && m2->nf then m2->wt = getValCase(m2 "w") * getValCase(m2 "nf") else m2->wt = getValCase(m2 "w") ))
+      if( !m1->bentgate m1->bentgate = 0 )
+      if( !m2->bentgate m2->bentgate = 0 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "psp") m1->psp = 0 )
+      unless( getValCase(m2 "psp") m2->psp = 0 )
+      genericcomb("parFETcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( INDLINEcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("grnd" "abs_comp" "0.5")
+        ("ind" "rel_comp" "5%")
+        ("l" "abs_comp" "hgp")
+        ("nlev" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      genericcomp("INDLINEcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( INDcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("grnd" "abs_comp" "0.5")
+        ("n" "abs_comp" "0.125")
+        ("nlev" "abs_comp" "0.5")
+        ("s" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("wu" "abs_comp" "hgp")
+        ("x" "rel_comp" "1%")
+      )
+      if( equal( getVal(m1->n ) 1) || equal( getVal(m2->n ) 1) then
+        m1->s = 5.0e-6
+        m2->s = 5.0e-6
+      )
+      genericcomp("INDcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( SYMINDcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("grnd" "abs_comp" "0.5")
+        ("n" "abs_comp" "0.125")
+        ("nlev" "abs_comp" "0.5")
+        ("s" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("wu" "abs_comp" "hgp")
+        ("x" "rel_comp" "1%")
+        ("xov" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "xov") m1->xov = 0 )
+      unless( getValCase(m2 "xov") m2->xov = 0 )
+      if( equal( getVal(m1->n ) 1) || equal( getVal(m2->n ) 1) then
+        m1->s = 5.0e-6
+        m2->s = 5.0e-6
+        m1->xov = 0
+        m2->xov = 0
+      )
+      genericcomp("SYMINDcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( SINGLEWIREcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("layerads" "abs_comp" "0.5")
+        ("nlev" "abs_comp" "0.5")
+        ("overads" "abs_comp" "0.5")
+        ("s" "abs_comp" "hgp")
+        ("shieldsads" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      if( equal( getValCase(m1 "shieldsads") 0 )   m1->s = 0 )
+      if( equal( getValCase(m2 "shieldsads") 0 )   m2->s = 0 )
+      genericcomp("SINGLEWIREcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiPCDCAPcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      genericcomp("multiPCDCAPcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiPCDCAPcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("w" "abs_comp" "hgp" "same")
+      )
+      genericcomb("multiPCDCAPcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( SBDcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("nf" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      genericcomp("SBDcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiSBDcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("nf" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("multiSBDcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiSBDcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("nf" "abs_comp" "0.5" "same")
+        ("w" "abs_comp" "hgp" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("multiSBDcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiRES2comp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+	("w" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("pbar" "abs_comp" "0.5")
+        ; ("r" "rel_comp" "1%")
+        ("s" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      ;set_res2(m1 m2)
+      genericcomp("multiRES2comp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiRES2comb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("pbar" "abs_comp" "0.5" "same")
+        ; ("r" "rel_comp" "1%" "same")
+        ("s" "abs_comp" "0.5" "same")
+        ("w" "abs_comp" "hgp" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      ; set_res2(m1 m2)
+      genericcomb("multiRES2comb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parRES2comb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("w" "abs_comp" "hgp" "same")
+	("l" "abs_comp" "hgp" "same")
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same")
+        ;("r" "X" "X" "pres")
+	("pbar" "X" "X" "add")
+        ("s" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomb("parRES2comb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( serRES2comb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("m" "abs_comp" "0.5" "same")
+        ("par" "abs_comp" "0.5" "same" )
+        ;("r" "X" "X" "add")
+        ("s" "X" "X" "add")
+        ("pbar" "abs_comp" "0.5" "same")
+        ("w" "abs_comp" "hgp" "same")
+	("l" "abs_comp" "hgp" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      ;set_res2(m1 m2)
+      genericcomb("serRES2comb" m1 m2 paraminfolist)
+    )
+  )
+   procedure( multiDIFFMOSVARcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("w" "abs_comp" "hgp" "same")
+        ("nf" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      genericcomb("multiDIFFMOSVARcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiDIFFMOSVARcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+        ("nf" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      genericcomp("multiDIFFMOSVARcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiMOSVARcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("xrep" "abs_comp" "0.5")
+        ("yrep" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+      )
+      genericcomp("multiMOSVARcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiMOSVARcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("xrep" "abs_comp" "0.5" "same")
+        ("yrep" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+      )
+      genericcomb("multiMOSVARcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parMOSVARcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("xrep" "X" "X" "add")
+        ("yrep" "abs_comp" "0.5" "same")
+        ("m" "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("parMOSVARcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( DIPDNWcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("nf" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      genericcomp("DIPDNWcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiDIPDNWcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("nf" "abs_comp" "0.5")
+        ("w" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomp("multiDIPDNWcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiDIPDNWcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ("par" "X" "X" "add")
+        ("nf" "abs_comp" "0.5" "same")
+        ("w" "abs_comp" "hgp" "same")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      genericcomb("multiDIPDNWcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( HAVARcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("nastripes" "abs_comp" "0.5")
+        ("rxl" "abs_comp" "hgp")
+        ("rxw" "abs_comp" "hgp")
+      )
+      genericcomp("HAVARcomp" m1 m2 paraminfolist)
+    )
+  )
+
+   procedure( multiDIFFHAVARcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("w" "abs_comp" "hgp")
+        ("nf" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      genericcomp("multiDIFFHAVARcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiDIFFHAVARcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("w" "abs_comp" "hgp" "same")
+        ("nf" "abs_comp" "0.5" "same")
+        ("m" "X" "X" "add")
+      )
+      genericcomb("multiDIFFHAVARcomb" m1 m2 paraminfolist)
+    )
+  )
+
+  procedure( multiHAVARcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("m" "abs_comp" "0.5")
+        ("nastripes" "abs_comp" "0.5")
+        ("rxl" "abs_comp" "hgp")
+        ("rxw" "abs_comp" "hgp")
+      )
+      genericcomp("multiHAVARcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiHAVARcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("m" "X" "X" "add")
+        ("nastripes" "abs_comp" "0.5" "same")
+        ("rxl" "abs_comp" "hgp" "same")
+        ("rxw" "abs_comp" "hgp" "same")
+      )
+      genericcomb("multiHAVARcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( ESDVPNPcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area"  "rel_comp" "1%")
+        ("perim" "rel_comp" "1%")
+        ("nanod" "abs_comp" "0.5")
+      )
+      genericcomp("ESDVPNPcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parESDVPNPcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area" "X" "X" "add")
+        ("perim" "X" "X" "add")
+        ("nanod" "X" "X" "add")
+      )
+      genericcomb("parESDVPNPcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( ESDNDSXcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area"  "rel_comp" "1%")
+        ("perim" "rel_comp" "1%")
+        ("ncath" "abs_comp" "0.5")
+      )
+      genericcomp("ESDNDSXcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( parESDNDSXcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area" "X" "X" "add")
+        ("perim" "X" "X" "add")
+        ("ncath" "X" "X" "add")
+        ;("nw" "abs_comp" "0.5" "same")
+      )
+      genericcomb("parESDNDSXcomb" m1 m2 paraminfolist)
+    )
+  )
+  procedure( ESDNDPIcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area"  "rel_comp" "1%")
+        ("perim" "rel_comp" "1%")
+        ("ncath" "abs_comp" "0.5")
+       )
+      genericcomp("ESDNDPIcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( ESDPNPIcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("area" "abs_comp" "1e-12")
+        ("perim" "abs_comp" "hgp")
+        ("nanod" "abs_comp" "0.5")
+       )
+      genericcomp("ESDPNPIcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiSBLKREScomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp")
+        ("m" "abs_comp" "0.5")
+        ;("r" "rel_comp" "1%")
+        ("w" "abs_comp" "hgp")
+      )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      genericcomp("multiSBLKREScomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiSBLKREScomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("l" "abs_comp" "hgp" "same")
+        ("m" "X" "X" "add")
+        ;("r" "rel_comp" "1%" "same")
+        ("w" "abs_comp" "hgp" "same")
+      )
+      genericcomb("multiSBLKREScomb" m1 m2 paraminfolist)
+    )
+  )
+ procedure( multiRRSERPcomp(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("w" "abs_comp" "hgp")
+	("l" "abs_comp" "hgp")
+        ("n" "abs_comp" "0.5")
+        ("r" "rel_comp" "1%")
+	("s" "abs_comp" "0.5")
+        ("m" "abs_comp" "0.5")
+        ("par" "abs_comp" "0.5")
+        ("pbar" "abs_comp" "0.5")
+        ("bp" "abs_comp" "0.5")
+      )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "bp") m1->bp = 1 )
+      unless( getValCase(m2 "bp") m2->bp = 1 )
+      set_res2(m1 m2)
+      genericcomp("multiRRSERPcomp" m1 m2 paraminfolist)
+    )
+  )
+  procedure( multiRRSERPcomb(m1, m2)
+    let((paraminfolist )
+      paraminfolist='(
+        ("w"    "abs_comp" "hgp" "same")
+        ("l"    "abs_comp" "hgp" "same")
+        ("n"    "abs_comp" "0.5" "same")
+        ("r"    "rel_comp" "1%"  "same")
+	("s"    "abs_comp" "0.5" "same")
+        ("m"    "X" "X" "add")
+        ("par"  "X" "X" "add")
+        ("pbar" "abs_comp" "0.5" "same")
+        ("bp"   "abs_comp" "0.5" "same")
+      )
+      unless( getValCase(m1 "s") m1->s = 1 )
+      unless( getValCase(m2 "s") m2->s = 1 )
+      unless( getValCase(m1 "m") m1->m = 1 )
+      unless( getValCase(m2 "m") m2->m = 1 )
+      unless( getValCase(m1 "par") m1->par = getValCase(m1 "m") )
+      unless( getValCase(m2 "par") m2->par = getValCase(m2 "m") )
+      unless( getValCase(m1 "pbar") m1->pbar = 1 )
+      unless( getValCase(m2 "pbar") m2->pbar = 1 )
+      unless( getValCase(m1 "bp") m1->bp = 1 )
+      unless( getValCase(m2 "bp") m2->bp = 1 )
+      set_res2(m1 m2)
+      genericcomb("multiRRSERPcomb" m1 m2 paraminfolist)
+    )
+  )
+
+
+  ; Modify ESDNSH ESDPSH multiplicity names
+  
+  parameterModifiedDevice("esdnsh_base"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("esdpsh_base"            ("mSwitch" "_m" "0"))
+
+  ; Modify BONDPAD multiplicity names
+
+  parameterModifiedDevice("bondpad"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("bondpadx"           ("mSwitch" "_m" "0"))
+
+  ; Modify OPRES multiplicity names
+
+  parameterModifiedDevice("opppcres"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("opppcresx"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oprppres"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oprppresx"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oprrpres"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oprrpresx"          ("mSwitch" "_m" "0"))
+
+  ; Modify VNCAP multiplicity names
+
+  parameterModifiedDevice("vncap"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("vncapx"              ("mSwitch" "_m" "0"))
+
+  ; Modify MIM multiplicity names
+
+  parameterModifiedDevice("dualmimhd"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dualmimhdx"         ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mimhd"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mimhdx"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dualmim"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dualmimx"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mim"                ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mimx"               ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mimhk"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mimhkx"             ("mSwitch" "_m" "0"))
+
+  ; Modify CWIRE multiplicity names
+
+  parameterModifiedDevice("coupledwires"       ("mSwitch" "_m" "0"))
+
+  ; Modify JFETJC multiplicity names
+
+  parameterModifiedDevice("jfetjc"             ("mSwitch" "_m" "0"))
+
+  ; Modify VLNPN multiplicity names
+
+  parameterModifiedDevice("vlnpn"              ("mSwitch" "_m" "0"))
+
+  ; Modify FET multiplicity names
+
+  parameterModifiedDevice("nfet"               ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet33"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet33tw"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet33x"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet50"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet50tw"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet50x"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfethv"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfethvx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfettw"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet50tw4"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfet33tw4"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfettw4"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("nfetx"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfet"               ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfet33"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfet33x"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfet50"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfet50x"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("p5pfet50"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("p5pfet50x"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfethv"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfethvx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pfetx"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("zvtnfet"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("zvtnfetx"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("zvtnfet33"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("zvtnfet33x"         ("mSwitch" "_m" "0"))
+
+  ; Modify INDLINE multiplicity names
+
+  parameterModifiedDevice("indline"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("indlinex"           ("mSwitch" "_m" "0"))
+
+  ; Modify IND multiplicity names
+
+  parameterModifiedDevice("ind"                ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("symind"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("symindp"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("indp"               ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("inds"               ("mSwitch" "_m" "0"))
+
+  ; Modify SINGLEWIRE multiplicity names
+
+  parameterModifiedDevice("singlewire"         ("mSwitch" "_m" "0"))
+
+  ; Modify PCDCAP multiplicity names
+
+  parameterModifiedDevice("pcdcap"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcdcap33"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcdcap50"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcdcap50x"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcdcap33x"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcdcapx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("p5pcdcap50"         ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("p5pcdcap50x"        ("mSwitch" "_m" "0"))
+
+  ; Modify SBD multiplicity names
+
+  parameterModifiedDevice("sbd"                ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sbdx"               ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sbdnw"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sbdnwx"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("psbd"               ("mSwitch" "_m" "0"))
+
+  ; Modify RES2 multiplicity names
+
+  parameterModifiedDevice("k1res"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("k1resx"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("opndres"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("opndresx"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oppdres"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oppdresx"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("oppdresxx"          ("mSwitch" "_m" "0"))
+
+  ; Modify MOSVAR multiplicity names
+
+  parameterModifiedDevice("mosvar"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mosvarx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mosvar50"           ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("mosvar50x"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("diffmosvar"         ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("diffmosvarx"        ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("pcap"               ("mSwitch" "_m" "0"))
+
+  ; Modify DIPDNW & DINDPW multiplicity names
+
+  parameterModifiedDevice("dipdnw"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dipdnwx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dindpw"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("dindpwx"            ("mSwitch" "_m" "0"))
+
+  ; Modify DIVPNP multiplicity names
+
+  parameterModifiedDevice("divpnp"             ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("divpnpx"            ("mSwitch" "_m" "0"))
+
+  ; Modify HAVAR multiplicity names
+
+  parameterModifiedDevice("diffhavar"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("diffhavarx"         ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("havar"              ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("havarx"             ("mSwitch" "_m" "0"))
+
+  ; Modify ESDVPNP multiplicity names
+
+  parameterModifiedDevice("esdvpnpnw"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("esdpnpi"            ("mSwitch" "_m" "0"))
+
+  ; Modify ESDNDSX multiplicity names
+
+  parameterModifiedDevice("esdndsx"            ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("esdndpi"            ("mSwitch" "_m" "0"))
+
+  ; Modify SBLKRES multiplicity names
+
+  parameterModifiedDevice("sblkndres"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sblkndresx"         ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sblkpdres"          ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("sblkpdresx"         ("mSwitch" "_m" "0"))
+
+  ; Modify RR_SERPENTINE multiplicity names
+
+  parameterModifiedDevice("rr_serpentine"      ("mSwitch" "_m" "0"))
+  parameterModifiedDevice("rr_serpentinex"     ("mSwitch" "_m" "0"))
+
+; END multiplicity names
+
+
+  ; SUBC merge
+
+  mergeParallel( "subc"          merge parSubcont )
+  mergeParallel( "subcx"          merge parSubcont )
+
+  ; LVSRES merge
+
+;  mergeParallel( "m1res m2res m3res m4res m5res mtres amres lmres" merge )
+  mergeParallel( "lvsres"             merge )
+  mergeSeries(   "lvsres"             merge )
+
+  ; ESDNSH ESDPSH merge
+
+  mergeParallel( "esdnsh_base_m0"         noMerge )
+  mergeParallel( "esdpsh_base_m0"         noMerge )
+  
+  ; BONDPAD merge
+
+  mergeParallel( "bondpad_m0"         noMerge )
+  mergeParallel( "bondpadx_m0"        noMerge )
+
+  ; OPRES merge
+
+  mergeParallel( "opppcres_m1"        merge multiOPREScomb )
+  mergeParallel( "opppcresx_m1"       merge multiOPREScomb )
+  mergeParallel( "oprppres_m1"        merge multiOPREScomb )
+  mergeParallel( "oprppresx_m1"       merge multiOPREScomb )
+  mergeParallel( "oprrpres_m1"        merge multiOPREScomb )
+  mergeParallel( "oprrpresx_m1"       merge multiOPREScomb )
+  mergeParallel( "opppcres_m0"        merge parOPREScomb )
+  mergeParallel( "opppcresx_m0"       merge parOPREScomb )
+  mergeParallel( "oprppres_m0"        merge parOPREScomb )
+  mergeParallel( "oprppresx_m0"       merge parOPREScomb )
+  mergeParallel( "oprrpres_m0"        merge parOPREScomb )
+  mergeParallel( "oprrpresx_m0"       merge parOPREScomb )
+  mergeSeries(   "opppcres_m0"        merge serOPREScomb )
+  mergeSeries(   "opppcresx_m0"       merge serOPREScomb )
+  mergeSeries(   "oprppres_m0"        merge serOPREScomb )
+  mergeSeries(   "oprppresx_m0"       merge serOPREScomb )
+  mergeSeries(   "oprrpres_m0"        merge serOPREScomb )
+  mergeSeries(   "oprrpresx_m0"       merge serOPREScomb )
+
+  ; MIM merge
+
+  mergeSeries( "dualmimhd_m0"         noMerge )
+  mergeSeries( "dualmimhdx_m0"        noMerge )
+  mergeSeries( "mimhd_m0"             noMerge )
+  mergeSeries( "mimhdx_m0"            noMerge )
+  mergeParallel( "dualmimhd_m1"         merge multiMIMcomb )
+  mergeParallel( "dualmimhdx_m1"        merge multiMIMcomb )
+  mergeParallel( "mimhd_m1"             merge multiMIMcomb )
+  mergeParallel( "mimhdx_m1"            merge multiMIMcomb )
+  mergeParallel( "dualmimhd_m0"         noMerge )
+  mergeParallel( "dualmimhdx_m0"        noMerge )
+  mergeParallel( "mimhd_m0"             noMerge )
+  mergeParallel( "mimhdx_m0"            noMerge )
+
+  mergeSeries( "dualmim_m0"         noMerge )
+  mergeSeries( "dualmimx_m0"        noMerge )
+  mergeSeries( "mim_m0"             noMerge )
+  mergeSeries( "mimx_m0"            noMerge )
+  mergeParallel( "dualmim_m1"         merge multiMIMcomb )
+  mergeParallel( "dualmimx_m1"        merge multiMIMcomb )
+  mergeParallel( "mim_m1"             merge multiMIMcomb )
+  mergeParallel( "mimx_m1"            merge multiMIMcomb )
+  mergeParallel( "dualmim_m0"         noMerge )
+  mergeParallel( "dualmimx_m0"        noMerge )
+  mergeParallel( "mim_m0"             noMerge )
+  mergeParallel( "mimx_m0"            noMerge )
+
+  mergeSeries( "mimhk_m0"           noMerge )
+  mergeSeries( "mimhkx_m0"          noMerge )
+  mergeParallel( "mimhk_m1"           merge multiMIMHKcomb )
+  mergeParallel( "mimhkx_m1"          merge multiMIMHKcomb )
+  mergeParallel( "mimhk_m0"           noMerge )
+  mergeParallel( "mimhkx_m0"          noMerge )
+
+; VNCAP merge
+
+  mergeSeries( "vncap_m0"             noMerge )
+  mergeSeries( "vncapx_m0"            noMerge )
+  mergeParallel( "vncap_m1"           merge multiVPPcomb )
+  mergeParallel( "vncapx_m1"          merge multiVPPcomb )
+  mergeParallel( "vncapx_m0"          noMerge )
+  mergeParallel( "vncap_m0"           noMerge )
+
+  ; CWIRE merge
+
+  mergeParallel( "coupledwires_m0"    noMerge )
+
+  ; JFETJC merge
+
+  mergeParallel( "jfetjc_m0"          noMerge )
+  mergeParallel( "jfetjc_m1"          merge multiJFETcomb )
+
+  ; VLNPN merge
+
+  mergeParallel( "vlnpn_m0"          noMerge )
+  mergeParallel( "vlnpn_m1"          merge multiVLNPNcomb )
+
+  ; FET merge
+
+  mergeParallel( "nfet_m1"            merge multiFETcomb )
+  mergeParallel( "nfet33_m1"          merge multiFETcomb )
+  mergeParallel( "nfet33tw_m1"        merge multiFETcomb )
+  mergeParallel( "nfet33x_m1"         merge multiFETcomb )
+  mergeParallel( "nfet50_m1"          merge multiFETcomb )
+  mergeParallel( "nfet50tw_m1"        merge multiFETcomb )
+  mergeParallel( "nfet50x_m1"         merge multiFETcomb )
+  mergeParallel( "nfethv_m1"          merge multiFETcomb )
+  mergeParallel( "nfethvx_m1"         merge multiFETcomb )
+  mergeParallel( "nfettw_m1"          merge multiFETcomb )
+  mergeParallel( "nfet50tw4_m1"       merge multiFETcomb )
+  mergeParallel( "nfet33tw4_m1"       merge multiFETcomb )
+  mergeParallel( "nfettw4_m1"         merge multiFETcomb )
+  mergeParallel( "nfetx_m1"           merge multiFETcomb )
+  mergeParallel( "pfet_m1"            merge multiFETcomb )
+  mergeParallel( "pfet33_m1"          merge multiFETcomb )
+  mergeParallel( "pfet33x_m1"         merge multiFETcomb )
+  mergeParallel( "pfet50_m1"          merge multiFETcomb )
+  mergeParallel( "pfet50x_m1"         merge multiFETcomb )
+  mergeParallel( "p5pfet50_m1"        merge multiFETcomb )
+  mergeParallel( "p5pfet50x_m1"       merge multiFETcomb )
+  mergeParallel( "pfethv_m1"          merge multiFETcomb )
+  mergeParallel( "pfethvx_m1"         merge multiFETcomb )
+  mergeParallel( "pfetx_m1"           merge multiFETcomb )
+  mergeParallel( "zvtnfet_m1"         merge multiFETcomb )
+  mergeParallel( "zvtnfetx_m1"        merge multiFETcomb )
+  mergeParallel( "zvtnfet33_m1"       merge multiFETcomb )
+  mergeParallel( "zvtnfet33x_m1"      merge multiFETcomb )
+
+  mergeParallel( "nfet_m0"            merge parFETcomb )
+  mergeParallel( "nfet33_m0"          merge parFETcomb )
+  mergeParallel( "nfet33tw_m0"        merge parFETcomb )
+  mergeParallel( "nfet33x_m0"         merge parFETcomb )
+  mergeParallel( "nfet50_m0"          merge parFETcomb )
+  mergeParallel( "nfet50tw_m0"        merge parFETcomb )
+  mergeParallel( "nfet50x_m0"         merge parFETcomb )
+  mergeParallel( "nfethv_m0"          merge parFETcomb )
+  mergeParallel( "nfethvx_m0"         merge parFETcomb )
+  mergeParallel( "nfettw_m0"          merge parFETcomb )
+  mergeParallel( "nfet50tw4_m0"       merge parFETcomb )
+  mergeParallel( "nfet33tw4_m0"       merge parFETcomb )
+  mergeParallel( "nfettw4_m0"         merge parFETcomb )
+  mergeParallel( "nfetx_m0"           merge parFETcomb )
+  mergeParallel( "pfet_m0"            merge parFETcomb )
+  mergeParallel( "pfet33_m0"          merge parFETcomb )
+  mergeParallel( "pfet33x_m0"         merge parFETcomb )
+  mergeParallel( "pfet50_m0"          merge parFETcomb )
+  mergeParallel( "pfet50x_m0"         merge parFETcomb )
+  mergeParallel( "p5pfet50_m0"        merge parFETcomb )
+  mergeParallel( "p5pfet50x_m0"       merge parFETcomb )
+  mergeParallel( "pfethv_m0"          merge parFETcomb )
+  mergeParallel( "pfethvx_m0"         merge parFETcomb )
+  mergeParallel( "pfetx_m0"           merge parFETcomb )
+  mergeParallel( "zvtnfet_m0"         merge parFETcomb )
+  mergeParallel( "zvtnfetx_m0"        merge parFETcomb )
+  mergeParallel( "zvtnfet33_m0"       merge parFETcomb )
+  mergeParallel( "zvtnfet33x_m0"      merge parFETcomb )
+
+  ; INDLINE merge
+
+  mergeParallel( "indline_m0"         noMerge )
+  mergeParallel( "indlinex_m0"        noMerge )
+
+  ; IND merge
+
+  mergeParallel( "ind_m0"             noMerge )
+  mergeParallel( "symind_m0"          noMerge )
+  mergeParallel( "symindp_m0"         noMerge )
+  mergeParallel( "indp_m0"            noMerge )
+  mergeParallel( "inds_m0"            noMerge )
+
+  ; SINGLEWIRE merge
+
+  mergeParallel( "singlewire_m0"      noMerge )
+
+  ; PCDCAP merge
+
+  mergeParallel( "pcdcap_m1"          merge multiPCDCAPcomb )
+  mergeParallel( "pcdcap33_m1"        merge multiPCDCAPcomb )
+  mergeParallel( "pcdcap33x_m1"       merge multiPCDCAPcomb )
+  mergeParallel( "pcdcap50_m1"        merge multiPCDCAPcomb )
+  mergeParallel( "pcdcap50x_m1"       merge multiPCDCAPcomb )
+  mergeParallel( "pcdcapx_m1"         merge multiPCDCAPcomb )
+  mergeParallel( "p5pcdcap50_m1"      merge multiMOSVARcomb )
+  mergeParallel( "p5pcdcap50x_m1"     merge multiMOSVARcomb )
+  mergeParallel( "pcdcap_m0"          noMerge )
+  mergeParallel( "pcdcap33_m0"        noMerge )
+  mergeParallel( "pcdcap50_m0"        noMerge )
+  mergeParallel( "pcdcap50x_m0"       noMerge )
+  mergeParallel( "pcdcap33x_m0"       noMerge )
+  mergeParallel( "pcdcapx_m0"         noMerge )
+  mergeParallel( "p5pcdcap50_m0"      merge parMOSVARcomb )
+  mergeParallel( "p5pcdcap50x_m0"     merge parMOSVARcomb )
+
+  ; SBD merge
+
+  mergeParallel( "sbd_m1"             merge multiSBDcomb )
+  mergeParallel( "sbdx_m1"            merge multiSBDcomb )
+  mergeParallel( "sbdnw_m1"           merge multiSBDcomb )
+  mergeParallel( "sbdnwx_m1"          merge multiSBDcomb )
+  mergeParallel( "psbd_m1"            merge multiSBDcomb )
+  mergeParallel( "sbd_m0"             noMerge )
+  mergeParallel( "sbdx_m0"            noMerge )
+  mergeParallel( "sbdnw_m0"           noMerge )
+  mergeParallel( "sbdnwx_m0"          noMerge )
+  mergeParallel( "psbd_m0"            noMerge )
+
+  ; RES2 merge
+
+  mergeParallel( "k1res_m1"           merge multiRES2comb )
+  mergeParallel( "k1resx_m1"          merge multiRES2comb )
+  mergeParallel( "opndres_m1"         merge multiRES2comb )
+  mergeParallel( "opndresx_m1"        merge multiRES2comb )
+  mergeParallel( "oppdres_m1"         merge multiRES2comb )
+  mergeParallel( "oppdresx_m1"        merge multiRES2comb )
+  mergeParallel( "oppdresxx_m1"       merge multiRES2comb )
+  mergeParallel( "k1res_m0"           merge parRES2comb )
+  mergeParallel( "k1resx_m0"          merge parRES2comb )
+  mergeParallel( "opndres_m0"         merge parRES2comb )
+  mergeParallel( "opndresx_m0"        merge parRES2comb )
+  mergeParallel( "oppdres_m0"         merge parRES2comb )
+  mergeParallel( "oppdresx_m0"        merge parRES2comb )
+  mergeParallel( "oppdresxx_m0"       merge parRES2comb )
+  mergeSeries(   "k1res_m0"           merge serRES2comb )
+  mergeSeries(   "k1resx_m0"          merge serRES2comb )
+  mergeSeries(   "opndres_m0"         merge serRES2comb )
+  mergeSeries(   "opndresx_m0"        merge serRES2comb )
+  mergeSeries(   "oppdres_m0"         merge serRES2comb )
+  mergeSeries(   "oppdresx_m0"        merge serRES2comb )
+  mergeSeries(   "oppdresxx_m0"       merge serRES2comb )
+
+  ; MOSVAR merge
+
+  mergeParallel( "mosvar_m1"          merge multiMOSVARcomb )
+  mergeParallel( "mosvarx_m1"         merge multiMOSVARcomb )
+  mergeParallel( "mosvar50_m1"        merge multiMOSVARcomb )
+  mergeParallel( "mosvar50x_m1"       merge multiMOSVARcomb )
+  mergeParallel( "pcap_m1"            merge multiMOSVARcomb )
+  mergeParallel( "diffmosvar_m1"      merge multiDIFFMOSVARcomb )
+  mergeParallel( "diffmosvarx_m1"     merge multiDIFFMOSVARcomb )
+  mergeParallel( "mosvar_m0"          noMerge )
+  mergeParallel( "mosvarx_m0"         noMerge )
+  mergeParallel( "mosvar50_m0"        noMerge )
+  mergeParallel( "mosvar50x_m0"       noMerge )
+  mergeParallel( "pcap_m0"            noMerge )
+  mergeParallel( "diffmosvar_m0"      noMerge )
+  mergeParallel( "diffmosvarx_m0"     noMerge )
+
+  ; DIPDNW & DINDPW merge
+
+  mergeParallel( "dipdnw_m1"          merge multiDIPDNWcomb )
+  mergeParallel( "dipdnwx_m1"         merge multiDIPDNWcomb )
+  mergeParallel( "dipdnw_m0"          noMerge )
+  mergeParallel( "dipdnwx_m0"         noMerge )
+  mergeParallel( "dindpw_m1"          merge multiDIPDNWcomb )
+  mergeParallel( "dindpwx_m1"         merge multiDIPDNWcomb )
+  mergeParallel( "dindpw_m0"          noMerge )
+  mergeParallel( "dindpwx_m0"         noMerge )
+
+  ; DIVPNP merge
+
+  mergeParallel( "divpnp_m1"          merge multiDIPDNWcomb )
+  mergeParallel( "divpnpx_m1"         merge multiDIPDNWcomb )
+  mergeParallel( "divpnp_m0"          noMerge )
+  mergeParallel( "divpnpx_m0"         noMerge )
+
+  ; HAVAR merge
+
+  mergeParallel( "havar_m1"           merge multiHAVARcomb )
+  mergeParallel( "havarx_m1"          merge multiHAVARcomb )
+  mergeParallel( "havar_m0"           noMerge )
+  mergeParallel( "havarx_m0"          noMerge )
+  mergeParallel( "diffhavar_m1"       merge multiDIFFHAVARcomb )
+  mergeParallel( "diffhavarx_m1"      merge multiDIFFHAVARcomb )
+  mergeParallel( "diffhavar_m0"       noMerge )
+  mergeParallel( "diffhavarx_m0"      noMerge )
+
+  ; ESDVPNP merge
+
+  mergeParallel( "esdvpnpnw_m0"       merge parESDVPNPcomb )
+  mergeParallel( "esdpnpi_m0"         noMerge )
+
+  ; ESDNDSX merge
+
+  mergeParallel( "esdndsx_m0"         merge parESDNDSXcomb )
+  mergeParallel( "esdndpi_m0"         noMerge )
+
+  ; SBLKRES merge
+
+  mergeParallel( "sblkndres_m1"       merge multiSBLKREScomb )
+  mergeParallel( "sblkndresx_m1"      merge multiSBLKREScomb )
+  mergeParallel( "sblkpdres_m1"       merge multiSBLKREScomb )
+  mergeParallel( "sblkpdresx_m1"      merge multiSBLKREScomb )
+  mergeParallel( "sblkndres_m0"       noMerge )
+  mergeParallel( "sblkndresx_m0"      noMerge )
+  mergeParallel( "sblkpdres_m0"       noMerge )
+  mergeParallel( "sblkpdresx_m0"      noMerge )
+
+  ; RRSERP merge
+
+  mergeParallel( "rr_serpentine_m1"   merge multiRRSERPcomb )
+  mergeParallel( "rr_serpentinex_m1"  merge multiRRSERPcomb )
+  mergeParallel( "rr_serpentine_m0"   noMerge )
+  mergeParallel( "rr_serpentinex_m0"  noMerge )
+  mergeSeries(   "rr_serpentine_m0"   noMerge )
+  mergeSeries(   "rr_serpentinex_m0"  noMerge )
+
+; END merge
+
+
+  ; ESDNSH_BASE ESDPSH_BASE compare
+  
+  compareParameter( "esdnsh_base_m0"     ESDNSHcomp )
+  compareParameter( "esdpsh_base_m0"     ESDPSHcomp )
+
+  ; BONDPAD compare
+
+  compareParameter( "bondpad_m0"         BONDPADcomp )
+  compareParameter( "bondpadx_m0"        BONDPADcomp )
+
+  ; OPRES compare
+
+  compareParameter( "opppcres_m0"        multiOPREScomp )
+  compareParameter( "opppcres_m1"        multiOPREScomp )
+  compareParameter( "opppcresx_m0"       multiOPREScomp )
+  compareParameter( "opppcresx_m1"       multiOPREScomp )
+  compareParameter( "oprppres_m0"        multiOPREScomp )
+  compareParameter( "oprppres_m1"        multiOPREScomp )
+  compareParameter( "oprppresx_m0"       multiOPREScomp )
+  compareParameter( "oprppresx_m1"       multiOPREScomp )
+  compareParameter( "oprrpres_m0"        multiOPREScomp )
+  compareParameter( "oprrpres_m1"        multiOPREScomp )
+  compareParameter( "oprrpresx_m0"       multiOPREScomp )
+  compareParameter( "oprrpresx_m1"       multiOPREScomp )
+
+  ; VNCAP compare
+
+  compareParameter( "vncap_m0"           parVPPcomp )
+  compareParameter( "vncap_m1"           multiVPPcomp )
+  compareParameter( "vncapx_m0"          parVPPcomp )
+  compareParameter( "vncapx_m1"          multiVPPcomp )
+
+  ; MIM compare
+
+  compareParameter( "dualmimhd_m0"         multiMIMcomp )
+  compareParameter( "dualmimhd_m1"         multiMIMcomp )
+  compareParameter( "dualmimhdx_m0"        multiMIMcomp )
+  compareParameter( "dualmimhdx_m1"        multiMIMcomp )
+  compareParameter( "mimhd_m0"             multiMIMcomp )
+  compareParameter( "mimhd_m1"             multiMIMcomp )
+  compareParameter( "mimhdx_m0"            multiMIMcomp )
+  compareParameter( "mimhdx_m1"            multiMIMcomp )
+
+  compareParameter( "dualmim_m0"         multiMIMcomp )
+  compareParameter( "dualmim_m1"         multiMIMcomp )
+  compareParameter( "dualmimx_m0"        multiMIMcomp )
+  compareParameter( "dualmimx_m1"        multiMIMcomp )
+  compareParameter( "mim_m0"             multiMIMcomp )
+  compareParameter( "mim_m1"             multiMIMcomp )
+  compareParameter( "mimx_m0"            multiMIMcomp )
+  compareParameter( "mimx_m1"            multiMIMcomp )
+
+  compareParameter( "mimhk_m0"           multiMIMHKcomp )
+  compareParameter( "mimhk_m1"           multiMIMHKcomp )
+  compareParameter( "mimhkx_m0"          multiMIMHKcomp )
+  compareParameter( "mimhkx_m1"          multiMIMHKcomp )
+
+  ; CWIRE compare
+
+  compareParameter( "coupledwires_m0"    CWIREcomp )
+
+  ; JFET compare
+
+  compareParameter( "jfetjc_m0"          JFETcomp )
+  compareParameter( "jfetjc_m1"          multiJFETcomp )
+
+  ; VLNPN compare
+
+  compareParameter( "vlnpn_m0"          VLNPNcomp )
+  compareParameter( "vlnpn_m1"          multiVLNPNcomp )
+
+  ; FET compare
+
+if( avSwitch( "COMPARE_NF_VALUES" )  then
+        compareParameter( "nfet_m0"            FETNFcomp )
+        compareParameter( "nfet33_m0"          FETNFcomp )
+        compareParameter( "nfet33x_m0"         FETNFcomp )
+        compareParameter( "nfet50_m0"          FETNFcomp )
+        compareParameter( "nfet50x_m0"         FETNFcomp )
+        compareParameter( "nfethv_m0"          FETNFcomp )
+        compareParameter( "nfethvx_m0"         FETNFcomp )
+        compareParameter( "nfetx_m0"           FETNFcomp )
+        compareParameter( "pfet_m0"            FETNFcomp )
+        compareParameter( "pfet33_m0"          FETNFcomp )
+        compareParameter( "pfet33x_m0"         FETNFcomp )
+        compareParameter( "pfet50_m0"          FETNFcomp )
+        compareParameter( "pfet50x_m0"         FETNFcomp )
+        compareParameter( "p5pfet50_m0"        FETNFcomp )
+        compareParameter( "p5pfet50x_m0"       FETNFcomp )
+        compareParameter( "pfethv_m0"          FETNFcomp )
+        compareParameter( "pfethvx_m0"         FETNFcomp )
+        compareParameter( "pfetx_m0"           FETNFcomp )
+        compareParameter( "zvtnfet_m0"         FETNFcomp )
+        compareParameter( "zvtnfetx_m0"        FETNFcomp )
+        compareParameter( "zvtnfet33_m0"       FETNFcomp )
+        compareParameter( "zvtnfet33x_m0"      FETNFcomp )
+  else
+        compareParameter( "nfet_m0"            FETcomp )
+        compareParameter( "nfet33_m0"          FETcomp )
+        compareParameter( "nfet33x_m0"         FETcomp )
+        compareParameter( "nfet50_m0"          FETcomp )
+        compareParameter( "nfet50x_m0"         FETcomp )
+        compareParameter( "nfethv_m0"          FETcomp )
+        compareParameter( "nfethvx_m0"         FETcomp )
+        compareParameter( "nfetx_m0"           FETcomp )
+        compareParameter( "pfet_m0"            FETcomp )
+        compareParameter( "pfet33_m0"          FETcomp )
+        compareParameter( "pfet33x_m0"         FETcomp )
+        compareParameter( "pfet50_m0"          FETcomp )
+        compareParameter( "pfet50x_m0"         FETcomp )
+        compareParameter( "p5pfet50_m0"        FETcomp )
+        compareParameter( "p5pfet50x_m0"       FETcomp )
+        compareParameter( "pfethv_m0"          FETcomp )
+        compareParameter( "pfethvx_m0"         FETcomp )
+        compareParameter( "pfetx_m0"           FETcomp )
+        compareParameter( "zvtnfet_m0"         FETcomp )
+        compareParameter( "zvtnfetx_m0"        FETcomp )
+        compareParameter( "zvtnfet33_m0"       FETcomp )
+        compareParameter( "zvtnfet33x_m0"      FETcomp )
+  ) ; end switch COMPARE_NF_VALUES
+
+  compareParameter( "nfet50tw_m0"        FETNFcomp )
+  compareParameter( "nfet33tw_m0"        FETNFcomp )
+  compareParameter( "nfettw_m0"          FETNFcomp )
+  compareParameter( "nfet50tw4_m0"       FETNFcomp )
+  compareParameter( "nfet33tw4_m0"       FETNFcomp )
+  compareParameter( "nfettw4_m0"         FETNFcomp )
+
+  compareParameter( "nfet_m1"            multiFETcomp )
+  compareParameter( "nfet33_m1"          multiFETcomp )
+  compareParameter( "nfet33tw_m1"        multiFETcomp )
+  compareParameter( "nfet33x_m1"         multiFETcomp )
+  compareParameter( "nfet50_m1"          multiFETcomp )
+  compareParameter( "nfet50tw_m1"        multiFETcomp )
+  compareParameter( "nfet50x_m1"         multiFETcomp )
+  compareParameter( "nfethv_m1"          multiFETcomp )
+  compareParameter( "nfethvx_m1"         multiFETcomp )
+  compareParameter( "nfettw_m1"          multiFETcomp )
+  compareParameter( "nfet50tw4_m1"       multiFETcomp )
+  compareParameter( "nfet33tw4_m1"       multiFETcomp )
+  compareParameter( "nfettw4_m1"         multiFETcomp )
+  compareParameter( "nfetx_m1"           multiFETcomp )
+  compareParameter( "pfet_m1"            multiFETcomp )
+  compareParameter( "pfet33_m1"          multiFETcomp )
+  compareParameter( "pfet33x_m1"         multiFETcomp )
+  compareParameter( "pfet50_m1"          multiFETcomp )
+  compareParameter( "pfet50x_m1"         multiFETcomp )
+  compareParameter( "p5pfet50_m1"        multiFETcomp )
+  compareParameter( "p5pfet50x_m1"       multiFETcomp )
+  compareParameter( "pfethv_m1"          multiFETcomp )
+  compareParameter( "pfethvx_m1"         multiFETcomp )
+  compareParameter( "pfetx_m1"           multiFETcomp )
+  compareParameter( "zvtnfet_m1"         multiFETcomp )
+  compareParameter( "zvtnfetx_m1"        multiFETcomp )
+  compareParameter( "zvtnfet33_m1"       multiFETcomp )
+  compareParameter( "zvtnfet33x_m1"      multiFETcomp )
+
+  ; INDLINE compare
+
+  compareParameter( "indline_m0"         INDLINEcomp )
+  compareParameter( "indlinex_m0"        INDLINEcomp )
+
+  ; IND compare
+
+  compareParameter( "ind_m0"             INDcomp )
+  compareParameter( "symind_m0"          SYMINDcomp )
+  compareParameter( "symindp_m0"         SYMINDcomp )
+  compareParameter( "indp_m0"            INDcomp )
+  compareParameter( "inds_m0"            INDcomp )
+
+  ; SINGLEWIRE compare
+
+  compareParameter( "singlewire_m0"      SINGLEWIREcomp )
+
+  ; PCDCAP compare
+
+  compareParameter( "pcdcap_m0"          multiPCDCAPcomp )
+  compareParameter( "pcdcap_m1"          multiPCDCAPcomp )
+  compareParameter( "pcdcap33_m0"        multiPCDCAPcomp )
+  compareParameter( "pcdcap33_m1"        multiPCDCAPcomp )
+  compareParameter( "p5pcdcap50_m0"      multiMOSVARcomp )
+  compareParameter( "p5pcdcap50_m1"      multiMOSVARcomp )
+  compareParameter( "pcdcap50_m0"        multiPCDCAPcomp )
+  compareParameter( "pcdcap50_m1"        multiPCDCAPcomp )
+  compareParameter( "pcdcap50x_m0"       multiPCDCAPcomp )
+  compareParameter( "pcdcap50x_m1"       multiPCDCAPcomp )
+  compareParameter( "pcdcap33x_m0"       multiPCDCAPcomp )
+  compareParameter( "pcdcap33x_m1"       multiPCDCAPcomp )
+  compareParameter( "pcdcapx_m0"         multiPCDCAPcomp )
+  compareParameter( "pcdcapx_m1"         multiPCDCAPcomp )
+  compareParameter( "p5pcdcap50x_m0"     multiMOSVARcomp )
+  compareParameter( "p5pcdcap50x_m1"     multiMOSVARcomp )
+
+  ; SBD compare
+
+  compareParameter( "sbd_m0"             SBDcomp )
+  compareParameter( "sbdx_m0"            SBDcomp )
+  compareParameter( "sbdnw_m0"           SBDcomp )
+  compareParameter( "sbdnwx_m0"          SBDcomp )
+  compareParameter( "psbd_m0"            SBDcomp )
+  compareParameter( "sbd_m1"             multiSBDcomp )
+  compareParameter( "sbdx_m1"            multiSBDcomp )
+  compareParameter( "sbdnw_m1"           multiSBDcomp )
+  compareParameter( "sbdnwx_m1"          multiSBDcomp )
+  compareParameter( "psbd_m1"            multiSBDcomp )
+
+  ; RES2 compare
+
+  compareParameter( "k1res_m0"           multiRES2comp )
+  compareParameter( "k1resx_m0"          multiRES2comp )
+  compareParameter( "opndres_m0"         multiRES2comp )
+  compareParameter( "opndresx_m0"        multiRES2comp )
+  compareParameter( "oppdres_m0"         multiRES2comp )
+  compareParameter( "oppdresx_m0"        multiRES2comp )
+  compareParameter( "oppdresxx_m0"       multiRES2comp )
+  compareParameter( "k1res_m1"           multiRES2comp )
+  compareParameter( "k1resx_m1"          multiRES2comp )
+  compareParameter( "opndres_m1"         multiRES2comp )
+  compareParameter( "opndresx_m1"        multiRES2comp )
+  compareParameter( "oppdres_m1"         multiRES2comp )
+  compareParameter( "oppdresx_m1"        multiRES2comp )
+  compareParameter( "oppdresxx_m1"       multiRES2comp )
+
+  ; MOSVAR compare
+
+  compareParameter( "mosvar_m0"          multiMOSVARcomp )
+  compareParameter( "mosvar_m1"          multiMOSVARcomp )
+  compareParameter( "mosvarx_m0"         multiMOSVARcomp )
+  compareParameter( "mosvarx_m1"         multiMOSVARcomp )
+  compareParameter( "mosvar50_m0"        multiMOSVARcomp )
+  compareParameter( "mosvar50_m1"        multiMOSVARcomp )
+  compareParameter( "mosvar50x_m0"       multiMOSVARcomp )
+  compareParameter( "mosvar50x_m1"       multiMOSVARcomp )
+  compareParameter( "pcap_m0"            multiMOSVARcomp )
+  compareParameter( "pcap_m1"            multiMOSVARcomp )
+
+
+  compareParameter( "diffmosvar_m0"      multiDIFFMOSVARcomp )
+  compareParameter( "diffmosvar_m1"      multiDIFFMOSVARcomp )
+  compareParameter( "diffmosvarx_m0"     multiDIFFMOSVARcomp )
+  compareParameter( "diffmosvarx_m1"     multiDIFFMOSVARcomp )
+
+  ; DIPDNW & DINDPW compare
+
+  compareParameter( "dipdnw_m0"          DIPDNWcomp )
+  compareParameter( "DIPDNW_m0"          DIPDNWcomp )
+  compareParameter( "dipdnwx_m0"         DIPDNWcomp )
+  compareParameter( "DIPDNWX_m0"         DIPDNWcomp )
+  compareParameter( "dipdnw_m1"          multiDIPDNWcomp )
+  compareParameter( "DIPDNW_m1"          multiDIPDNWcomp )
+  compareParameter( "dipdnwx_m1"         multiDIPDNWcomp )
+  compareParameter( "DIPDNWX_m1"         multiDIPDNWcomp )
+
+  compareParameter( "dindpw_m0"          DIPDNWcomp )
+  compareParameter( "DINDPW_m0"          DIPDNWcomp )
+  compareParameter( "dindpwx_m0"         DIPDNWcomp )
+  compareParameter( "DINDPWX_m0"         DIPDNWcomp )
+  compareParameter( "dindpww_m1"         multiDIPDNWcomp )
+  compareParameter( "DINDPW_m1"          multiDIPDNWcomp )
+  compareParameter( "dindpwx_m1"         multiDIPDNWcomp )
+  compareParameter( "DINDPWX_m1"         multiDIPDNWcomp )
+
+  ; DIVPNP compare
+
+  compareParameter( "divpnp_m0"          DIPDNWcomp )
+  compareParameter( "DIVPNP_m0"          DIPDNWcomp )
+  compareParameter( "divpnpx_m0"         DIPDNWcomp )
+  compareParameter( "DIVPNPX_m0"         DIPDNWcomp )
+  compareParameter( "divpnp_m1"          multiDIPDNWcomp )
+  compareParameter( "DIVPNP_m1"          multiDIPDNWcomp )
+  compareParameter( "divpnpx_m1"         multiDIPDNWcomp )
+  compareParameter( "DIVPNPX_m1"         multiDIPDNWcomp )
+
+  ; HAVAR compare
+
+  compareParameter( "havar_m0"           HAVARcomp )
+  compareParameter( "havarx_m0"          HAVARcomp )
+  compareParameter( "havar_m1"           multiHAVARcomp )
+  compareParameter( "havarx_m1"          multiHAVARcomp )
+  compareParameter( "diffhavar_m0"       multiDIFFHAVARcomp )
+  compareParameter( "diffhavar_m1"       multiDIFFHAVARcomp )
+  compareParameter( "diffhavarx_m0"      multiDIFFHAVARcomp )
+  compareParameter( "diffhavarx_m1"      multiDIFFHAVARcomp )
+
+  ; ESDVPNP compare
+
+  compareParameter( "esdvpnpnw_m0"       ESDVPNPcomp )
+  compareParameter( "esdpnpi_m0"         ESDPNPIcomp )
+
+  ; ESDNDSX compare
+
+  compareParameter( "esdndsx_m0"         ESDNDSXcomp )
+  compareParameter( "esdndpi_m0"         ESDNDPIcomp )
+
+  ; SBLKRES compare
+
+  compareParameter( "sblkndres_m0"       multiSBLKREScomp )
+  compareParameter( "sblkndresx_m0"      multiSBLKREScomp )
+  compareParameter( "sblkpdres_m0"       multiSBLKREScomp )
+  compareParameter( "sblkpdresx_m0"      multiSBLKREScomp )
+  compareParameter( "sblkndres_m1"       multiSBLKREScomp )
+  compareParameter( "sblkndresx_m1"      multiSBLKREScomp )
+  compareParameter( "sblkpdres_m1"       multiSBLKREScomp )
+  compareParameter( "sblkpdresx_m1"      multiSBLKREScomp )
+
+  ; RRSERP compare
+
+  compareParameter( "rr_serpentine_m0"   multiRRSERPcomp )
+  compareParameter( "rr_serpentinex_m0"  multiRRSERPcomp )
+  compareParameter( "rr_serpentine_m1"   multiRRSERPcomp )
+  compareParameter( "rr_serpentinex_m1"  multiRRSERPcomp )
+
+; END compare
+
+)
+
+
+;----------------------------------------------------------------------------
+; avCompareRules Section from Run Submit Form
+; Created by the Assura UI
+;----------------------------------------------------------------------------
+
+avCompareRules(
+schematic(
+netlist( dfII "/home/DREXEL/jvk27/ECEC472/IBM/SRL_LVS/SRL_LVS.vlr" )
+)
+bindingFile("/home/DREXEL/yt74/ic615_work/IBM/assura/LVS/bind.vldb")
+)
+
+
+avLVS()
+

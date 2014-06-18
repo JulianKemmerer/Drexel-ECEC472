@@ -1,0 +1,914 @@
+// Generated for: spectre
+// Generated on: Mar  9 20:37:20 2014
+// Design library name: ECEC472_CPU
+// Design cell name: ALU_SIM
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters s=1 p5vonly=0 phires=0
+include "design.scs"
+include "wafer.scs"
+include "allModels.scs" section=tt
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: MUX41_F
+// View name: schematic
+subckt MUX41_F D0 D1 D2 D3 SD1 SD2 Z inh_gnd inh_vdd
+    TND3 (net130 D3 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND2 (net133 D2 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1 (net136 D1 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSD2 (SD2_bar SD2 inh_gnd inh_gnd) nfet l=180.0n w=560.0n nf=1 m=1 \
+        par=1 ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0 (net139 D0 inh_gnd inh_gnd) nfet l=180.0n w=1.62u nf=1 m=1 par=1 \
+        ad=6.7e-13 as=6.7e-13 pd=3.98u ps=3.98u nrd=0.1667 nrs=0.1667 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX5 (net149 SD1 net131 inh_gnd) nfet l=180.0n w=780.0n nf=1 m=1 par=1 \
+        ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSD1 (net113 SD1 inh_gnd inh_gnd) nfet l=180.0n w=700.0n nf=1 m=1 \
+        par=1 ad=2.8e-13 as=2.8e-13 pd=2.14u ps=2.14u nrd=0.4063 \
+        nrs=0.4063 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX4 (net149 net113 net142 inh_gnd) nfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX0 (net142 SD2_bar net139 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX1 (net142 SD2 net136 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX2 (net131 SD2_bar net133 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX3 (net131 SD2 net130 inh_gnd) nfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM2 (Z net149 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM1 (Z net149 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPD0 (net139 D0 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPSD2 (SD2_bar SD2 inh_vdd inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1 (net136 D1 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD3 (net130 D3 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD2 (net133 D2 inh_vdd inh_vdd) pfet l=180.0n w=2.2u nf=1 m=1 par=1 \
+        ad=9.2e-13 as=9.2e-13 pd=5.14u ps=5.14u nrd=0.1215 nrs=0.1215 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX5 (net149 net113 net131 inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 \
+        par=1 ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX4 (net149 SD1 net142 inh_vdd) pfet l=180.0n w=780.0n nf=1 m=1 par=1 \
+        ad=3.1e-13 as=3.1e-13 pd=2.3u ps=2.3u nrd=0.3611 nrs=0.3611 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPSD1 (net113 SD1 inh_vdd inh_vdd) pfet l=180.0n w=920.0n nf=1 m=1 \
+        par=1 ad=3.7e-13 as=3.7e-13 pd=2.58u ps=2.58u nrd=0.3023 \
+        nrs=0.3023 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX1 (net142 SD2_bar net136 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX0 (net142 SD2 net139 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX2 (net131 SD2 net133 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 par=1 \
+        ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX3 (net131 SD2_bar net130 inh_vdd) pfet l=180.0n w=980.0n nf=1 m=1 \
+        par=1 ad=4e-13 as=4e-13 pd=2.7u ps=2.7u nrd=0.2826 nrs=0.2826 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM2 (Z net149 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM1 (Z net149 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends MUX41_F
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: MUX21BAL_J
+// View name: schematic
+subckt MUX21BAL_J D0 D1 SD Z inh_gnd inh_vdd
+    TNSD (net78 SD inh_gnd inh_gnd) nfet l=180.0n w=1.32u nf=1 m=1 par=1 \
+        ad=5.4e-13 as=5.4e-13 pd=3.38u ps=3.38u nrd=0.2063 nrs=0.2063 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNDLY1 (net45 net78 inh_gnd inh_gnd) nfet l=180.0n w=1.44u nf=1 m=1 \
+        par=1 ad=5.9e-13 as=5.9e-13 pd=3.62u ps=3.62u nrd=0.1884 \
+        nrs=0.1884 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0 (net39 D0 inh_gnd inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND0NOT (net36 net6 net39 inh_gnd) nfet l=180.0n w=1.76u nf=1 m=1 \
+        par=1 ad=7.3e-13 as=7.3e-13 pd=4.26u ps=4.26u nrd=0.1529 \
+        nrs=0.1529 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1 (net33 D1 inh_gnd inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ1 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ2 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND1NOT (net36 net45 net33 inh_gnd) nfet l=180.0n w=1.56u nf=1 m=1 \
+        par=1 ad=6.5e-13 as=6.5e-13 pd=3.86u ps=3.86u nrd=0.1733 \
+        nrs=0.1733 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNSDT (net6 SD net78 inh_gnd) nfet l=180.0n w=1.38u nf=1 m=1 par=1 \
+        ad=5.7e-13 as=5.7e-13 pd=3.5u ps=3.5u nrd=0.197 nrs=0.197 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ3 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNOZ4 (Z net36 inh_gnd inh_gnd) nfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPSD (net78 SD inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPDLY1 (net45 net78 inh_vdd inh_vdd) pfet l=180.0n w=1.44u nf=1 m=1 \
+        par=1 ad=5.9e-13 as=5.9e-13 pd=3.62u ps=3.62u nrd=0.1884 \
+        nrs=0.1884 gcon=1 rf=0 rsx=50 dtemp=0
+    TPD0 (net39 D0 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD0NOT (net36 net45 net39 inh_vdd) pfet l=180.0n w=1.9u nf=1 m=1 \
+        par=1 ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 \
+        nrs=0.1413 gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1 (net33 D1 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ1 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD1NOT (net36 net6 net33 inh_vdd) pfet l=180.0n w=1.9u nf=1 m=1 par=1 \
+        ad=7.9e-13 as=7.9e-13 pd=4.54u ps=4.54u nrd=0.1413 nrs=0.1413 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPSDT (net6 SD net78 inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ2 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ3 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPOZ4 (Z net36 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends MUX21BAL_J
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: 8_To_1_Mux
+// View name: schematic
+subckt Julian_Shifts_And_Mux_8_To_1_Mux_schematic IN0 IN1 IN2 IN3 IN4 IN5 \
+        IN6 IN7 OUT SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd
+    I1 (IN4 IN5 IN6 IN7 SEL\<0\> SEL\<1\> net14 inh_gnd inh_vdd) MUX41_F
+    I0 (IN0 IN1 IN2 IN3 SEL\<0\> SEL\<1\> net12 inh_gnd inh_vdd) MUX41_F
+    I2 (net12 net14 SEL\<2\> OUT inh_gnd inh_vdd) MUX21BAL_J
+ends Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: 8_8Bit_To_1_8Bit_Mux
+// View name: schematic
+subckt Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic IN0\<0\> \
+        IN0\<1\> IN0\<2\> IN0\<3\> IN0\<4\> IN0\<5\> IN0\<6\> IN0\<7\> \
+        IN1\<0\> IN1\<1\> IN1\<2\> IN1\<3\> IN1\<4\> IN1\<5\> IN1\<6\> \
+        IN1\<7\> IN2\<0\> IN2\<1\> IN2\<2\> IN2\<3\> IN2\<4\> IN2\<5\> \
+        IN2\<6\> IN2\<7\> IN3\<0\> IN3\<1\> IN3\<2\> IN3\<3\> IN3\<4\> \
+        IN3\<5\> IN3\<6\> IN3\<7\> IN4\<0\> IN4\<1\> IN4\<2\> IN4\<3\> \
+        IN4\<4\> IN4\<5\> IN4\<6\> IN4\<7\> IN5\<0\> IN5\<1\> IN5\<2\> \
+        IN5\<3\> IN5\<4\> IN5\<5\> IN5\<6\> IN5\<7\> IN6\<0\> IN6\<1\> \
+        IN6\<2\> IN6\<3\> IN6\<4\> IN6\<5\> IN6\<6\> IN6\<7\> IN7\<0\> \
+        IN7\<1\> IN7\<2\> IN7\<3\> IN7\<4\> IN7\<5\> IN7\<6\> IN7\<7\> \
+        OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd
+    I7 (IN0\<7\> IN1\<7\> IN2\<7\> IN3\<7\> IN4\<7\> IN5\<7\> IN6\<7\> \
+        IN7\<7\> OUT\<7\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I6 (IN0\<6\> IN1\<6\> IN2\<6\> IN3\<6\> IN4\<6\> IN5\<6\> IN6\<6\> \
+        IN7\<6\> OUT\<6\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I5 (IN0\<5\> IN1\<5\> IN2\<5\> IN3\<5\> IN4\<5\> IN5\<5\> IN6\<5\> \
+        IN7\<5\> OUT\<5\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I4 (IN0\<4\> IN1\<4\> IN2\<4\> IN3\<4\> IN4\<4\> IN5\<4\> IN6\<4\> \
+        IN7\<4\> OUT\<4\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I3 (IN0\<3\> IN1\<3\> IN2\<3\> IN3\<3\> IN4\<3\> IN5\<3\> IN6\<3\> \
+        IN7\<3\> OUT\<3\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I2 (IN0\<2\> IN1\<2\> IN2\<2\> IN3\<2\> IN4\<2\> IN5\<2\> IN6\<2\> \
+        IN7\<2\> OUT\<2\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I1 (IN0\<1\> IN1\<1\> IN2\<1\> IN3\<1\> IN4\<1\> IN5\<1\> IN6\<1\> \
+        IN7\<1\> OUT\<1\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+    I0 (IN0\<0\> IN1\<0\> IN2\<0\> IN3\<0\> IN4\<0\> IN5\<0\> IN6\<0\> \
+        IN7\<0\> OUT\<0\> SEL\<0\> SEL\<1\> SEL\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_To_1_Mux_schematic
+ends Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: OR4_F
+// View name: schematic
+subckt OR4_F A B C D Z inh_gnd inh_vdd
+    TNA (INT1 A inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (INT1 B inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZAM1 (Z INT1 net49 inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZBM1 (net49 INT2 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 \
+        par=1 ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 \
+        nrs=0.1635 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZAM2 (Z INT1 net43 inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZBM2 (net43 INT2 inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 \
+        par=1 ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 \
+        nrs=0.1635 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (INT2 C inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TND (INT2 D inh_gnd inh_gnd) nfet l=180.0n w=1.48u nf=1 m=1 par=1 \
+        ad=6.1e-13 as=6.1e-13 pd=3.7u ps=3.7u nrd=0.1831 nrs=0.1831 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (INT1 A net74 inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPB (net74 B inh_vdd inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZAM1 (Z INT1 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZAM2 (Z INT1 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZBM2 (Z INT2 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZBM1 (Z INT2 inh_vdd inh_vdd) pfet l=180.0n w=1.67u nf=1 m=1 par=1 \
+        ad=6.9e-13 as=6.9e-13 pd=4.08u ps=4.08u nrd=0.1615 nrs=0.1615 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPC (INT2 C net58 inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPD (net58 D inh_vdd inh_vdd) pfet l=180.0n w=2.8u nf=1 m=1 par=1 \
+        ad=1.18e-12 as=1.18e-12 pd=6.34u ps=6.34u nrd=0.0949 nrs=0.0949 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends OR4_F
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: OR2_F
+// View name: schematic
+subckt OR2_F A B Z inh_gnd inh_vdd
+    TNZ (Z net28 inh_gnd inh_gnd) nfet l=180.0n w=1.82u nf=1 m=1 par=1 \
+        ad=7.6e-13 as=7.6e-13 pd=4.38u ps=4.38u nrd=0.1477 nrs=0.1477 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net28 B inh_gnd inh_gnd) nfet l=180.0n w=760.0n nf=1 m=1 par=1 \
+        ad=3e-13 as=3e-13 pd=2.26u ps=2.26u nrd=0.3714 nrs=0.3714 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (net28 A inh_gnd inh_gnd) nfet l=180.0n w=760.0n nf=1 m=1 par=1 \
+        ad=3e-13 as=3e-13 pd=2.26u ps=2.26u nrd=0.3714 nrs=0.3714 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZ (Z net28 inh_vdd inh_vdd) pfet l=180.0n w=3.02u nf=1 m=1 par=1 \
+        ad=1.27e-12 as=1.27e-12 pd=6.78u ps=6.78u nrd=0.0878 nrs=0.0878 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPA (net28 A net34 inh_vdd) pfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPB (net34 B inh_vdd inh_vdd) pfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends OR2_F
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: INVERT_J
+// View name: schematic
+subckt INVERT_J A Z inh_gnd inh_vdd
+    TNAM2 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNAM3 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNAM1 (Z A inh_gnd inh_gnd) nfet l=180.0n w=1.68u nf=1 m=1 par=1 \
+        ad=7e-13 as=7e-13 pd=4.1u ps=4.1u nrd=0.1605 nrs=0.1605 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPAM4 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM2 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM1 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPAM3 (Z A inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends INVERT_J
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: ZeroFlag
+// View name: schematic
+subckt ZeroFlag IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> \
+        IN\<7\> ZERO inh_gnd inh_vdd
+    I1 (IN\<4\> IN\<5\> IN\<6\> IN\<7\> net3 inh_gnd inh_vdd) OR4_F
+    I0 (IN\<0\> IN\<1\> IN\<2\> IN\<3\> net5 inh_gnd inh_vdd) OR4_F
+    I2 (net5 net3 net7 inh_gnd inh_vdd) OR2_F
+    I3 (net7 ZERO inh_gnd inh_vdd) INVERT_J
+ends ZeroFlag
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital
+// Cell name: AND2_B
+// View name: schematic
+subckt AND2_B A B Z inh_gnd inh_vdd
+    TNA (net29 A net34 inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net34 B inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ (Z net29 inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPB (net29 B inh_vdd inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPA (net29 A inh_vdd inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (Z net29 inh_vdd inh_vdd) pfet l=180.0n w=440.0n nf=1 m=1 par=1 \
+        ad=1.6e-13 as=1.6e-13 pd=1.62u ps=1.62u nrd=0.6842 nrs=0.6842 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends AND2_B
+// End of subcircuit definition.
+
+// Library name: Jon_ALU
+// Cell name: AND
+// View name: schematic
+subckt AND Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> OUT\<0\> \
+        OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> \
+        inh_gnd inh_vdd
+    I39 (Data0\<6\> Data1\<6\> OUT\<6\> inh_gnd inh_vdd) AND2_B
+    I35 (Data0\<1\> Data1\<1\> OUT\<1\> inh_gnd inh_vdd) AND2_B
+    I36 (Data0\<2\> Data1\<2\> OUT\<2\> inh_gnd inh_vdd) AND2_B
+    I41 (Data0\<4\> Data1\<4\> OUT\<4\> inh_gnd inh_vdd) AND2_B
+    I37 (Data0\<3\> Data1\<3\> OUT\<3\> inh_gnd inh_vdd) AND2_B
+    I40 (Data0\<5\> Data1\<5\> OUT\<5\> inh_gnd inh_vdd) AND2_B
+    I38 (Data0\<7\> Data1\<7\> OUT\<7\> inh_gnd inh_vdd) AND2_B
+    I34 (Data0\<0\> Data1\<0\> OUT\<0\> inh_gnd inh_vdd) AND2_B
+ends AND
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: BUFFER_J
+// View name: schematic
+subckt BUFFER_J A Z inh_gnd inh_vdd
+    TNZM2 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM4 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM3 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (prebuff A inh_gnd inh_gnd) nfet l=180.0n w=1.78u nf=1 m=1 par=1 \
+        ad=7.4e-13 as=7.4e-13 pd=4.3u ps=4.3u nrd=0.1512 nrs=0.1512 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZM1 (Z prebuff inh_gnd inh_gnd) nfet l=180.0n w=1.65u nf=1 m=1 par=1 \
+        ad=6.8e-13 as=6.8e-13 pd=4.04u ps=4.04u nrd=0.1635 nrs=0.1635 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZM4 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPZM3 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPZM2 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPA (prebuff A inh_vdd inh_vdd) pfet l=180.0n w=2.1u nf=1 m=1 par=1 \
+        ad=8.8e-13 as=8.8e-13 pd=4.94u ps=4.94u nrd=0.1275 nrs=0.1275 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZM1 (Z prebuff inh_vdd inh_vdd) pfet l=180.0n w=1.91u nf=1 m=1 par=1 \
+        ad=8e-13 as=8e-13 pd=4.56u ps=4.56u nrd=0.1405 nrs=0.1405 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends BUFFER_J
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: SRA
+// View name: schematic
+subckt SRA IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> IN\<7\> \
+        OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> inh_gnd inh_vdd
+    I3 (IN\<1\> OUT\<0\> inh_gnd inh_vdd) BUFFER_J
+    I4 (IN\<2\> OUT\<1\> inh_gnd inh_vdd) BUFFER_J
+    I6 (IN\<3\> OUT\<2\> inh_gnd inh_vdd) BUFFER_J
+    I5 (IN\<4\> OUT\<3\> inh_gnd inh_vdd) BUFFER_J
+    I10 (IN\<5\> OUT\<4\> inh_gnd inh_vdd) BUFFER_J
+    I9 (IN\<6\> OUT\<5\> inh_gnd inh_vdd) BUFFER_J
+    I7 (IN\<7\> OUT\<6\> inh_gnd inh_vdd) BUFFER_J
+    I8 (IN\<7\> OUT\<7\> inh_gnd inh_vdd) BUFFER_J
+ends SRA
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: SRL
+// View name: schematic
+subckt SRL IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> IN\<7\> \
+        OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> inh_gnd inh_vdd
+    I3 (IN\<1\> OUT\<0\> inh_gnd inh_vdd) BUFFER_J
+    I4 (IN\<2\> OUT\<1\> inh_gnd inh_vdd) BUFFER_J
+    I6 (IN\<3\> OUT\<2\> inh_gnd inh_vdd) BUFFER_J
+    I5 (IN\<4\> OUT\<3\> inh_gnd inh_vdd) BUFFER_J
+    I10 (IN\<5\> OUT\<4\> inh_gnd inh_vdd) BUFFER_J
+    I9 (IN\<6\> OUT\<5\> inh_gnd inh_vdd) BUFFER_J
+    I7 (IN\<7\> OUT\<6\> inh_gnd inh_vdd) BUFFER_J
+    I8 (0 OUT\<7\> inh_gnd inh_vdd) BUFFER_J
+ends SRL
+// End of subcircuit definition.
+
+// Library name: Julian_Shifts_And_Mux
+// Cell name: SL
+// View name: schematic
+subckt SL IN\<0\> IN\<1\> IN\<2\> IN\<3\> IN\<4\> IN\<5\> IN\<6\> IN\<7\> \
+        OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> inh_gnd inh_vdd
+    I10 (IN\<3\> OUT\<4\> inh_gnd inh_vdd) BUFFER_J
+    I9 (IN\<4\> OUT\<5\> inh_gnd inh_vdd) BUFFER_J
+    I8 (IN\<6\> OUT\<7\> inh_gnd inh_vdd) BUFFER_J
+    I7 (IN\<5\> OUT\<6\> inh_gnd inh_vdd) BUFFER_J
+    I6 (IN\<1\> OUT\<2\> inh_gnd inh_vdd) BUFFER_J
+    I3 (0 OUT\<0\> inh_gnd inh_vdd) BUFFER_J
+    I5 (IN\<2\> OUT\<3\> inh_gnd inh_vdd) BUFFER_J
+    I4 (IN\<0\> OUT\<1\> inh_gnd inh_vdd) BUFFER_J
+ends SL
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital
+// Cell name: OR2_B
+// View name: schematic
+subckt OR2_B A B Z inh_gnd inh_vdd
+    TNZ (Z net28 inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net28 B inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (net28 A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZ (Z net28 inh_vdd inh_vdd) pfet l=180.0n w=440.0n nf=1 m=1 par=1 \
+        ad=1.6e-13 as=1.6e-13 pd=1.62u ps=1.62u nrd=0.6842 nrs=0.6842 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPA (net28 A net34 inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPB (net34 B inh_vdd inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends OR2_B
+// End of subcircuit definition.
+
+// Library name: Jon_ALU
+// Cell name: OR
+// View name: schematic
+subckt OR Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> OUT\<0\> \
+        OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> \
+        inh_gnd inh_vdd
+    I43 (Data0\<1\> Data1\<1\> OUT\<1\> inh_gnd inh_vdd) OR2_B
+    I48 (Data0\<6\> Data1\<6\> OUT\<6\> inh_gnd inh_vdd) OR2_B
+    I47 (Data0\<5\> Data1\<5\> OUT\<5\> inh_gnd inh_vdd) OR2_B
+    I45 (Data0\<3\> Data1\<3\> OUT\<3\> inh_gnd inh_vdd) OR2_B
+    I46 (Data0\<4\> Data1\<4\> OUT\<4\> inh_gnd inh_vdd) OR2_B
+    I44 (Data0\<2\> Data1\<2\> OUT\<2\> inh_gnd inh_vdd) OR2_B
+    I42 (Data0\<0\> Data1\<0\> OUT\<0\> inh_gnd inh_vdd) OR2_B
+    I49 (Data0\<7\> Data1\<7\> OUT\<7\> inh_gnd inh_vdd) OR2_B
+ends OR
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital_layout
+// Cell name: ADDF_B
+// View name: schematic
+subckt ADDF_B A B CIN COUT SUM inh_gnd inh_vdd
+    TNZ (SUM predrive inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 \
+        par=1 ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 \
+        nrs=0.7647 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX4 (XORAB CIN predrive inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX3 (predrive CNOT XNORAB inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN1 (BBUFF BNOT inh_gnd inh_gnd) nfet l=180.0n w=1.82u nf=1 m=1 par=1 \
+        ad=7.6e-13 as=7.6e-13 pd=4.38u ps=4.38u nrd=0.1477 nrs=0.1477 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (BNOT B inh_gnd inh_gnd) nfet l=180.0n w=1.34u nf=1 m=1 par=1 \
+        ad=5.5e-13 as=5.5e-13 pd=3.42u ps=3.42u nrd=0.2031 nrs=0.2031 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (CNOT CIN inh_gnd inh_gnd) nfet l=180.0n w=1.34u nf=1 m=1 par=1 \
+        ad=5.5e-13 as=5.5e-13 pd=3.42u ps=3.42u nrd=0.2031 nrs=0.2031 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN2 (XNORAB XORAB inh_gnd inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 \
+        par=1 ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 \
+        nrs=0.3333 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (ANOT A inh_gnd inh_gnd) nfet l=180.0n w=1.26u nf=1 m=1 par=1 \
+        ad=5.2e-13 as=5.2e-13 pd=3.26u ps=3.26u nrd=0.2167 nrs=0.2167 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX2 (XORAB A BNOT inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX1 (BBUFF ANOT XORAB inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX6 (CNOT XORAB precout inh_gnd) nfet l=180.0n w=540.0n nf=1 m=1 \
+        par=1 ad=2.1e-13 as=2.1e-13 pd=1.82u ps=1.82u nrd=0.5417 \
+        nrs=0.5417 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX5 (precout XNORAB BNOT inh_gnd) nfet l=180.0n w=540.0n nf=1 m=1 \
+        par=1 ad=2.1e-13 as=2.1e-13 pd=1.82u ps=1.82u nrd=0.5417 \
+        nrs=0.5417 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ2 (COUT precout inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 \
+        par=1 ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 \
+        nrs=0.7647 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPZ2 (COUT precout inh_vdd inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 \
+        par=1 ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP2 (XNORAB XORAB inh_vdd inh_vdd) pfet l=180.0n w=1.4u nf=1 m=1 par=1 \
+        ad=5.8e-13 as=5.8e-13 pd=3.54u ps=3.54u nrd=0.194 nrs=0.194 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX4 (predrive CNOT XORAB inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX2 (BNOT ANOT XORAB inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPB (BNOT B inh_vdd inh_vdd) pfet l=180.0n w=2.74u nf=1 m=1 par=1 \
+        ad=1.15e-12 as=1.15e-12 pd=6.22u ps=6.22u nrd=0.097 nrs=0.097 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP1 (BBUFF BNOT inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPX3 (XNORAB CIN predrive inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 rsx=50 dtemp=0
+    TPA (ANOT A inh_vdd inh_vdd) pfet l=180.0n w=2.52u nf=1 m=1 par=1 \
+        ad=1.06e-12 as=1.06e-12 pd=5.78u ps=5.78u nrd=0.1057 nrs=0.1057 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPC (CNOT CIN inh_vdd inh_vdd) pfet l=180.0n w=2.74u nf=1 m=1 par=1 \
+        ad=1.15e-12 as=1.15e-12 pd=6.22u ps=6.22u nrd=0.097 nrs=0.097 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (SUM predrive inh_vdd inh_vdd) pfet l=180.0n w=560.0n nf=1 m=1 \
+        par=1 ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX1 (XORAB A BBUFF inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX5 (BNOT XORAB precout inh_vdd) pfet l=180.0n w=400.0n nf=1 m=1 \
+        par=1 ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 \
+        nrs=0.7647 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX6 (precout XNORAB CNOT inh_vdd) pfet l=180.0n w=400.0n nf=1 m=1 \
+        par=1 ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 \
+        nrs=0.7647 gcon=1 rf=0 rsx=50 dtemp=0
+ends ADDF_B
+// End of subcircuit definition.
+
+// Library name: Katie_ALU
+// Cell name: ADD_8bit
+// View name: schematic
+subckt ADD_8bit Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> Out\<0\> \
+        Out\<1\> Out\<2\> Out\<3\> Out\<4\> Out\<5\> Out\<6\> Out\<7\> \
+        inh_gnd inh_vdd
+    I7 (Data0\<7\> Data1\<7\> net14 Cout Out\<7\> inh_gnd inh_vdd) ADDF_B
+    I6 (Data0\<6\> Data1\<6\> net13 net14 Out\<6\> inh_gnd inh_vdd) ADDF_B
+    I5 (Data0\<5\> Data1\<5\> net11 net13 Out\<5\> inh_gnd inh_vdd) ADDF_B
+    I4 (Data0\<4\> Data1\<4\> net9 net11 Out\<4\> inh_gnd inh_vdd) ADDF_B
+    I3 (Data0\<3\> Data1\<3\> net7 net9 Out\<3\> inh_gnd inh_vdd) ADDF_B
+    I2 (Data0\<2\> Data1\<2\> net5 net7 Out\<2\> inh_gnd inh_vdd) ADDF_B
+    I1 (Data0\<1\> Data1\<1\> net3 net5 Out\<1\> inh_gnd inh_vdd) ADDF_B
+    I0 (Data0\<0\> Data1\<0\> 0 net3 Out\<0\> inh_gnd inh_vdd) ADDF_B
+ends ADD_8bit
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital
+// Cell name: INVERT_A
+// View name: schematic
+subckt INVERT_A A Z inh_gnd inh_vdd
+    TNA (Z A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (Z A inh_vdd inh_vdd) pfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+ends INVERT_A
+// End of subcircuit definition.
+
+// Library name: Jon_ALU
+// Cell name: NOT
+// View name: schematic
+subckt NOT Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> OUT\<0\> OUT\<1\> OUT\<2\> \
+        OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> inh_gnd inh_vdd
+    I22 (Data0\<6\> OUT\<6\> inh_gnd inh_vdd) INVERT_A
+    I19 (Data0\<3\> OUT\<3\> inh_gnd inh_vdd) INVERT_A
+    I18 (Data0\<1\> OUT\<1\> inh_gnd inh_vdd) INVERT_A
+    I17 (Data0\<0\> OUT\<0\> inh_gnd inh_vdd) INVERT_A
+    I21 (Data0\<7\> OUT\<7\> inh_gnd inh_vdd) INVERT_A
+    I20 (Data0\<2\> OUT\<2\> inh_gnd inh_vdd) INVERT_A
+    I23 (Data0\<5\> OUT\<5\> inh_gnd inh_vdd) INVERT_A
+    I24 (Data0\<4\> OUT\<4\> inh_gnd inh_vdd) INVERT_A
+ends NOT
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital
+// Cell name: OR3_B
+// View name: schematic
+subckt OR3_B A B C Z inh_gnd inh_vdd
+    TNA (net22 A inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (net22 C inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (net22 B inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ (Z net22 inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPA (net22 A net474 inh_vdd) pfet l=180.0n w=860.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.46u ps=2.46u nrd=0.325 nrs=0.325 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPB (net474 B net2063 inh_vdd) pfet l=180.0n w=860.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.46u ps=2.46u nrd=0.325 nrs=0.325 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPC (net2063 C inh_vdd inh_vdd) pfet l=180.0n w=920.0n nf=1 m=1 par=1 \
+        ad=3.7e-13 as=3.7e-13 pd=2.58u ps=2.58u nrd=0.3023 nrs=0.3023 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (Z net22 inh_vdd inh_vdd) pfet l=180.0n w=480.0n nf=1 m=1 par=1 \
+        ad=1.8e-13 as=1.8e-13 pd=1.7u ps=1.7u nrd=0.619 nrs=0.619 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends OR3_B
+// End of subcircuit definition.
+
+// Library name: cmrf7sf_digital
+// Cell name: XOR3_B
+// View name: schematic
+subckt XOR3_B A B C Z inh_gnd inh_vdd
+    TNX1 (BBUFF ANOT XORAB inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX2 (XORAB A BNOT inh_gnd) nfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX4 (XORAB C predrive inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNX3 (predrive CNOT XNORAB inh_gnd) nfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNZ (Z predrive inh_gnd inh_gnd) nfet l=180.0n w=400.0n nf=1 m=1 par=1 \
+        ad=1.5e-13 as=1.5e-13 pd=1.54u ps=1.54u nrd=0.7647 nrs=0.7647 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNC (CNOT C inh_gnd inh_gnd) nfet l=180.0n w=900.0n nf=1 m=1 par=1 \
+        ad=3.6e-13 as=3.6e-13 pd=2.54u ps=2.54u nrd=0.3095 nrs=0.3095 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNB (BNOT B inh_gnd inh_gnd) nfet l=180.0n w=1.26u nf=1 m=1 par=1 \
+        ad=5.2e-13 as=5.2e-13 pd=3.26u ps=3.26u nrd=0.2167 nrs=0.2167 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN1 (BBUFF BNOT inh_gnd inh_gnd) nfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TNA (ANOT A inh_gnd inh_gnd) nfet l=180.0n w=1.26u nf=1 m=1 par=1 \
+        ad=5.2e-13 as=5.2e-13 pd=3.26u ps=3.26u nrd=0.2167 nrs=0.2167 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TN2 (XNORAB XORAB inh_gnd inh_gnd) nfet l=180.0n w=1.12u nf=1 m=1 \
+        par=1 ad=4.6e-13 as=4.6e-13 pd=2.98u ps=2.98u nrd=0.2453 \
+        nrs=0.2453 gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    TPX1 (XORAB A BBUFF inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX2 (BNOT ANOT XORAB inh_vdd) pfet l=180.0n w=840.0n nf=1 m=1 par=1 \
+        ad=3.4e-13 as=3.4e-13 pd=2.42u ps=2.42u nrd=0.3333 nrs=0.3333 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPX4 (predrive CNOT XORAB inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 \
+        par=1 ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 \
+        nrs=0.5909 gcon=1 rf=0 rsx=50 dtemp=0
+    TPX3 (XNORAB C predrive inh_vdd) pfet l=180.0n w=500.0n nf=1 m=1 par=1 \
+        ad=1.9e-13 as=1.9e-13 pd=1.74u ps=1.74u nrd=0.5909 nrs=0.5909 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPZ (Z predrive inh_vdd inh_vdd) pfet l=180.0n w=540.0n nf=1 m=1 par=1 \
+        ad=2.1e-13 as=2.1e-13 pd=1.82u ps=1.82u nrd=0.5417 nrs=0.5417 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPB (BNOT B inh_vdd inh_vdd) pfet l=180.0n w=2.52u nf=1 m=1 par=1 \
+        ad=1.06e-12 as=1.06e-12 pd=5.78u ps=5.78u nrd=0.1057 nrs=0.1057 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP1 (BBUFF BNOT inh_vdd inh_vdd) pfet l=180.0n w=2.18u nf=1 m=1 par=1 \
+        ad=9.1e-13 as=9.1e-13 pd=5.1u ps=5.1u nrd=0.1226 nrs=0.1226 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    TPA (ANOT A inh_vdd inh_vdd) pfet l=180.0n w=2.52u nf=1 m=1 par=1 \
+        ad=1.06e-12 as=1.06e-12 pd=5.78u ps=5.78u nrd=0.1057 nrs=0.1057 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TPC (CNOT C inh_vdd inh_vdd) pfet l=180.0n w=1.76u nf=1 m=1 par=1 \
+        ad=7.3e-13 as=7.3e-13 pd=4.26u ps=4.26u nrd=0.1529 nrs=0.1529 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    TP2 (XNORAB XORAB inh_vdd inh_vdd) pfet l=180.0n w=1.4u nf=1 m=1 par=1 \
+        ad=5.8e-13 as=5.8e-13 pd=3.54u ps=3.54u nrd=0.194 nrs=0.194 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends XOR3_B
+// End of subcircuit definition.
+
+// Library name: Katie_ALU
+// Cell name: SUB_1bit
+// View name: schematic
+subckt SUB_1bit Bin Bout Out X Y inh_gnd inh_vdd
+    I2 (Bin net15 net21 inh_gnd inh_vdd) AND2_B
+    I1 (Y net15 net24 inh_gnd inh_vdd) AND2_B
+    I0 (Bin Y net23 inh_gnd inh_vdd) AND2_B
+    I3 (net23 net24 net21 Bout inh_gnd inh_vdd) OR3_B
+    I4 (X Y Bin Out inh_gnd inh_vdd) XOR3_B
+    I5 (X net15 inh_gnd inh_vdd) INVERT_A
+ends SUB_1bit
+// End of subcircuit definition.
+
+// Library name: Katie_ALU
+// Cell name: SUB_8bit
+// View name: schematic
+subckt SUB_8bit Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> Out\<0\> \
+        Out\<1\> Out\<2\> Out\<3\> Out\<4\> Out\<5\> Out\<6\> Out\<7\> \
+        inh_gnd inh_vdd
+    I7 (net17 net19 Out\<7\> Data0\<7\> Data1\<7\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I6 (net15 net17 Out\<6\> Data0\<6\> Data1\<6\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I5 (net13 net15 Out\<5\> Data0\<5\> Data1\<5\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I4 (net11 net13 Out\<4\> Data0\<4\> Data1\<4\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I3 (net9 net11 Out\<3\> Data0\<3\> Data1\<3\> inh_gnd inh_vdd) \
+        SUB_1bit
+    I2 (net7 net9 Out\<2\> Data0\<2\> Data1\<2\> inh_gnd inh_vdd) SUB_1bit
+    I1 (net5 net7 Out\<1\> Data0\<1\> Data1\<1\> inh_gnd inh_vdd) SUB_1bit
+    I0 (0 net5 Out\<0\> Data0\<0\> Data1\<0\> inh_gnd inh_vdd) SUB_1bit
+ends SUB_8bit
+// End of subcircuit definition.
+
+// Library name: ECEC472_CPU
+// Cell name: ALU_TOP
+// View name: schematic
+subckt ALU_TOP Carry_In Carry_Out Data0\<0\> Data0\<1\> Data0\<2\> \
+        Data0\<3\> Data0\<4\> Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> \
+        Data1\<1\> Data1\<2\> Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> \
+        Data1\<7\> OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> \
+        OUT\<6\> OUT\<7\> Op\<0\> Op\<1\> Op\<2\> ZERO inh_gnd inh_vdd
+    I0 (net36\<0\> net36\<1\> net36\<2\> net36\<3\> net36\<4\> net36\<5\> \
+        net36\<6\> net36\<7\> net38\<0\> net38\<1\> net38\<2\> net38\<3\> \
+        net38\<4\> net38\<5\> net38\<6\> net38\<7\> net33\<0\> net33\<1\> \
+        net33\<2\> net33\<3\> net33\<4\> net33\<5\> net33\<6\> net33\<7\> \
+        net29\<0\> net29\<1\> net29\<2\> net29\<3\> net29\<4\> net29\<5\> \
+        net29\<6\> net29\<7\> net34\<0\> net34\<1\> net34\<2\> net34\<3\> \
+        net34\<4\> net34\<5\> net34\<6\> net34\<7\> net32\<0\> net32\<1\> \
+        net32\<2\> net32\<3\> net32\<4\> net32\<5\> net32\<6\> net32\<7\> \
+        net31\<0\> net31\<1\> net31\<2\> net31\<3\> net31\<4\> net31\<5\> \
+        net31\<6\> net31\<7\> net30\<0\> net30\<1\> net30\<2\> net30\<3\> \
+        net30\<4\> net30\<5\> net30\<6\> net30\<7\> OUT\<0\> OUT\<1\> \
+        OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> OUT\<7\> Op\<0\> \
+        Op\<1\> Op\<2\> inh_gnd inh_vdd) \
+        Julian_Shifts_And_Mux_8_8Bit_To_1_8Bit_Mux_schematic
+    I1 (OUT\<0\> OUT\<1\> OUT\<2\> OUT\<3\> OUT\<4\> OUT\<5\> OUT\<6\> \
+        OUT\<7\> ZERO inh_gnd inh_vdd) ZeroFlag
+    AND (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net36\<0\> net36\<1\> \
+        net36\<2\> net36\<3\> net36\<4\> net36\<5\> net36\<6\> net36\<7\> \
+        inh_gnd inh_vdd) AND
+    SRA (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net32\<0\> net32\<1\> net32\<2\> net32\<3\> \
+        net32\<4\> net32\<5\> net32\<6\> net32\<7\> inh_gnd inh_vdd) SRA
+    SRL (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net31\<0\> net31\<1\> net31\<2\> net31\<3\> \
+        net31\<4\> net31\<5\> net31\<6\> net31\<7\> inh_gnd inh_vdd) SRL
+    SL (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net30\<0\> net30\<1\> net30\<2\> net30\<3\> \
+        net30\<4\> net30\<5\> net30\<6\> net30\<7\> inh_gnd inh_vdd) SL
+    OR (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net38\<0\> net38\<1\> \
+        net38\<2\> net38\<3\> net38\<4\> net38\<5\> net38\<6\> net38\<7\> \
+        inh_gnd inh_vdd) OR
+    ADD (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net33\<0\> net33\<1\> \
+        net33\<2\> net33\<3\> net33\<4\> net33\<5\> net33\<6\> net33\<7\> \
+        inh_gnd inh_vdd) ADD_8bit
+    NOT (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> net34\<0\> net34\<1\> net34\<2\> net34\<3\> \
+        net34\<4\> net34\<5\> net34\<6\> net34\<7\> inh_gnd inh_vdd) NOT
+    SUB (Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> Data0\<5\> \
+        Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> Data1\<3\> \
+        Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> net29\<0\> net29\<1\> \
+        net29\<2\> net29\<3\> net29\<4\> net29\<5\> net29\<6\> net29\<7\> \
+        inh_gnd inh_vdd) SUB_8bit
+ends ALU_TOP
+// End of subcircuit definition.
+
+// Library name: ECEC472_CPU
+// Cell name: ALU_SIM
+// View name: schematic
+I18 (net4 net3 Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> Out\<0\> \
+        Out\<1\> Out\<2\> Out\<3\> Out\<4\> Out\<5\> Out\<6\> Out\<7\> \
+        ALU_OP\<0\> ALU_OP\<1\> ALU_OP\<2\> Zero 0 vdd!) ALU_TOP
+V19 (ALU_OP\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=20n rise=1p fall=1p width=100n
+V18 (ALU_OP\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=10n rise=1p fall=1p width=100n
+V17 (ALU_OP\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200ns \
+        rise=1p fall=1p width=100n
+V15 (Data1\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=50n rise=1p fall=1p width=100n
+V14 (Data1\<3\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=40n rise=1p fall=1p width=100n
+V13 (Data1\<4\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=30n rise=1p fall=1p width=100n
+V12 (Data1\<5\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=20n rise=1p fall=1p width=100n
+V11 (Data1\<6\> 0) vsource type=pulse val0=0 val1=1.8 period=200n \
+        delay=10n rise=1p fall=1p width=100n
+V10 (Data1\<7\> 0) vsource type=pulse val0=0 val1=1.8 period=200n rise=1p \
+        fall=1p width=100n
+V9 (Data1\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=60n \
+        rise=1p fall=1p width=100n
+V8 (Data1\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=70n \
+        rise=1p fall=1p width=100n
+V7 (Data0\<7\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=70n \
+        rise=1p fall=1p width=100n
+V6 (Data0\<6\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=60n \
+        rise=1p fall=1p width=100n
+V5 (Data0\<5\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=50n \
+        rise=1p fall=1p width=100n
+V4 (Data0\<4\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=40n \
+        rise=1p fall=1p width=100n
+V3 (Data0\<3\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=30n \
+        rise=1p fall=1p width=100n
+V2 (Data0\<2\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=20n \
+        rise=1p fall=1p width=100n
+V1 (Data0\<1\> 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=10n \
+        rise=1p fall=1p width=100n
+V0 (Data0\<0\> 0) vsource type=pulse val0=0 val1=1.8 period=200ns rise=1p \
+        fall=1p width=100n
+V16 (vdd! 0) vsource dc=1.8 type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=25 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=1000n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

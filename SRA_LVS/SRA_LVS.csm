@@ -1,0 +1,7 @@
+Schematic                                | Layout                                     | Status
+------------------------------------------------------------------------------------------------
+BUFFER_J schematic cmrf7sf_digital_layout| BUFFER_J layout cmrf7sf_digital_layout     | matched
+BUFFER_J schematic cmrf7sf_digital_layout| BUFFER_J_VAR1 layout cmrf7sf_digital_layout| matched
+SRA schematic Julian_Shifts_And_Mux      | SRA layout Julian_Shifts_And_Mux           | matched
+
+Schematic and Layout Match

@@ -1,0 +1,5 @@
+
+// Library name: cmrf7sf_digital
+// Cell name: AND2_B
+// View name: schematic
+subckt AND2_B A B Z inh_gnd inh_vdd

@@ -1,0 +1,10 @@
+    I10 (IN\<3\> OUT\<4\> inh_gnd inh_vdd) BUFFER_J
+    I9 (IN\<4\> OUT\<5\> inh_gnd inh_vdd) BUFFER_J
+    I8 (IN\<6\> OUT\<7\> inh_gnd inh_vdd) BUFFER_J
+    I7 (IN\<5\> OUT\<6\> inh_gnd inh_vdd) BUFFER_J
+    I6 (IN\<1\> OUT\<2\> inh_gnd inh_vdd) BUFFER_J
+    I3 (0 OUT\<0\> inh_gnd inh_vdd) BUFFER_J
+    I5 (IN\<2\> OUT\<3\> inh_gnd inh_vdd) BUFFER_J
+    I4 (IN\<0\> OUT\<1\> inh_gnd inh_vdd) BUFFER_J
+ends SL
+// End of subcircuit definition.

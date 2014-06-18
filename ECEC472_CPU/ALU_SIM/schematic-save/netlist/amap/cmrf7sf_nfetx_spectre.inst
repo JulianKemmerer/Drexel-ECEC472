@@ -1,0 +1,6 @@
+HEADER
+"PSFversion" "1.00"
+"Dv" "(FUNCTION minus(mappedRoot(\".rdext:1\") + mappedRoot(\".cwgd:1\")) + mappedRoot(\".cwds:1\"))v"
+"Gv" "(FUNCTION minus(mappedRoot(\".rgate:1\")) + mappedRoot(\".cwgd:1\") + mappedRoot(\".cwgs:1\"))v"
+"Sv" "(FUNCTION minus(mappedRoot(\".rsext:1\") + mappedRoot(\".cwgs:1\") + mappedRoot(\".cwds:1\")))v"
+"Bv" "(FUNCTION mappedRoot(\".rsb:1\"))v"

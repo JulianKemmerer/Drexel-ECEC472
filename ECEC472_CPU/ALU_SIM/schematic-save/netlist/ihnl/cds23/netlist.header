@@ -1,0 +1,9 @@
+
+// Library name: Katie_ALU
+// Cell name: SUB_8bit
+// View name: schematic
+subckt SUB_8bit Data0\<0\> Data0\<1\> Data0\<2\> Data0\<3\> Data0\<4\> \
+        Data0\<5\> Data0\<6\> Data0\<7\> Data1\<0\> Data1\<1\> Data1\<2\> \
+        Data1\<3\> Data1\<4\> Data1\<5\> Data1\<6\> Data1\<7\> Out\<0\> \
+        Out\<1\> Out\<2\> Out\<3\> Out\<4\> Out\<5\> Out\<6\> Out\<7\> \
+        inh_gnd inh_vdd
